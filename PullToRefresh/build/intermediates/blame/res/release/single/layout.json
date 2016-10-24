@@ -1,0 +1,46 @@
+[
+    {
+        "merged": "G:\\asMotherLoveMe\\asMotherLoveMe\\PullToRefresh\\build\\intermediates\\res\\merged\\release\\layout\\activity_webview.xml",
+        "source": "G:\\asMotherLoveMe\\asMotherLoveMe\\PullToRefresh\\res\\layout\\activity_webview.xml"
+    },
+    {
+        "merged": "G:\\asMotherLoveMe\\asMotherLoveMe\\PullToRefresh\\build\\intermediates\\res\\merged\\release\\layout\\list_item_layout.xml",
+        "source": "G:\\asMotherLoveMe\\asMotherLoveMe\\PullToRefresh\\res\\layout\\list_item_layout.xml"
+    },
+    {
+        "merged": "G:\\asMotherLoveMe\\asMotherLoveMe\\PullToRefresh\\build\\intermediates\\res\\merged\\release\\layout\\activity_listview.xml",
+        "source": "G:\\asMotherLoveMe\\asMotherLoveMe\\PullToRefresh\\res\\layout\\activity_listview.xml"
+    },
+    {
+        "merged": "G:\\asMotherLoveMe\\asMotherLoveMe\\PullToRefresh\\build\\intermediates\\res\\merged\\release\\layout\\activity_scrollview.xml",
+        "source": "G:\\asMotherLoveMe\\asMotherLoveMe\\PullToRefresh\\res\\layout\\activity_scrollview.xml"
+    },
+    {
+        "merged": "G:\\asMotherLoveMe\\asMotherLoveMe\\PullToRefresh\\build\\intermediates\\res\\merged\\release\\layout\\activity_imageview.xml",
+        "source": "G:\\asMotherLoveMe\\asMotherLoveMe\\PullToRefresh\\res\\layout\\activity_imageview.xml"
+    },
+    {
+        "merged": "G:\\asMotherLoveMe\\asMotherLoveMe\\PullToRefresh\\build\\intermediates\\res\\merged\\release\\layout\\activity_textview.xml",
+        "source": "G:\\asMotherLoveMe\\asMotherLoveMe\\PullToRefresh\\res\\layout\\activity_textview.xml"
+    },
+    {
+        "merged": "G:\\asMotherLoveMe\\asMotherLoveMe\\PullToRefresh\\build\\intermediates\\res\\merged\\release\\layout\\activity_main.xml",
+        "source": "G:\\asMotherLoveMe\\asMotherLoveMe\\PullToRefresh\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "G:\\asMotherLoveMe\\asMotherLoveMe\\PullToRefresh\\build\\intermediates\\res\\merged\\release\\layout\\refresh_head.xml",
+        "source": "G:\\asMotherLoveMe\\asMotherLoveMe\\PullToRefresh\\res\\layout\\refresh_head.xml"
+    },
+    {
+        "merged": "G:\\asMotherLoveMe\\asMotherLoveMe\\PullToRefresh\\build\\intermediates\\res\\merged\\release\\layout\\activity_gridview.xml",
+        "source": "G:\\asMotherLoveMe\\asMotherLoveMe\\PullToRefresh\\res\\layout\\activity_gridview.xml"
+    },
+    {
+        "merged": "G:\\asMotherLoveMe\\asMotherLoveMe\\PullToRefresh\\build\\intermediates\\res\\merged\\release\\layout\\activity_expandablelistview.xml",
+        "source": "G:\\asMotherLoveMe\\asMotherLoveMe\\PullToRefresh\\res\\layout\\activity_expandablelistview.xml"
+    },
+    {
+        "merged": "G:\\asMotherLoveMe\\asMotherLoveMe\\PullToRefresh\\build\\intermediates\\res\\merged\\release\\layout\\load_more.xml",
+        "source": "G:\\asMotherLoveMe\\asMotherLoveMe\\PullToRefresh\\res\\layout\\load_more.xml"
+    }
+]

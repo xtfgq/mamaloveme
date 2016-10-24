@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F8FA"
+      android:clipToPadding="true"
+      android:fitsSystemWindows="true"
+    android:orientation="vertical" >
+<!--    <include 
+       android:id="@+id/top"
+       layout="@layout/title_bar"/> -->
+        <RelativeLayout
+         android:id="@+id/top"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:background="@drawable/bgumeng_header"
+        android:gravity="center_vertical" >
+
+        <ImageView
+            android:id="@id/img_left"
+            android:layout_width="25.0dip"
+            android:layout_height="25.0dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dip"
+            android:contentDescription="@null"
+            android:src="@drawable/icon_arrow_left" />
+
+        <TextView
+            android:id="@id/txtHead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="产检时间表"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            />
+
+        <ImageView
+            android:id="@id/img_right"
+            android:layout_width="25.0dip"
+            android:layout_height="25.0dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="8dip"
+            android:contentDescription="@null"
+            android:src="@drawable/icon_arrow_right"
+            android:visibility="gone"
+          />
+        <TextView
+            android:id="@+id/tv_right"
+            android:layout_width="wrap_content"
+            android:layout_height="30.0dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="8dip"
+            android:contentDescription="@null"
+            android:gravity="center_vertical"
+           android:text="去预约"
+            android:textColor="@color/white"
+           android:textSize="18sp"
+            android:visibility="gone"
+          />
+    </RelativeLayout>
+
+       <ListView 
+           android:id="@id/listview_timeline"
+           android:layout_width="fill_parent"
+           android:layout_height="0dp"
+           android:layout_weight="1"
+           android:visibility="gone"
+           android:cacheColorHint="#00000000"
+           android:divider="@null"
+           android:fadingEdge="none" />
+    <include
+
+        android:id="@+id/llcheck"
+        android:visibility="gone"
+        layout="@layout/my_check"/>
+
+   
+</LinearLayout>

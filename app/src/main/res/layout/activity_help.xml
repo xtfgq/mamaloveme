@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backed"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical" >
+
+    <!-- llcheckVersion,llfunction,llinfo,llfeedback; -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="165dip"
+        android:background="@drawable/pic_user_dakuang" >
+
+        <ImageView
+            android:onClick="back"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+          
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="8dip"
+            android:layout_marginTop="8dp"
+            
+            android:scaleType="centerInside"
+            android:src="@drawable/icon_arrow_left" />
+
+        <com.netlab.loveofmum.widget.CircularImage
+            android:id="@+id/cover_user_photo"
+            android:layout_width="70.0dip"
+            android:layout_height="70.0dip"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/logo_s_help" />
+
+        <TextView
+            android:id="@+id/txtversion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cover_user_photo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/backed" />
+
+    <LinearLayout
+        android:id="@+id/llcheckVersion"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:gravity="center_vertical" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="@string/tit_newversion" />
+            <TextView
+                android:id="@+id/versioncode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="right"
+                android:textSize="12sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/backed" />
+
+
+
+        <TextView
+            android:id="@+id/llfunction"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingLeft="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/tit_introduce" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/backed" />
+
+        <TextView
+            android:id="@+id/llinfo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:background="@color/white"
+            android:paddingLeft="10dp"
+            android:text="@string/tit_info" />
+
+
+
+   <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/backed" />
+
+
+
+        <TextView
+            android:id="@+id/sqrule"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingLeft="10dp"
+            android:background="@color/white"
+            android:text="@string/tit_rule" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/backed" />
+    <TextView
+        android:id="@+id/sqhandlebook"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="10dp"
+        android:background="@color/white"
+        android:text="@string/tit_handle" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/backed" />
+    <TextView
+        android:id="@+id/llfeedback"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="10dp"
+        android:background="@color/white"
+        android:text="@string/tit_feedback" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/backed" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/llphoe"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:gravity="center_vertical" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="@string/tit_phone" />
+        <TextView
+            android:id="@+id/tel"
+            android:gravity="right"
+            android:paddingRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0371-86505830"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</LinearLayout>

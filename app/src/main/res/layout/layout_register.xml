@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backed"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical" >
+
+    <include layout="@layout/title_bar" />
+
+    <ScrollView
+        android:id="@id/sv_index"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <include layout="@layout/title_bar7" />
+
+            <include layout="@layout/title_bar8" />
+
+            <include layout="@layout/title_bar9" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white" >
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#EDEDED"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="15dip"
+                    android:layout_marginRight="15dip"
+                    android:layout_height="50dip"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    >
+                    <ImageView
+                        style="@style/global_wwhw"
+                        android:layout_width="25dp"
+                        android:src="@drawable/icon_yaoqingma"
+                        />
+                    <EditText
+                        android:id="@+id/pass_code"
+                        android:layout_marginLeft="5dp"
+                        style="@style/global_wwwww"
+                        android:background="@color/white"
+                        android:textSize="15sp"
+
+                        android:maxLength="20"
+                        android:hint="@string/str_tishiyaoqing"
+                        />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="vertical" >
+
+                <TextView
+                    style="@style/global_wwhw"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:text="个人信息完善" />
+            </RelativeLayout>
+
+            <include layout="@layout/title_bar10" />
+
+            <include layout="@layout/title_bar11" />
+
+            <include layout="@layout/title_bar12" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#EDEDED" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dip"
+                    android:layout_marginLeft="15dip"
+                    android:layout_marginRight="15dip"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        style="@style/global_wwhw"
+                        android:layout_width="25dip"
+                        android:src="@drawable/icon_nl" />
+
+                    <EditText
+                        android:id="@+id/txt01_userinfochange"
+                        style="@style/global_wwwww"
+                        android:layout_marginLeft="5dip"
+                        android:background="@color/white"
+                        android:hint="@string/reg_age"
+                        android:inputType="number"
+                        android:maxLength="20"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@id/btnOK"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/home_btn_bg4"
+                android:text="@string/reg_zhuce"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

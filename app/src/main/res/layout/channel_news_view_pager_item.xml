@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+   >
+
+     <com.netlab.loveofmum.widget.xlistview.XListView
+     	    android:id="@+id/listview_topic" 
+     	    android:layout_width="fill_parent"
+     	    android:layout_height="0dp" 
+     	    android:layout_weight="1"
+     	     android:divider="@color/gray2"  
+             android:dividerHeight="1px"
+              android:fadingEdge="none" 
+				     	    >
+    </com.netlab.loveofmum.widget.xlistview.XListView>
+   
+	    <RelativeLayout 
+	        android:id="@+id/rlbacktop"
+	        android:clickable="true"
+	    
+	     android:layout_width="fill_parent"
+	    android:layout_height="wrap_content">
+			    <LinearLayout 
+			     android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:orientation="horizontal"
+			    android:layout_centerHorizontal="true">
+			    <ImageView 
+			     android:id="@+id/ivbacktotop"
+			     android:layout_width="wrap_content"
+			     android:layout_height="wrap_content"
+			     android:background="@drawable/backtotop"
+			   />
+			    <TextView 
+			       android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="回到顶部"
+			    android:layout_gravity="center_vertical"
+			    android:textColor="@color/hometext"
+			    />
+			    </LinearLayout>
+	        
+	    </RelativeLayout>
+
+</LinearLayout>

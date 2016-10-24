@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/quzi_me"
+            android:layout_width="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="vertical" >
+             <ImageView
+                android:id="@+id/activity_main_"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_gravity="center_horizontal|top"
+               
+                android:background="@drawable/wdqz"
+               />
+
+            <TextView
+                android:id="@+id/quzi_metv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sq_youmeng1"
+                android:textColor="@color/timeset_color"
+                android:textSize="@dimen/fontsize12" />
+
+           
+        </LinearLayout>
+
+         <LinearLayout
+            android:id="@+id/quzi_sameage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="vertical" >
+             <ImageView
+                android:id="@+id/iv_sameage"
+                 android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_gravity="center_horizontal|top"
+                android:background="@drawable/tyyq"
+               />
+
+            <TextView
+                android:id="@+id/sameagetv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sq_youmeng2"
+                android:textColor="@color/black"
+                android:textSize="@dimen/fontsize12" />
+
+           
+        </LinearLayout>
+         <LinearLayout
+            android:id="@+id/quzi_yiyan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="vertical" >
+             <ImageView
+                android:id="@+id/iv_yiyan"
+                 android:layout_width="55dp"
+                android:layout_height="55dp"
+               
+                android:layout_gravity="center_horizontal|top"
+                android:background="@drawable/tyy"
+               />
+
+            <TextView
+                android:id="@+id/yiyantv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sq_youmeng3"
+                android:textColor="@color/black"
+                android:textSize="@dimen/fontsize12" />
+
+           
+        </LinearLayout>
+          <LinearLayout
+            android:id="@+id/quzi_ganqing"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+           android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:orientation="vertical" >
+             <ImageView
+                android:id="@+id/iv_ganqing"
+                 android:layout_width="55dp"
+                android:layout_height="55dp"
+              
+                android:layout_gravity="center_horizontal|top"
+                android:background="@drawable/gq"
+               />
+
+            <TextView
+                android:id="@+id/ganqingtv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sq_youmeng4"
+                android:textColor="@color/black"
+                android:textSize="@dimen/fontsize12" />
+
+           
+        </LinearLayout>
+         
+
+      
+    </LinearLayout>
+
+   <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical"
+             >
+
+            <ImageView
+                android:id="@+id/iv_bottom_line"
+                android:layout_width="56dip"
+                android:layout_height="2dip"
+                android:layout_marginLeft="15dip"
+                android:scaleType="matrix"
+                android:src="#f16893" />
+        </LinearLayout>
+
+</LinearLayout>

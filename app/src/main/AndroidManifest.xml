@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.netlab.loveofmum">
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="23.0.1" />
+    <!-- 使用相机 -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <!-- <uses-permission android:name="android.permission.WRITE_OWNER_DATA" /> -->
+    <!-- <uses-permission android:name="android.permission.READ_OWNER_DATA" /> -->
+    <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> -->
+    <!-- <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/> -->
+    <!-- <uses-permission android:name="android.permission.INTERNET" /> -->
+    <!-- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> -->
+    <!-- <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="getui.permission.GetuiService.com.netlab.loveofmum" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <!-- 自定义权限 -->
+    <permission
+        android:name="getui.permission.GetuiService.com.netlab.loveofmum"
+        android:protectionLevel="normal" />
+
+    <!-- android:theme="@style/Theme.Timetodo" -->
+    <application
+        android:name=".api.CrashApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:theme="@style/MyTheme">
+       <meta-data
+           android:name="SM_AD_REFRESH_INTERVAL"
+           android:value="20" />
+
+        <meta-data
+            android:name="BaiduMobAd_APP_ID"
+            android:value="f6a454ca" />
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <intent-filter>
+                <data android:scheme="tencent1104687453" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+
+            </intent-filter>
+
+        </activity>
+        <!-- for baidu xadsdk internal web-browser -->
+        <!-- 非信息广告必须添加 -->
+        <activity
+            android:name="com.baidu.mobads.AppActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <!-- 信息流广告必须添加 -->
+        <activity
+            android:name="com.baidu.mobad.feeds.BaiduActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation" />
+
+        <!-- for standard testing -->
+
+        <service android:name=".DownloadServiceForAPK" />
+
+
+        <meta-data
+            android:name="PUSH_APPID"
+            android:value="Oq3RyiySJk7IaENyYJ9fl7" />
+        <!-- 替换为第三方应用的APPID -->
+        <meta-data
+            android:name="PUSH_APPKEY"
+            android:value="BbBdXEvxNhAEPSHdibGR58" />
+        <!-- 替换为第三方应用的APPKEY -->
+        <meta-data
+            android:name="PUSH_APPSECRET"
+            android:value="dJW5nyZlCe6cBo3aGq5F32" />
+        <!-- 替换为第三方应用的APPSECRET -->
+        <meta-data
+            android:name="PUSH_GROUPID"
+            android:value="" />
+        <!-- 配置SDK核心服务 -->
+
+        <service
+            android:name="com.igexin.sdk.PushService"
+            android:exported="true"
+            android:label="NotificationCenter"
+            android:process=":pushservice" />
+
+        <receiver android:name="com.igexin.sdk.PushReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="com.igexin.sdk.action.refreshls" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.igexin.sdk.PushManagerReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.pushmanager" />
+            </intent-filter>
+        </receiver>
+        <!-- 微信分享回调 -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.igexin.sdk.PushActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:process=":pushservice"
+            android:taskAffinity="com.igexin.sdk.PushActivityTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name=".testwebview.TestWebView"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".StaticWebView"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TopicWebView"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SimpleWebView"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GuidePictureActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MyTiptocWebView"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".alipay.PayActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="wx2a644a43882160a9" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop" />
+
+        <receiver android:name=".wxapi.AppRegister">
+            <intent-filter>
+                <action android:name="com.tencent.mm.plugin.openapi.Intent.ACTION_REFRESH_WXAPP" />
+            </intent-filter>
+        </receiver>
+        <!-- 配置弹框activity -->
+        <activity
+            android:name="com.igexin.getuiext.activity.GetuiExtActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:process=":pushservice"
+            android:taskAffinity="android.task.myServicetask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <receiver
+            android:name="com.igexin.getuiext.service.PayloadReceiver"
+            android:exported="false">
+            <intent-filter>
+
+                <!-- 这个com.igexin.sdk.action.7fjUl2Z3LH6xYy7NQK4ni4固定，不能修改 -->
+                <action android:name="com.igexin.sdk.action.7fjUl2Z3LH6xYy7NQK4ni4" />
+                <!-- 替换为android:name="com.igexin.sdk.action.第三方的appId" -->
+                <action android:name="com.igexin.sdk.action.Oq3RyiySJk7IaENyYJ9fl7" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.igexin.getuiext.service.GetuiExtService"
+            android:process=":pushservice" />
+        <!-- 个推download模块配置 -->
+        <service
+            android:name="com.igexin.download.DownloadService"
+            android:process=":pushservice" />
+
+        <receiver android:name="com.igexin.download.DownloadReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".getui.PushDemoReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.Oq3RyiySJk7IaENyYJ9fl7" />
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name="com.igexin.download.DownloadProvider"
+            android:authorities="downloads.com.netlab.loveofmum"
+            android:process=":pushservice" />
+
+        <activity
+            android:name=".Welcome"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="mmloveme" android:pathPrefix="/xxx/openwith" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".PrivateDoctor"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HistoryList"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+
+        <uses-library android:name="android.test.runner" />
+
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".huanxin.TestPicActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".huanxin.ImageGridActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".huanxin.CameraActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".huanxin.ScaleImageFromSdcardActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".huanxin.PicturesShowActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".huanxin.PhotoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".huanxin.MainChatActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ShopWebView"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SpecialShopWebView"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ReplyPageOneList"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ReplyPageTwoListAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GetuiSdkDemoActivity"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CHKTimeInfo"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".BBSWebView"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DoctorDes"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DoctorHomeAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CHK_DoctorList"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity_ReplyPage"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PostList"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ReplyAct"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CHK_TimeSelect"
+            android:label="@string/action_settings"
+
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CHK_OrderSure"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CHK_Zhuyi"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".News_Type"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".News_List"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".News_Detail"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TimeSet"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.picker" />
+        <activity
+            android:name=".MyCHK_Timeline"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GravidaHealthACt"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_Set"
+            android:label="@string/action_settings"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.HelpCenterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SignAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TopicAllAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FeedbackAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".community.CHK_medical_community"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GuideActivity"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_Login"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_Register"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_FindPass"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_FindPass2"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".User_InfoChange"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity android:name=".CHK_DeteWeight" />
+        <activity
+            android:name=".User_AuthChange"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CHK_OrderDetail"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".MyCHK_OrderDetail"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".MyCHK_OrderAdd"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Doctor_Talk"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SpaceImageDetailActivity"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CHKItem_Base"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/mydialog" />
+        <activity
+            android:name=".wxapi.DialogSure"
+            android:screenOrientation="portrait"
+            android:theme="@style/mydialog" />
+        <activity
+            android:name=".SignBase"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/mydialog" />
+        <activity
+            android:name=".PingLunAct"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/mydialog" />
+        <activity
+            android:name=".RegisterAct"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/mydialog" />
+        <activity
+            android:name=".OrderActivity"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/mydialog" />
+        <activity
+            android:name=".widget.SignView"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait"
+            android:theme="@style/mydialog" />
+        <activity
+            android:name=".activity.MustKnownActivity"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.CommunityRuleActivity"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.AboutUsActivity"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CHK_HandleBook"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CHK_OrderSure_CHK"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Hos_Select"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <!-- alipay sdk begin -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <!-- alipay sdk end -->
+
+        <activity
+            android:name=".MainTabActivity"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Index"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CHKTimeList"
+            android:label="@string/action_settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CHKTimeDetailActivity"
+            android:label="@string/action_settings"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait" />
+
+        <!-- feed详情页面 -->
+
+        <activity
+            android:name=".CHK_network_anomaly"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CHK_network_anomalythree"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CHK_network_anomalytwo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SmallTalkAct"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ImagePagesAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DoctorFeedBack"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DoctorCommAct"
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="14546fdd01927a4789994f8bf5f70125" />
+        <!-- 图片选择相关 -->
+
+
+        <!-- 点击链接时跳转的Activity -->
+
+
+        <!-- 友盟App Key, 必须替换为您在友盟官网上申请到的. -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="56372a72e0f55a3f9c00588e" />
+
+        <activity
+            android:name=".ReducePointsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/mydialog" />
+        <activity
+            android:name=".DialogEnsure"
+            android:screenOrientation="portrait"
+            android:theme="@style/mydialog" />
+        <activity
+            android:name=".MainchatDialog"
+            android:screenOrientation="portrait"
+            android:theme="@style/mydialog" />
+        <activity
+            android:name="com.netlab.loveofmum.activity.LoginActivity"
+
+            android:screenOrientation="portrait" />
+        <activity android:name=".ExampleActivity"></activity>
+        <activity
+            android:name=".SearchWebView"
+            android:screenOrientation="portrait"
+             />
+        <activity
+            android:name=".NewPostList"
+            android:screenOrientation="portrait"
+            /><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+    </application>
+
+</manifest>

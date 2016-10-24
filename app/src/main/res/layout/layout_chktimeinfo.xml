@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+      android:clipToPadding="true"
+    android:fitsSystemWindows="true">
+   <include layout="@layout/title_bar"/>
+   	    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="#fff5f5f5" android:layout_width="fill_parent" android:layout_height="50dip" style="@style/paddingstyle">
+		    <ImageView  android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="5.0dip" android:src="@drawable/icon_list" />
+		    <TextView android:textSize="16sp" android:textStyle="bold" android:textColor="#ff000000" android:layout_gravity="center_vertical" android:id="@id/txt_chkdetail_001" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:singleLine="true"  />
+		</LinearLayout>
+   
+	<LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+       <ListView android:id="@id/listview_chk" android:fadingEdge="none" android:layout_width="fill_parent" android:layout_height="fill_parent" android:cacheColorHint="#00000000" />
+    </LinearLayout>
+</LinearLayout>

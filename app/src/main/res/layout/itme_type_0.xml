@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/rala001_item_timeline"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F8FA"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@id/lineer001_item_timeline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:layout_marginLeft="15dp"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:orientation="vertical" >
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="#5ed9cb" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:src="@drawable/icon_mmzj_sxy" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="12dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="#5ed9cb" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="孕25周"
+                android:layout_gravity="center_vertical"
+                android:textColor="#fa6a9b" />
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="46dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/whitecorner"
+
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/foot_list_corner_round_top0"
+                   >
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"/>
+                    <ImageView
+                        android:layout_weight="0.8"
+                        android:layout_width="0dp"
+                        android:layout_height="18dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="4dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/icon_cjjl"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:layout_weight="3"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="14sp"
+                        android:layout_marginLeft="7dp"
+                        android:text="产检记录"/>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="5.5"/>
+                    <TextView
+                        android:id="@+id/tv_year"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:layout_weight="3.5"
+                        android:textSize="14sp"
+                        android:layout_gravity="center_vertical"
+                        android:text="2016.06.25"/>
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5px"
+                    android:layout_marginTop="2dp"
+
+                    android:background="@drawable/line_green" />
+                <LinearLayout
+                    android:id="@+id/ll_go"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/app_list_corner_shape">
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dip"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="3"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="预约医院"
+                            android:textColor="#666666"
+                            android:textSize="15sp" />
+
+
+                        <TextView
+                            android:id="@+id/hos_name"
+                            android:layout_width="0dp"
+                            android:layout_weight="7"
+                            android:text="郑州大学第五附属医院"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dip"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="3"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="预约医生"
+                            android:textColor="#666666"
+                            android:textSize="15sp" />
+
+
+                        <TextView
+                            android:id="@+id/tv_docname"
+                            android:layout_width="0dp"
+                            android:layout_weight="7"
+                            android:text="陈路"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dip"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="3"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="门诊时间"
+                            android:textColor="#666666"
+                            android:textSize="15sp" />
+
+
+                        <TextView
+                            android:id="@+id/tv_time"
+                            android:layout_width="0dp"
+                            android:layout_weight="7"
+                            android:text="2016/06/20 09：00-10：00"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+
+
+                    >
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_weight="0.2"
+                        android:layout_height="match_parent"/>
+
+                    <ImageView
+
+                        android:layout_width="0dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="0.8"
+                        android:layout_margin="8dp"
+
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/icon_tp"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_weight="7.9"
+                        android:layout_height="match_parent"/>
+
+                    <ImageView
+                        android:id="@+id/iv_delete"
+                        android:layout_width="0dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="0.9"
+                        android:layout_margin="8dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/icon_sc"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <View
+                android:layout_width="1dp"
+                android:layout_height="230dp"
+                android:layout_marginLeft="25dp"
+
+                android:background="#5ed9cb" />
+            <com.netlab.loveofmum.widget.CircleImageView
+                android:id="@+id/time_dot"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/icon_user_normal" />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

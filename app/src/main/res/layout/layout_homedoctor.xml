@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:fitsSystemWindows="true">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dip"
+        android:background="@drawable/pic_user_dakuang" >
+		<com.netlab.loveofmum.widget.CircularImage
+				        android:id="@+id/cover_user_photo"
+				        android:layout_above="@id/txtHead"
+				        android:layout_width="70.0dip"
+				        android:layout_height="70.0dip"
+				        android:layout_centerHorizontal="true"
+				        />   
+
+<ImageView
+    android:id="@id/imv02_title_bar21"
+    style="@style/global_wwhw"
+    android:layout_alignParentRight="true"
+    android:layout_below="@+id/textView1"
+    android:layout_marginRight="23dp"
+    android:layout_marginTop="30dp"
+    android:background="@drawable/pic_user_you" />
+<TextView
+    		android:id="@+id/txt001_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/cover_user_photo"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+    
+
+</LinearLayout>

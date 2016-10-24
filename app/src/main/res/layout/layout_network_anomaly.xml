@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:background="@color/pinkback" >
+   
+        <include layout="@layout/title_bar"/>
+
+       <LinearLayout
+           style="@style/global_wf_hw"
+           android:background="@color/white"
+           android:orientation="horizontal" >
+
+           <ImageView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginBottom="10dp"
+               android:layout_marginLeft="10dp"
+               android:layout_marginTop="10dp"
+               android:background="@drawable/pic_qxtc_terrible" />
+
+           <LinearLayout
+               style="@style/global_wwwww"
+               android:layout_marginLeft="10dp"
+               android:gravity="center_vertical"
+               android:orientation="vertical" >
+               <TextView
+                   style="@style/global_wwhw"
+                   android:text="很抱歉，服务器连接超时，"
+                   android:textColor="@color/hometext" />
+
+               <TextView
+                   style="@style/global_wwhw"
+                   android:text="请您联系客服人员，"
+                   android:textColor="@color/hometext"  />
+
+               <TextView
+                   style="@style/global_wwhw"
+                   android:text="我们将竭诚为您服务。"
+                   android:textColor="@color/hometext"  />
+               <TextView
+                   style="@style/global_wwhw"
+                   android:text="0371-67762868。" 
+                   android:textColor="@color/hometext" />
+           </LinearLayout>
+       </LinearLayout>
+<LinearLayout 
+    style="@style/global_wwwww"
+    android:gravity="center"
+    
+    android:weightSum="3">
+
+    <Button
+        android:id="@+id/zixun"
+        style="@style/global_wwww"
+        android:layout_height="35dp"
+        android:background="@drawable/btn_yuyue"
+        android:text="联系客服"
+        android:gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+    
+</LinearLayout>
+</LinearLayout>

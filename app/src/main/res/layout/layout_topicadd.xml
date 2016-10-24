@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+      android:clipToPadding="true"
+    android:fitsSystemWindows="true">
+       <RelativeLayout
+        android:id="@+id/rl_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+
+        <Button
+            android:id="@+id/group_discuss_submit"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_yuyue"
+            android:onClick="discussSubmit"
+            android:text="发送"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/group_discuss"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/group_discuss_submit"
+            android:hint="评论"
+            android:singleLine="true"
+            android:textSize="18sp" >
+            <requestFocus />
+        </EditText>
+    </RelativeLayout>
+
+</LinearLayout>

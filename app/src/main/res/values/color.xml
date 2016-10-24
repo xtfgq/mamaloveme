@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="timesetcolor001">#fffd4425</color>
+    <color name="timesetcolor002">#ffffffff</color>
+    <color name="touming">#00ffffff</color>
+    <color name="white">#ffffffff</color>
+    <color name="pink">#fff16893</color>
+    <color name="pinktips">#ffdd3b96</color>
+    <color name="viewcolor">#ffa6a6a6</color>
+    <color name="hei">#a9a9a9</color>
+    <color name="homeback">#FFF6F6F8</color>
+    <color name="black">#ff000000</color>
+
+    <color name="gray">#fff0f0f0</color>
+    <color name="index_gray">#ffd9d9d9</color>
+
+    <color name="index001">#ff545454</color>
+    <color name="orderblue">#ff3bc8e1</color>
+
+    <color name="index002">#ffa1a1a1</color>
+    <color name="index003">#ff3d3d3d</color>
+    <color name="homeclock">#ff8baa0f</color>
+    <color name="hometext">#ff787878</color>
+    <color name="tabscolor">#ffa29f9f</color>
+    <color name="statusbar_content_title">#ff434343</color>
+    <color name="statusbar_content">#ff434343</color>
+    <color name="statusbar_content_info">#ff434343</color>
+    <color name="black_top">#1b1e26</color>
+    <color name="black_top90">#dd1b1e26</color>
+    <color name="yunshequ">#ff71649d</color>
+    <color name="yunjk">#ff3b3b3b</color>
+    <color name="yunjkcolor">#ff92989a</color>
+    <color name="timeset_color">#ffeb5d89</color>
+    <color name="timeset_color2">#00ffffff</color>
+    <color name="yun">#ff5dcbee</color>
+    <color name="pinkback">#fffef3f5</color>
+    <color name="pinkback2">#ffe1698c</color>
+    <color name="gray2">#ffe5e5ea</color>
+    <color name="line">#ffd9d9d9</color>
+    <!--      聊天 -->
+    <color name="window_bg">#030303</color>
+    <color name="transparent">#00000000</color>
+    <color name="transparent10">#10ffffff</color>
+    <color name="transparent20">#20ffffff</color>
+    <color name="transparent30">#30ffffff</color>
+    <color name="white48">#48FFFFFF</color>
+    <color name="white40">#40F5F5F5</color>
+    <color name="white90">#90F5F5F5</color>
+    <color name="grey">#808080</color>
+
+    <color name="black20">#20000000</color>
+    <color name="black40">#40000000</color>
+    <color name="black60">#60000000</color>
+    <color name="black90">#90000000</color>
+    <color name="black1">#111111</color>
+    <color name="black3">#333333</color>
+
+    <color name="black_bottom">#10131b</color>
+    <color name="blue">#33d9fd</color>
+    <color name="red">#FF0000</color>
+
+    <color name="login_btn_text_color">#dedede</color>
+    <color name="text_color">#88333333</color>
+    <color name="text_color75">#cc333333</color>
+
+
+    <color name="btn1_disable">#485B5B5B</color>
+    <color name="btn_nomal1">#cc77a035</color>
+    <color name="btn_down1">#77a035</color>
+    <color name="btn_down2">#d1d0d5</color>
+    <color name="btn_nomal2">#f5f5f5</color>
+
+    <color name="btn_exit_nomal">#ff6868</color>
+    <color name="btn_exit_down">#fa4747</color>
+
+    <color name="navpage">#FFE1E8EB</color>
+    <color name="white_backgroud_color">#e7e6eb</color>
+    <color name="border_color">#d1d0d5</color>
+    <color name="backgray">#EFEFEF</color>
+    <color name="graydanpin">#AAAAAA</color><!--灰色 -->
+    <color name="graydindex">#ff5185</color><!--灰色 -->
+    <color name="redindex">#d2114e</color>
+    <color name="signgray">#a9a9a9</color>
+    <color name="signred">#c5500a</color>
+    <color name="signBlue">#1db9fa</color>
+    <color name="home">#fea1bf</color>
+
+    <color name="yuyuebtncolor1">#62d7cb</color>
+    <color name="yuyuebtncolor2">#fda083</color>
+    <color name="yuyuebtncolor3">#fd83aa</color>
+</resources>

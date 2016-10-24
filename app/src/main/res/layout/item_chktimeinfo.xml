@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout  android:orientation="vertical" android:layout_height="wrap_content" android:id="@id/chklist_item_layout" android:background="@color/timesetcolor002" android:layout_width="fill_parent" 
+  xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout android:layout_width="fill_parent" android:layout_height="50dip" android:gravity="center_vertical" >
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="10.0dip" android:layout_weight="1.0">
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:weightSum="10.0">
+            <TextView android:textSize="15sp" android:textStyle="bold" android:textColor="#ff3d3d3d" android:layout_gravity="center_vertical" android:id="@id/chktime_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:singleLine="true" android:layout_weight="3.0" />
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView android:id="@id/chklist_item_img002" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/icon_arrow_right" android:scaleType="center" android:layout_weight="4.5" />
+  </LinearLayout>  
+  <LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:visibility="gone" android:weightSum="10.0" android:id="@id/chktimeinfo_linear">
+            <TextView android:textSize="14sp"  android:textColor="#ff646464" android:layout_gravity="center_vertical" android:id="@id/chktime_description" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip"  android:layout_weight="3.0" />
+  </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ android:layout_height="wrap_content" android:layout_width="wrap_content"
+ android:background="#ffffffff" android:orientation="vertical"
+ android:id="@+id/dialog">
+ <LinearLayout 
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal"
+     >
+     <TextView android:layout_height="wrap_content"
+   android:layout_width="wrap_content"
+  android:id="@+id/tvname" android:text="身高：" />
+ <EditText android:layout_height="wrap_content"
+  android:layout_width="wrap_content" android:id="@+id/edittext01" android:minWidth="100dip"/>
+  <TextView android:layout_height="wrap_content"
+   android:layout_width="wrap_content"
+  android:id="@+id/tvname01" android:text="CM" />
+ </LinearLayout>
+ <LinearLayout 
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     >
+     <TextView android:layout_height="wrap_content"
+   android:layout_width="wrap_content"
+  android:id="@+id/tvname02" android:text="体重：" />
+ <EditText android:layout_height="wrap_content"
+  android:layout_width="wrap_content" android:id="@+id/edittext02" android:minWidth="100dip"/>
+  <TextView android:layout_height="wrap_content"
+   android:layout_width="wrap_content"
+  android:id="@+id/tvname03" android:text="KG" />
+     
+ </LinearLayout>
+
+</LinearLayout>
+

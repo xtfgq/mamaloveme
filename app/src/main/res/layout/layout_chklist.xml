@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="140dip"
+        android:background="@drawable/bg_cj_time"
+        android:gravity="center_horizontal">
+
+        <com.netlab.loveofmum.widget.CircularImage
+            android:id="@+id/cover_user_photo"
+            android:layout_width="82.0dip"
+            android:layout_height="82.0dip"
+            android:layout_centerHorizontal="true"
+
+            android:src="@drawable/icon_user_normal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cover_user_photo"
+            android:layout_marginTop="18dp"
+           android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@id/txt001"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="您已怀孕19周零5天"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                 />
+
+           <!-- <TextView
+                android:id="@id/txt002"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="距离预产期还有152天"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold" />-->
+        </LinearLayout>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/tvchaoshen"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:text="本产检时间表仅供参考，最终检查项目请遵医嘱。如需快速预约超声，可以直接通过预约提示进行预约。"
+        android:background="@color/white"
+        android:textColor="#666666"
+        android:textSize="12sp"
+
+        android:lineSpacingExtra="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="15dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#cac8c6"/>
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ListView
+            android:id="@id/listview_chk"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:cacheColorHint="#00000000"
+            android:fadingEdge="none" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:layout_centerInParent="true"
+    android:background="@drawable/whitecorner">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="25dp"
+        android:layout_height="wrap_content" >
+       <ImageView
+            android:id="@+id/dialog_default_click_iv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_toLeftOf="@+id/dialog_default_click_text_title"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/pic_head_title" />
+
+            <TextView
+                android:id="@+id/dialog_default_click_text_title"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="图片来源"
+                android:textColor="@color/hometext"
+                android:textSize="@dimen/fontsize16" />
+   
+    </RelativeLayout>
+    <TextView
+        android:layout_marginTop="25dp" 
+        android:id="@+id/dialog_phtoto_tv"
+         android:layout_width="match_parent"
+         android:layout_marginLeft="25dp"
+         android:layout_marginRight="25dp"
+         android:text="拍照"
+	     android:layout_height="wrap_content"/>
+    	<View
+         android:layout_width="match_parent"
+         android:layout_height="1dp"
+         android:layout_marginTop="15dp"
+         android:background="@color/gray2" />
+    	 <TextView
+        android:layout_marginTop="25dp" 
+        android:id="@+id/dialog_album"
+         android:layout_width="match_parent"
+         android:layout_marginLeft="25dp"
+         android:layout_marginRight="25dp"
+         android:text="相册"
+	     android:layout_height="wrap_content"/>
+    	 	<View
+         android:layout_width="match_parent"
+         android:layout_height="1dp"
+     
+         android:layout_marginTop="15dp"
+         android:background="@color/gray2" />
+    	<LinearLayout
+    	 android:layout_width="match_parent"
+        android:layout_height="wrap_content"  >
+<View
+         android:layout_width="1dp"
+         android:layout_height="fill_parent"
+         android:background="@color/gray2" />
+<TextView 
+	    android:id="@+id/dialog_default_click_ensure"
+	    android:layout_width="fill_parent"
+	    android:layout_height="48dp"
+	    android:layout_weight="1"
+	   android:layout_gravity="center_vertical"
+	    android:gravity="center"
+	    android:clickable="true"
+	    android:textColor="@color/pink"
+	    android:text="取消"/>
+    	    
+    	</LinearLayout>
+
+</LinearLayout>
+

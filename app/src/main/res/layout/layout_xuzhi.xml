@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:clipToPadding="true"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical" >
+
+    <include layout="@layout/title_bar" />
+
+
+
+
+            <!-- <TextView android:textSize="13.0dip" android:textColor="@color/black"  android:paddingLeft="15.0dip" android:paddingRight="15.0dip" android:layout_width="fill_parent" android:layout_height="399.0dip" android:text="\u0020\u0020\u0020\u0020\u0020\u0020产检注意事项" android:layout_weight="1.0" /> -->
+
+            <WebView
+                android:id="@+id/web001_layout_xuzhi"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="#ff545454"
+                android:textSize="15.0dip" />
+</LinearLayout>

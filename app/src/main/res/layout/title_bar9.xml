@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white" >
+     <ImageView 
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="#EDEDED"
+    />   <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <ImageView
+            style="@style/global_wwhw"
+            android:layout_width="25dp"
+            android:src="@drawable/icon_lendar" />
+
+        <EditText
+            style="@style/global_wwwww"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/edt001_layout_findpass"
+            android:layout_weight="1.37"
+            android:background="@color/white"
+            android:textSize="15sp"
+            android:maxLength="10"
+            android:inputType="number"
+            android:hint="@string/reg_yanzheng" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

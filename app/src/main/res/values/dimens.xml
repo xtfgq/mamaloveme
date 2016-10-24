@@ -1,0 +1,85 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="bottom_tab_font_size">10.0sp</dimen>
+    <dimen name="bottom_tab_padding_up">5.0dip</dimen>
+    <dimen name="bottom_tab_padding_drawable">2.0dip</dimen>
+    <dimen name="size12">12.0sp</dimen>
+    <dimen name="size14">14.0sp</dimen>
+    <dimen name="size15">15.0sp</dimen>
+    <dimen name="size16">16.0sp</dimen>
+    <dimen name="size18">18.0sp</dimen>
+    <dimen name="item_dp_60">60dp</dimen>
+    <dimen name="item_dp_10">10dp</dimen>
+    <dimen name="item_dp_12">12dp</dimen>
+    <dimen name="item_dp_14">14dp</dimen>
+    <dimen name="item_dp_25">25dp</dimen>
+    <dimen name="item_dp_28">28dp</dimen>
+    <!-- 字体尺寸 -->
+    <dimen name="fontsize9">9sp</dimen>
+    <dimen name="fontsize10">10sp</dimen>
+    <dimen name="fontsize11">11sp</dimen>
+    <dimen name="fontsize12">12sp</dimen>
+    <dimen name="fontsize13">13sp</dimen>
+    <dimen name="fontsize14">14sp</dimen>
+    <dimen name="fontsize15">15sp</dimen>
+    <dimen name="fontsize16">16sp</dimen>
+    <dimen name="fontsize18">18sp</dimen>
+    <dimen name="fontsize20">20sp</dimen>
+
+    <dimen name="one">1.0dip</dimen>
+    <dimen name="activity_main_tab_title_height">45dp</dimen>
+    <dimen name="activity_main_bottom_bar">55dp</dimen>
+    <dimen name="activity_btn_reg_height_login_and_register">20dp</dimen>
+    <dimen name="activity_btn_height_login_and_register">40dp</dimen>
+
+    <dimen name="activity_btn_reg_width_login_and_register">45dp</dimen>
+
+    <dimen name="activity_img_hight_login_and_register">40dp</dimen>
+    <dimen name="activity_img_widht_login_and_register">20dp</dimen>
+    <dimen name="activity_img_hight_login">100dp</dimen>
+
+    <dimen name="activity_main_working4.0_layout_height">90dp</dimen>
+    <dimen name="activity_main_team4.0_layout_height">55dp</dimen>
+
+    <dimen name="activity_chatmain_maxems4.0">9dp</dimen>
+
+    <dimen name="activity_margin3_4.0">3dp</dimen>
+    <dimen name="activity_margin5_4.0">5dp</dimen>
+    <dimen name="activity_margin8_4.0">8dp</dimen>
+    <dimen name="activity_margin10_4.0">10dp</dimen>
+    <dimen name="activity_margin15_4.0">15dp</dimen>
+    <dimen name="activity_margin20_4.0">20dp</dimen>
+    <dimen name="activity_margin30_4.0">30dp</dimen>
+
+    <dimen name="activity_padding3_4.0">1dp</dimen>
+    <dimen name="activity_padding5_4.0">5dp</dimen>
+    <dimen name="activity_padding8_4.0">8dp</dimen>
+    <dimen name="activity_padding10_4.0">10dp</dimen>
+    <dimen name="activity_padding15_4.0">15dp</dimen>
+    <dimen name="activity_padding20_4.0">20dp</dimen>
+
+    <dimen name="activity_Textsize10_4.0">10sp</dimen>
+    <dimen name="activity_Textsize12_4.0">12sp</dimen>
+    <dimen name="activity_Textsize15_4.0">15sp</dimen>
+    <dimen name="activity_Textsize20_4.0">20sp</dimen>
+    <!--     <dimen name="switch_logo_bottom_padding">30.0sp</dimen> -->
+    <!--     <dimen name="widget_height">100.0dip</dimen> -->
+    <!--     <dimen name="sta_height">48.0dip</dimen> -->
+    <!--     <dimen name="large_padding_length">20.0dip</dimen> -->
+    <!--     <dimen name="widget_write_margin_top">19.0dip</dimen> -->
+    <!--     <dimen name="widget_write_margin_left">10.0dip</dimen> -->
+    <!--     <dimen name="widget_content_margin_top">20.0dip</dimen> -->
+    <!--     <dimen name="widget_content_margin_left">10.0dip</dimen> -->
+    <!--     <dimen name="widget_logo_size">35.0dip</dimen> -->
+    <!--     <dimen name="title_height">74.0dip</dimen> -->
+    <!--     <dimen name="new_blog_size">70.0dip</dimen> -->
+    <!--     <dimen name="emotion_item_view_height">13.299988dip</dimen> -->
+    <!--     <dimen name="splash_test_top_margin_top">20.0dip</dimen> -->
+    <!--     <dimen name="splash_test_center_margin_right">0.0dip</dimen> -->
+    <!--     <dimen name="title_text_size">20.0sp</dimen> -->
+    <!--     <dimen name="normal_padding_length">10.0dip</dimen> -->
+    <!--     <dimen name="no_result_padding_length">50.0dip</dimen> -->
+</resources>

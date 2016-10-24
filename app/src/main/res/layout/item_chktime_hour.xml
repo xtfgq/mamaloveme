@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" 
+    android:padding="5dp"
+    android:background="@color/white"
+    >
+   	    <TextView 
+        android:id="@id/txt001_item_chktime_hour"
+        style="@style/global_wwhw"
+        android:text="日"
+        android:layout_marginLeft="8dp"
+        android:textColor="#313131"
+        android:textSize="14sp"
+        />
+   	    <Button
+		 android:id="@id/btn001_item_chktime_hour"
+		android:layout_width="25dp"
+		android:layout_height="25dp"
+			android:textSize="12sp"
+		 android:gravity="center"
+		 android:background="@drawable/btn_timeselect_selector"
+		 android:layout_marginLeft="3dp"
+   	        />
+	     <ImageView
+			 android:id="@+id/iv_dg"
+			 android:layout_marginLeft="5dp"
+			 android:layout_width="25dp"
+			 android:layout_height="25dp"
+			 android:background="@drawable/icon_dg_time"
+			 />
+</LinearLayout>

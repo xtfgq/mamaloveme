@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:id="@+id/rl_avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" >
+
+        <com.netlab.loveofmum.widget.CircularImage
+            android:id="@+id/fragment_mine_avatar"
+            android:layout_width="@dimen/item_dp_60"
+            android:layout_height="@dimen/item_dp_60"
+            android:layout_centerVertical="true"
+            android:contentDescription="@null" />
+
+        <ImageView
+            android:id="@+id/iv_isonline"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:src="@drawable/icon_online" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_docname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/item_dp_10"
+        android:gravity="center"
+        android:text="122333"
+        android:textColor="@color/pinkback2"
+        android:textSize="@dimen/fontsize12" />
+
+    <TextView
+        android:id="@+id/tv_hosname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/item_dp_10"
+        android:gravity="center"
+        android:text="4564679"
+        android:textColor="@color/pinkback2"
+        android:textSize="@dimen/fontsize12" />
+
+</LinearLayout>

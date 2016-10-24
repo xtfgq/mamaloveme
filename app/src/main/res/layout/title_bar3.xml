@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    
+ <RelativeLayout 
+       android:layout_width="match_parent"
+       android:layout_height="45dip"
+       android:background="@drawable/bgumeng_header"
+       >
+       <TextView
+           android:id="@id/quxiao_title_bar3"
+           style="@style/global_wwhw"
+           android:text="@string/reg_quxiao"             
+	       android:layout_marginLeft="8dip"
+	       android:contentDescription="@null"
+	       android:layout_alignParentLeft="true"	       
+	       android:layout_centerVertical="true"
+	       android:textColor="@color/white"
+           />
+       <TextView
+              android:id="@id/txtHead"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_centerVertical="true"
+              android:layout_centerHorizontal="true"
+              android:gravity="center"
+              android:layout_centerInParent="true"
+              android:textColor="@color/white"
+              android:textStyle="bold"
+              android:textSize="18sp"
+              android:text="@string/str_denglu" />
+   </RelativeLayout>
+    
+</LinearLayout>

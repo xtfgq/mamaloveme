@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <declare-styleable name="RoundProgressBar">  
+    
+        <attr name="roundColor" format="color"/>
+        <attr name="roundProgressColor" format="color"/>
+        <attr name="roundWidth" format="dimension"></attr>
+        <attr name="textColor" format="color" />  
+        <attr name="textSize" format="dimension" /> 
+        <attr name="max" format="integer"></attr> 
+        <attr name="textIsDisplayable" format="boolean"></attr>
+        <attr name="textUp" format="string"></attr>
+        <attr name="textDown" format="string"></attr>
+        <attr name="style">
+            <enum name="STROKE" value="0"></enum>
+            <enum name="FILL" value="1"></enum>
+        </attr>
+    </declare-styleable> 
+    <declare-styleable name = "dashedline">
+        <attr name = "lineColor" format= "color" />
+    </declare-styleable >
+    <!-- Switch按钮 -->
+    <declare-styleable name="SwitchButton">
+        <attr name="bmWidth" format="dimension" />
+        <attr name="bmHeight" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="CountProgressBar">  
+        <attr name="CountroundColor" format="color"/>
+        <attr name="CountroundProgressColor" format="color"/>
+        <attr name="CountroundWidth" format="dimension"></attr>
+        <attr name="CounttextColor" format="color" />  
+        <attr name="CounttextSize" format="dimension" /> 
+        <attr name="Countmax" format="integer"></attr> 
+        <attr name="CounttextIsDisplayable" format="boolean"></attr>
+        <attr name="Countstyle">
+            <enum name="CountSTROKE" value="0"></enum>
+            <enum name="CountFILL" value="1"></enum>
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="CircleImageView">
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+    </declare-styleable>
+    <declare-styleable name="cn.smartmad.ads.android.SMAdBannerView">
+        <attr name="adSpaceId" format="string" />
+        <attr name="adSize" format="integer" />
+        <attr name="adBannerAnimationType" format="integer" />
+    </declare-styleable>
+
+</resources>

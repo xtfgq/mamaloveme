@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/chklist_item_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/timesetcolor002"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        style="@style/paddingstyle"
+        android:layout_width="fill_parent"
+        android:layout_height="65dip"
+        android:gravity="left">
+
+        <com.netlab.loveofmum.widget.CircularImage
+            android:id="@+id/img000_item_chkdetail_list"
+            android:layout_width="50.0dip"
+            android:layout_height="50.0dip"
+            android:layout_centerVertical="true"
+            android:contentDescription="@null" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="65dip"
+            android:layout_marginLeft="5dip"
+            android:layout_toRightOf="@id/img000_item_chkdetail_list"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@id/item_chkdetail_list_txt001"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="brant"
+                    android:textColor="#5f5f5f"
+                    android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/item_chkdetail_list_txt007"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2015-05-05 12:00"
+                    android:textColor="#ffa8a8a8"
+                    android:textSize="11sp" />
+
+            </RelativeLayout>
+            <TextView
+                android:id="@id/item_chkdetail_list_txt002"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="怀孕20周"
+                android:textColor="#ffa1a1a1"
+                android:visibility="gone"
+                android:textSize="13sp" />
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        style="@style/marginstyle"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="65dp"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@id/item_chkdetail_list_txt003"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="3.0"
+            android:textColor="#ff313131"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+
+
+
+        <LinearLayout
+
+            style="@style/paddingstyle"
+            android:layout_width="wrap_content"
+            android:layout_height="45dip"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@id/item_chkdetail_list_txt005"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10.0dip"
+                android:background="@drawable/icon_shuo"
+                android:gravity="center_vertical"
+                android:paddingLeft="25dp"
+                android:singleLine="true"
+                android:text="700"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+            <!--  <ImageButton
+                  android:id="@id/img001_item_chkdetail_list"
+                  android:layout_width="20.0dip"
+                  android:layout_height="20.0dip"
+                  android:contentDescription="@null"
+                  android:layout_centerVertical="true"
+                  android:background="#00000000"
+                  android:src="@drawable/icon_zan"
+                  /> -->
+
+            <!--  <ImageButton
+                 android:id="@id/img002_item_chkdetail_list"
+                 android:layout_width="20.0dip"
+                 android:layout_height="20.0dip"
+                 android:contentDescription="@null"
+                 android:layout_centerVertical="true"
+                 android:background="#00000000"
+                 android:src="@drawable/icon_shuo" /> -->
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="right|center_vertical"
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
+                <!-- <TextView
+                    android:id="@id/img003_item_chkdetail_list"
+                    android:layout_width="20.0dip"
+                    android:layout_height="20.0dip"
+                    android:contentDescription="@null"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/icon_huifu"
+                    android:src=" "/> -->
+                <TextView
+                    android:id="@+id/item_chkdetail_list_txt006"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/icon_huifu"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="25dp"
+                    android:singleLine="true"
+                    android:text="回复"
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="65dp"
+        android:background="#e7e7e7"/>
+
+</LinearLayout>

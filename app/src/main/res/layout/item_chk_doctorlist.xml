@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:descendantFocusability="blocksDescendants">
+
+    <LinearLayout
+        style="@style/paddingstyle3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="80.0dip"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center"
+                android:gravity="top"
+                android:scaleType="center">
+
+                <com.netlab.loveofmum.widget.CircleImageView
+                    android:id="@id/img001_item_chk_doctorlist"
+                    android:layout_width="60.0dip"
+                    android:layout_height="60dp"
+                    android:contentDescription="@string/app_name" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:weightSum="6">
+
+                    <TextView
+                        android:id="@id/doctor_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="赵淑萍"
+                        android:textColor="#ff3d3d3d"
+                        android:textSize="14sp" />
+                    <TextView
+                        android:id="@id/doctor_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="主任医师、教授"
+                        android:layout_weight="4"
+                        android:textColor="#f54f81"
+                        android:textSize="12sp"/>
+
+                    <Button
+                        android:id="@id/btn_kaidan"
+                        android:layout_width="60dip"
+                        android:layout_height="30dip"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_kandan_sel" />
+                </LinearLayout>
+
+
+
+                <TextView
+                    android:layout_marginTop="6dp"
+                    android:id="@id/hos_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="郑州大学第三附属医院"
+                    android:textColor="#ffa1a1a1"
+                    android:textSize="12sp" />
+                <LinearLayout
+                    android:layout_marginTop="6dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <TextView
+                        android:id="@id/doctor_jieshao"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:lineSpacingExtra="6dp"
+                        android:text="擅长剖宫产、阴模式子宫切除及妇科恶性肿瘤手术灯。擅长剖宫产、阴模式子宫切除及妇科恶性肿瘤手术灯。擅长剖宫产、阴模式子宫切除及妇科恶性肿瘤手术灯。"
+                        android:textColor="#ffa1a1a1"
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:id="@id/img002_item_chk_doctorlist"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="9"
+                        android:scaleType="center"
+                        android:layout_gravity="bottom|right"
+                        android:src="@drawable/icon_arrow_down" />
+                </LinearLayout>
+                <View
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#efefef"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

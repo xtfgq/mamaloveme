@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android_custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:clipToPadding="true"
+	android:id="@+id/set"
+    android:fitsSystemWindows="true">
+
+
+      <ScrollView android:background="@drawable/backed" android:layout_width="fill_parent"  android:layout_height="fill_parent" android:id="@id/sv_index" >
+        <LinearLayout
+             android:background="@drawable/bg_header" 
+            android:layout_width="fill_parent"  android:layout_height="fill_parent" android:orientation="vertical">
+
+			<RelativeLayout
+				android:background="@drawable/bg_header"
+				android:layout_width="fill_parent"
+				android:layout_height="45dip"
+				android:gravity="center_vertical" >
+
+				<LinearLayout
+					android:id="@+id/credit_container"
+					android:layout_width="wrap_content"
+					android:layout_height="45dip"
+					android:orientation="horizontal" >
+
+					<ImageView
+						android:layout_width="25.0dip"
+						android:layout_height="25.0dip"
+						android:layout_alignParentLeft="true"
+						android:layout_centerVertical="true"
+						android:layout_gravity="center_vertical"
+						android:layout_marginLeft="8dip"
+						android:background="@drawable/icon_signin"
+						android:contentDescription="@null"
+						android:scaleType="fitXY" />
+
+					<TextView
+						android:id="@+id/credit"
+						android:layout_width="wrap_content"
+						android:layout_height="fill_parent"
+						android:gravity="center_vertical"
+						android:layout_marginLeft="5dp"
+						android:textColor="@color/white" />
+				</LinearLayout>
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_centerHorizontal="true"
+					android:layout_centerInParent="true"
+					android:layout_centerVertical="true"
+					android:gravity="center"
+					android:text="个人中心"
+					android:textColor="@color/white"
+					android:textSize="20sp"
+					/>
+
+				<TextView
+					android:id="@+id/status"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+
+					android:layout_alignParentRight="true"
+					android:layout_centerVertical="true"
+					android:layout_marginRight="20dip"
+					android:contentDescription="@null"
+					android:textColor="#ffffffff"
+					android:textSize="16sp"
+					/>
+			</RelativeLayout>
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="120dip"
+				android:background="@drawable/bg_header" >
+				<com.netlab.loveofmum.widget.CircularImage
+					android:id="@+id/user_avatar"
+					android:layout_above="@id/txtHead"
+					android:layout_width="70.0dip"
+					android:layout_alignParentLeft="true"
+					android:layout_marginLeft="15dp"
+					android:layout_height="70.0dip"
+					android:layout_centerHorizontal="true"
+
+					/>
+				<com.netlab.loveofmum.widget.CircularImage
+					android:id="@+id/user_unlogin_avatar"
+					android:layout_width="70.0dip"
+					android:background="@drawable/icon_user_normal"
+					android:layout_marginTop="10dp"
+					android:layout_height="70.0dip"
+					android:layout_centerHorizontal="true"
+
+					/>
+				<LinearLayout
+					android:id="@+id/userinfo_container"
+					android:layout_width="wrap_content"
+					android:layout_height="fill_parent"
+					android:orientation="vertical"
+					android:layout_toLeftOf="@+id/toeditinfo"
+					android:layout_marginRight="5dp"
+					>
+
+					<TextView
+
+						android:id="@+id/brithtime"
+						android:layout_marginTop="15dp"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:textColor="@color/white"
+						android:textSize="13sp"
+
+						android:textStyle="bold" />
+					<TextView
+						android:layout_marginTop="10dp"
+						android:id="@+id/birthinfo"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+
+						android:textColor="@color/white"
+						android:textSize="13sp"
+						android:textStyle="bold" />
+
+				</LinearLayout>
+
+				<ImageView
+					android:id="@+id/toeditinfo"
+					style="@style/global_wwhw"
+					android:layout_alignParentRight="true"
+					android:layout_below="@+id/textView1"
+					android:layout_marginRight="10dp"
+					android:layout_marginTop="30dp"
+					android:background="@drawable/pic_user_you_white" />
+				<TextView
+					android:id="@+id/user_nickname"
+					android:layout_width="70dp"
+					android:layout_marginTop="5dp"
+					android:layout_height="wrap_content"
+					android:layout_alignParentLeft="true"
+
+					android:layout_alignLeft="@+id/cover_user_photo"
+					android:layout_marginLeft="15dp"
+					android:layout_centerHorizontal="true"
+					android:gravity="center"
+					android:layout_below="@+id/user_avatar"
+					android:maxEms="7"
+					android:singleLine="true"
+					android:ellipsize="end"
+					android:textColor="@color/white"
+					android:textSize="13sp"
+					android:textStyle="bold" />
+			</RelativeLayout>
+		    <include layout="@layout/user_items" />
+		  
+    	  </LinearLayout>
+    
+	</ScrollView>
+
+
+</LinearLayout>

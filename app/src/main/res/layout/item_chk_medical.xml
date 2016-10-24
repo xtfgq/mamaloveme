@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:id="@id/rala001_item_timeline"
+  android:orientation="vertical" >
+ 
+  <LinearLayout
+    android:id="@id/lineer001_item_timeline"
+    android:layout_width="wrap_content"
+    android:layout_height="130dp"
+    android:orientation="vertical" >
+ 
+    
+ 
+    <LinearLayout
+	    android:layout_alignLeft="@id/lineer001_item_timeline"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal" 
+	    android:gravity="left|center_vertical"
+			    >
+	    
+	    
+    </LinearLayout>
+
+  </LinearLayout>
+ 
+  <LinearLayout
+	    android:layout_alignLeft="@id/lineer001_item_timeline"
+	    android:layout_width="match_parent"
+	    android:layout_height="90dp"
+	    android:orientation="vertical" 
+	    android:layout_marginLeft="10dp">
+    
+	     <LinearLayout
+			    android:layout_width="match_parent"
+			    android:layout_height="30dp"
+			    android:orientation="horizontal" 
+			    android:gravity="left|center_vertical"
+				>
+			      <TextView 
+	      android:id="@id/txt001_item_timeline"
+	      android:layout_width="wrap_content"
+	      android:layout_height="wrap_content"
+	      android:gravity="center"
+	      android:layout_marginLeft="10dp"
+	      android:text="2015-12-12"/>
+			      <TextView 
+				      android:id="@id/txt002_item_timeline"
+				      android:layout_width="wrap_content"
+				      android:layout_height="wrap_content"
+				      android:textColor="@color/timesetcolor001"
+				      android:layout_marginLeft="5dp"
+				      android:text="25周"/>
+			     
+	      </LinearLayout>
+   		 	<LinearLayout
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:orientation="horizontal" 
+			    android:gravity="left|center_vertical"
+			    >
+			     <TextView 
+				      android:id="@id/txt004_item_timeline"
+				      android:layout_width="wrap_content"
+				      android:layout_height="wrap_content"
+				      android:layout_marginLeft="5dp"
+				      android:text="郑州大大学第一附属医院"/>
+			     <TextView 
+				      android:id="@id/txt005_item_timeline"
+				      android:layout_width="wrap_content"
+				      android:layout_height="wrap_content"
+				      android:layout_marginLeft="22dp"
+				      android:text="张医生"/>
+			     <TextView 
+				      android:id="@id/txt003_item_timeline"
+				      android:layout_width="wrap_content"
+				      android:layout_height="wrap_content"
+				      android:layout_marginLeft="22dp"
+				      android:textColor="@color/timesetcolor001"
+				      android:text="待就诊"/>
+	      </LinearLayout>
+	      <LinearLayout
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:orientation="horizontal" 
+
+			    android:layout_marginTop="5dp"
+			    >
+
+	          <TextView
+	              android:id="@id/txt006_item_timeline"
+	              android:layout_width="wrap_content"
+	              android:layout_height="wrap_content"
+	              android:layout_marginLeft="5dp"
+	              android:text="下单时间" />
+
+			     <TextView
+				      android:id="@id/img001_item_timeline"
+				      android:layout_width="wrap_content"
+				      android:layout_height="wrap_content"
+				      android:layout_marginLeft="5dp"
+				   android:text="2015.11.26" />
+			     <TextView
+				      android:id="@id/img001_item_timeline"
+				      android:layout_width="wrap_content"
+				      android:layout_height="wrap_content"
+				      android:layout_marginLeft="5dp"
+				   android:text="10:30" />
+	      </LinearLayout>
+	      <View 
+	          android:layout_width="match_parent"
+	          android:layout_height="1dp"
+	          android:layout_marginTop="10dp"
+	          android:background="#a6a6a6"
+	          />
+  </LinearLayout>
+ 
+</RelativeLayout>

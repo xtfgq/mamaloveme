@@ -1,0 +1,268 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@drawable/layout_view"
+    android:orientation="vertical" 
+      android:clipToPadding="true"
+    android:fitsSystemWindows="true">
+
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+        android:background="@drawable/bgumeng_header"
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:gravity="center_vertical" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:id="@id/txtHead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:text="@string/weekly"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>
+<View 
+    android:layout_width="match_parent"
+    android:layout_height="10dp"/>
+<LinearLayout style="@style/global_wwhw"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="25dp" >
+
+    <TextView
+        android:id="@+id/textView1"
+        style="@style/global_wwhw"
+        android:layout_alignBottom="@+id/imageView1"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/imageView1"
+        android:text="@string/chanjianxiangmu"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/nav_menu" />
+
+    <TextView
+        style="@style/global_wwhw"
+        android:layout_alignBaseline="@+id/textView1"
+        android:layout_alignBottom="@+id/textView1"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="18dp"
+        android:text="@string/huanyizu_weekly_physical"
+        android:textColor="@color/timesetcolor001" />
+
+</RelativeLayout>
+
+<GridView
+            android:id="@id/week_gidve"
+            android:layout_width="fill_parent"
+            android:layout_height="95dp"
+            android:gravity="center"
+            android:numColumns="3"
+             />
+</LinearLayout>
+<View 
+    android:layout_width="match_parent"
+    android:layout_height="10dp"/>
+<LinearLayout></LinearLayout>
+<LinearLayout
+    android:layout_height="37dp"
+    style="@style/global_wf_hw"
+    android:orientation="horizontal"
+    android:background="@color/white"
+    android:weightSum="10"
+    ><TextView 
+        android:layout_marginTop="15dp"
+        android:layout_weight="3"
+        style="@style/global_wwhw"
+        android:text="@string/yiyuan"
+        android:layout_marginLeft="10dp"
+        />
+<LinearLayout 
+     style="@style/global_wwhw"
+        android:layout_weight="7"
+        android:background="@drawable/bg_input"
+       android:layout_marginTop="2dp"
+       android:layout_marginRight="10dp"
+    ></LinearLayout>
+    
+
+</LinearLayout>
+<View 
+    android:layout_width="match_parent"
+    android:layout_height="1dp"/>
+<LinearLayout
+    android:layout_height="37dp"
+    style="@style/global_wf_hw"
+    android:orientation="horizontal"
+    android:background="@color/white"
+    android:weightSum="10"
+    ><TextView 
+        android:layout_marginTop="15dp"
+        android:layout_weight="3"
+        style="@style/global_wwhw"
+        android:text="@string/yisheng"
+        android:layout_marginLeft="10dp"
+        />
+<LinearLayout 
+     style="@style/global_wwhw"
+        android:layout_weight="7"
+        android:background="@drawable/bg_input"
+       android:layout_marginTop="2dp"
+       android:layout_marginRight="10dp"
+    ></LinearLayout>
+    
+
+</LinearLayout>
+<View 
+    android:layout_width="match_parent"
+    android:layout_height="1dp"/>
+<LinearLayout
+    android:layout_height="37dp"
+    style="@style/global_wf_hw"
+    android:orientation="horizontal"
+    android:background="@color/white"
+    android:weightSum="10"
+    ><TextView 
+        android:layout_marginTop="15dp"
+        android:layout_weight="2"
+        style="@style/global_wwhw"
+        android:text="@string/chanjianshijian"
+        android:layout_marginLeft="10dp"
+        />
+<LinearLayout 
+     style="@style/global_wwhw"
+        android:layout_weight="8"
+        android:background="@drawable/bg_input"
+       android:layout_marginTop="2dp"
+       android:layout_marginRight="10dp"
+    ></LinearLayout>
+    
+
+</LinearLayout>
+<View 
+    android:layout_width="match_parent"
+    android:layout_height="1dp"/>
+<LinearLayout
+    android:layout_height="37dp"
+    style="@style/global_wf_hw"
+    android:orientation="horizontal"
+    android:background="@color/white"
+    android:weightSum="10"
+    ><TextView 
+        android:layout_marginTop="15dp"
+        android:layout_weight="2.5"
+        style="@style/global_wwhw"
+        android:text="@string/jianchafei_weekly_physical"
+        android:layout_marginLeft="10dp"
+        />
+<LinearLayout 
+     style="@style/global_wwhw"
+        android:layout_weight="7.5"
+        android:background="@drawable/bg_input"
+       android:layout_marginTop="2dp"
+       android:layout_marginRight="10dp"
+    ></LinearLayout>
+    
+
+</LinearLayout>
+<View 
+    android:layout_width="match_parent"
+    android:layout_height="1dp"/>
+  <LinearLayout
+    android:layout_height="37dp"
+    style="@style/global_wf_hw"
+    android:orientation="horizontal"
+    android:background="@color/white"
+    android:weightSum="10"
+    ><TextView 
+        android:layout_marginTop="15dp"
+        android:layout_weight="8"
+        style="@style/global_wwhw"
+        android:text="@string/zhuangtai"
+        android:layout_marginLeft="10dp"
+        />
+
+<LinearLayout
+    style="@style/global_wwhw"
+
+   
+    android:layout_marginTop="2dp"
+    android:layout_marginLeft="20dp"
+    android:background="@drawable/bg_input"
+    android:gravity="right" >
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="192dp"
+        android:layout_height="wrap_content" />
+    
+</LinearLayout>
+    
+
+</LinearLayout>
+<View 
+    android:layout_width="match_parent"
+    android:layout_height="1dp"/>
+<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dip"
+        android:background="@color/white"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/global_wwhw"
+            android:layout_width="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/jianchadan" />
+
+        <LinearLayout
+            style="@style/global_wwwww"
+            android:layout_marginTop="5dp"
+            android:layout_weight="6"
+            android:gravity="right" >
+
+            <ImageButton
+                
+                android:id="@id/weekly_in_spection04"
+                style="@style/global_wwhw"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/icon_photo" />
+        </LinearLayout>
+    </LinearLayout>
+    <Button
+        android:id="@id/weekly_in_spection05"
+        android:layout_width="fill_parent"
+        android:layout_height="35dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/home_btn_bg4"
+        android:text="@string/str_denglu"
+        android:textColor="@color/white" />
+</LinearLayout>

@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:switch="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar" />
+
+    <View
+        style="@style/global_wwww"
+        android:layout_height="1dp"
+        android:background="@drawable/layout_line" />
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@color/white"
+            android:paddingLeft="12dp"
+            android:text="可预约项"
+            android:textSize="14sp" />
+
+        <ListView
+            android:id="@+id/tvyuyue_content"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:cacheColorHint="#00000000"
+            android:divider="@null"
+
+
+
+            android:fadingEdge="none" />
+
+        <View
+            style="@style/global_wwww"
+            android:layout_height="1dp"
+            android:background="@drawable/layout_line" />
+
+
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:shrinkColumns="0"
+            android:stretchColumns="0">
+
+            <TableRow
+                android:id="@id/tab_pia_view003"
+                android:layout_width="fill_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="8dip">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
+                        android:layout_height="wrap_content"
+                        android:text="是否是双胞胎"
+                        android:textSize="15sp" />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_weight="4.2"
+                        android:layout_height="wrap_content"/>
+
+
+                    <com.netlab.loveofmum.UISwitchButton
+                        android:id="@+id/yuyue_isTwins"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.6"
+                        switch:bmWidth="50dp"
+                        switch:bmHeight="40dp"
+                        android:layout_centerVertical="true"
+
+
+                        />
+                </LinearLayout>
+            </TableRow>
+        </TableLayout>
+
+
+        <!--       <View
+            style="@style/global_wwww"
+            android:layout_height="1dp"
+            android:background="@drawable/layout_line" />    -->
+        <!-- 	<TableLayout  android:layout_width="fill_parent" android:layout_height="wrap_content" android:background="@color/white" android:shrinkColumns="0" android:stretchColumns="0">
+                    <TableRow android:id="@id/tab_pia_view002" android:layout_width="fill_parent"  >
+                         <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="8dip">
+
+                                <TextView
+                                    style="@style/global_ww"
+                                    android:text="@string/str_sure_items"
+                                    android:textSize="15sp" />
+
+                                <LinearLayout
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:gravity="right"
+                                    >
+
+                                    <TextView
+                                android:id="@+id/txtitems_order_sure"
+                                style="@style/global_ww" />
+                                    <com.netlab.loveofmum.UISwitchButton
+                                    android:id="@+id/page_item_switch_slideswitch"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    switch:bmWidth="50dp"
+                                    switch:bmHeight="40dp"
+                                     android:layout_marginRight="10dp"
+                                    />
+
+                                <ImageView
+                                    style="@style/global_ww"
+                                    android:layout_marginRight="10dp"
+                                    android:visibility="invisible"
+                                    android:background="@drawable/icon_arrow_right" />
+
+                                </LinearLayout>
+                            </LinearLayout>
+                    </TableRow>
+                </TableLayout> -->
+        <View
+            style="@style/global_wwww"
+            android:layout_height="1dp"
+            android:background="@drawable/layout_line" />
+
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:shrinkColumns="0"
+            android:stretchColumns="0">
+
+            <TableRow
+                android:id="@id/tab_pia_view003"
+                android:layout_width="fill_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="8dip">
+
+                    <TextView
+                        style="@style/global_ww"
+                        android:text="@string/str_sure_chktime"
+                        android:textSize="15sp" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@id/txttime_order_sure"
+                            style="@style/global_ww" />
+
+                        <ImageView
+                            style="@style/global_ww"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/icon_arrow_right"
+                            android:visibility="invisible" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </TableRow>
+        </TableLayout>
+
+        <View
+            style="@style/global_wwww"
+            android:layout_height="1dp"
+            android:background="@drawable/layout_line" />
+
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:shrinkColumns="0"
+            android:stretchColumns="0">
+
+            <TableRow
+                android:id="@id/tab_pia_view004"
+                android:layout_width="fill_parent">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="8dip">
+
+                    <TextView
+                        style="@style/global_ww"
+                        android:text="@string/str_sure_itemfee"
+                        android:textSize="15sp" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@id/txtitemfee_order_sure"
+                            style="@style/global_ww" />
+
+                        <ImageView
+                            style="@style/global_ww"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/icon_arrow_right"
+                            android:visibility="invisible" />
+                    </LinearLayout>
+                </LinearLayout>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+    <View
+        style="@style/global_wwww"
+        android:layout_height="1dp"
+        android:background="@drawable/layout_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/layout_line"
+        android:gravity="top"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@id/btn_sure"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_yuyue"
+            android:text="@string/str_sure_btnsure"
+            android:textColor="@color/white" />
+
+        <!-- 	<Button
+                        android:id="@+id/btn_sure2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:text="@string/str_sure_btnsure2"
+                        android:layout_weight="1"
+                        android:background="@drawable/home_btn_bg4" /> -->
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/layout_progress"
+        android:layout_width="170.0dip"
+        android:layout_height="120.0dip"
+        android:layout_gravity="center"
+        android:background="@drawable/shape"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <ProgressBar
+                android:id="@+id/progressBar1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="60.0dip"
+                android:layout_marginRight="60.0dip"
+                android:layout_marginTop="20.0dip" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20.0dip"
+                android:layout_marginTop="12.0dip"
+                android:gravity="center"
+                android:text="请稍候"
+                android:textColor="#ff000000" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>

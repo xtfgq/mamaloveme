@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="220dp"
+    android:orientation="vertical"
+
+
+   >
+
+    <LinearLayout
+        android:id="@+id/lltop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <RelativeLayout
+            android:layout_gravity="center_vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="3">
+            <ImageView
+                android:id="@+id/ivchildleft"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:alpha="0.5"
+                android:layout_centerInParent="true"/>
+            <com.netlab.loveofmum.widget.RoundProgressBar
+                android:id="@+id/roundProgressBarleft"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:alpha="0.5"
+                android:layout_centerInParent="true" />
+            <TextView
+                android:id="@+id/tvleft"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ivchildleft"
+                android:gravity="center"
+                android:layout_marginTop="28dp"
+                android:textSize="12sp"
+                android:text=""
+                android:alpha="0.5"
+               android:textColor="@color/white"/>
+
+
+        </RelativeLayout>
+        <RelativeLayout
+
+            android:id="@+id/rlchild"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.8"
+
+
+            >
+
+            <ImageView
+                android:id="@+id/ivprogress"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerInParent="true"
+
+
+                />
+
+            <com.netlab.loveofmum.widget.RoundProgressBar
+                android:id="@id/roundProgressBar"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_centerInParent="true" />
+            <TextView
+                android:id="@+id/tvcenter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ivprogress"
+                android:gravity="center"
+                android:layout_marginTop="48dp"
+                android:textSize="18sp"
+                android:text=""
+                android:textColor="@color/white"/>
+
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_gravity="center_vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="3">
+            <ImageView
+                android:id="@+id/ivchildright"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:alpha="0.5"
+                android:layout_centerInParent="true"/>
+            <com.netlab.loveofmum.widget.RoundProgressBar
+                android:id="@+id/roundProgressBarright"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:alpha="0.5"
+                android:layout_centerInParent="true" />
+            <TextView
+                android:id="@+id/tvright"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_below="@+id/ivchildright"
+                android:gravity="center"
+                android:layout_marginTop="28dp"
+                android:textSize="12sp"
+                android:text=""
+                android:alpha="0.5"
+                android:textColor="@color/white"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+      android:clipToPadding="true"
+    android:fitsSystemWindows="true" >
+   <include layout="@layout/title_bar"/>
+    <com.netlab.loveofmum.widget.XScrollView.PullToRefreshLayout
+        android:id="@+id/refresh_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <include layout="@layout/refresh_head" />
+       <com.netlab.loveofmum.widget.PullableListView
+           android:divider="@null"
+            android:id="@id/listview_chk_doctorlist" android:fadingEdge="none" android:layout_width="fill_parent" android:layout_height="fill_parent" android:cacheColorHint="#00000000" />
+        <include
+            android:id="@+id/loadmore"
+            layout="@layout/load_more" />
+    </com.netlab.loveofmum.widget.XScrollView.PullToRefreshLayout>
+</LinearLayout>
+

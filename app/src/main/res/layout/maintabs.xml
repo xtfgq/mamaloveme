@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost"
+    android:background="@color/white"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="fill_parent"
+            android:layout_height="0.0dip"
+            android:layout_weight="1.0" />
+
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.0"
+            android:visibility="gone" />
+
+        <RadioGroup
+            android:id="@id/main_radio"
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/layout_border"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/activity_main_tab_home_layout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <RadioButton
+                    android:id="@id/radio_button0"
+                    android:layout_width="19dp"
+                    android:layout_height="19dp"
+                    android:background="@drawable/home_btn_bg1"
+                    android:button="@null"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:layout_marginTop="5dp"
+
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/activity_main_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="首页"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/activity_main_sq"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center"
+
+                android:orientation="vertical" >
+
+                <RadioButton
+                    android:id="@id/radio_button1"
+                    android:layout_width="19dp"
+                    android:layout_height="19dp"
+                    android:background="@drawable/home_btn_bg2"
+                    android:button="@null"
+                    android:clickable="false"
+                    android:layout_marginTop="5dp"
+                    android:focusable="false"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/tv_ysq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="孕社区"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/activity_main_tab_jk"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <RadioButton
+                    android:id="@id/radio_button2"
+                    android:layout_width="19dp"
+                    android:layout_height="19dp"
+                    android:background="@drawable/home_btn_bg3"
+                    android:button="@null"
+                    android:layout_marginTop="5dp"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/activity_main_jk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="私人医生"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/activity_main_zx"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <RadioButton
+                    android:id="@+id/radio_button3"
+                    android:layout_width="19dp"
+                    android:layout_height="19dp"
+                    android:background="@drawable/home_btn_set"
+                    android:button="@null"
+                    android:clickable="false"
+                    android:layout_marginTop="5dp"
+                    android:focusable="false"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/activity_tv_zx"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="我"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!--
+            <RadioButton
+                    android:id="@id/radio_button1"
+                    style="@style/main_tab_bottom"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5.0dip"
+                    android:drawableTop="@drawable/home_btn_bg2"
+                    android:text="孕社区"
+                    android:textSize="12sp"
+                    android:textColor="@drawable/home_btn_color"
+                    />
+                   <RadioButton
+                    android:id="@id/radio_button2"
+                    style="@style/main_tab_bottom"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5.0dip"
+                    android:drawableTop="@drawable/home_btn_bg3"
+                    android:text="孕健康"
+                    android:textSize="12sp"
+                    android:textColor="@drawable/home_btn_color"
+                    />
+                <RadioButton
+                    android:id="@+id/radio_button3"
+                    style="@style/main_tab_bottom"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5.0dip"
+                    android:drawableTop="@drawable/home_btn_set"
+                    android:textSize="12sp"
+                    android:textColor="@drawable/home_btn_color"
+                    android:text="个人中心"/>
+
+            </RadioGroup>
+            -->
+        </RadioGroup>
+    </LinearLayout>
+
+</TabHost>

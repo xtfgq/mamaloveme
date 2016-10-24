@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:fitsSystemWindows="true">
+
+   <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="45dip"
+           android:background="@drawable/bgumeng_header"
+            android:gravity="center_vertical" >
+
+            <ImageView
+                android:id="@id/iv_01_the_second_page_of_medical_consultation"
+                android:layout_width="30.0dip"
+                android:layout_height="30.0dip"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="7dp"
+                android:contentDescription="@null"
+                android:src="@drawable/icon_arrow_left" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:id="@id/txtHead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:text="@string/zixunxiangqing_the_second_page_of_medical_consultation"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </RelativeLayout>
+    <fragment
+        android:id="@+id/fragment"
+        android:name="com.netlab.loveofmum.alipay.ExternalFragment"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

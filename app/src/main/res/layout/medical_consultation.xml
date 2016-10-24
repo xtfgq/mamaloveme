@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/layout_view">
+    
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+        android:background="@drawable/bgumeng_header"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:gravity="center_vertical" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:id="@id/txtHead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:text="@string/mingyizixun_medical_consultation"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <TextView
+            android:id="@id/txtHead_medical_consultation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/linearLayout1"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="14dp"
+            android:gravity="center"
+            android:text="@string/chazhao_medical_consultation"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@id/iv01_medical_consultation"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignBottom="@id/txtHead_medical_consultation"
+            android:layout_toLeftOf="@id/txtHead_medical_consultation"
+            android:background="@drawable/icon_search_left" />
+
+    </RelativeLayout>
+
+</LinearLayout>
+<View 
+    android:layout_width="match_parent"
+    android:layout_height="10dp"/>
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    >
+    <ImageView 
+       android:layout_width="55dp"
+       android:layout_height="60dp"
+       android:layout_marginTop="5dp"
+       android:layout_marginLeft="5dp"
+        android:background="@drawable/pic_touxing_dr1"
+        />
+    <LinearLayout 
+        style="@style/global_wwwww"
+        android:orientation="vertical"
+        >
+        <LinearLayout 
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView 
+                style="@style/global_wwhw"
+                android:text="徐雅娟"
+               android:layout_marginLeft="10dp"
+                />
+           <LinearLayout 
+               style="@style/global_wf_hw"
+               android:layout_marginTop="3dp"
+               ><TextView 
+                style="@style/global_wwhw"
+                android:text="主治医师"
+               android:layout_marginLeft="15dp"
+               android:textSize="10sp"
+               android:textColor="@color/timesetcolor001"
+                /></LinearLayout>
+            
+        </LinearLayout>
+        <LinearLayout 
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView 
+                style="@style/global_wwhw"
+                android:text="郑州大学第三附属医院"
+                android:textSize="10sp"
+               android:layout_marginLeft="10dp"/>
+          
+            
+        </LinearLayout>
+         <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView 
+                style="@style/global_wwhw"
+                android:textColor="@color/index002"
+                android:text="擅长处理妇产科常见病，多发病以及疑难危..."
+               android:layout_marginLeft="10dp"
+              
+               android:textSize="10sp"/>
+          
+            
+        </LinearLayout>
+        <LinearLayout 
+            style="@style/global_wf_hw"   
+            android:orientation="horizontal"
+                     
+            ><ImageView 
+                style="@style/global_wwhw"
+                android:layout_marginLeft="5dp"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:background="@drawable/icon_time"
+                />
+        <TextView 
+            style="@style/global_wwhw"
+            android:text="咨询时间：19：00-21：00"
+            android:textColor="@color/index002"
+            android:textSize="10sp"
+            /></LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+<View 
+    android:layout_width="match_parent"
+android:layout_height="1dp"
+    />
+<LinearLayout 
+    style="@style/global_wf_hw"
+    android:layout_height="30dp"
+    android:background="@drawable/bg_myzk03"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:weightSum="10"
+>
+    <LinearLayout 
+        style="@style/global_wwhw"
+       
+        android:orientation="horizontal"
+        > <TextView 
+    style="@style/global_wwhw"
+    android:textSize="11dp"
+   
+    android:layout_marginLeft="5dp"
+    android:text="图文咨询："
+    />
+<TextView 
+    style="@style/global_wwhw"
+    android:textSize="11dp"
+    android:text="¥300/月"
+    android:textColor="@color/timesetcolor001"
+    />
+<TextView 
+    style="@style/global_wwhw"
+    android:textSize="11dp"
+    android:text="¥30/次"
+    android:layout_marginLeft="15dp"
+    android:textColor="@color/timesetcolor001"
+    /></LinearLayout>
+    <LinearLayout 
+        
+        style="@style/global_wf_hw"
+        android:orientation="horizontal"
+        android:gravity="right">
+    <TextView 
+        style="@style/global_wwhw"
+        android:textSize="11dp"
+        android:text="推荐:"
+        android:layout_marginLeft="20dp"
+        />
+  
+         <ImageView 
+        style="@style/global_wwhw"
+        android:background="@drawable/icon_star"
+        />
+        
+         <ImageView 
+        style="@style/global_wwhw"
+        android:background="@drawable/icon_star"
+        />
+         <ImageView 
+        style="@style/global_wwhw"
+        android:background="@drawable/icon_star"
+        />
+         <ImageView 
+        style="@style/global_wwhw"
+        android:background="@drawable/icon_star"
+        />
+         <ImageView 
+        style="@style/global_wwhw"
+        android:background="@drawable/icon_star"
+        />
+    </LinearLayout>
+   
+    
+
+</LinearLayout>
+<View 
+    android:layout_width="match_parent"
+    android:layout_height="10dp"/>
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    >
+    <ImageView 
+       android:layout_width="55dp"
+       android:layout_height="60dp"
+       android:layout_marginTop="5dp"
+       android:layout_marginLeft="5dp"
+        android:background="@drawable/pic_touxing_dr2"
+        />
+    <LinearLayout 
+        style="@style/global_wwwww"
+        android:orientation="vertical"
+        >
+        <LinearLayout 
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView 
+                style="@style/global_wwhw"
+                android:text="马爱琴"
+               android:layout_marginLeft="10dp"
+                />
+           <LinearLayout 
+               style="@style/global_wf_hw"
+               android:layout_marginTop="3dp"
+               ><TextView 
+                style="@style/global_wwhw"
+                android:text="主治医师"
+               android:layout_marginLeft="15dp"
+               android:textSize="10sp"
+               android:textColor="@color/timesetcolor001"
+                /></LinearLayout>
+            
+        </LinearLayout>
+        <LinearLayout 
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView 
+                style="@style/global_wwhw"
+                android:text="郑州大学第三附属医院"
+                android:textSize="10sp"
+               android:layout_marginLeft="10dp"/>
+          
+            
+        </LinearLayout>
+         <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView 
+                style="@style/global_wwhw"
+                android:textColor="@color/index002"
+                android:text="擅长剖腹产，阴膜式子宫切除及妇科恶性..."
+               android:layout_marginLeft="10dp"
+              
+               android:textSize="10sp"/>
+          
+            
+        </LinearLayout>
+        <LinearLayout 
+            style="@style/global_wf_hw"   
+            android:orientation="horizontal"
+                     
+            ><ImageView 
+                style="@style/global_wwhw"
+                android:layout_marginLeft="5dp"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:background="@drawable/icon_time"
+                />
+        <TextView 
+            style="@style/global_wwhw"
+            android:text="咨询时间：19：00-21：00"
+            android:textColor="@color/index002"
+            android:textSize="10sp"
+            /></LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+<View 
+    android:layout_width="match_parent"
+android:layout_height="1dp"
+    />
+<LinearLayout 
+    style="@style/global_wf_hw"
+    android:layout_height="30dp"
+    android:background="@drawable/bg_myzk03"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+><TextView 
+    style="@style/global_wwhw"
+    android:textSize="11dp"
+    android:layout_marginLeft="5dp"
+    android:text="图文咨询："
+    />
+<TextView 
+    style="@style/global_wwhw"
+    android:layout_marginLeft="5dp"
+    android:textSize="9sp"
+    android:text="免费咨询："
+    />
+<TextView 
+    style="@style/global_wwhw"
+    android:textSize="11dp"
+    android:text="¥300/月"
+    android:textColor="@color/timesetcolor001"
+    />
+<TextView 
+    style="@style/global_wwhw"
+    android:textSize="11dp"
+    android:text="剩余"
+    android:layout_marginLeft="5dp"
+   
+    />
+<TextView 
+    style="@style/global_wwhw"
+    android:textSize="11dp"
+    android:text="2次"
+    android:textColor="@color/timesetcolor001"
+    />
+    <LinearLayout 
+        
+        style="@style/global_wf_hw"
+        android:orientation="horizontal"
+        android:gravity="right">
+    <TextView 
+        style="@style/global_wwhw"
+        android:textSize="11dp"
+        android:text="推荐:"
+        
+        />
+  
+         <ImageView 
+        style="@style/global_wwhw"
+        android:background="@drawable/icon_star"
+        />
+        
+         <ImageView 
+        style="@style/global_wwhw"
+        android:background="@drawable/icon_star"
+        />
+         <ImageView 
+        style="@style/global_wwhw"
+        android:background="@drawable/icon_star"
+        />
+         <ImageView 
+        style="@style/global_wwhw"
+        android:background="@drawable/icon_star"
+        />
+         <ImageView 
+        style="@style/global_wwhw"
+        android:background="@drawable/icon_star"
+        />
+    </LinearLayout>
+   
+    
+
+</LinearLayout>
+<View 
+    android:layout_width="match_parent"
+    android:layout_height="10dp"/>
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    >
+    <ImageView 
+       android:layout_width="55dp"
+       android:layout_height="60dp"
+       android:layout_marginTop="5dp"
+       android:layout_marginLeft="5dp"
+        android:background="@drawable/pic_touxing_dr3"
+        />
+    <LinearLayout 
+        style="@style/global_wwwww"
+        android:orientation="vertical"
+        >
+        <LinearLayout 
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView 
+                style="@style/global_wwhw"
+                android:text="赵悦淑"
+               android:layout_marginLeft="10dp"
+                />
+           <LinearLayout 
+               style="@style/global_wf_hw"
+               android:layout_marginTop="3dp"
+               ><TextView 
+                style="@style/global_wwhw"
+                android:text="主治医师"
+               android:layout_marginLeft="15dp"
+               android:textSize="10sp"
+               android:textColor="@color/timesetcolor001"
+                /></LinearLayout>
+            
+        </LinearLayout>
+        <LinearLayout 
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView 
+                style="@style/global_wwhw"
+                android:text="郑州大学第三附属医院"
+                android:textSize="10sp"
+               android:layout_marginLeft="10dp"/>
+          
+            
+        </LinearLayout>
+         <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView 
+                style="@style/global_wwhw"
+                android:textColor="@color/index002"
+                android:text="擅长处理妇产科常见病，多发病以及疑难危..."
+               android:layout_marginLeft="10dp"
+              
+               android:textSize="10sp"/>
+          
+            
+        </LinearLayout>
+        <LinearLayout 
+            style="@style/global_wf_hw"   
+            android:orientation="horizontal"
+                     
+            ><ImageView 
+                style="@style/global_wwhw"
+                android:layout_marginLeft="5dp"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:background="@drawable/icon_time"
+                />
+        <TextView 
+            style="@style/global_wwhw"
+            android:text="咨询时间：19：00-21：00"
+            android:textColor="@color/index002"
+            android:textSize="10sp"
+            /></LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+<View 
+    android:layout_width="match_parent"
+android:layout_height="1dp"
+    />
+<LinearLayout 
+    style="@style/global_wf_hw"
+    android:layout_height="30dp"
+    android:background="@drawable/bg_myzk03"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:weightSum="10"
+><TextView 
+    style="@style/global_wwhw"
+    android:textSize="11dp"
+    android:layout_marginLeft="5dp"
+    android:text="图文咨询："
+    />
+<TextView 
+    style="@style/global_wwhw"
+    android:textSize="11dp"
+    android:text="¥300/月"
+    android:textColor="@color/timesetcolor001"
+    />
+<TextView 
+    style="@style/global_wwhw"
+    android:textSize="11dp"
+    android:text="¥30/次"
+    android:layout_marginLeft="15dp"
+    android:textColor="@color/timesetcolor001"
+    />
+<LinearLayout 
+        
+        style="@style/global_wf_hw"
+        android:orientation="horizontal"
+        android:gravity="right">
+    <TextView 
+        style="@style/global_wwhw"
+        android:textSize="11dp"
+        android:text="推荐:"
+        android:layout_marginLeft="20dp"
+        />
+  
+         <ImageView 
+        style="@style/global_wwhw"
+        android:background="@drawable/icon_star"
+        />
+        
+         <ImageView 
+        style="@style/global_wwhw"
+        android:background="@drawable/icon_star"
+        />
+         <ImageView 
+        style="@style/global_wwhw"
+        android:background="@drawable/icon_star"
+        />
+         <ImageView 
+        style="@style/global_wwhw"
+        android:background="@drawable/icon_star"
+        />
+         <ImageView 
+        style="@style/global_wwhw"
+        android:background="@drawable/icon_star"
+        />
+    </LinearLayout></LinearLayout>
+    
+       
+    
+    
+
+</LinearLayout>
+   
+    
+
+
+

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/chklist_item_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/timesetcolor002"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        style="@style/paddingstyle"
+        android:layout_width="fill_parent"
+        android:layout_height="65dip"
+        android:gravity="left" >
+
+        <com.netlab.loveofmum.widget.CircularImage
+            android:id="@id/img000_item_chkdetail_list"
+            android:layout_width="50.0dip"
+            android:layout_height="50.0dip"
+            android:layout_centerVertical="true"
+            android:contentDescription="@null"
+            android:src="@drawable/icon_user_normal" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="65dip"
+            android:layout_marginLeft="5dip"
+            android:layout_toRightOf="@id/img000_item_chkdetail_list"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@id/item_postlist_txt001"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="brant"
+                android:textSize="14sp" />
+
+       
+        </LinearLayout>
+             <TextView
+                android:id="@+id/item_chkdetail_list_txt007"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="7dp"
+                android:text="2015-05-05 12:00"
+                android:textColor="#ffa1a1a1"
+                android:textSize="12sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        style="@style/marginstyle"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/bg_talk" >
+
+        <TextView
+            android:id="@id/item_postlist_txt003"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10.0dip"
+            android:layout_weight="3.0"
+            android:textColor="#ff5e5e5e"
+            android:textSize="16.0dip" />
+    </LinearLayout>
+
+</LinearLayout>

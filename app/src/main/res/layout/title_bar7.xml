@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#EDEDED" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:gravity="center_vertical"
+        android:background="@color/white"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_height="25dp"
+            android:layout_width="25dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/icon_xingming" />
+
+        <EditText
+            android:id="@id/phone_register7"
+            style="@style/global_wwwww"
+            android:layout_marginLeft="35dp"
+
+            android:background="@null"
+            android:textSize="15sp"
+            android:maxLength="20"
+            android:inputType="number"
+            android:hint="@string/str_tishi1" />
+        <Button
+            android:id="@id/verification_titlt_bar9"
+            style="@style/global_wwhw"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+
+            android:background="@drawable/btn_yzm"
+            android:text="@string/reg_shuruyanzheng"
+            android:layout_centerVertical="true"
+
+            android:textColor="#f16992"/>
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

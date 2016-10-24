@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    
+    android:orientation="vertical" >
+    <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp" >
+          <TextView 
+	      android:id="@id/txt001_item_timeline"
+	      android:layout_width="wrap_content"
+	      android:layout_height="wrap_content"
+	      android:gravity="left"
+	      android:textColor="#DB7093"
+	      android:layout_marginLeft="10dp"
+	      android:textSize="@dimen/fontsize16"
+	      android:text="2015-12-12"/>
+             <TextView 
+	      android:id="@+id/txt001_item_timeweek"
+	      android:layout_width="wrap_content"
+	      android:layout_height="wrap_content"
+	      android:layout_marginLeft="15dp"
+	       android:textSize="@dimen/fontsize16"
+	      android:textColor="#DB7093"
+	      android:text="25"/>
+          
+    </LinearLayout>
+     <LinearLayout
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:orientation="horizontal" 
+			    android:layout_marginTop="10dp"
+			    android:gravity="left|center_vertical"
+			    >
+			     <TextView 
+			          android:textSize="@dimen/fontsize14"
+				      android:id="@id/txt004_item_timeline"
+				      android:layout_width="140dp"
+				      android:layout_height="wrap_content"
+				      android:layout_marginLeft="10dp"
+				     
+				     android:singleLine="true"
+				      android:ellipsize="end"
+				      android:text="aaa1111111111111111112222222"/>
+			     <TextView 
+				      android:id="@id/txt005_item_timeline"
+				      android:layout_width="wrap_content"
+				      android:layout_height="wrap_content"
+				       android:textSize="@dimen/fontsize14"
+				      android:layout_marginLeft="22dp"
+				      android:ellipsize="end"
+				      android:maxEms="4"
+				      android:text="aaa"/>
+			     <LinearLayout
+			         android:layout_width="match_parent"
+			         android:layout_height="wrap_content"
+			         android:gravity="right" >
+			     
+			     <TextView 
+				      android:id="@id/txt003_item_timeline"
+				      android:layout_width="wrap_content"
+				      android:layout_height="wrap_content"
+				      android:layout_marginRight="10dp"
+				      android:paddingLeft="10dp"
+				      android:paddingRight="10dp"
+				       android:textSize="@dimen/fontsize14"
+				      android:textColor="@color/white"
+				      android:text="aaa"/>
+			     </LinearLayout>
+	      </LinearLayout>
+	       <LinearLayout
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:orientation="horizontal" 
+			    android:layout_marginTop="10dp"
+			    android:gravity="left|center_vertical"
+			    >
+			     <TextView 
+				      android:id="@+id/txt004_item_gotime"
+				      android:layout_width="wrap_content"
+				      android:layout_height="wrap_content"
+				       android:textSize="@dimen/fontsize13"
+				       android:layout_marginLeft="10dp"
+				      android:text="weaa"/>
+			   
+	      </LinearLayout>
+	      <View 
+	            android:layout_width="match_parent"
+			    android:layout_height="2dp"
+			    android:layout_marginLeft="12dp"
+			    android:layout_marginRight="12dp"
+			    android:background="@color/gray2"/>
+    
+
+</LinearLayout>

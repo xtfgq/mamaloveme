@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#EDEDED" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <ImageView
+            style="@style/global_wwhw"
+            android:layout_width="25dip"
+            android:src="@drawable/icon_lock" />
+
+        <EditText
+            android:id="@id/newpass_titke_bar18"
+            style="@style/global_wwwww"
+            android:layout_marginLeft="5dp"
+            android:background="@color/white"
+            android:maxLength="20"
+            android:textSize="15sp"
+            android:password="true"
+            android:hint="新密码(必须是数字和字母的组合且不能少于6位)" />
+    </LinearLayout>
+
+</LinearLayout>

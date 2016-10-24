@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white" >
+     <ImageView 
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="#EDEDED"
+    />   <LinearLayout 
+    android:layout_width="match_parent"
+     android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+    android:layout_height="50dip"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    >
+    <ImageView
+       style="@style/global_wwhw"
+          android:layout_width="25dip"
+       android:src="@drawable/icon_fm"
+        />
+<!--     <EditText  -->
+<!--         android:layout_marginLeft="5dip" -->
+<!--         android:id="@id/gender_title_bar12" -->
+<!--         style="@style/global_wwwww" -->
+<!--         android:textSize="15sp" -->
+<!--         android:background="@color/white" -->
+<!--         android:hint="@string/reg_xingbie" -->
+<!--         />  -->
+
+<RadioGroup android:id="@+id/radioGroup" android:orientation="horizontal" android:contentDescription="性别" android:layout_width="wrap_content" android:layout_height="wrap_content">
+     <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/radioMale" android:text="男" ></RadioButton>
+     <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/radioFemale" android:text="女" android:checked="true"></RadioButton>    
+</RadioGroup>
+
+</LinearLayout>
+</LinearLayout>

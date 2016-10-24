@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    android:background="@color/white">
+
+    <!-- <include layout="@layout/title_bar"/> -->
+
+
+
+
+
+
+
+            <ImageView
+                android:layout_width="175dp"
+                android:layout_height="175dp"
+                android:layout_marginTop="50dp"
+
+
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/userfoot" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#666666"
+                android:textSize="18sp"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal"
+                android:text="产检时间轴"/>
+            <View
+                android:layout_width="126dp"
+                android:layout_height="1dp"
+                android:background="#a9a9a9"
+                android:layout_marginTop="8dp"
+
+                android:layout_gravity="center_horizontal"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#a9a9a9"
+                android:textSize="12sp"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center_horizontal"
+                android:text="平台预约，自动生成时间轴"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#a9a9a9"
+                android:textSize="12sp"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center_horizontal"
+                android:text="添加产检信息，完善时间轴"/>
+
+            <Button
+                android:id="@id/btn_my_check"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="30dp"
+                android:background="@null"
+                android:textColor="#666666"
+                android:text="宝妈暂没有足迹哦！开始创建吧！"
+                android:textSize="18sp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+

@@ -1,0 +1,1029 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android_custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <!-- <include layout="@layout/title_bar"/> -->
+
+    <com.netlab.loveofmum.widget.XScrollView.RefreshLayout
+        android:id="@+id/refreshindex"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <include layout="@layout/refresh_head" />
+
+        <com.netlab.loveofmum.widget.UpScrollViewExtend
+            android:id="@id/sv_index"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/homeback"
+                android:orientation="vertical">
+
+
+
+
+
+                    <!--  <com.netlab.loveofmum.widget.MyViewPager
+                          android:id="@+id/ad_child"
+
+                          android:layout_marginLeft="15dp"
+                          android:layout_width="120dp"
+                          android:layout_height="120dp"
+                          android:layout_marginTop="50dp"
+                          android:layout_alignParentLeft="true"
+                           />-->
+                <RelativeLayout
+                    android:id="@+id/rltt"
+                    android:background="#fea1bf"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp">
+                    <LinearLayout
+                        android:id="@+id/llchildleft"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_alignParentLeft="true"
+                        android:paddingLeft="14dp"
+                        android:layout_centerVertical="true"
+                        android:paddingRight="24dp"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="8dp"
+                            android:layout_height="14dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/icon_left" />
+                        <TextView
+                            android:id="@+id/tvyesterday"
+                            android:layout_marginLeft="15dp"
+                            android:layout_width="56dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:textSize="11sp"
+                            android:text="10月15日"/>
+                    </LinearLayout>
+
+
+
+
+
+
+                    <TextView
+                        android:id="@+id/tvcenter"
+
+
+                        android:layout_gravity="center"
+                        android:layout_width="106dp"
+                        android:layout_height="wrap_content"
+
+                        android:layout_centerInParent="true"
+
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:gravity="center"
+                        android:text="8月2日"
+                        android:textColor="@color/white"
+                        android:background="@drawable/btn_date"
+                        android:textSize="18sp" />
+
+
+
+                    <LinearLayout
+                        android:id="@+id/llchildright"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:orientation="horizontal"
+                        android:paddingLeft="24dp"
+                        android:paddingRight="14dp">
+                        <TextView
+                            android:id="@+id/tvnext"
+
+                            android:layout_width="56dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:textSize="11sp"
+                            android:text="10月15日"/>
+
+                        <ImageView
+                            android:layout_marginLeft="15dp"
+
+                            android:layout_width="8dp"
+                            android:layout_height="14dp"
+
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/icon_right" />
+
+                    </LinearLayout>
+
+
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/rl_top"
+                    android:layout_width="fill_parent"
+                    android:layout_height="185dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_homeheader"
+                    >
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <com.netlab.loveofmum.utils.DetialGallery
+                        android:layout_marginTop="-35dp"
+                        android:id="@+id/lltopview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        />
+                    <ImageView
+                        android:layout_width="38dp"
+                        android:layout_height="46dp"
+                        android:layout_marginTop="120dp"
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/tvsign"
+                        android:onClick="goSingn"
+                        android:background="@drawable/icon_wqd_singn"/>
+                        <ImageView
+                            android:id="@+id/tvgotaday"
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:layout_marginLeft="15dp"
+                            android:onClick="goSingn"
+                            android:layout_marginTop="7dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentTop="true"
+                            android:background="@drawable/icon_jin"/>
+                </RelativeLayout>
+
+
+
+                  <!--  <TextView
+
+                        android:id="@id/txt_index_001"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:text="11223233"
+                        android:textSize="@dimen/fontsize14" />-->
+
+
+                    <LinearLayout
+                        android:id="@+id/llindex"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="65dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/bg_tip"
+                            >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginTop="7dp"
+
+                                android:text=""
+                                android:textColor="#666666"
+                                android:textSize="@dimen/fontsize14" />
+
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/img_index_content"
+                        android:layout_width="62dp"
+                        android:layout_height="65dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="120dp"
+                        android:background="@drawable/btn_toggle"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tvchildprogress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="35dp"
+
+                        android:text=""
+                        android:textColor="#5f5f5f"
+                        android:textSize="14sp"
+                        android:visibility="gone" />
+
+                 <!--   <RelativeLayout
+                        android:id="@+id/rlcontent"
+                        android:layout_width="fill_parent"
+                        android:layout_height="80dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/white">-->
+
+
+                    <!--</RelativeLayout>-->
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="#fd83aa"
+
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/tv_length"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginTop="7dp"
+                            android:text="宝宝身长"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"/>
+                        <TextView
+                            android:id="@+id/tvlength"
+                            android:layout_width="match_parent"
+                            android:gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="16sp"/>
+
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="0.5dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@color/white" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_record_file"
+                        android:layout_width="0dp"
+                        android:clickable="true"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_marginTop="7dp"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+
+                            android:text="距离预产期"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"/>
+                        <TextView
+                            android:id="@+id/tv_day"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="16sp"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0.5dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/white" />
+
+                    <LinearLayout
+                        android:clickable="true"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_marginTop="7dp"
+                            android:id="@+id/tv_weight"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="宝宝体重"
+                            android:gravity="center"
+
+                            android:textColor="@color/white"
+                            android:textSize="12sp"/>
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:id="@+id/tvweight"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_centerHorizontal="true"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="16sp"/>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/txt_index_content"
+                    android:background="#fd83aa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:lineSpacingExtra="6dp"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"
+                    android:text=""
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="#cac8c6"/>
+
+                <com.netlab.loveofmum.widget.ImageCycleView
+                    android:id="@+id/ad_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="10dp"
+                    android:background="#fbfbfb"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_height="42dp">
+
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/icon_yuyue" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="@string/selecthos"
+                            android:textColor="#62d7cb"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/tv_viewhos"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:text="@string/selecthostips"
+                            android:visibility="gone"
+                            android:paddingLeft="20dp"
+                            android:textColor="@color/pinktips"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@drawable/dottedline" />
+
+
+
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:id="@+id/llhos"
+                        android:layout_width="fill_parent"
+                        android:layout_height="140dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/ivleft"
+                            android:layout_width="wrap_content"
+                            android:layout_height="13dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1.0"
+                            android:background="@drawable/chosehos_arrowleft" />
+
+                        <com.netlab.loveofmum.widget.MyViewPager
+                            android:id="@+id/ad_hospital"
+                            android:layout_width="wrap_content"
+                            android:layout_height="140dp"
+                            android:layout_weight="8.0" />
+
+                        <ImageView
+                            android:id="@+id/ivright"
+                            android:layout_width="wrap_content"
+                            android:layout_height="13dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1.0"
+                            android:background="@drawable/chosehos_arrowright" />
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rlchktime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:id="@+id/linear001_index"
+                            android:layout_width="fill_parent"
+                            android:layout_height="60dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/yuyuebtn"
+                                android:layout_weight="8"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:background="#f16893"
+                                android:gravity="center"
+                                android:textColor="@color/white"
+                                android:textSize="16sp"
+                                android:layout_gravity="center_vertical"
+                                android:text="快速预约"/>
+                            <TextView
+                                android:id="@+id/yuyuelabel"
+                                android:layout_weight="25"
+                                android:layout_height="match_parent"
+                                android:layout_width="0dp"
+                                android:layout_marginRight="7dp"
+                                android:padding="8dp"
+                                android:gravity="center_vertical"
+                                android:text="您马上就该进行（20-25）产检了，在这里快快体验我们的产检预约服务吧，不排队的轻松产检。"
+                                android:textColor="#313131"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+
+
+                    </RelativeLayout>
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/index_gray" />
+                    <LinearLayout
+                        android:id="@+id/chk_time"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/rlchktiem"
+                            android:layout_width="fill_parent"
+                            android:layout_height="55dp">
+                            <TextView
+                                android:id="@+id/tvyuyue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="孕期产检时间表"
+                                android:textColor="#313131"
+                               android:layout_centerVertical="true"
+                                android:layout_marginLeft="25dp"
+
+                                android:textSize="14sp"
+                                android:gravity="center_vertical"
+                                android:layout_alignParentLeft="true"
+
+                                android:visibility="gone"
+
+
+
+                                />
+                         <!--   <TextView
+                                android:id="@+id/tvyuyue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="25dp"
+                                android:text="孕期产检时间表"
+                                android:gravity="center_vertical"
+
+                                android:layout_centerVertical="true"
+                                android:textColor="#313131"
+                                android:textSize="14sp"
+                              />-->
+                            <LinearLayout
+                                android:id="@+id/lltime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:orientation="vertical"
+                                android:visibility="gone">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="25dp"
+                                android:text="孕期产检时间表"
+                                android:textColor="#313131"
+                                android:textSize="14sp" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="25dp"
+                                    android:layout_marginTop="3dp"
+                                    android:text="NT/B超/四维彩超/ 快速预约"
+                                    android:textColor="#a9a9a9"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+                            <TextView
+                                android:id="@+id/tvchao"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:textColor="#fd83aa"
+                                android:textSize="12sp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="24dp"
+
+
+                                />
+
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+
+                                android:layout_marginRight="7dp"
+                               android:layout_centerVertical="true"
+                                android:background="@drawable/icon_jt" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/iv_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical"
+
+
+                    >
+
+
+                    <TextView
+                        android:id="@+id/tvkey"
+                        android:layout_width="wrap_content"
+                        android:layout_height="51dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/btn_nbnc"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="15dp"
+                        android:textColor="#AAAAAA"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="12dp"
+                    android:background="#fbfbfb"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="45dp">
+
+                        <ImageView
+                            android:id="@+id/ivysq"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/icon_ysq" />
+
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_centerVertical="true"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginLeft="3dp"
+                            android:layout_marginTop="8dp"
+
+                            android:layout_toRightOf="@+id/ivysq"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="8dp"
+
+                            android:text="@string/sq"
+                            android:textColor="#13baa8"
+                            android:textSize="18sp" />
+                        <LinearLayout
+                            android:id="@+id/imgmore_more"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="7dp"
+                            android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="更多"
+                            android:textColor="#fd83aa"
+                            android:layout_marginRight="7dp"
+                            android:layout_gravity="center"
+                            android:textSize="12sp"
+                            />
+
+
+
+
+                        <ImageView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/icon_jt" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@drawable/dottedline" />
+
+
+                    <com.netlab.loveofmum.widget.ImageCycleView
+                        android:id="@+id/ad_ysq"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        />
+                    <com.netlab.loveofmum.widget.ListViewForScrollView
+                        android:id="@+id/listview_indexsq"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:cacheColorHint="#00000000"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginRight="14dp"
+                        android:divider="#efefef"
+                        android:dividerHeight="1px"
+                        android:fadingEdge="none" />
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="12dp"
+                    android:background="#fbfbfb"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        style="@style/paddingstyle"
+                        android:layout_width="fill_parent"
+                        android:layout_height="45dip"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="12dp"
+                            android:layout_height="15dp"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginLeft="5.0dip"
+                            android:layout_marginTop="8dp"
+                            android:src="@drawable/icon_yqtx" />
+                        <!--周推荐模块-->
+                        <TextView
+                            android:id="@id/txtmore_index"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10.0dip"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:textColor="#13baa8"
+                            android:textSize="18sp" />
+
+                        <LinearLayout
+                            android:id="@+id/imgmore_index"
+                            style="@style/paddingstyle2"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:gravity="right">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="更多"
+                                android:textColor="#fd83aa"
+                                android:layout_marginRight="7dp"
+                                android:layout_gravity="center"
+                                android:textSize="12sp"
+                                />
+
+
+
+
+                            <ImageView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@drawable/icon_jt" />
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@drawable/dottedline" />
+
+
+
+                    <com.netlab.loveofmum.widget.ListViewForScrollView
+                        android:id="@id/listview_index002"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:cacheColorHint="#00000000"
+                        android:fadingEdge="none" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_jk"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:layout_marginLeft="5.0dip"
+                            android:src="@drawable/icon_jk" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10.0dip"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text="孕健康"
+                            android:textColor="@color/yunshequ"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="5dp"
+                        android:background="@drawable/pic_yjk_line" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:id="@+id/btn_container_weight"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bgpic_weight">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="5dp"
+                                android:text="体重"
+                                android:textColor="@color/yunjk"
+                                android:textSize="12sp" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginLeft="5dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="65"
+                                    android:textColor="@color/yunjk"
+                                    android:textSize="14sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="kg"
+                                    android:textColor="@color/yunjkcolor"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/btn_container_xueya"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bgpic_xueya">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="5dp"
+                                android:text="血压"
+                                android:textColor="@color/yunjk"
+                                android:textSize="12sp" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginLeft="5dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="120"
+                                    android:textColor="@color/yunjk"
+                                    android:textSize="14sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="/80"
+                                    android:textColor="@color/yunjkcolor"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/btn_container_taixin"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bgpic_taixin">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="5dp"
+                                android:text="胎心"
+                                android:textColor="@color/yunjk"
+                                android:textSize="12sp" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginLeft="5dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="140"
+                                    android:textColor="@color/yunjk"
+                                    android:textSize="14sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="/min"
+                                    android:textColor="@color/yunjkcolor"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/btn_container_tiwen"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bgpic_tiwen">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="5dp"
+                                android:text="体温"
+                                android:textColor="@color/yunjk"
+                                android:textSize="12sp" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginLeft="5dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="36"
+                                    android:textColor="@color/yunjk"
+                                    android:textSize="14sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="℃"
+
+                                    android:textColor="@color/yunjkcolor"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </com.netlab.loveofmum.widget.UpScrollViewExtend>
+
+    </com.netlab.loveofmum.widget.XScrollView.RefreshLayout>
+</LinearLayout>

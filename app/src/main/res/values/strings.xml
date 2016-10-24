@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="degrees">
+        <item>请选择医院</item>
+        <item>一附院</item>
+        <item>三附院</item>
+
+    </string-array>
+
+    <string name="dialog_msg">确认要退出吗?</string>
+    <string name="dialog_exit">退出</string>
+    <string name="dialog_back">确认</string>
+    <string name="msgUninternet">数据获取失败，请检查网络</string>
+    <string name="app_name">妈妈爱我孕期</string>
+    <string name="strnull"></string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello">个推开放平台Sdk演示程序</string>
+    <string name="up">绑定sdk</string>
+    <string name="down">解绑sdk</string>
+    <string name="no_clientid">(none)</string>
+    <string name="start">启动</string>
+    <string name="stop">停止</string>
+    <string name="clear">清除日志</string>
+    <string name="enablelog">开启debug日志</string>
+    <string name="bindcell">绑定手机号</string>
+    <string name="pmsg">透传测试</string>
+    <string name="psmsg">通知栏测试</string>
+    <string name="begin">开始(h)</string>
+    <string name="end">结束</string>
+    <string name="duration">持续时间(h)</string>
+    <string name="set_heartbeat">心跳间隔(s)</string>
+    <string name="send_msg">发送消息</string>
+    <string name="bind_alias">绑定别名</string>
+    <string name="unbind_alias">解除别名绑定</string>
+
+    <string name="year">年</string>
+    <string name="month">月</string>
+    <string name="day">日</string>
+    <string name="hour">時</string>
+    <string name="minitue">分</string>
+
+    <string name="plusone">+1 minute</string>
+    <string name="init">初期化</string>
+    <string name="str_time_set">设置预产期</string>
+    <string name="str_time_yuejing_set">计算预产期</string>
+    <!--设置预产期页面-->
+    <string name="txttimeset">确定</string>
+    <string name="btnOK">确定</string>
+
+    <string name="topictitle">请填写评论/回复内容</string>
+    <string name="btnCancel">取消</string>
+
+    <!--layout_pia-->
+    <string name="str_hospital">医院</string>
+    <string name="str_docname">医生</string>
+    <string name="str_time">门诊时间</string>
+    <string name="str_chkfee">预约项目费用</string>
+    <string name="str_guafee">挂号费</string>
+    <string name="str_btn_sure">门诊预约挂号</string>
+
+    <!--layout_ordersure_chk-->
+    <string name="str_sure_chktime">产检时间</string>
+    <string name="str_sure_items">可预约项</string>
+    <string name="str_sure_itemfee">检查费</string>
+    <string name="str_sure_btnsure">确定</string>
+    <string name="str_sure_btnsure2">不需要</string>
+
+    <!--layout_order_detail-->
+    <string name="str_orderwenxin">温馨提示：</string>
+    <string name="str_yuyuesuccess">订单已经乘着小火箭向医院飞奔去，请您耐心等待医院处理结果!</string>
+    <string name="str_orderchktype">产检项目：</string>
+    <string name="str_orderhos">预约医院</string>
+    <string name="str_orderdoc">预约医生</string>
+    <string name="str_ordertime">预约时间</string>
+    <string name="str_ordercardno">就诊卡号</string>
+    <string name="str_ordertaocan">套餐</string>
+    <string name="str_orderzhuyi">产检注意事项</string>
+    <string name="str_chanjianxiangmu">产检项目</string>
+    <string name="str_chanjianshijian">产检时间</string>
+
+    <!--layout_news_detail-->
+    <string name="str_news_detail001">孕期知识</string>
+    <string name="str_news_detail002">更多</string>
+    <string name="str_news_detail003">大家都来交流交流</string>
+    <!--layout_login-->
+    <string name="str_quxiao">取消</string>
+    <string name="str_denglu">登     录</string>
+    <string name="str_genggai">更改</string>
+    <string name="str_tishi1">请输入手机号(必填)</string>
+    <string name="str_tishi2">请输入密码</string>
+    <string name="str_tishi3">密码不能少于6位(必填)</string>
+    <string name="str_tishiyaoqing">邀请码</string>
+    <string name="str_zhaohiu">忘记密码</string>
+    <string name="str_zhuce">新用户注册</string>
+    <string name="str_age">请输入年龄</string>
+
+    <!--layout_register-->
+    <string name="reg_quxiao">取消</string>
+    <string name="reg_zhuce">注册</string>
+    <string name="reg_yanzheng">短信验证码(必填)</string>
+    <string name="reg_shuruyanzheng">获取验证码</string>
+    <string name="reg_xingming">姓名</string>
+    <string name="reg_xingmingsubject">请填写真实姓名，否则无法取号</string>
+    <string name="reg_shenfenzheng">身份证号</string>
+    <string name="reg_xingbie">性别</string>
+    <string name="reg_age">年龄</string>
+    <string name="reg_beijing">郑州</string>
+    <string name="reg_gengmi">密码更改</string>
+    <string name="reg_querengenggai">确认更改</string>
+    <string name="reg_xiayibu">下一步</string>
+    <!--title_bar21-->
+    <string name="tit_wo">我</string>
+    <!--title_bar23-->
+    <string name="tit_riqi">预产期：2015.10.25</string>
+    <string name="tit_chanjianriqi">妈妈足迹</string>
+    <string name="titl_myorder">产检预约订单</string>
+    <string name="titl_privatedocor">我的咨询</string>
+    <string name="titl_jifen">积分商城</string>
+    <string name="titl_temai">妈咪特卖</string>
+    <string name="titl_mytiezi">我的帖子</string>
+    <string name="titl_myzixun">我的咨询</string>
+    <string name="titl_helper">帮助中心</string>
+    <string name="tit_gerenzixunka">个人咨询记录</string>
+    <string name="titl_share">分享给好友</string>
+
+
+    <string name="str001_userinfochange">恭喜您，信息修改成功！</string>
+    <string name="str002_userinfochange">信息修改失败，请重试！</string>
+    <string name="str003_userinfochange">真实姓名不能为空！</string>
+    <string name="str004_userinfochange">身份证号不能为空！</string>
+
+    <string name="str005_userinfochange">昵称不能为空！</string>
+    <string name="str006_userinfochange">年龄不能为空！</string>
+
+    <string name="str007_userinfochange">真实姓名请输入全汉字或全字母,且长度大于1！</string>
+
+    <string name="str000_findpass">手机号码不能为空！</string>
+    <string name="str001_findpass">请输入正确的手机号码！</string>
+    <string name="str002_findpass">验证码输入错误或者手机号不匹配！</string>
+    <string name="str003_findpass">请输入验证码！</string>
+    <string name="str001_findpass2">新密码不能为空！</string>
+    <string name="str002_findpass2">确认密码不能为空！</string>
+    <string name="str003_findpass2">两次密码输入不一致！</string>
+    <string name="str004_findpass2">密码长度不符合条件，应大于等于6位，小于等于20位！</string>
+    <string name="str005_findpass2">信息提示！</string>
+    <string name="str006_findpass2">密码修改成功，请重新登录！</string>
+    <string name="str007_findpass2">密码修改失败，请重试！</string>
+
+    <string name="str001_authchange">旧密码不能为空！</string>
+    <string name="str002_authchange">新密码不能为空！</string>
+    <string name="str003_authchange">两次新密码输入不一致！</string>
+    <string name="str004_authchange">密码长度不符合条件，应大于等于6位，小于等于20位！</string>
+    <string name="str005_authchange">信息提示！</string>
+    <string name="str006_authchange">恭喜你，密码修改成功！</string>
+    <string name="str007_authchange">密码修改失败，请重试！</string>
+    <string name="str008_authchange">为了安全起见，请设置不同于旧密码的新密码！</string>
+
+
+    <string name="str001_register">请输入手机号！</string>
+    <string name="str002_register">请输入密码！</string>
+    <string name="str003_register">密码长度不符合条件，应大于等于6位，小于等于20位！</string>
+    <string name="str005_register">信息提示！</string>
+    <string name="str006_register">恭喜你，注册成功！</string>
+    <string name="str007_register">身份证号码格式有误，请输入正确的身份证号！</string>
+    <string name="str008_register">请输入合理的年龄！</string>
+
+    <string name="tit_wodejiuzhenka">我的就诊卡</string>
+    <!--   帮助中心-->
+    <string name="tit_newversion">版本更新</string>
+    <string name="tit_introduce">关于我们</string>
+    <string name="tit_info">挂号须知</string>
+    <string name="tit_rule">社区规则</string>
+    <string name="tit_handle">使用手册</string>
+    <string name="tit_feedback">反馈</string>
+    <string name="tit_phone">拨打热线</string>
+    <!--weekly-->
+
+    <string name="weekly">15-18周产检</string>
+    <string name="chanjianxiangmu">产检项目</string>
+    <string name="yiyuan">医院</string>
+    <string name="yisheng">医生</string>
+    <string name="chanjianshijian">产检时间</string>
+    <string name="jianchadan">检查单</string>
+    <string name="str001_login">请输入登录账号！</string>
+    <string name="str002_login">请输入登录密码！</string>
+
+    <string name="str001_mychk_orderadd">请选择产检时间！</string>
+    <string name="str002_mychk_orderadd">请上传检查单！</string>
+    <string name="str003_mychk_orderadd">请妈妈填写想说的话！</string>
+    <string name="zhuangtai">状态</string>
+    <!--weekly_physical_results-->
+    <string name="huanyizu_weekly_physical">换一组>></string>
+    <string name="jianchafei_weekly_physical">检查费</string>
+    <string name="baocun_weekly_physical">保存</string>
+    <!--mediccal_consultation-->
+    <string name="mingyizixun_medical_consultation">名医咨询</string>
+    <string name="chazhao_medical_consultation">按医院查找</string>
+    <!--my_check-->
+    <string name="wodechanjian_my_check">我的产检</string>
+    <string name="chuangjian_my_check">暂无您的足迹，试试创建</string>
+    <string name="shijianzhou_my_check">产品时间轴</string>
+    <string name="zidongshengcheng_my_check">平台预约，自动生成时间轴</string>
+    <string name="tianjia_my_check">添加产检信息，完成时间轴</string>
+    <!--the_first_page_of_medical_consultation-->
+    <string name="zhifu_the_first_page_of_medical_consultation">支付</string>
+    <string name="gongzuoshijian_the_first_page_of_medical_consultation">为了更加专心为您服务，该专家的咨询时间为20:00-22:00</string>
+    <string name="yuefu_the_first_page_of_medical_consultation">300元/月</string>
+    <string name="rifu_the_first_page_of_medical_consultation">30元/次</string>
+    <string name="tuijian_the_first_page_of_medical_consultation">推荐:</string>
+    <!--the_second_page_of_medical_consultation-->
+    <string name="zixunxiangqing_the_second_page_of_medical_consultation">咨询详情</string>
+    <string name="wangxiaoxue_the_second_page_of_medical_consultation">王晓雪</string>
+    <string name="zhunren_the_second_page_of_medical_consultation">主任医师，教授</string>
+
+    <string name="topic_msg">请填写评论或回复内容！</string>
+    <string name="doc_desc">为了更加专心为您服务,请详细说明您要咨询的问题，可以以图片的形式发送检查报告。如果咨询结束，请点击"&lt;"结束本次咨询。</string>
+
+    <string name="chkdetail_msg">本次产检可以直接预约医生门诊， 可预约项可以直接在网上预约！</string>
+    <string name="chkdetail_title">因预约医院门诊量大，请根据预约时间尽早到医院分诊台就诊</string>
+    <string name="pay_result_callback_msg" formatted="false">微信支付结果：%s</string>
+    <string name="pay_result_tip">这个界面用于显示第三方app通过微信支付的结果</string>
+    <string name="app_tip">提示</string>
+    <string name="login_msg">如果您已经是名医网用户，无需注册，可以直接登录名医网账号。</string>
+    <string name="selecthos">产检预约</string>
+    <string name="selecthostips">选择您的产检医院，轻松产检不排队！</string>
+    <string name="sq">孕社区</string>
+    <string name="sq_youmeng1">我的圈子</string>
+    <string name="sq_youmeng2">同龄圈</string>
+    <string name="sq_youmeng3">同医院圈</string>
+    <string name="sq_youmeng4">感情圈</string>
+    <string name="newversionmsg">1.更新了产检预约流程，预约挂号和产检预约分开\n2.更新了产检预约流程的界面展示，提示更加人性化\n3.个人中心增加了拨打客服电话的功能\n4.增加了自定义宝妈头像的功能</string>
+
+    <string name="xlistview_header_hint_normal">下拉刷新</string>
+    <string name="xlistview_header_hint_ready">松开刷新数据</string>
+    <string name="xlistview_header_hint_loading">正在加载...</string>
+    <string name="xlistview_header_last_time">上次更新时间：</string>
+    <string name="xlistview_footer_hint_normal">查看更多</string>
+    <string name="xlistview_footer_hint_ready">松开载入更多</string>
+
+    <string name="head_tips_text">释放刷新</string>
+    <string name="lash_updated_text">更新完成</string>
+    <string name="titl_pinglunnume">暂无回复</string>
+    <string name="sourceSuccess">添加评论成功，恭喜您获得10积分奖励</string>
+    <string name="refresh_down_text">下拉可刷新</string>
+    <string name="refresh_release_text">松开可刷新</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

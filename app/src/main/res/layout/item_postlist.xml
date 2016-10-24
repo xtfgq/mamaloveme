@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/chklist_item_layout" android:background="@color/timesetcolor002" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+  	 <RelativeLayout android:layout_width="fill_parent" android:layout_height="65dip"  android:gravity="left" style = "@style/paddingstyle">
+	     <com.netlab.loveofmum.widget.CircularImage
+	        android:id="@id/img000_item_chkdetail_list"
+	        android:layout_width="50.0dip"
+	        android:layout_height="50.0dip"
+	        android:contentDescription="@null"
+	        android:layout_centerVertical="true"
+	        android:src="@drawable/icon_user_normal" />
+    	<LinearLayout android:layout_width="wrap_content" android:layout_toRightOf="@id/img000_item_chkdetail_list" android:layout_height="65dip" android:orientation="vertical" android:layout_marginLeft="5dip" android:gravity="center_vertical">
+		     <TextView
+                android:id="@id/item_postlist_txt001"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"                
+                android:textSize="14sp"
+                android:text="brant" />
+		      <TextView
+                android:id="@id/item_postlist_txt002"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffa1a1a1"
+                android:textSize="14sp"
+                android:text="怀孕20周" />
+		      <TextView
+                android:id="@+id/item_chkdetail_list_txt007"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffa1a1a1"
+                android:textSize="12sp"
+                android:text="2015-05-05 12:00" />
+       </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:background="@drawable/bg_talk" style = "@style/marginstyle">
+       <TextView android:textSize="16.0dip"  android:textColor="#ff5e5e5e" android:layout_gravity="center_vertical" android:id="@id/item_postlist_txt003" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip"  android:layout_weight="3.0"  />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dip"
+        android:background="@drawable/bg_header" >
+		<com.netlab.loveofmum.widget.CircularImage
+				        android:id="@+id/cover_user_photo"
+				        android:layout_above="@id/txtHead"
+				        android:layout_width="70.0dip"
+				     android:layout_alignParentLeft="true"
+				     android:layout_marginLeft="15dp"
+				        android:layout_height="70.0dip"
+				        android:layout_centerHorizontal="true"
+				       
+				        />  
+		<com.netlab.loveofmum.widget.CircularImage
+				        android:id="@+id/cover_unloaduser_photo"
+				        android:layout_above="@id/txtHead"
+				        android:layout_width="70.0dip"
+				    android:background="@drawable/icon_user_normal"
+				  android:layout_marginTop="10dp"
+				        android:layout_height="70.0dip"
+				        android:layout_centerHorizontal="true"
+				      
+				        />  
+<LinearLayout 
+    android:id="@+id/userinfochange"
+     android:layout_width="wrap_content"
+     android:layout_height="fill_parent"
+     android:orientation="vertical"
+     android:layout_toLeftOf="@+id/imv02_title_bar21"
+     android:layout_marginRight="5dp"
+   >
+     
+    <TextView
+         
+    		android:id="@+id/yuchantime"
+    		android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+         
+            android:textStyle="bold" />
+    <TextView
+            android:layout_marginTop="10dp"
+          android:id="@+id/txtinfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+   
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+    
+    </LinearLayout> 
+
+<ImageView
+    android:id="@id/imv02_title_bar21"
+    style="@style/global_wwhw"
+    android:layout_alignParentRight="true"
+    android:layout_below="@+id/textView1"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="30dp"
+    android:background="@drawable/pic_user_you_white" />
+<TextView
+    		android:id="@+id/txt001_nickname"
+            android:layout_width="70dp"
+	android:layout_marginTop="5dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+
+	android:layout_alignLeft="@+id/cover_user_photo"
+	android:layout_marginLeft="15dp"
+            android:layout_centerHorizontal="true"
+	android:gravity="center"
+            android:layout_below="@id/cover_user_photo"
+            android:maxEms="7"
+            android:singleLine="true"
+            android:ellipsize="end" 
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+</LinearLayout>

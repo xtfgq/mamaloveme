@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+	android:orientation="vertical"
+	
+    >
+
+    <RelativeLayout 
+     android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+
+
+    >
+<ImageView
+    android:layout_marginTop="12dp"
+    android:id="@+id/iv_icon"
+     android:background="@drawable/iconwdddlistimg"
+    android:scaleType="center"
+    android:layout_marginLeft="10dp"
+     android:layout_width="14dp"
+    android:layout_height="14dp"/>
+     <TextView
+      android:layout_marginTop="10dp"
+       android:layout_toRightOf="@+id/iv_icon"
+       android:id="@id/txt_item_chkdetail"
+       android:layout_marginLeft="10dp"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:textColor="@color/yunjk"
+
+
+       android:singleLine="true"
+
+       android:textSize="@dimen/fontsize14"
+      
+    />
+     <ImageView
+         android:id="@+id/ivkyy"
+         android:background="@drawable/icon_kyy"
+         android:layout_alignParentTop="true"
+         android:layout_alignParentRight="true"
+         android:layout_width="35dp"
+         android:layout_marginRight="12dp"
+         android:visibility="gone"
+          android:layout_height="26dp"/>
+    </RelativeLayout>
+
+
+<TextView 
+     android:layout_marginLeft="35dp"
+    android:layout_marginRight="10dp"
+    android:id="@+id/txt_item_chkcontent"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+   android:singleLine="true"
+    android:ellipsize="end"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    
+    android:textSize="@dimen/fontsize14"
+    android:textColor="#666666"
+
+    />
+ <View
+     android:layout_width="match_parent"
+     android:background="#efefef"
+     android:layout_marginLeft="12dp"
+     android:layout_marginRight="12dp"
+     android:layout_height="1dp"/>
+</LinearLayout>

@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="category" />
+    <item type="id" name="group" />
+    
+    <item type="id" name="header" />
+    <item type="id" name="content" />
+    <item type="id" name="footer" />
+    <item type="id" name="btnOK" />
+    <item type="id" name="date_set" />
+    <item type="id" name="img_logo" />
+    <item type="id" name="datepicker" />
+    <item type="id" name="linear_welcome">false</item>
+    
+    <!-- titlebar -->   
+    <item type="id" name="txtHead">false</item> 
+    <item type="id" name="img_right">false</item> 
+	<!-- maintabs -->
+    <item type="id" name="main_radio">false</item>
+    <item type="id" name="radio_button0">false</item>
+    <item type="id" name="radio_button1">false</item>
+    <item type="id" name="radio_button2">false</item>
+    
+    <!-- index -->
+    <item type="id" name="listview_index001">false</item>
+    <item type="id" name="listview_index002">false</item>
+    <item type="id" name="txt_index_001">false</item>
+    <item type="id" name="img_index_001">false</item>
+    <item type="id" name="roundProgressBar">false</item>   
+	<item type="id" name="tab_index_view001">false</item>
+	<item type="id" name="tab_index_view002">false</item>
+	<item type="id" name="tab_index_view003">false</item>
+	<item type="id" name="txtnewstitle">false</item>
+	<item type="id" name="sv_index">false</item>
+	<item type="id" name="txt_index_002">false</item>
+	<item type="id" name="txt_index_003">false</item>
+	<item type="id" name="txt_index_004">false</item>
+	<item type="id" name="txt_index_005">false</item>
+	<item type="id" name="txt_index_006">false</item>
+	<item type="id" name="txt_index_007">false</item>
+	<item type="id" name="txt_index_008">false</item>	
+	<item type="id" name="txtmore_index">false</item>
+	<item type="id" name="imgmore_index">false</item>
+
+    <!-- layout_chk -->
+    <item name="listview_chk" type="id">false</item>
+    <item name="img_left" type="id">false</item>
+    <item name="txt001" type="id">false</item>
+    <item name="txt002" type="id">false</item>
+    <!-- layout_chk_item -->
+    <item name="chklist_item_layout" type="id">false</item>
+    <item name="chklist_item_img002" type="id">false</item>
+    <item name="chktime_name" type="id">false</item>
+    <item name="cover_photo" type="id">false</item>
+    <item name="chklist_item_img001" type="id">false</item>
+
+    <!-- layout_chkdetail -->
+    <item name="grid_chkdetail" type="id">false</item>
+    <item name="listview_chkdetail" type="id">false</item>
+    <item name="txt_chkdetail_001" type="id">false</item>
+    <item name="txt_chkdetail_002" type="id">false</item>
+    <item name="btnYuyue" type="id">false</item>
+    <item name="btnXingxi" type="id">false</item>
+    <item name="img001_chktimedetail" type="id">false</item>
+
+    <!-- item_chkdetail -->
+    <item name="txt_item_chkdetail" type="id">false</item>
+    <!-- item_chkdetail_list -->
+    <item name="img000_item_chkdetail_list" type="id">false</item>
+    <item name="img001_item_chkdetail_list" type="id">false</item>
+    <item name="img002_item_chkdetail_list" type="id">false</item>
+    <item name="img003_item_chkdetail_list" type="id">false</item>
+    <item name="item_chkdetail_list_txt001" type="id">false</item>
+    <item name="item_chkdetail_list_txt002" type="id">false</item>
+    <item name="item_chkdetail_list_txt003" type="id">false</item>
+    <item name="item_chkdetail_list_txt004" type="id">false</item>
+    <item name="item_chkdetail_list_txt005" type="id">false</item>
+
+    <!-- item_chktimeinfo -->
+    <item name="chktime_description" type="id">false</item>
+    <item name="chktimeinfo_linear" type="id">false</item>
+
+    <!-- chk_doctorlist -->
+    <item name="txt_title_name" type="id">false</item>
+    <item name="listview_chk_doctorlist" type="id">false</item>
+
+    <!-- chk_doctorlist_item -->
+    <item name="img001_item_chk_doctorlist" type="id">false</item>
+    <item name="doctor_name" type="id">false</item>
+    <item name="doctor_title" type="id">false</item>
+    <item name="btn_kaidan" type="id">false</item>
+    <item name="hos_name" type="id">false</item>
+    <item name="doctor_jieshao" type="id">false</item>
+    <item name="img002_item_chk_doctorlist" type="id">false</item>
+
+    <!-- postlist -->
+    <item name="listview_postlist" type="id">false</item>
+
+    <!-- postlist_item -->
+    <item name="item_postlist_txt001" type="id">false</item>
+    <item name="item_postlist_txt002" type="id">false</item>
+    <item name="item_postlist_txt003" type="id">false</item>
+
+    <!-- doctortimeselect -->
+    <item name="grid_timeselect" type="id">false</item>
+    <item name="txt_timeselect_001" type="id">false</item>
+    <item name="btn_timeselect" type="id">false</item>
+    <item name="wheel" type="id">false</item>
+    <!-- doctortimeselect_item -->
+    <item name="txt001_item_chktime_hour" type="id">false</item>
+    <item name="btn001_item_chktime_hour" type="id">false</item>
+
+   <!-- order_sure -->
+    <item type="id" name="grid_order_sure">false</item> 
+    <item type="id" name="txthosname_order_sure">false</item>  
+    <item type="id" name="txtdocname_order_sure">false</item>  
+    <item type="id" name="txtitemfee_order_sure">false</item>  
+    <item type="id" name="txttime_order_sure">false</item>  
+    <item type="id" name="txtguafee_order_sure">false</item>  
+    <item type="id" name="btn_sure">false</item> 
+     
+    <item type="id" name="tab_pia_view001">false</item>  
+    <item type="id" name="tab_pia_view002">false</item>  
+    <item type="id" name="tab_pia_view003">false</item>  
+    <item type="id" name="tab_pia_view004">false</item>  
+    <item type="id" name="tab_pia_view005">false</item>
+    
+        <!-- order_details -->
+    <item type="id" name="txt001_orderdetails">false</item> 
+    <item type="id" name="txt002_orderdetails">false</item>  
+    <item type="id" name="txt003_orderdetails">false</item>  
+    <item type="id" name="txt004_orderdetails">false</item>  
+    <item type="id" name="txt005_orderdetails">false</item>  
+    <item type="id" name="txt006_orderdetails">false</item>  
+    <item type="id" name="listview_orderdetails">false</item> 
+    <item type="id" name="img001_orderdetails">false</item>  
+    <item type="id" name="tab001_order_detail">false</item>
+    
+    
+     <!--item_order_details -->
+    <item type="id" name="txt001_item_orderdetail">false</item>  
+    <item type="id" name="txt002_item_orderdetail">false</item>  
+    
+    <!--layout_newstype -->
+    <item type="id" name="listview_newstype">false</item>  
+    
+    <!--layout_newstype -->
+    <item type="id" name="img001_item_newstype">false</item>  
+    <item type="id" name="img002_item_newstype">false</item>
+    <item type="id" name="txt001_item_newstype">false</item> 
+    <item type="id" name="txt002_item_newstype">false</item>  
+    
+     <!--title_bar2 -->
+    <item type="id" name="btn_left">false</item>  
+    <item type="id" name="btn_right">false</item>
+    
+    <!--layout_newslist -->
+    <item type="id" name="img001_item_newslist">false</item>  
+    <item type="id" name="img002_item_newslist">false</item>
+    <item type="id" name="txt001_item_newslist">false</item> 
+    <item type="id" name="txt002_item_newslist">false</item>  
+    
+    <!--layout_newslist -->
+    <item type="id" name="listview_newslist">false</item>  
+    
+    <!--layout_newsdetail -->
+    <item type="id" name="listview_news_detail">false</item>  
+    <item type="id" name="liner_newdetail">false</item>  
+    <item type="id" name="txt001_newsdetail">false</item>  
+    <item type="id" name="txt002_newsdetail">false</item>  
+    <item type="id" name="txt003_newsdetail">false</item>  
+    <item type="id" name="img001_newsdetail">false</item>  
+    <item type="id" name="sv_news_detail">false</item>  
+    
+        <!--layout_timeline -->
+    <item type="id" name="listview_timeline">false</item>  
+    
+    <!--item_timeline -->
+    <item type="id" name="lineer001_item_timeline">false</item>  
+    <item type="id" name="txt001_item_timeline">false</item>  
+    <item type="id" name="txt002_item_timeline">false</item> 
+    <item type="id" name="txt003_item_timeline">false</item> 
+    <item type="id" name="txt004_item_timeline">false</item> 
+    <item type="id" name="txt005_item_timeline">false</item> 
+    <item type="id" name="txt006_item_timeline">false</item>  
+    <item type="id" name="img001_item_timeline">false</item>  
+    <item type="id" name="img002_item_timeline">false</item>  
+    <item type="id" name="rala001_item_timeline">false</item>
+    
+    <!-- layout_title_bar3 -->
+    <item name="quxiao_title_bar3" type="id">false</item>
+ 	<!-- layout_title_bar4 -->
+    <item name="phone" type="id">false</item>
+     <!-- layout_title_bar5 -->
+    <item name="pass" type="id">false</item>
+     <!-- layout_login -->
+    <item name="findpass_login" type="id">false</item>
+    <item name="registerede_login" type="id">false</item>
+    <item name="lend_login" type="id">false</item>
+    <!-- title_bar6 -->
+     <item name="tv01_title_bar6" type="id">false</item>
+     <!-- title_bar7 -->
+     <item name="phone_register7" type="id">false</item>
+      <!-- title_bar8 -->
+     <item name="pass_register8" type="id">false</item>
+      <!-- title_bar9 -->
+     <item name="verification_titlt_bar9" type="id">false</item>
+      <!-- title_bar10 -->
+     <item name="name_title_bar10" type="id">false</item>
+     <item name="name_titlt_bar12" type="id">false</item>
+     <item name="name_titlt_bar13" type="id">false</item>
+      <!-- title_bar11 -->
+     <item name="id_titlt_bar11" type="id">false</item>
+     <!-- title_bar12 -->
+     <item name="id_titlt_bar12" type="id">false</item>
+     <!-- title_bar13 -->
+     <item name="iv1_titlt_bar13" type="id">false</item>
+      <!-- title_bar14 -->
+    <item name="edt01_title_bar14" type="id">false</item>
+     <!-- title_bar15 -->
+    <item name="et01_title_bar15" type="id">false</item>
+     <!-- title_bar16 -->
+    <item name="img_left_title_bar16" type="id">false</item>
+    <!-- userinfocation -->
+    <item name="btn01_userinfocation" type="id">false</item>
+     <!--title_bar17 -->
+      <item name="edt_title_bar17" type="id">false</item>
+       <!--title_bar18 -->
+      <item name="newpass_titke_bar18" type="id">false</item>
+      <!--title_bar19 -->
+      <item name="edt_itle_bar19" type="id">false</item>
+       <!--userauthchange -->
+      <item name="btn01_userauthchange" type="id">false</item>
+      <!--findpass -->
+      <item name="btn01_findpass" type="id">false</item>
+   <!--title_bar22-->
+	<item name="imv01_title_bar22" type="id">false</item>
+	 <item name="imv02_title_bar22" type="id">false</item>
+	  <item name="imv03_title_bar22" type="id">false</item>
+	   <item name="imv04_title_bar22" type="id">false</item>
+  <!--title_bar21-->
+      <item name="imageView2_title_bar21" type="id">false</item>
+      <item name="imv02_title_bar21" type="id">false</item>
+      
+      
+      <item name="pass_login" type="id">false</item>
+      <item name="table4_title_bar23" type="id">false</item>
+      <item name="phone_login" type="id">false</item>
+      <item name="registered_login" type="id">false</item>
+      <item name="land_login" type="id">false</item>
+      
+      <item name="id_title_bar11" type="id">false</item>
+      <item name="gender_title_bar12" type="id">false</item>
+      <item name="iv1_title_bar13" type="id">false</item>
+      <item name="table1_title_bar23" type="id">false</item>
+      <item name="table2_title_bar23" type="id">false</item>
+      <item name="table3_title_bar23" type="id">false</item>
+      <item name="linear_user_infochange" type="id">false</item>
+      
+      <item name="btn001_layout_findpass2" type="id">false</item>
+      <item name="weekly_in_spection01" type="id">false</item>
+      <item name="weekly_in_spection02" type="id">false</item>
+      <item name="weekly_in_spection03" type="id">false</item>
+      <item name="weekly_in_spection04" type="id">false</item>
+      <item name="weekly_in_spection05" type="id">false</item>
+ <!--weekly-->
+      <item name="weekly_001" type="id">false</item>
+       <item name="weekly_002" type="id">false</item>
+        <item name="weekly_003" type="id">false</item>
+         <item name="weekly_004" type="id">false</item>
+          <item name="week_gidve" type="id">false</item>
+ <!--my_check-->
+      <item name="btn_my_check" type="id">false</item>
+      <item name="add_my_check" type="id">false</item>
+       <item name="img_left_my_check" type="id">false</item>
+ <!--medical_consultation-->
+      <item name="iv01_medical_consultation" type="id">false</item>
+      <item name="txtHead_medical_consultation" type="id">false</item>
+ <!--the_first_page_of_medical_consultation"-->
+      <item name="iv_01_the_first_page_of_medical_consultation" type="id">false</item>
+      <item name="btn_01_the_first_page_of_medical_consultation" type="id">false</item>
+      <item name="btn_02_the_first_page_of_medical_consultation" type="id">false</item>
+      <item name="btn_03_the_first_page_of_medical_consultation" type="id">false</item>
+      <item name="iv02_the_first_page_of_medical_consultation" type="id">false</item>
+      <item name="iv03_the_first_page_of_medical_consultation" type="id">false</item>
+      <item name="iv04_the_first_page_of_medical_consultation" type="id">false</item>
+      <item name="iv05_the_first_page_of_medical_consultation" type="id">false</item>
+      <item name="iv06_the_first_page_of_medical_consultation" type="id">false</item>
+ <!--the_second_page_of_medical_consultation"-->
+      <item name="btn_the_second_page_medical" type="id">false</item>
+       <item name="iv_01_the_second_page_of_medical_consultation" type="id">false</item>
+ <!--the_item_second_page_of_medical_consultation"-->
+      <item name="tv01_item01_the_second_page" type="id">false</item>
+      <item name="tv02_item01_the_second_page" type="id">false</item>
+      <item name="tv03_item01_the_second_page" type="id">false</item>
+ <!--the_item02_second_page_of_medical_consultation"-->
+      <item name="tv01_item02_the_second_page" type="id">false</item>
+      <item name="tv02_item02_the_second_page" type="id">false</item>
+      <item name="tv03_item02_the_second_page" type="id">false</item>
+      
+      <item name="web001_layout_zhuyi" type="id">false</item>
+
+  <!--the_medical_consultation"-->
+      <item name="view_medical" type="id">false</item>
+      <item name="yisheng_medical" type="id">false</item>
+      <item name="mingzi_medical" type="id">false</item>
+       <item name="zhuzhi_medical" type="id">false</item>
+      <item name="fushuyiyuan_medical" type="id">false</item>
+      <item name="chuli_medical" type="id">false</item>
+       <item name="shijian_medical" type="id">false</item>
+      <item name="zixunshijian_medical" type="id">false</item>
+      <item name="view2_medical" type="id">false</item>
+      <item name="tuwenzixun_medical" type="id">false</item>
+       <item name="yuefen_medical" type="id">false</item>
+      <item name="cifen_medical" type="id">false</item>
+      <item name="tuijian_medical" type="id">false</item>
+      <item name="ratingbar_Small" type="id">false</item>
+      <!--the_layout_chk_doctor_two_Listview"-->
+      <item name="layout_chk_doctor_two_listview" type="id">false</item>
+   <!--layout-pregnant_health-home"-->  
+      <item name="layout_pregnant_healthImageButton01" type="id">false</item>
+      <item name="layout_pregnant_healthImageButton02" type="id">false</item>
+       <item name="layout_pregnant_healthImageButton03" type="id">false</item>
+      <item name="layout_pregnant_healthImageButton04" type="id">false</item>
+      <item name="layout_pregnant_healthbotton_bar01" type="id">false</item>
+       <item name="layout_pregnant_healthbotton_bar02" type="id">false</item>
+      <item name="layout_pregnant_healthbotton_bar03" type="id">false</item>
+      <item name="layout_pregnant_healthbotton_bar04" type="id">false</item>
+       <item name="phone_call" type="id">false</item>
+     <item name="txttj" type="id">false</item>
+      <!--activity-doctor_home"-->  
+      <item name="doctor_home_download" type="id">false</item>
+      <item name="nameone" type="id">false</item>
+      <item name="fan_quantity" type="id">false</item>
+      <item name="micro_thematic_content" type="id">false</item>
+      <item name="micro_thematic_btn" type="id">false</item>
+      <item name="special_period_one" type="id">false</item>
+      <item name="special_period_two" type="id">false</item>
+      <item name="nametwo" type="id">false</item>
+      <item name="time" type="id">false</item>
+      <item name="text" type="id">false</item>
+      <item name="chakanyuanwen" type="id">false</item>
+      <item name="zan" type="id">false</item>
+      <item name="pinglun" type="id">false</item>
+   <!--item-doctor_home"-->  
+      <item name="item_doctor_home_name" type="id">false</item>
+      <item name="item_doctor_home_time" type="id">false</item>
+      <item name="item_doctor_home_img" type="id">false</item>
+      <item name="item_doctor_home_zan" type="id">false</item>
+      <item name="item_doctor_home_content" type="id">false</item>
+      <item name="item_doctor_home_pinglun" type="id">false</item>
+     
+      
+      
+     <!--layout-reply_page"-->  
+      <item name="reply_page_web" type="id">false</item>
+      <item name="reply_page_list" type="id">false</item>
+      <item name="reply_page_linear01" type="id">false</item>
+      <item name="reply_page_linear02" type="id">false</item>      
+       <!--item-reply_page"-->  
+      <item name="item_reply_page_tv01" type="id">false</item>
+     <!--item-reply_pageone"-->  
+      <item name="item_reply_pageone_txt01" type="id">false</item>
+      <item name="item_reply_pageone_txt02" type="id">false</item>
+      <item name="item_reply_pageone_txt03" type="id">false</item>
+      <item name="item_reply_pageone_img01" type="id">false</item>
+      <item name="item_reply_pageone_img02" type="id">false</item>
+</resources>

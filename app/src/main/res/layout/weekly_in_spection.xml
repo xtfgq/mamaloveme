@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/layout_view"
+    android:orientation="vertical" 
+      android:clipToPadding="true"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/bgumeng_header"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="45dip"
+            android:gravity="center_vertical" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:id="@id/txtHead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:text="@string/weekly"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:weightSum="10" >
+
+        <TextView
+            android:layout_weight="3"
+            style="@style/global_wwhw"
+            android:layout_width="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/yiyuan" />
+
+        <LinearLayout
+           style="@style/global_wwhw" 
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="6" >
+
+            <EditText
+                android:id="@id/weekly_in_spection01"
+                style="@style/global_wwwww"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/bg_input" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:weightSum="10"
+        android:background="@color/white"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_weight="3"
+            style="@style/global_wwhw"
+            android:layout_width="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/yisheng" />
+
+        <LinearLayout
+           style="@style/global_wwhw" 
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="6" >
+
+            <EditText
+                
+                android:id="@id/weekly_in_spection02"
+                style="@style/global_wwwww"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/bg_input" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <LinearLayout
+        
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:weightSum="10"
+        android:background="@color/white"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_weight="3"
+            style="@style/global_wwhw"
+            android:layout_width="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/chanjianshijian" />
+
+        <LinearLayout
+            style="@style/global_wwhw"
+            android:layout_weight="6"    
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp" >
+
+            <EditText
+                android:id="@id/weekly_in_spection03"
+                style="@style/global_wwwww"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/bg_input" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:background="@color/white"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/global_wwhw"
+            android:layout_width="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/jianchadan" />
+
+        <LinearLayout
+            style="@style/global_wwwww"
+            android:layout_marginTop="5dp"
+            android:layout_weight="6"
+            android:gravity="right" >
+
+            <ImageButton
+                
+                android:id="@id/weekly_in_spection04"
+                style="@style/global_wwhw"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/icon_photo" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <LinearLayout
+        style="@style/global_wwhw"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp" >
+
+            <TextView
+                style="@style/global_wwhw"
+                android:layout_alignBottom="@+id/imageView1"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/imageView1"
+                android:text="@string/chanjianxiangmu" />
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/nav_menu" />
+        </RelativeLayout>
+
+        <GridView
+            android:id="@id/grid_order_sure"
+            android:layout_width="fill_parent"
+            android:layout_height="120dp"
+            android:gravity="center"
+            android:numColumns="3" />
+    </LinearLayout>
+
+    <Button
+        android:id="@id/weekly_in_spection05"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/home_btn_bg4"
+        android:text="@string/str_denglu"
+        android:textColor="@color/white" />
+
+</LinearLayout>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/layout_view"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/bgumeng_header"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="45dip"
+            android:gravity="center_vertical" >
+
+            <ImageView
+                android:id="@id/iv_01_the_first_page_of_medical_consultation"
+                android:layout_width="30.0dip"
+                android:layout_height="30.0dip"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="17dp"
+                android:layout_marginTop="7dp"
+                android:contentDescription="@null"
+                android:src="@drawable/icon_arrow_left" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:id="@id/txtHead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:text="@string/mingyizixun_medical_consultation"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@color/white"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/pic_touxing_dr3" />
+
+        <LinearLayout
+            style="@style/global_wwwww"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/global_wwhw"
+                    android:layout_marginLeft="10dp"
+                    android:text="赵悦淑" />
+
+                <LinearLayout
+                    style="@style/global_wf_hw"
+                    android:layout_marginTop="3dp" >
+
+                    <TextView
+                        style="@style/global_wwhw"
+                        android:layout_marginLeft="15dp"
+                        android:text="主治医师"
+                        android:textColor="@color/timesetcolor001"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/global_wwhw"
+                    android:layout_marginLeft="10dp"
+                    android:text="博士生和硕士生导师，河南省妇科内镜诊治主任，对子宫内膜异位症，子宫和输卵管原因引起的不孕不育，有丰富的临床经验"
+                    android:textColor="@color/index002"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/global_wf_hw"
+                android:gravity="left"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/global_wwhw"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/tuijian_the_first_page_of_medical_consultation"
+                    android:textSize="11dp" />
+
+                <ImageView
+                    android:id="@id/iv02_the_first_page_of_medical_consultation"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/icon_star" />
+
+                <ImageView
+                    android:id="@id/iv03_the_first_page_of_medical_consultation"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/icon_star" />
+
+                <ImageView
+                    android:id="@id/iv04_the_first_page_of_medical_consultation"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/icon_star" />
+
+                <ImageView
+                    android:id="@id/iv05_the_first_page_of_medical_consultation"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/icon_star" />
+
+                <ImageView
+                    android:id="@id/iv06_the_first_page_of_medical_consultation"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/icon_star" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/global_wf_hw"
+        android:layout_height="30dp"
+        android:background="@drawable/bg_myzk03"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="10" >
+
+        <LinearLayout
+            style="@style/global_wwhw"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/global_wwhw"
+                android:layout_marginLeft="5dp"
+                android:text="@string/gongzuoshijian_the_first_page_of_medical_consultation"
+                android:textSize="11dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/global_wf_hw"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@id/btn_01_the_first_page_of_medical_consultation"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="37dp"
+            android:background="@drawable/circle"
+            android:text="@string/yuefu_the_first_page_of_medical_consultation"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@id/btn_02_the_first_page_of_medical_consultation"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/circle_y"
+            android:text="@string/rifu_the_first_page_of_medical_consultation"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@id/btn_03_the_first_page_of_medical_consultation"
+        android:layout_width="fill_parent"
+        android:layout_height="35dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/home_btn_bg4"
+        android:text="@string/zhifu_the_first_page_of_medical_consultation" />
+
+</LinearLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+      android:clipToPadding="true"
+    android:fitsSystemWindows="true">
+    <include layout="@layout/title_bar" />
+    <include layout="@layout/title_bar18" />
+<include layout="@layout/title_bar19" />
+<Button
+    	android:id="@id/btn001_layout_findpass2"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/home_btn_bg4"
+        android:text="@string/reg_querengenggai"
+        android:textColor="@color/white" />
+
+</LinearLayout>

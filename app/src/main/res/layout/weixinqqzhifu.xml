@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/bgumeng_header"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="45dip"
+            android:gravity="center_vertical" >
+
+            <ImageView
+                android:id="@id/iv_01_the_second_page_of_medical_consultation"
+                android:layout_width="30.0dip"
+                android:layout_height="30.0dip"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="17dp"
+                android:layout_marginTop="7dp"
+                android:contentDescription="@null"
+                android:src="@drawable/icon_arrow_left" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:id="@id/txtHead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:text="@string/zixunxiangqing_the_second_page_of_medical_consultation"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+       >
+            <TextView 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="订单名称："
+    android:layout_marginLeft="10dp"
+    />
+            <TextView 
+                android:id="@+id/doctor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="申爱荣"
+                />
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"                
+                android:gravity="right"
+                >
+                <TextView 
+                    android:id="@+id/cishu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="一次"                    
+                    />
+            </LinearLayout>
+               
+        </LinearLayout>
+        <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#a6a6a6"
+        android:layout_marginLeft="10dp" />
+        
+<LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center_vertical"
+       >
+            <TextView 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="订单总价："
+    android:layout_marginLeft="10dp"
+    />
+            
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"                
+                android:gravity="right"
+                >
+                <TextView 
+                    android:id="@+id/jiage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="30"                    
+                    />
+                 <TextView 
+                     android:id="@+id/jiawei"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="元"                    
+                    />
+            </LinearLayout>
+               
+        </LinearLayout>
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="@drawable/huatongshiyi"
+    android:gravity="center"
+    >
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="选择支付方式 "
+        />
+</LinearLayout>
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"       
+        android:orientation="horizontal"   
+        android:layout_marginTop="10dp"    
+        >
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/huatongwu"
+            android:layout_marginLeft="10dp"           
+            />
+        <LinearLayout 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="微信支付"
+                android:textSize="14sp"
+                /><TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="推荐微信安装5.0及以上版本"
+                android:textSize="12sp"
+                />                           
+        </LinearLayout>
+        <LinearLayout 
+            
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right">
+        <RadioButton 
+            android:id="@+id/rat_01"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            
+            />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"       
+        android:orientation="horizontal"   
+        android:layout_marginTop="10dp" 
+           
+        >
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/huatongliu"
+            android:layout_marginLeft="10dp"           
+            />
+        <LinearLayout 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="支付宝支付"
+                android:textSize="14sp"
+                /><TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="推荐有支付宝的人使用"
+                android:textSize="12sp"
+                />                           
+        </LinearLayout>
+        <LinearLayout 
+            
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right">
+        <RadioButton 
+            android:id="@+id/radio02"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"           
+            
+            />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/huatongshiyi"
+    android:gravity="center"
+    >
+    <Button 
+        android:id="@+id/btn_01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/huatongershi"
+        />
+    </LinearLayout>
+</LinearLayout>
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/huatongshiyi"
+    android:gravity="center"
+    >
+  
+    </LinearLayout>
+</LinearLayout>

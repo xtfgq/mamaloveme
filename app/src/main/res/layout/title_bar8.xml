@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white" >
+     <ImageView 
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="#EDEDED"
+    />   
+    <LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_marginLeft="15dip"
+    android:layout_marginRight="15dip"
+    android:layout_height="50dip"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    >
+    <ImageView
+       style="@style/global_wwhw"
+       android:layout_width="25dp"
+       android:src="@drawable/icon_lock"
+        />
+    <EditText 
+        android:id="@id/pass_register8"
+        android:layout_marginLeft="5dp"        
+        style="@style/global_wwwww"
+        android:background="@color/white"
+        android:textSize="15sp"
+        android:password="true"
+        android:maxLength="20"
+        android:hint="@string/str_tishi3"
+        /> 
+
+</LinearLayout>
+</LinearLayout>

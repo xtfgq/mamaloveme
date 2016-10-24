@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp" >
+
+        <TextView
+            android:id="@id/txtHead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="孕健康"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/backed"
+        android:orientation="horizontal"
+        android:weightSum="2.2" >
+
+        <ImageButton
+            android:id="@id/layout_pregnant_healthImageButton01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/ic_launcher" >
+        </ImageButton>
+
+        <ImageButton
+            android:id="@id/layout_pregnant_healthImageButton02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/ic_launcher" >
+        </ImageButton>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/backed"
+        android:orientation="horizontal"
+        android:weightSum="2.2" >
+
+        <ImageButton
+            android:id="@id/layout_pregnant_healthImageButton03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/ic_launcher" >
+        </ImageButton>
+
+        <ImageButton
+            android:id="@id/layout_pregnant_healthImageButton04"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/ic_launcher" >
+        </ImageButton>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/backed"
+        android:gravity="bottom"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#2F4F4F" />
+
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="#ffffff"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@id/layout_pregnant_healthbotton_bar01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:button="@null"
+                android:checked="true"
+                android:drawableTop="@drawable/ic_tab_artists"
+                android:gravity="center"
+                android:text="首页"
+                android:textColor="@drawable/ic_tab_text_color" />
+
+            <RadioButton
+                android:id="@id/layout_pregnant_healthbotton_bar02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:button="@null"
+                android:drawableTop="@drawable/ic_tab_albums"
+                android:gravity="center"
+                android:text="孕妈圈"
+                android:textColor="@drawable/ic_tab_text_color" />
+
+            <RadioButton
+                android:id="@id/layout_pregnant_healthbotton_bar03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:button="@null"
+                android:drawableTop="@drawable/ic_tab_playlists"
+                android:gravity="center"
+                android:text="孕健康"
+                android:textColor="@drawable/ic_tab_text_color" />
+
+            <RadioButton
+                android:id="@id/layout_pregnant_healthbotton_bar04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:button="@null"              
+                android:drawableTop="@drawable/ic_tab_songs"
+                android:gravity="center"
+                android:text="个人中心"
+                android:textColor="@drawable/ic_tab_text_color" />
+        </RadioGroup>
+    </LinearLayout>
+
+</LinearLayout>
