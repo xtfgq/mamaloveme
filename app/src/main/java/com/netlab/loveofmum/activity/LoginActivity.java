@@ -11,17 +11,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.igexin.sdk.PushManager;
-import com.netlab.loveofmum.FeedbackAct;
 import com.netlab.loveofmum.R;
-import com.netlab.loveofmum.User_FindPass;
-import com.netlab.loveofmum.User_Register;
 import com.netlab.loveofmum.api.BaseActivity;
 import com.netlab.loveofmum.api.MMloveConstants;
 import com.netlab.loveofmum.api.JsonAsyncTaskOnComplete;
@@ -58,9 +53,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener
 	{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setTranslucentStatus() ;
-//		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.layout_login);
 		MyApplication.getInstance().addActivity(this);
 		mIntent=this.getIntent();
@@ -86,7 +79,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener
 		}
 		SystemStatusManager tintManager = new SystemStatusManager(this);
 		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.drawable.bg_header);//状态栏无背景
+		tintManager.setStatusBarTintResource(R.color.home);//状态栏无背景
 	}
 
 	@Override
@@ -182,7 +175,7 @@ protected void onPause() {
 //							mockLoginData(user);
 								
 								if(page.equals("Feedback")){
-									startActivity(new Intent(LoginActivity.this,FeedbackAct.class));
+									startActivity(new Intent(LoginActivity.this,FeedbackActivity.class));
 									
 								}else{
 								
@@ -229,14 +222,14 @@ protected void onPause() {
 				break;
 			case R.id.forget_pwd:
 				Intent intent = new Intent();
-				intent.setClass(LoginActivity.this, User_FindPass.class);
+				intent.setClass(LoginActivity.this, ForgetPwdActivity.class);
 				startActivity(intent);
 				finish();
 				break;
 			case R.id.regist:
 				// TODO Auto-generated method stub
 				Intent intenttwo = new Intent();
-				intenttwo.setClass(LoginActivity.this, User_Register.class);
+				intenttwo.setClass(LoginActivity.this, RegistActivity.class);
 				startActivity(intenttwo);
 				finish();
 				break;

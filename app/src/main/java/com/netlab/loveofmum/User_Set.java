@@ -12,28 +12,24 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ScrollView;
-import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.netlab.loveofmum.activity.HelpCenterActivity;
 import com.netlab.loveofmum.activity.LoginActivity;
+import com.netlab.loveofmum.activity.UserAskActivity;
+import com.netlab.loveofmum.activity.User_InfoEditActivity;
 import com.netlab.loveofmum.api.BaseActivity;
 import com.netlab.loveofmum.api.JsonAsyncTaskOnComplete;
 import com.netlab.loveofmum.api.JsonAsyncTask_Info;
@@ -48,7 +44,6 @@ import com.netlab.loveofmum.utils.ImageOptions;
 import com.netlab.loveofmum.utils.ImageUtil;
 import com.netlab.loveofmum.utils.SystemStatusManager;
 import com.netlab.loveofmum.widget.CircularImage;
-import com.netlab.loveofmum.widget.CustomerSpinner;
 
 import com.netlab.loveofmum.widget.SharePopupWindow;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -99,19 +94,10 @@ public class User_Set extends BaseActivity implements  View.OnClickListener
 	{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-
-
 		setTranslucentStatus() ;
-//		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.layout_userset);
-//		 mContainerClass = getIntent().getExtras().getString(Constants.TYPE_CLASS);
 		MyApplication.getInstance().addActivity(this);
-
 		iniView();
-
-
-
-//		yu.Week + "周+" + yu.Days;
 
 	}
 	private void getUserInqury() {
@@ -148,26 +134,34 @@ public class User_Set extends BaseActivity implements  View.OnClickListener
 				SOAP_INQUIRYMETHODNAME, SOAP_URL, paramMap);
 	}
 
-
-
 	@Override
-	public boolean hasInternetConnected()
+	protected void iniView()
 	{
-		// TODO Auto-generated method stub
-		return super.hasInternetConnected();
+
+		findViewById(R.id.credit_container).setOnClickListener(this);
+		status = (TextView)findViewById(R.id.status);
+		findViewById(R.id.status).setOnClickListener(this);
+		findViewById(R.id.user_footmark).setOnClickListener(this);
+		findViewById(R.id.user_ask).setOnClickListener(this);
+		findViewById(R.id.user_helpcenter).setOnClickListener(this);
+		user_unlogin_avatar=(CircularImage) findViewById(R.id.user_unlogin_avatar);
+		findViewById(R.id.toeditinfo).setOnClickListener(this);
+		findViewById(R.id.user_shop).setOnClickListener(this);
+		findViewById(R.id.user_order).setOnClickListener(this);
+		findViewById(R.id.user_bars).setOnClickListener(this);
+		user_avatar = (CircularImage)findViewById(R.id.user_avatar);
+		findViewById(R.id.user_avatar).setOnClickListener(this);
+		brithtime=(TextView) findViewById(R.id.brithtime);
+		findViewById(R.id.userinfo_container).setOnClickListener(this);
+		findViewById(R.id.user_sales).setOnClickListener(this);
+		nickname = (TextView)findViewById(R.id.user_nickname);
+		birthinfo=(TextView)findViewById(R.id.birthinfo);
+		credit=(TextView) findViewById(R.id.credit);
+		findViewById(R.id.user_share).setOnClickListener(this);
+		ScrollView sv = (ScrollView)findViewById(R.id.sv_index);
+		sv.setClipToPadding(false);
+		setInsets(User_Set.this,sv);
 	}
-
-
-
-	@Override
-	public View onCreateView(String name, Context context, AttributeSet attrs)
-	{
-		// TODO Auto-generated method stub
-		return super.onCreateView(name, context, attrs);
-
-
-	}
-
 	public static void setInsets(Activity context, View view)
 	{
 		if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT)
@@ -193,17 +187,13 @@ public class User_Set extends BaseActivity implements  View.OnClickListener
 		}
 		SystemStatusManager tintManager = new SystemStatusManager(this);
 		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.drawable.bg_header);//状态栏无背景
+		tintManager.setStatusBarTintResource(R.color.home);//状态栏无背景
 	}
 
 	@Override
 	protected void onResume()
 	{
-		// TODO Auto-generated method stub
-
-		iniView();
-		setListeners();
-
+		InitData();
 		super.onResume();
 		if(status.equals("注销")) {
 			Intent intent = new Intent();
@@ -216,55 +206,9 @@ public class User_Set extends BaseActivity implements  View.OnClickListener
 			share.dismiss();
 		}
 	}
-	@Override
-	protected void onPause() {
-		// TODO Auto-generated method stub
-		super.onPause();
-		MobclickAgent.onPageEnd(mPageName);
-		MobclickAgent.onPause(this);
-	}
-
-	@Override
-	protected void iniView()
-	{
-		user = LocalAccessor.getInstance(User_Set.this).getUser();
-		findViewById(R.id.credit_container).setOnClickListener(this);
-		status = (TextView)findViewById(R.id.status);
-		findViewById(R.id.status).setOnClickListener(this);
-
-
-
-		findViewById(R.id.user_footmark).setOnClickListener(this);
-		findViewById(R.id.user_ask).setOnClickListener(this);
-		findViewById(R.id.user_helpcenter).setOnClickListener(this);
-		user_unlogin_avatar=(CircularImage) findViewById(R.id.user_unlogin_avatar);
-
-		findViewById(R.id.toeditinfo).setOnClickListener(this);
-
-		findViewById(R.id.user_shop).setOnClickListener(this);
-		findViewById(R.id.user_order).setOnClickListener(this);
-		findViewById(R.id.user_bars).setOnClickListener(this);
-		user_avatar = (CircularImage)findViewById(R.id.user_avatar);
-		brithtime=(TextView) findViewById(R.id.brithtime);
-		findViewById(R.id.userinfo_container).setOnClickListener(this);
-		findViewById(R.id.user_sales).setOnClickListener(this);
-		nickname = (TextView)findViewById(R.id.user_nickname);
-		birthinfo=(TextView)findViewById(R.id.birthinfo);
-		credit=(TextView) findViewById(R.id.credit);
-		findViewById(R.id.user_share).setOnClickListener(this);
-		ScrollView sv = (ScrollView)findViewById(R.id.sv_index);
-		sv.setClipToPadding(false);
-		setInsets(User_Set.this,sv);
-		InitData();
-
-
-	}
-
-
 	private void InitData()
 	{
-
-
+		user = LocalAccessor.getInstance(User_Set.this).getUser();
 		if(user!=null&&user.UserID!=0&&user.YuBirthDate!=null){
 			String str[] = user.YuBirthDate.split("\\-");
 			Date date;
@@ -288,13 +232,14 @@ public class User_Set extends BaseActivity implements  View.OnClickListener
 				brithtime.setText("");
 			}else{
 				brithtime.setText("预产期："+str[0]+"年"+str[1]+"月"+str[2]+"日");
-				birthinfo.setText("你已经怀孕"+yu.Week + "周" + yu.Days+"天");
+				birthinfo.setText("你已经怀孕"+yu.Week + "周" + (yu.Days+1)+"天");
 			}
 
 		}else{
 			brithtime.setText("");
 			birthinfo.setText("");
 			credit.setText("积分");
+			nickname.setText("");
 			user_avatar.setVisibility(View.INVISIBLE);
 			user_unlogin_avatar.setVisibility(View.VISIBLE);
 		}
@@ -310,43 +255,18 @@ public class User_Set extends BaseActivity implements  View.OnClickListener
 		}
 		else
 		{
-
 			status.setText("注销");
 			credit.setText("积分");
 			UserInquiry();
 		}
 	}
-
-	private void setListeners()
-	{
-
-
-		user_avatar.setOnClickListener(new OnClickListener()
-		{
-
-			@Override
-			public void onClick(View v)
-			{
-
-				if(user.UserID == 0)
-				{
-					Intent i = new Intent(User_Set.this, LoginActivity.class);
-
-					i.putExtra("Page", "User_Set");
-					startActivityForResult(i, 1);
-				}
-				else
-				{
-					Intent i = new Intent(User_Set.this, User_InfoChange.class);
-					startActivity(i);
-				}
-			}
-		});
-
-
+	@Override
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		super.onPause();
+		MobclickAgent.onPageEnd(mPageName);
+		MobclickAgent.onPause(this);
 	}
-
-
 	private void showShare() {
 		ShareSDK.initSDK(this);
 		OnekeyShare oks = new OnekeyShare();
@@ -503,10 +423,8 @@ public class User_Set extends BaseActivity implements  View.OnClickListener
 										user.isTwins=Integer.valueOf(array.getJSONObject(i)
 												.getString("IsTwins").toString());
 									LocalAccessor.getInstance(User_Set.this).updateUser(user);
-
 								}
 							}
-
 						}
 						catch (Exception ex)
 						{
@@ -542,28 +460,12 @@ public class User_Set extends BaseActivity implements  View.OnClickListener
 			e.printStackTrace();
 		}
 	}
-
-
-	protected void onActivityResult(int requestCode, int resultCode, Intent data)
-	{
-		switch (resultCode)
-		{ // resultCode为回传的标记，我在B中回传的是RESULT_OK
-			case 1:
-				InitData();
-				break;
-			default:
-				break;
-		}
-	}
-
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event)
 	{
 		if (keyCode == KeyEvent.KEYCODE_BACK
 				&& event.getAction() == KeyEvent.ACTION_DOWN)
 		{
-
-
 			if ((System.currentTimeMillis() - mExitTime) > 2000) // System.currentTimeMillis()无论何时调用，肯定大于2000
 			{
 				Toast.makeText(getApplicationContext(), "再按一次退出程序",
@@ -576,8 +478,6 @@ public class User_Set extends BaseActivity implements  View.OnClickListener
 				myApplication.exit();
 
 			}
-
-
 			return true;
 		}
 		return super.onKeyDown(keyCode, event);
@@ -594,13 +494,7 @@ public class User_Set extends BaseActivity implements  View.OnClickListener
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()){
-			case R.id.credit_container:               //积分点击
-				if(user.UserID == 0)
-				{
-					Intent i = new Intent(User_Set.this, LoginActivity.class);
-					startActivityForResult(i, 1);
-				}
-				break;
+
 			case R.id.user_helpcenter:
 				if (!hasInternetConnected()){
 					Toast.makeText(User_Set.this, "网络数据获取失败，请检查网络设置", 1).show();
@@ -608,6 +502,13 @@ public class User_Set extends BaseActivity implements  View.OnClickListener
 				}
 				// TODO Auto-generated method stub
 				startActivity(new Intent(User_Set.this,HelpCenterActivity.class));
+				break;
+			case R.id.credit_container:               //积分点击
+				if(user.UserID == 0)
+				{
+					Intent i = new Intent(User_Set.this, LoginActivity.class);
+					startActivityForResult(i, 1);
+				}
 				break;
 			case R.id.user_ask:
 				if(user.UserID == 0)
@@ -618,7 +519,7 @@ public class User_Set extends BaseActivity implements  View.OnClickListener
 				}
 				else
 				{
-					Intent i = new Intent(User_Set.this, PrivateDoctor.class);
+					Intent i = new Intent(User_Set.this, UserAskActivity.class);
 					startActivity(i);
 				}
 				break;
@@ -645,17 +546,12 @@ public class User_Set extends BaseActivity implements  View.OnClickListener
 						Intent intent = new Intent();
 						intent.setAction("action.login");
 						sendBroadcast(intent);
-
-//						Toast.makeText(User_Set.this, user.UserID+"idiiiiiii", 1).show();
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 					if(user.UserID==0){
-//					logOut();
 						InitData();
-
-
 					}
 				}
 				break;
@@ -664,8 +560,6 @@ public class User_Set extends BaseActivity implements  View.OnClickListener
 					Toast.makeText(User_Set.this, "网络数据获取失败，请检查网络设置", 1).show();
 					return;
 				}
-
-//				gotoFindActivity(CommConfig.getConfig().loginedUser);
 				if(user.UserID == 0)
 				{
 					Intent i = new Intent(User_Set.this, LoginActivity.class);
@@ -698,10 +592,7 @@ public class User_Set extends BaseActivity implements  View.OnClickListener
 			case R.id.user_share:
 				if(share==null) {
 					share = new SharePopupWindow(User_Set.this);
-
-
 					ShareModel model = new ShareModel();
-
 					model.setImgPath(ImageUtil.saveResTolocal(User_Set.this.getResources(), R.drawable.icon, "mmlove_logo"));
 					model.setText("我这有免费咨询的私人医生，产检预约还能优先就诊，帮你省钱省时间，还不来约嘛？");
 					model.setTitle("妈妈爱我");
@@ -737,7 +628,7 @@ public class User_Set extends BaseActivity implements  View.OnClickListener
 				}
 				else
 				{
-					Intent i = new Intent(User_Set.this, User_InfoChange.class);
+					Intent i = new Intent(User_Set.this, User_InfoEditActivity.class);
 					startActivity(i);
 				}
 				break;
@@ -751,7 +642,7 @@ public class User_Set extends BaseActivity implements  View.OnClickListener
 				}
 				else
 				{
-					Intent i = new Intent(User_Set.this, User_InfoChange.class);
+					Intent i = new Intent(User_Set.this, User_InfoEditActivity.class);
 					startActivity(i);
 				}
 				break;

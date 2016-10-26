@@ -2,6 +2,7 @@ package com.netlab.loveofmum.activity;
 
 import android.os.Build;
 import android.support.v4.app.FragmentActivity;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -12,7 +13,7 @@ import com.netlab.loveofmum.utils.SystemStatusManager;
  * @author 蔺子岭
  * 功能说明：基础Activity
  */
-public class BaseActivity extends FragmentActivity {
+public abstract class BaseActivity extends FragmentActivity implements View.OnClickListener {
     /**
      * 设置状态栏背景状态
      */

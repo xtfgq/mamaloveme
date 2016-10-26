@@ -1,4 +1,4 @@
-package com.netlab.loveofmum.Fragment;
+package com.netlab.loveofmum.fragment;
 
 
 import android.os.Bundle;

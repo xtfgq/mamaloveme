@@ -1,6 +1,5 @@
 package com.netlab.loveofmum;
 
-import android.app.Activity;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Build;
@@ -11,16 +10,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TabHost;
 import android.widget.TextView;
 
-import com.netlab.loveofmum.R;
+import com.netlab.loveofmum.activity.DoctorHomeActivity;
 import com.netlab.loveofmum.activity.LoginActivity;
-import com.netlab.loveofmum.api.LocalAccessor;
 import com.netlab.loveofmum.api.MyApplication;
 import com.netlab.loveofmum.community.CHK_medical_community;
 
@@ -28,16 +24,8 @@ import com.netlab.loveofmum.huanxin.MainChatActivity;
 import com.netlab.loveofmum.model.User;
 import com.netlab.loveofmum.model.Yuchan;
 import com.netlab.loveofmum.testwebview.TestWebView;
-import com.netlab.loveofmum.utils.IOUtils;
 import com.netlab.loveofmum.utils.SystemStatusManager;
 import com.umeng.analytics.MobclickAgent;
-
-import org.json.JSONObject;
-
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 
 public class MainTabActivity extends TabActivity implements
@@ -60,15 +48,13 @@ public class MainTabActivity extends TabActivity implements
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-//		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setTranslucentStatus();
 		setContentView(R.layout.maintabs);
 		MyApplication.getInstance().addActivity(this);
 		this.mAIntent = new Intent(this, Index.class);
 
     MobclickAgent.openActivityDurationTrack(false);
-		
-//		this.mBIntent = new Intent(this, Doctor_Talk.class);
+
 		this.mBIntent = new Intent(this, BBSWebView.class);
 //	this.mBIntent=new Intent(this,ExampleActivity.class);
 //		CommunitySDK mCommSDK = CommunityFactory.getCommSDK(Welcome.this);
@@ -96,12 +82,6 @@ public class MainTabActivity extends TabActivity implements
 	    jk.setOnClickListener(this);
 	    melayout.setOnClickListener(this);
 
-//		mButtons[0].setOnCheckedChangeListener(this);
-//		mButtons[1] .setOnCheckedChangeListener(this);
-//		mButtons[2] 
-//				.setOnCheckedChangeListener(this);
-//		mButtons[3] 
-//		.setOnCheckedChangeListener(this);
 		setupIntent();
 
 	    if (this.getIntent().getExtras().getString("TabIndex").toString()
@@ -215,7 +195,7 @@ public class MainTabActivity extends TabActivity implements
 		}
 		SystemStatusManager tintManager = new SystemStatusManager(this);
 		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.drawable.bg_header);//状态栏无背景
+		tintManager.setStatusBarTintResource(R.color.home);//状态栏无背景
 	}
 	private void pushIntent(String MessageCode,String MessageContent){
 
@@ -284,7 +264,7 @@ Log.i("MessageCode==========",MessageCode+";;;;;"+MessageContent);
 
 				}	else if(MessageCode.equals("P0010")){
 
-					Intent i = new Intent(this, DoctorHomeAct.class);
+					Intent i = new Intent(this, DoctorHomeActivity.class);
 					i.putExtra("DoctorID", MessageContent);
 					i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 					startActivity(i);

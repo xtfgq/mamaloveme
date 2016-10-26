@@ -18,9 +18,7 @@ public class ZujiAct extends BaseActivity {
 	{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		//setTranslucentStatus() ;
-//		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.zuji_act);
 	
 		MyApplication.getInstance().addActivity(this);

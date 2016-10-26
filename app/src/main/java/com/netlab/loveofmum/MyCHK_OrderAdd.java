@@ -99,7 +99,6 @@ public class MyCHK_OrderAdd extends BaseActivity implements OnClickListener
 	private ImageView imgBack;
 
 	private List<PictureItem> arrayList=new ArrayList<PictureItem>();
-	private String returnvalue001;
 	private List<Map<String, Object>> arrayList2;
 	
 	
@@ -208,9 +207,7 @@ public class MyCHK_OrderAdd extends BaseActivity implements OnClickListener
 	{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setTranslucentStatus() ;
-//		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.layout_my_orderadd);
 
 		MyApplication.getInstance().addActivity(this);
@@ -244,7 +241,7 @@ public class MyCHK_OrderAdd extends BaseActivity implements OnClickListener
 
 				tvyear.setText(timeYear.substring(0,4));
 
-				txt003.setText(timeYear.substring(4,timeYear.length()));
+				txt003.setText(timeYear.substring(5,timeYear.length()));
 				tvyun.setText(mIntent.getStringExtra("TitleName"));
 			OrderID=mIntent.getStringExtra("Orderid");
 			btn001.setVisibility(View.VISIBLE);
@@ -469,7 +466,7 @@ public class MyCHK_OrderAdd extends BaseActivity implements OnClickListener
 		}
 		SystemStatusManager tintManager = new SystemStatusManager(this);
 		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.drawable.bg_header);//状态栏无背景
+		tintManager.setStatusBarTintResource(R.color.home);//状态栏无背景
 	}
 	/*
 	 * 查询gridview
@@ -482,8 +479,7 @@ public class MyCHK_OrderAdd extends BaseActivity implements OnClickListener
 			{
 				public void processJsonObject(Object result)
 				{
-					returnvalue001 = result.toString();
-					if (returnvalue001 == null)
+					if (result == null)
 					{
 
 					}
@@ -559,8 +555,7 @@ public class MyCHK_OrderAdd extends BaseActivity implements OnClickListener
 				public void processJsonObject(Object result)
 				{
 //					{"OrderInquiry":[{"MomSay":"","OrderStatus":"02","YunWeek":"20","OrderID":"20151222034806-50728","UserID":"50728","CHKType":"第(14-16周)产检","RegisterMoney":"5","ID":"1767","CHKID":"34","PayType":"01","Reason":"成功","OrderStatusName":"待检查","UpdateDBy":"","DeptDesc":"","DoctorName":"周仲元","PayStatusName":"未付款","IsUpload":"1","HospitalName":"郑州大学第三附属医院","PayStatus":"01","BeginTime":"17:00","UpdatedDate":"2015\/12\/24 13:56:09","HospitalID":"1","CreatedDate":"2015\/12\/22 15:48:06","CreatedBy":"","EndTime":"18:00","Gotime":"2015\/12\/25 0:00:00"}]}
-					returnvalue001 = result.toString();
-					if (returnvalue001 == null)
+					if (result == null)
 					{
 
 					}
@@ -666,10 +661,10 @@ public class MyCHK_OrderAdd extends BaseActivity implements OnClickListener
 		JsonAsyncTask_Info task = new JsonAsyncTask_Info(
 				MyCHK_OrderAdd.this, true, doProcess);
 		Map<String, Object> paramMap = new HashMap<String, Object>();
-		String str = "<Request><OrderID>%s</OrderID><MomSay>%s</MomSay></Request>";
+		String str = "<Request><OrderID>%s</OrderID><Reason>%s</Reason><MomSay>%s</MomSay></Request>";
 
 		str = String.format(str, new Object[]
-		{ OrderID,MomSay });
+		{ OrderID,MomSay,MomSay});
 		paramMap.put("str", str);
 
 		// 必须是这5个参数，而且得按照顺序
@@ -926,8 +921,7 @@ public class MyCHK_OrderAdd extends BaseActivity implements OnClickListener
 			{
 				public void processJsonObject(Object result)
 				{
-					returnvalue001 = result.toString();
-					if (returnvalue001 == null)
+					if (result == null)
 					{
 
 					}
@@ -1059,8 +1053,7 @@ public class MyCHK_OrderAdd extends BaseActivity implements OnClickListener
 			{
 				public void processJsonObject(Object result)
 				{
-					returnvalue001 = result.toString();
-					if (returnvalue001 == null)
+					if (result == null)
 					{
 
 					}
@@ -1087,6 +1080,8 @@ public class MyCHK_OrderAdd extends BaseActivity implements OnClickListener
 									}
 									finish();
 								}
+							}else{
+								Toast.makeText(MyCHK_OrderAdd.this,array.getJSONObject(0).getString("MessageContent"),Toast.LENGTH_SHORT).show();
 							}
 
 						}
@@ -1102,14 +1097,14 @@ public class MyCHK_OrderAdd extends BaseActivity implements OnClickListener
 			JsonAsyncTask_Info task = new JsonAsyncTask_Info(
 					MyCHK_OrderAdd.this, true, doProcess);
 			Map<String, Object> paramMap = new HashMap<String, Object>();
-			String str = "<Request><UserID>%s</UserID><OrderStatus>%s</OrderStatus><PayType>%s</PayType><PayStatus>%s</PayStatus><HospitalID>%s</HospitalID><HospitalName>%s</HospitalName><DeptRowID>%s</DeptRowID><DeptDesc>%s</DeptDesc><DoctorID>%s</DoctorID><DoctorName>%s</DoctorName><Gotime>%s</Gotime><BeginTime>%s</BeginTime><EndTime>%s</EndTime><RegisterMoney>%s</RegisterMoney><CHKID>%s</CHKID><CHKType>%s</CHKType><YunWeek>%s</YunWeek><Reason>%s</Reason><MomSay>%s</MomSay><OrderID>%s</OrderID><IsUpload>%s</IsUpload><Items>%s</Items><PhoneType>%s</PhoneType></Request>";
+			String str = "<Request><UserID>%s</UserID><OrderStatus>%s</OrderStatus><PayType>%s</PayType><PayStatus>%s</PayStatus><HospitalID>%s</HospitalID><HospitalName>%s</HospitalName><DeptRowID>%s</DeptRowID><DeptDesc>%s</DeptDesc><DoctorID>%s</DoctorID><DoctorName>%s</DoctorName><Gotime>%s</Gotime><BeginTime>%s</BeginTime><EndTime>%s</EndTime><RegisterMoney>%s</RegisterMoney><CHKID>%s</CHKID><CHKType>%s</CHKType><YunWeek>%s</YunWeek><Reason>%s</Reason><MomSay>%s</MomSay><OrderID>%s</OrderID><IsUpload>%s</IsUpload><Items>%s</Items><PhoneType>%s</PhoneType><SchemaID>%s</SchemaID></Request>";
 
 			String fee = "0";
 			
 			str = String.format(str, new Object[]
 					{ String.valueOf(user.UserID), "04", "01", "02", "1", CHK_Hospital,
 							"", "", "", CHK_Doctor, CHK_Time, "", "", fee, "", "",
-							YunWeek, CHK_Talk,CHK_Talk,OrderID,"1", "","0" });
+							YunWeek, CHK_Talk,CHK_Talk,OrderID,"1", "","0","" });
 		
 
 			paramMap.put("str", str);
@@ -1142,6 +1137,24 @@ public class MyCHK_OrderAdd extends BaseActivity implements OnClickListener
 //		  });
 //
 //		 }
+	private void uploadBitmap(final Bitmap newBitmap){
+		startProgressDialog();
+		new Thread(){
+			@Override
+			public void run() {
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			newBitmap.compress(Bitmap.CompressFormat.JPEG,100, baos);
+			mContent = baos.toByteArray();
+			final String uploadBuffer = new String(Base64.encode(mContent));
+			MyCHK_OrderAdd.this.runOnUiThread(new Runnable() {
+				@Override
+				public void run() {
+					UploadPicture(uploadBuffer);
+				}
+			});
+			}
+		}.start();
+	}
 	private void UploadPicture(String uploadBuffer)
 	{
 		try
@@ -1151,13 +1164,9 @@ public class MyCHK_OrderAdd extends BaseActivity implements OnClickListener
 			{
 				public void processJsonObject(Object result)
 				{
-					returnvalue001 = result.toString();
-//					Toast.makeText(MyCHK_OrderAdd.this,returnvalue001,1).show();
-
-
-					if (returnvalue001 == null)
+					System.gc();
+					if (result == null)
 					{
-
 					}
 					else
 					{
@@ -1176,24 +1185,16 @@ public class MyCHK_OrderAdd extends BaseActivity implements OnClickListener
 							{
 //								Toast.makeText(MyCHK_OrderAdd.this, "上传成功",
 //										Toast.LENGTH_SHORT).show();
-
 								isUpload = true;
 								searchPictureList();
-
-
 										if(array.getJSONObject(0).has("PointAddCode")) {
 											if(array.getJSONObject(0).getString("PointAddCode").equals("0")) {
-
 												Intent i = new Intent(MyCHK_OrderAdd.this, DialogEnsure.class);
 												i.putExtra("content", array.getJSONObject(0).getString("PointAddContent") + "+" + array.getJSONObject(0).getString("PointValue"));
 												startActivity(i);
 											}
 										}
-
-
-
 							}
-
 						}
 						catch (Exception ex)
 						{
@@ -1214,7 +1215,7 @@ public class MyCHK_OrderAdd extends BaseActivity implements OnClickListener
 			// 必须是这5个参数，而且得按照顺序
 			task.execute(SOAP_NAMESPACE, SOAP_ACTION2, SOAP_METHODNAME2,
 					SOAP_URL, paramMap);
-			startProgressDialog();
+
 		}
 		catch (Exception e)
 		{
@@ -1380,16 +1381,7 @@ public class MyCHK_OrderAdd extends BaseActivity implements OnClickListener
 					ImageTools.savePhotoToSDCard(newBitmap, Environment
 							.getExternalStorageDirectory().getAbsolutePath(),
 							String.valueOf(System.currentTimeMillis()));
-
-					ByteArrayOutputStream baos = new ByteArrayOutputStream();
-					newBitmap.compress(Bitmap.CompressFormat.JPEG,
-							100, baos);
-					mContent = baos.toByteArray();
-
-					String uploadBuffer = new String(
-							Base64.encode(mContent));
-
-					UploadPicture(uploadBuffer);
+					uploadBitmap(newBitmap);
 					System.gc();
 					break;
 
@@ -1447,16 +1439,17 @@ public class MyCHK_OrderAdd extends BaseActivity implements OnClickListener
 							}
 							//iv_image.setImageBitmap(smallBitmap);
 
-							ByteArrayOutputStream baos2 = new ByteArrayOutputStream();
-							photo.compress(Bitmap.CompressFormat.JPEG,
-									100, baos2);
-							mContent = baos2.toByteArray();
+//							ByteArrayOutputStream baos2 = new ByteArrayOutputStream();
+//							photo.compress(Bitmap.CompressFormat.JPEG,
+//									100, baos2);
+//							mContent = baos2.toByteArray();
+//
+//							String uploadBuffer2 = new String(
+//									Base64.encode(mContent));
+//
+//							UploadPicture(uploadBuffer2);
+							uploadBitmap(photo);
 
-							String uploadBuffer2 = new String(
-									Base64.encode(mContent));
-
-							UploadPicture(uploadBuffer2);
-							System.gc();
 						}
 					}
 					catch (FileNotFoundException e)
@@ -1513,6 +1506,7 @@ public class MyCHK_OrderAdd extends BaseActivity implements OnClickListener
 			}
 		}
 	}
+
 	public Bitmap readBitmap(Uri selectedImage) {
 		Bitmap bm = null;
 		BitmapFactory.Options options = new BitmapFactory.Options();

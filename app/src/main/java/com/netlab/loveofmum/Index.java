@@ -40,14 +40,15 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.igexin.sdk.PushManager;
 import com.netlab.loveofmum.R.string;
+import com.netlab.loveofmum.activity.DoctorHomeActivity;
 import com.netlab.loveofmum.activity.LoginActivity;
+import com.netlab.loveofmum.activity.SignInActivity;
 import com.netlab.loveofmum.api.BaseActivity;
 import com.netlab.loveofmum.api.CustomHttpClient;
 import com.netlab.loveofmum.api.JsonAsyncTaskOnComplete;
@@ -55,12 +56,11 @@ import com.netlab.loveofmum.api.JsonAsyncTask_Info;
 import com.netlab.loveofmum.api.LocalAccessor;
 import com.netlab.loveofmum.api.MMloveConstants;
 import com.netlab.loveofmum.api.MyApplication;
-import com.netlab.loveofmum.model.MyApp;
 import com.netlab.loveofmum.model.User;
 import com.netlab.loveofmum.model.Yuchan;
 import com.netlab.loveofmum.model.YunWeekAll;
 import com.netlab.loveofmum.myadapter.FeedLastAdapter;
-import com.netlab.loveofmum.myadapter.Index003Adapter;
+import com.netlab.loveofmum.myadapter.WeekTipsListAdapter;
 import com.netlab.loveofmum.testwebview.TestWebView;
 import com.netlab.loveofmum.timepicker.Util;
 import com.netlab.loveofmum.utils.DetialGallery;
@@ -103,96 +103,69 @@ import cn.sharesdk.framework.ShareSDK;
 //import cn.sharesdk.framework.ShareSDK;
 
 
-public class Index extends BaseActivity implements OnRefreshListener, onSelectListener {
-
-
+public class Index extends BaseActivity implements OnRefreshListener, onSelectListener,OnClickListener {
 	private final String mPageName = "AnalyticsHome";
-
-	// private ListView list001;
-	private ListViewForScrollView list002;
 
 	/**
 	 * 社区数据列表
 	 */
-	private ListViewForScrollView listsq;
+	private ListViewForScrollView communitylist;
+	private List<Map<String, Object>> communitydata = new ArrayList<Map<String, Object>>();
+    private ImageCycleView ad_community;
+    // 孕社区的广告数据
+    ArrayList<String> mImageUrl2 = new ArrayList<String>();
+    ArrayList<Map<String, Object>> mObject2 = new ArrayList<Map<String, Object>>();
 
 
-	private TextView txtHead,tvyuyue;
-	private TextView txt001;
 
 	//	private TextView txt_index_002;
-	private ImageView imgBack;
-	private LinearLayout imgMore;
-	private LinearLayout imgYsq;
-	private TextView txtmore;
-
-	private TextView txt0001;
-	private TextView txt0002;
-
-	private TableRow tab003;
+	private TextView weektipstitle;
 	private List<Map<String, Object>> arrayList = new ArrayList<Map<String, Object>>();
+	private ListViewForScrollView weektipsListView;
 
-	private List<Map<String, Object>> arrayList2 = new ArrayList<Map<String, Object>>();
-	private List<Map<String, Object>> hosList = new ArrayList<Map<String, Object>>();
-	private List<Map<String, Object>> listFeeds = new ArrayList<Map<String, Object>>();
-	private String returnvalue002;
-
-	private LayoutInflater inflater;
-
-	private LinearLayout linear001, chktimell, llhos;
+	private LinearLayout linear001, llhos;
 	int scrollX = 0;
 	int scrollY = 0;
 	private int newCode;
-
-
 	private int oldCode;
-
-	private int per = 0;
 
 	private String versionlog;
 
-	private MyApp app;
 
-	private int week = 0;
 
 	private User user;
+	private TextView  tvnext, tvcenter, tvyesterday;
 	//宝宝当前情况的大概描述
 	private TextView txtcontent, tvday, mTextLenth, mTextWeight;
 	//宝宝情况下边广告
-	private ImageCycleView mAdView;
+	private ImageCycleView babyAds;
+    // 宝宝情况下边广告数据
+    ArrayList<String> mImageUrl = new ArrayList<String>();
+    ArrayList<Map<String, Object>> mObject = new ArrayList<Map<String, Object>>();
 
-	//暂时隐藏
-	private ImageView imgcontent;
+
+	// 产检预约中的医院ViewPager
+	private ImageView ad_hospital_left, ad_hospital_right;
+	private MyViewPager mHosView;
+	private List<Map<String, Object>> hosList = new ArrayList<Map<String, Object>>();
+
+	private View  rlchktime,chktimell;
+
+    //暂时隐藏
+//	private ImageView imgcontent;
 
 	private UpScrollViewExtend sv;
 
 	private long mExitTime;
 
 
-	private String CHKTypeName2;
-
-
-	private ImageCycleView mYsQView;
-	//产品预约中的ViewPager
-	private MyViewPager mHosView;
-
-	private ImageView ivleft, ivright;
-	private LayoutInflater layoutInflater;
-
 	RefreshLayout refreshview;
-	private RelativeLayout rlcontnet, rlchktime;
+
 	private DetialGallery mViewPager;
-	private LinearLayout rltop;
 	private final String SOAP_TIPSACTION = MMloveConstants.URL001
 			+ MMloveConstants.TipsInquiry;
 	private final String SOAP_TIPSMETHODNAME = MMloveConstants.TipsInquiry;
 
-	// 首页广告位置
-	ArrayList<String> mImageUrl = new ArrayList<String>();
-	ArrayList<Map<String, Object>> mObject = new ArrayList<Map<String, Object>>();
-	// 首页广告位置2
-	ArrayList<String> mImageUrl2 = new ArrayList<String>();
-	ArrayList<Map<String, Object>> mObject2 = new ArrayList<Map<String, Object>>();
 	// 定义Web Service相关的字符串
 	private final String SOAP_NAMESPACE = MMloveConstants.URL001;
 	private final String SOAP_ACTION = MMloveConstants.URL001
@@ -220,14 +193,7 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 	private final String SOAP_ACTIONADs = MMloveConstants.URL001
 			+ MMloveConstants.Ads;
 	private final String SOAP_METHODNAMEADs = MMloveConstants.Ads;
-	// private final String SOAP_NEWSINDEXINQUIRYAC = MMloveConstants.URL001
-	// + MMloveConstants.Ads;
-	// private final String SOAP_NewsIndexInquiryMETHODNAME=
-	// MMloveConstants.Ads;
 
-	private final String SOAP_CONTENT = MMloveConstants.URL001
-			+ MMloveConstants.Ads;
-	private final String SOAP_CONTENTTWO = MMloveConstants.Ads;
 
 	// 查询积分接口
 	private final String SOAP_LOGMETHODNAME = MMloveConstants.UserPointLog;
@@ -241,28 +207,17 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 
 	private String returnAds;
 	private List<View> views = new ArrayList<View>();
-	private List<View> childViews = new ArrayList<View>();
-
 	private MyViewPageAdapter vpAdapter;
-	private MyViewPageAdapter vpChildAdapter;
-	private int hosiSize;
-	private LinearLayout ll_index;
-	// 底部小点图片
-	private ImageView[] dots;
-	private LinearLayout ivsearch,lltime;
-	private RelativeLayout rlchktiem;
-
-
 
 	// 记录当前选中位置
-	private int currentIndex;
-	protected String returnvalue001;
-	int width, height;
+
+	int displaywidth;
 	private TextView tv_viewhos;
-	// private FeedAdapter feedAadpter;
-	Yuchan yu;
-	private Context mContext;
-	private Date dNow, dYun;
+	Yuchan yuChan;
+	private Date  dYun;
+	private int per = 0;
+//	private int week = 0;
+	int days, childday;
 	private ImageView tvgotaday;
 	private LinearLayout llchildleft, llchildright;
 	// 得到系统时间
@@ -272,7 +227,7 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 	private ImageView tvsign;
 	private Animation animation1 = null;
 
-	private TextView tvchildprogress, tvnext, tvcenter, tvyesterday;
+
 	private Boolean isFisrt=false;
 	private Handler mHandler = new Handler() {
 		public void handleMessage(Message msg) {
@@ -283,10 +238,9 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 					break;
 				case 1:
 					FeedLastAdapter adapter = new FeedLastAdapter(Index.this,
-							listFeeds, ClientID);
-					listsq.setAdapter(adapter);
-					setListViewHeightBasedOnChildren(listsq);
-					listsq.setEnabled(true);
+							communitydata, ClientID);
+					communitylist.setAdapter(adapter);
+					communitylist.setEnabled(true);
 
 					break;
 				case 1010:
@@ -304,14 +258,11 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 	};
 	String[] lengths;
 	String[] weights;
-	private TextView tvScore;
 	private String ClientID = "";
 	private Boolean isHosiptal = false;
 
 	private TextView tvkey, tvchao;
-	private static final int FLING_MIN_DISTANCE = 50;
-	private static final int FLING_MIN_VELOCITY = 0;
-	int days, childday;
+
 	public Boolean isPost = false;
 	public int selectNum = 0;//全局变量，保存被选中的item
 	public GalleryAdapter adapterGallery = null;
@@ -335,13 +286,10 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-
 		setTranslucentStatus();
 		mPermissionsChecker = new PermissionsChecker(this);
-		width = Util.getScreenWidth(Index.this);
+		displaywidth = Util.getScreenWidth(Index.this);
 		setContentView(R.layout.layout_index);
-
-
 		//初始化首页顶部Gallery的Adapter
 		for (int i = 1; i <= 281; i++) {
 			YunWeekAll map = new YunWeekAll();
@@ -361,17 +309,6 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 			yunlist.add(map);
 		}
 		adapterGallery = new GalleryAdapter(this, yunlist);
-
-
-		try {
-			dNow = string2Date(MyApplication.getInstance().nowtime, "yyyy-MM-dd");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		// Finally stick the string into the text view.
-
 		//版本更新
 		if (hasInternetConnected()) {
 			versioninquiry();
@@ -385,50 +322,36 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 					Toast.LENGTH_SHORT).show();
 		}
 		MyApplication.getInstance().addActivity(this);
-		// if(myApplication.arrayList3!=null&&myApplication.arrayList3.size()>0){
-		// hosiSize=myApplication.arrayList3.size();
-		//
-		// }
-
 		iniView();
-
-
 		String text = null;
 		try {
 			InputStream is = getAssets().open("eat.txt");
 			int size = is.available();
-
 			// Read the entire asset into a local byte buffer.
 			byte[] buffer = new byte[size];
 			is.read(buffer);
 			is.close();
-
 			// Convert the buffer into a string.
 			text = new String(buffer, "UTF-8");
 			String[] keys = text.split("\\,");
 			Random ra = new Random();
-
 			int key = ra.nextInt(keys.length) + 0;
 			tvkey.setText("能不能吃:" + keys[key]);
 			InputStream isH = getAssets().open("height.txt");
 			int sizeH = isH.available();
-
 			// Read the entire asset into a local byte buffer.
 			byte[] bufferH = new byte[sizeH];
 			isH.read(bufferH);
 			isH.close();
-
 			// Convert the buffer into a string.
 			text = new String(bufferH, "UTF-8");
 			lengths = text.split("\\,");
 			InputStream isW = getAssets().open("weight.txt");
 			int sizeW = isW.available();
-
 			// Read the entire asset into a local byte buffer.
 			byte[] bufferW = new byte[sizeW];
 			isW.read(bufferW);
 			isW.close();
-
 			// Convert the buffer into a string.
 			text = new String(bufferW, "UTF-8");
 			weights = text.split("\\,");
@@ -436,9 +359,6 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-
-
 		UiUtils.resetLL(Index.this, tvkey);
 		setListeners();
 
@@ -446,18 +366,17 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 		ClientID = PushManager.getInstance().getClientid(Index.this);
 
 		initViewAds();
-		rlchktime.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				if (week > 10) {
-
-					Intent i = new Intent(Index.this, CHKTimeList.class);
-					startActivity(i);
-				}
-			}
-		});
+//		rlchktime.setOnClickListener(new OnClickListener() {
+//
+//			@Override
+//			public void onClick(View v) {
+//				// TODO Auto-generated method stub
+//				if (yuChan.Week > 10) {
+//					Intent i = new Intent(Index.this, CHKTimeList.class);
+//					startActivity(i);
+//				}
+//			}
+//		});
 		animation1 = AnimationUtils.loadAnimation(Index.this, R.anim.anim3);
 		mViewPager.setAdapter(adapterGallery);
 		mViewPager.setSelection(childday - 1);
@@ -494,12 +413,9 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 						Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
 						intent.setData(Uri.parse(PACKAGE_URL_SCHEME + getPackageName()));
 						startActivity(intent);
-
 					}
 				});
 		DialogUtils.showSelfDialog(Index.this, dialogEnsureCancelView);
-
-
 	}
 
 	/**
@@ -513,20 +429,18 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 					@Override
 					public void run() {
 						String result = "";
-
-
 						try {
 							result = CustomHttpClient.getFromWebByHttpClient(Index.this, MMloveConstants.URLWEB + "/molms/webservice/getTopic.jspx",
 									new BasicNameValuePair("topiccount", "3"));
 							Map<String, Object> map;
-
 							com.alibaba.fastjson.JSONObject obj = JSON.parseObject(result);
-
 							com.alibaba.fastjson.JSONArray jsonArray = obj.getJSONArray("topicData");
+							List<Map<String, Object>> tempdata= new ArrayList<Map<String, Object>>();
 							for (int i = 0; i < jsonArray.size(); i++) {
 								map = new HashMap<String, Object>();
 								com.alibaba.fastjson.JSONObject jo = jsonArray.getJSONObject(i);
 								map.put("title", jo.getString("title"));
+								map.put("userId", jo.getString("userId"));
 								map.put("Name", jo.getString("bbsForumName"));
 								map.put("username", jo.getString("username"));
 								map.put("content", jo.getString("content"));
@@ -536,8 +450,12 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 								map.put("createTime", jo.getString("createTime"));
 								map.put("YuBirthTime", jo.getString("YuBirthTime"));
 								map.put("url", MMloveConstants.URLWEB + jo.getString("url"));
-								listFeeds.add(map);
+								tempdata.add(map);
 							}
+							if (communitydata.size() > 0) {
+								communitydata.clear();
+							}
+							communitydata.addAll(tempdata);
 							Message message = Message.obtain();
 							message.what = 1;
 							mHandler.sendMessage(message);
@@ -546,13 +464,89 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-
-
 					}
 				}
 		).start();
 	}
+    //获取社区广告数据
+    private void searchYsq(String date) {
+        if(true) {
+            return;
+        }
+        JsonAsyncTaskOnComplete doProcess = new JsonAsyncTaskOnComplete() {
 
+            @Override
+            public void processJsonObject(Object result) {
+
+                returnAds = result.toString();
+                if (returnAds != null) {
+                    JSONObject mySO = (JSONObject) result;
+                    Map<String, Object> map;
+                    try {
+                        JSONArray array = mySO.getJSONArray("ADInquiry");
+                        if (array.getJSONObject(0).has("MessageCode")) {
+                            // Toast.makeText(Index.this, "数据为空", 1).show();
+
+                            //模拟怀孕社区
+                            ad_community.setVisibility(View.GONE);
+                        } else {
+
+                            if (mImageUrl2 != null && mImageUrl2.size() > 0) {
+                                mImageUrl2.clear();
+                            }
+
+                            if (mObject2 != null && mObject2.size() > 0) {
+                                mObject2.clear();
+                            }
+
+                            for (int i = 0; i < array.length(); i++) {
+
+                                map = new HashMap<String, Object>();
+                                map.put("ID",
+                                        array.getJSONObject(i).getString("LinkID"));
+                                map.put("Position",
+                                        array.getJSONObject(i).getString("Position"));
+                                map.put("ImageUr",
+                                        (MMloveConstants.JE_BASE_URL + array
+                                                .getJSONObject(i).getString(
+                                                        "ImageUrl")).toString()
+                                                .replace("~", "")
+                                                .replace("\\", "/"));
+
+
+                                mImageUrl2.add((MMloveConstants.JE_BASE_URL + array
+                                        .getJSONObject(i).getString(
+                                                "ImageUrl")).toString()
+                                        .replace("~", "")
+                                        .replace("\\", "/"));
+                                mObject2.add(map);
+
+                            }
+
+                            showYsq();
+                        }
+
+                    } catch (Exception e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+
+                }
+
+            }
+        };
+        // TODO Auto-generated method stub
+        JsonAsyncTask_Info task = new JsonAsyncTask_Info(Index.this, true,
+                doProcess);
+        Map<String, Object> paramMap = new HashMap<String, Object>();
+        String str = "<Request><Date>%s</Date><ShowPosition>%s</ShowPosition></Request>";
+        str = String.format(str, new Object[]{date, "03"});
+
+        paramMap.put("str", str);
+        task.execute(SOAP_NAMESPACE, SOAP_ACTIONADs, SOAP_METHODNAMEADs,
+                SOAP_URL, paramMap);
+
+    }
 	/**
 	 * 跳转到签到或者登录页面
      */
@@ -563,7 +557,7 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 		}
 		// SignDialog(this);
 		if (user.UserID != 0) {
-			startActivity(new Intent(this, SignAct.class));
+			startActivity(new Intent(this, SignInActivity.class));
 		} else {
 			startActivity(new Intent(this, LoginActivity.class));
 		}
@@ -589,7 +583,7 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 			}
 		}
 	}
-
+	//获取服务端的时间，主要是检测签到的。签到检测放到了客户端
 	private void getTime() {
 		// TODO Auto-generated method stub
 		JsonAsyncTaskOnComplete doProcess = new JsonAsyncTaskOnComplete() {
@@ -609,15 +603,13 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 					myApplication.nowtime = sdf.format(IOUtils.string2Date(
 							array.getJSONObject(0).getString("ServerTime"),
 							"yyyy-MM-dd").getTime());
-					dNow = string2Date(MyApplication.getInstance().nowtime, "yyyy-MM-dd");
-					Date dStart = new Date(dNow.getTime() - 60 * 60 * 1000 * 24);
+					Date temp = string2Date(MyApplication.getInstance().nowtime, "yyyy-MM-dd");
+					Date dStart = new Date(temp.getTime() - 60 * 60 * 1000 * 24);
 
-					String endTime = sdf.format(dNow.getTime() + 60 * 60 * 1000
+					String endTime = sdf.format(temp.getTime() + 60 * 60 * 1000
 							* 24);
 					String startTime = sdf.format(dStart);
-
 					getUserInqury();
-
 					getPonit(startTime, endTime);
 
 				} catch (Exception e) {
@@ -640,14 +632,16 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 //		// 管理器
 //		LoginSDKManager.getInstance().addAndUse(new CustomLoginImpl());
 //	}
-
+    //获取宝宝下边的广告
 	private void searchAds(String date) {
 
 		JsonAsyncTaskOnComplete doProcess = new JsonAsyncTaskOnComplete() {
 
 			@Override
 			public void processJsonObject(Object result) {
-
+				if(refreshview!=null) {
+					refreshview.refreshFinish(RefreshLayout.SUCCEED);
+				}
 				returnAds = result.toString();
 				if (returnAds != null) {
 					JSONObject mySO = (JSONObject) result;
@@ -656,7 +650,7 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 						JSONArray array = mySO.getJSONArray("ADInquiry");
 						if (array.getJSONObject(0).has("MessageCode")) {
 							// Toast.makeText(Index.this, "数据为空", 1).show();
-							mAdView.setVisibility(View.GONE);
+							babyAds.setVisibility(View.GONE);
 
 
 						} else {
@@ -701,180 +695,6 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
-					}
-
-				}
-
-			}
-		};
-		// TODO Auto-generated method stub
-		JsonAsyncTask_Info task = new JsonAsyncTask_Info(Index.this, true,
-				doProcess);
-		Map<String, Object> paramMap = new HashMap<String, Object>();
-		String str = "<Request><Date>%s</Date><ShowPosition>%s</ShowPosition></Request>";
-		str = String.format(str, new Object[]{date, "01"});
-
-		paramMap.put("str", str);
-		task.execute(SOAP_NAMESPACE, SOAP_ACTIONADs, SOAP_METHODNAMEADs,
-				SOAP_URL, paramMap);
-	}
-
-	private void searchYsq(String date) {
-		JsonAsyncTaskOnComplete doProcess = new JsonAsyncTaskOnComplete() {
-
-			@Override
-			public void processJsonObject(Object result) {
-
-				returnAds = result.toString();
-				if (returnAds != null) {
-					JSONObject mySO = (JSONObject) result;
-					Map<String, Object> map;
-					try {
-						JSONArray array = mySO.getJSONArray("ADInquiry");
-						if (array.getJSONObject(0).has("MessageCode")) {
-							// Toast.makeText(Index.this, "数据为空", 1).show();
-
-							//模拟怀孕社区
-							mYsQView.setVisibility(View.GONE);
-						} else {
-
-							if (mImageUrl2 != null && mImageUrl2.size() > 0) {
-								mImageUrl2.clear();
-							}
-
-							if (mObject2 != null && mObject2.size() > 0) {
-								mObject2.clear();
-							}
-
-							for (int i = 0; i < array.length(); i++) {
-
-								map = new HashMap<String, Object>();
-								map.put("ID",
-										array.getJSONObject(i).getString("LinkID"));
-								map.put("Position",
-										array.getJSONObject(i).getString("Position"));
-								map.put("ImageUr",
-										(MMloveConstants.JE_BASE_URL + array
-												.getJSONObject(i).getString(
-														"ImageUrl")).toString()
-												.replace("~", "")
-												.replace("\\", "/"));
-
-
-								mImageUrl2.add((MMloveConstants.JE_BASE_URL + array
-										.getJSONObject(i).getString(
-												"ImageUrl")).toString()
-										.replace("~", "")
-										.replace("\\", "/"));
-								mObject2.add(map);
-
-							}
-
-							showYsq();
-						}
-
-					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-
-				}
-
-			}
-		};
-		// TODO Auto-generated method stub
-		JsonAsyncTask_Info task = new JsonAsyncTask_Info(Index.this, true,
-				doProcess);
-		Map<String, Object> paramMap = new HashMap<String, Object>();
-		String str = "<Request><Date>%s</Date><ShowPosition>%s</ShowPosition></Request>";
-		str = String.format(str, new Object[]{date, "03"});
-
-		paramMap.put("str", str);
-		task.execute(SOAP_NAMESPACE, SOAP_ACTIONADs, SOAP_METHODNAMEADs,
-				SOAP_URL, paramMap);
-
-	}
-
-	private void searchReAds(String date) {
-
-		JsonAsyncTaskOnComplete doProcess = new JsonAsyncTaskOnComplete() {
-
-			@Override
-			public void processJsonObject(Object result) {
-
-				returnAds = result.toString();
-
-				if (returnAds != null) {
-					JSONObject mySO = (JSONObject) result;
-					Map<String, Object> map;
-					try {
-						JSONArray array = mySO.getJSONArray("ADInquiry");
-						if (array.getJSONObject(0).has("MessageCode")) {
-							// Toast.makeText(Index.this, "数据为空", 1).show();
-							mAdView.setVisibility(View.GONE);
-
-						} else {
-							if (mImageUrl != null && mImageUrl.size() > 0) {
-								mImageUrl.clear();
-							}
-							if (mObject != null && mObject.size() > 0) {
-								mObject.clear();
-							}
-
-							for (int i = 0; i < array.length(); i++) {
-
-								map = new HashMap<String, Object>();
-								map.put("ID",
-										array.getJSONObject(i).getString("LinkID"));
-								map.put("Position",
-										array.getJSONObject(i).getString("Position"));
-								map.put("ImageUr",
-										(MMloveConstants.JE_BASE_URL + array
-												.getJSONObject(i).getString(
-														"ImageUrl")).toString()
-												.replace("~", "")
-												.replace("\\", "/"));
-								Log.i("vvvvvvvvvvvvvv", (MMloveConstants.JE_BASE_URL + array
-										.getJSONObject(i).getString(
-												"ImageUrl")).toString()
-										.replace("~", "")
-										.replace("\\", "/"));
-
-
-								mImageUrl
-										.add((MMloveConstants.JE_BASE_URL + array
-												.getJSONObject(i).getString(
-														"ImageUrl")).toString()
-												.replace("~", "")
-												.replace("\\", "/"));
-								mObject.add(map);
-
-							}
-
-
-							showADs();
-						}
-						new Handler() {
-							@Override
-							public void handleMessage(Message msg) {
-								// 千万别忘了告诉控件刷新完毕了哦！
-
-								refreshview.refreshFinish(RefreshLayout.SUCCEED);
-							}
-						}.sendEmptyMessageDelayed(0, 500);
-
-					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-						new Handler() {
-							@Override
-							public void handleMessage(Message msg) {
-								// 千万别忘了告诉控件刷新完毕了哦！
-
-								refreshview.refreshFinish(RefreshLayout.FAIL);
-							}
-						}.sendEmptyMessageDelayed(0, 500);
-
 					}
 
 				}
@@ -908,13 +728,6 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 		tintManager.setStatusBarTintEnabled(true);
 		tintManager.setStatusBarTintResource(R.color.home);// 状态栏无背景
 	}
-
-	@Override
-	public boolean hasInternetConnected() {
-		// TODO Auto-generated method stub
-		return super.hasInternetConnected();
-	}
-
 	public static Date string2Date(String strTime, String formatType)
 			throws ParseException {
 		SimpleDateFormat formatter = new SimpleDateFormat(formatType);
@@ -927,7 +740,6 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 		}
 		return date;
 	}
-
 	@SuppressLint("NewApi")
 	@Override
 	protected void onResume() {
@@ -938,34 +750,20 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 		MobclickAgent.onResume(this);
 		initUser();
 		iniCHKInfo();
-
 		if (hasInternetConnected()) {
-			if (listFeeds.size() > 0) {
-				listFeeds.clear();
-			}
-			getYsq();
 
-			searchlist001();
+			getYsq();
+			getweektips();
 			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-//			String date = df.format(new Date());// new Date()为获取当前系统时间
-//			searchAds(date);
 			searchHospital();
 			TipsInquiry();
 
 			if (user.UserID != 0) {
 				getTime();
-
-
 			} else {
-//				tvScore.setText("0积分");
-//				tvsign.setText("签到");
-
-
 				tvsign.setBackgroundResource(R.drawable.bg_icon_sign);
-//				tvsign.setTextColor(Color.parseColor("#ff799c"));
 
 			}
-			// mRoundProgressBar.setSweepAngle(per);
 		} else {
 			Toast.makeText(Index.this, string.msgUninternet,
 					Toast.LENGTH_SHORT).show();
@@ -989,17 +787,12 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 			@Override
 			public void processJsonObject(Object result) {
 				// TODO Auto-generated method stub
-				String value = result.toString();
-
 				JSONObject mySO = (JSONObject) result;
 				try {
 					JSONArray array = mySO.getJSONArray("UserPointLogInquiry");
 					if (array.getJSONObject(0).has("MessageCode")) {
-//						tvsign.setText("签到");
-//						tvScore.setVisibility(View.VISIBLE);
 
 						tvsign.setBackgroundResource(R.drawable.bg_icon_sign);
-//						tvsign.setTextColor(Color.parseColor("#ff799c"));
 					} else {
 						String time = array.getJSONObject(0).get("CreatedDate")
 								.toString();
@@ -1010,26 +803,15 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 						String nowTime = formatter.format(dNow.getTime());
 						time = stringToDate2(time, "yyyy-MM-dd");
 						if (time.equals(MyApplication.getInstance().nowtime)) {
-//							tvsign.setText("已签到");
-
-
 							tvsign.setBackgroundResource(R.drawable.bg_icon_no_sign);
-//							tvsign.setTextColor(Color.parseColor("#ffffff"));
-
 						} else {
-//							tvsign.setText("签到");
-
-
 							tvsign.setBackgroundResource(R.drawable.bg_icon_sign);
-//							tvsign.setTextColor(Color.parseColor("#ff799c"));
-
 						}
 					}
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 					tvsign.setBackgroundResource(R.drawable.bg_icon_sign);
-//					tvsign.setTextColor(Color.parseColor("#ff799c"));
 				}
 			}
 
@@ -1040,7 +822,6 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 		String str = "<Request><UserID>%s</UserID><StartTime>%s</StartTime><EndTime>%s</EndTime><Remark>%s</Remark></Request>";
 		str = String.format(str, new Object[]{user.UserID + "", startTime,
 				endTime, "签到送积分"});
-
 		paramMap.put("str", str);
 		task.execute(SOAP_NAMESPACE, SOAP_LOGACTION, SOAP_LOGMETHODNAME,
 				SOAP_URL, paramMap);
@@ -1078,9 +859,6 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 				JSONObject mySO = (JSONObject) result;
 				try {
 					JSONArray array = mySO.getJSONArray("UserInquiry");
-//					tvScore.setText(array.getJSONObject(0).getString("Point")
-//							.toString()+"积分"
-//							);
 					if(!TextUtils.isEmpty(array.getJSONObject(0)
 							.getString("IsTwins").toString()))
 						user.isTwins=Integer.valueOf(array.getJSONObject(0)
@@ -1124,88 +902,59 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 		refreshview = (RefreshLayout) findViewById(R.id.refreshindex);
 		sv = (UpScrollViewExtend) findViewById(R.id.sv_index);
 
-
-		txtcontent = (TextView) findViewById(R.id.txt_index_content);
-
 		//imgcontent 隐藏
-		imgcontent = (ImageView) findViewById(R.id.img_index_content);
-		imgcontent.bringToFront();
-
-		inflater = LayoutInflater.from(this);
-		list002 = (ListViewForScrollView) findViewById(R.id.listview_index002);
+//		imgcontent = (ImageView) findViewById(R.id.img_index_content);
+//		imgcontent.bringToFront();
+		//宝宝模块初始化
 		tvyesterday = (TextView) findViewById(R.id.tvyesterday);
 		tvnext = (TextView) findViewById(R.id.tvnext);
 		tvcenter = (TextView) findViewById(R.id.tvcenter);
-		tvchildprogress = (TextView) findViewById(R.id.tvchildprogress);
+		mViewPager = (DetialGallery) findViewById(R.id.lltopview);
+		mViewPager.setSpacing(50 * ScreenUtils.getScreenHeight(Index.this) / 1080);
+		mTextLenth = (TextView) findViewById(R.id.tvlength);
+		tvday = (TextView) findViewById(R.id.tv_day);
+		mTextWeight = (TextView) findViewById(R.id.tvweight);
+		txtcontent = (TextView) findViewById(R.id.txt_index_content);
+		//宝宝下边的广告
+		babyAds = (ImageCycleView) findViewById(R.id.ad_view);
 
-		txtmore = (TextView) findViewById(R.id.txtmore_index);
-		imgMore = (LinearLayout) findViewById(R.id.imgmore_index);
-		listsq = (ListViewForScrollView) findViewById(R.id.listview_indexsq);
-
-		mAdView = (ImageCycleView) findViewById(R.id.ad_view);
-
+		weektipstitle = (TextView) findViewById(R.id.weektipstitle);
+		findViewById(R.id.imgmore_index).setOnClickListener(this);
+		communitylist = (ListViewForScrollView) findViewById(R.id.communitylist);
+		communitylist.setEnabled(false);
 		linear001 = (LinearLayout) findViewById(R.id.linear001_index);
 		mHosView = (MyViewPager) findViewById(R.id.ad_hospital);
 		llhos = (LinearLayout) findViewById(R.id.llhos);
-		mYsQView = (ImageCycleView) findViewById(R.id.ad_ysq);
-
-		ivleft = (ImageView) findViewById(R.id.ivleft);
-		ivright = (ImageView) findViewById(R.id.ivright);
-		tv_viewhos = (TextView) findViewById(R.id.tv_viewhos);
-		chktimell = (LinearLayout) findViewById(R.id.chk_time);
-		tvScore = (TextView) findViewById(R.id.tvscore);
+        ad_community = (ImageCycleView) findViewById(R.id.ad_community);
+		ad_hospital_left = (ImageView) findViewById(R.id.ad_hospital_left);
+		ad_hospital_right = (ImageView) findViewById(R.id.ad_hospital_right);
+		tv_viewhos = (TextView) findViewById(R.id.check_titletips);
+		chktimell =  findViewById(R.id.chk_time);
 		tvsign = (ImageView) findViewById(R.id.tvsign);
-		imgYsq = (LinearLayout) findViewById(R.id.imgmore_more);
-//		ivprogress=(ImageView)findViewById(R.id.ivprogress);
-		rltop = (LinearLayout) findViewById(R.id.rl_top);
-		rlchktime = (RelativeLayout) findViewById(R.id.rlchktime);
-		ivsearch = (LinearLayout) findViewById(R.id.iv_search);
+		findViewById(R.id.imgmore_more).setOnClickListener(this);
+		rlchktime = findViewById(R.id.rlchktime);
 		tvkey = (TextView) findViewById(R.id.tvkey);
-		rlchktiem = (RelativeLayout) findViewById(R.id.rlchktiem);
-
-
+		findViewById(R.id.rlchktiem).setOnClickListener(this);
+		findViewById(R.id.iv_search).setOnClickListener(this);
 		llchildleft = (LinearLayout) findViewById(R.id.llchildleft);
+		llchildleft.setOnClickListener(this);
 		llchildright = (LinearLayout) findViewById(R.id.llchildright);
+		llchildright.setOnClickListener(this);
 		tvgotaday = (ImageView) findViewById(R.id.tvgotaday);
+		tvgotaday.setOnClickListener(this);
 		tvchao = (TextView) findViewById(R.id.tvchao);
-
-
-//		chilidViewPager=new ChilidViewPager(Index.this,txt001);
 		refreshview.setOnRefreshListener(this);
-		mViewPager = (DetialGallery) findViewById(R.id.lltopview);
-		mViewPager.setSpacing(50 * ScreenUtils.getScreenHeight(Index.this) / 1080);
-//		mViewPager.setSpacing(10 * ScreenUtils.getScreenHeight(Index.this) / 1080);
-		tvday = (TextView) findViewById(R.id.tv_day);
-		mTextLenth = (TextView) findViewById(R.id.tvlength);
-		mTextWeight = (TextView) findViewById(R.id.tvweight);
-		tvyuyue=(TextView) findViewById(R.id.tvyuyue);
-		lltime=(LinearLayout)findViewById(R.id.lltime);
-//		LayoutParams para;
-//		para =  mViewPager.getLayoutParams();
-//		para.width = Util.getScreenWidth(Index.this);
-//		para.height = Util.getScreenWidth(Index.this)*498/720;
-//
-//		mViewPager.setLayoutParams(para);
 
-//		UiUtils.resetRL(Index.this,txt001);
-
-//		chilidViewPager=(ChilidViewPager)findViewById(R.id.childview);
-
+		//周提醒
+		weektipsListView = (ListViewForScrollView) findViewById(R.id.weektipsListView);
+		weektipsListView.setEnabled(false);
 	}
 
 
 	private void initViewAds() {
-		// layoutAds = (LinearLayout) inflater
-		// .inflate(
-		// R.layout.index_ads,
-		// null,
-		// true);
-		// mHosView=(MyViewPager)findViewById(R.id.ad_hospital);
-
 		for (int i = 0; i < hosList.size(); i++) {
-			View view = inflater.inflate(R.layout.hospital_viewpager_layout,
+			View view = getLayoutInflater().inflate(R.layout.hospital_viewpager_layout,
 					null);
-
 			ImageView iv_pic1 = (ImageView) view.findViewById(R.id.iv_pic1);
 			ImageLoader.getInstance().displayImage(
 					hosList.get(i).get("picUrl") + "", iv_pic1);
@@ -1215,37 +964,29 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 			tv_hosname1.setText(hosName1);
 			final String hosID1 = hosList.get(i).get("HospitalID").toString();
 			iv_pic1.setOnClickListener(new OnClickListener() {
-
 				@Override
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
-
 					Intent intent = new Intent(Index.this, CHKTimeList.class);
 					intent.putExtra("HospitalID", hosID1);
 					intent.putExtra("name", hosName1);
 					startActivity(intent);
 				}
 			});
-
 			i++;
-
 			ImageView iv_pic2 = (ImageView) view.findViewById(R.id.iv_pic2);
 			TextView tv_hosname2 = (TextView) view
 					.findViewById(R.id.tv_hosname2);
 			if (i < hosList.size()) {
 				ImageLoader.getInstance().displayImage(
 						hosList.get(i).get("picUrl") + "", iv_pic2);
-
 				final String hosName2 = hosList.get(i).get("HospitalName") + "";
 				tv_hosname2.setText(hosName2);
 				final String hosID2 = hosList.get(i).get("HospitalID")
 						.toString();
-
 				iv_pic2.setOnClickListener(new OnClickListener() {
-
 					@Override
 					public void onClick(View v) {
-
 						Intent intent = new Intent(Index.this,
 								CHKTimeList.class);
 						intent.putExtra("HospitalID", hosID2);
@@ -1259,44 +1000,15 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 
 			}
 			views.add(view);
-
 		}
 		vpAdapter = new MyViewPageAdapter(views);
 		mHosView.setAdapter(vpAdapter);
-
-
 	}
 
-	// void initHeadImage() {
-	// layoutInflater = (LayoutInflater)
-	// getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-	// View headview = layoutInflater.inflate(R.layout.index_ads, null);
-	//
-	// mHosView=(ViewPager) headview.findViewById(R.id.ad_hospital);
-	// for(int i=0;i<hosiSize;i++){
-	// View view
-	// =inflater.inflate(R.layout.hospital_viewpager_layout, null);
-	// ImageView iv_pic=(ImageView) view.findViewById(R.id.iv_pic);
-	// ImageLoader.getInstance().displayImage(myApplication.arrayList3.get(i).get("picUrl")+"",
-	// iv_pic);
-	// TextView tv_hosname=(TextView) view.findViewById(R.id.tv_hosname);
-	// tv_hosname.setText(myApplication.arrayList3.get(i).get("HospitalName")+"");
-	// views.add(view);
-	//
-	// }
-	// vpAdapter = new MyViewPageAdapter(views);
-	// mHosView.setAdapter(vpAdapter);
-	//
-	// }
-
 	private void showADs() {
-
-		mAdView.setVisibility(View.VISIBLE);
-
-
-		mAdView.setImageResources(mImageUrl, mObject,
+		babyAds.setVisibility(View.VISIBLE);
+		babyAds.setImageResources(mImageUrl, mObject,
 				new ImageCycleViewListener() {
-
 					@Override
 					public void displayImage(String imageURL,
 											 ImageView imageView) {
@@ -1305,16 +1017,13 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 									imageView);
 							LayoutParams para;
 							para = imageView.getLayoutParams();
-							para.width = Util.getScreenWidth(Index.this);
+							para.width = displaywidth;
 							para.height = para.width * 2 / 5;
 							imageView.setLayoutParams(para);
 						} catch (OutOfMemoryError e) {
 							// TODO Auto-generated catch block
-
 						}
-
 					}
-
 					@Override
 					public void onImageClick(int position, View imageView,
 											 ArrayList<Map<String, Object>> mObject) {
@@ -1339,7 +1048,7 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 						if (p.equals("P0005")) {
 							Intent intent = new Intent(Index.this,
 									TestWebView.class);
-							intent.putExtra("YunWeek", yu.Week + 1 + "");
+							intent.putExtra("YunWeek", yuChan.Week + 1 + "");
 							startActivity(intent);
 
 
@@ -1391,7 +1100,7 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 							int linkid = Integer.valueOf(ID);
 							if (linkid != 0) {
 								Intent i = new Intent(Index.this,
-										DoctorHomeAct.class);
+										DoctorHomeActivity.class);
 								i.putExtra("DoctorID", ID);
 								startActivity(i);
 							}
@@ -1434,19 +1143,20 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 							startActivity(i);
 
 
+
 						}
 
 					}
 
 				});
-		mAdView.startImageCycle();
+		babyAds.startImageCycle();
 
 		sv.smoothScrollTo(0, 0);
 	}
-	//显示孕社区的数据
+	//显示孕社区的广告
 	private void showYsq() {
-		mYsQView.setVisibility(View.VISIBLE);
-		mYsQView.setImageResources(mImageUrl2, mObject2,
+		ad_community.setVisibility(View.VISIBLE);
+        ad_community.setImageResources(mImageUrl2, mObject2,
 				new ImageCycleViewListener() {
 
 					@Override
@@ -1457,7 +1167,7 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 									imageView);
 							LayoutParams para;
 							para = imageView.getLayoutParams();
-							para.width = Util.getScreenWidth(Index.this);
+							para.width = displaywidth;
 							para.height = para.width * 2 / 5;
 							imageView.setLayoutParams(para);
 						} catch (OutOfMemoryError e) {
@@ -1491,7 +1201,7 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 						if (p.equals("P0005")) {
 							Intent intent = new Intent(Index.this,
 									TestWebView.class);
-							intent.putExtra("YunWeek", yu.Week + 1 + "");
+							intent.putExtra("YunWeek", yuChan.Week + 1 + "");
 							startActivity(intent);
 
 
@@ -1543,7 +1253,7 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 							int linkid = Integer.valueOf(ID);
 							if (linkid != 0) {
 								Intent i = new Intent(Index.this,
-										DoctorHomeAct.class);
+										DoctorHomeActivity.class);
 								i.putExtra("DoctorID", ID);
 								startActivity(i);
 							}
@@ -1591,156 +1301,63 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 					}
 
 				});
-		mYsQView.startImageCycle();
+        ad_community.startImageCycle();
 
 	}
 
 
 	private void iniCHKInfo() {
 		DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
-		DateFormat fmt3 = new SimpleDateFormat("yyyy年MM月dd");
-		DateFormat fmt2 = new SimpleDateFormat("M月d日");
 		Date date;
 		try {
-			String yubirth = user.YuBirthDate;
 			date = fmt.parse(user.YuBirthDate);
-
 			dYun = fmt.parse(fmt.format(new Date()));
-
-			yu = new Yuchan();
 			days = IOUtils.DaysCount(date);
-
-			yu = IOUtils.WeekInfo(date);
-			week = yu.Week;
-			String time = yu.Week + "周+" + yu.Days;
-//			String d = fmt2.format(new Date());
-
-			if (week >= 40) {
-				txtmore.setText("40周提醒");
-				week = 39;
-			} else {
-				txtmore.setText((yu.Week)+1 + "周提醒");
-//				txtmore.setText("一周提醒");
-			}
+			yuChan = IOUtils.WeekInfo1(date);
+//			week = yuChan.Week;
+//			if (week >= 40) {
+//				weektipstitle.setText("40周提醒");
+//				week = 39;
+//			} else {
+				weektipstitle.setText(yuChan.Week+ "周提醒");
+//			}
 			per = (int) ((280 - days) / 2.8);
-
 			if (100 < per) {
 				per = 100;
 			}
 			if (per <= 0) {
 				per = 1;
 			}
-
 			if (days > 0) {
 				childday = 280 - days;
-
-
-//				String span = "距离宝宝出生还有" + days + "天";
-//				SpannableString style = new SpannableString(span);
-//				int bstart = span.indexOf(days + "天");
-//				int bend = bstart + (days + "天").length()-1;
-//
-//				style.setSpan(
-//						new TextAppearanceSpan(this, R.style.styleindex), bstart, bend, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-//				txt001.setText(style);
-				// txt001.setText("距离宝宝出生还有" + days + "天");
-//				if(yu.Week==0){
-//					String spantxtyun = "您已经怀孕"  + yu.Days + "天";
-//					SpannableString styleyun = new SpannableString (
-//							spantxtyun);
-//					int bstartyun = spantxtyun.indexOf( yu.Days
-//							+ "天");
-//					int bendyun = bstartyun
-//							+ ( yu.Days + "天").length();
-//
-//
-//					styleyun.setSpan(new TextAppearanceSpan(this, R.style.styleindex), bstartyun, bendyun, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-//					txt_index_002.setText(yu.Days + "天");
-
-//				}else if(yu.Days==0){
-//					String spantxtyun = "您已经怀孕" + yu.Week + "周" ;
-//					SpannableString styleyun = new SpannableString(
-//							spantxtyun);
-//					int bstartyun = spantxtyun.indexOf(yu.Week + "周" );
-//					int bendyun = bstartyun
-//							+ (yu.Week + "周" ).length();
-//
-//					styleyun.setSpan(new TextAppearanceSpan(this, R.style.styleindex), bstartyun, bendyun, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-//					txt_index_002.setText(yu.Week + "周");
-
-//				}else{
-//				String spantxtyun = "您已经怀孕" + yu.Week + "周" + yu.Days + "天";
-//					SpannableString styleyun = new SpannableString(
-//						spantxtyun);
-//				int bstartyun = spantxtyun.indexOf(yu.Week + "周" + yu.Days
-//						+ "天");
-//				int bendyun = bstartyun
-//						+ (yu.Week + "周" + yu.Days + "天").length();
-//
-//				styleyun.setSpan(new TextAppearanceSpan(this, R.style.styleindex), bstartyun, bendyun, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-//					txt_index_002.setText(yu.Week + "周" + yu.Days + "天");
-//				}
 				mViewPager.setSelection(childday - 1);
-
 				llchildright.setVisibility(View.VISIBLE);
 				llchildleft.setVisibility(View.VISIBLE);
 				setTitle(dYun);
-
 			} else if (days == 0) {
 				childday = 280;
-
-//				txt001.setText("恭喜您，您的宝宝马上就要出生了！");
-
-//				txt_index_002.setText("40周");
-
 				mViewPager.setSelection(279);
 				llchildright.setVisibility(View.INVISIBLE);
 				llchildleft.setVisibility(View.VISIBLE);
-//				dYun=fmt.parse(user.YuBirthDate);
 				setTitle(dYun);
-
 			} else {
-//				txt001.setText("恭喜您，您的宝宝已经出生了！");
-//				txt_index_002.setText("40周");
-
 				childday = 280;
 				mViewPager.setSelection(280);
 				llchildright.setVisibility(View.INVISIBLE);
 				llchildleft.setVisibility(View.VISIBLE);
 				isAlready=true;
-//				dYun=fmt.parse(user.YuBirthDate);
 				setTitle(dYun);
 			}
-
-
-//			if (per == 100) {
-			// mRoundProgressBar.setText("40周");
-//				mRoundProgressBar.setText2(per + "%");
-//				tvchildprogress.setText("成长进度"+per+"%");
-//			} else {
-			// mRoundProgressBar.setText(time);
-//				mRoundProgressBar.setText2(per + "%");
-//				tvchildprogress.setText("成长进度"+per+"%");
-//			}
-//			mRoundProgressBar.setText("");
-
-
-			// txt0001.setText(fmt3.format(IOUtils.getNextDay(new Date(), -1)));
-			// txt0002.setText(fmt3.format(IOUtils.getNextDay(new Date(), 1)));
-
-
-//			changeChildProgress(ivprogress,yu.Week);
-			if (yu.Week < 40) {
+			if (yuChan.Week < 40) {
 				searchIndexOrder();
-			} else if (yu.Week >= 40) {
-				LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-						LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
+			} else if (yuChan.Week >= 40) {
+
 				rlchktime.setVisibility(View.GONE);
 				mHosView.setVisibility(View.VISIBLE);
 				tv_viewhos.setVisibility(View.VISIBLE);
 				llhos.setVisibility(View.VISIBLE);
-				ivleft.setVisibility(View.VISIBLE);
-				ivright.setVisibility(View.VISIBLE);
+				ad_hospital_left.setVisibility(View.VISIBLE);
+				ad_hospital_right.setVisibility(View.VISIBLE);
 				tv_viewhos.setText("");
 				chktimell.setVisibility(View.GONE);
 			}
@@ -1752,45 +1369,29 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 		}
 	}
 
+	/**
+	 * 调用searchOrder:查询订单信息 是为了获取产检预约模块的显示
+	 */
 	public void searchIndexOrder() {
 		if (user.UserID != 0) {
-			// Toast.makeText(this, "uuudingdanuu"+user.UserID,
-			// 1).show();
 			searchOrder();
 		} else {
-			// Toast.makeText(this,
-			// "wwwwwwdingdan"+user.UserID+":user.HospitalName"+user.HospitalName,
-			// 1).show();
-			// initViewAds();
 			rlchktime.setVisibility(View.GONE);
-			LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-					LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
-
 
 			mHosView.setVisibility(View.VISIBLE);
 			tv_viewhos.setVisibility(View.VISIBLE);
 			llhos.setVisibility(View.VISIBLE);
-			ivleft.setVisibility(View.VISIBLE);
-			ivright.setVisibility(View.VISIBLE);
+			ad_hospital_left.setVisibility(View.VISIBLE);
+			ad_hospital_right.setVisibility(View.VISIBLE);
 			tv_viewhos.setText("");
 			chktimell.setVisibility(View.GONE);
 		}
 	}
 
-	//	private void changeChildProgress(ImageView ivprogress, int week) {
-//		if(week>0) {
-//			if(week<40) {
-//				ivprogress.setBackgroundResource(weekIcons[week - 1]);
-//			}else{
-//				ivprogress.setBackgroundResource(weekIcons[39]);
-//			}
-//
-//		}else{
-//			ivprogress.setBackgroundResource(weekIcons[0]);
-//		}
-//
-//
-//	}
+	/**
+	 * 设置头部显示的时间
+	 * @param d
+     */
 	private void setTitle(Date d) {
 		DateFormat fmt2 = new SimpleDateFormat("M月d日");
 
@@ -1799,96 +1400,13 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 			tvcenter.setText(fmt2.format(d.getTime()));
 			tvnext.setText(fmt2.format(d.getTime() + 24 * 60 * 60 * 1000));
 
-
-//				tvyesterday.setText("10月15日");
-//		tvcenter.setText("10月15日");
-//		tvnext.setText("10月15日");
 	}
 
+	/**
+	 * 设置监听事件
+	 */
 	private void setListeners() {
-		// tab003.setOnClickListener(new View.OnClickListener()
-		// {
-		//
-		// @Override
-		// public void onClick(View v)
-		// {
-		// // TODO Auto-generated method stub
-		// Intent i = new Intent(Index.this, CHKTimeList.class);
-		// startActivity(i);
-		// //
-		// // Index.this.overridePendingTransition(R.anim.in_from_left,
-		// // R.anim.out_of_right);
-		// }
-		// });
-		ImgIndexContent();
-		llchildleft.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				left();
-			}
-		});
-		llchildright.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				right();
-			}
-		});
-		tvgotaday.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				iniCHKInfo();
-			}
-		});
-		ivsearch.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				startActivity(new Intent(Index.this, SearchWebView.class));
-			}
-		});
-		rlchktiem.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent i = new Intent(Index.this, CHKTimeList.class);
-				startActivity(i);
-			}
-		});
-
-		imgMore.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Intent i = new Intent(Index.this, News_List.class);
-				// i.putExtra("Week", week);
-				startActivity(i);
-				//
-				// Index.this.overridePendingTransition(R.anim.in_from_left,
-				// R.anim.out_of_right);
-			}
-		});
-		imgYsq.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent i = new Intent(Index.this, MainTabActivity.class);
-				i.putExtra("TabIndex", "B_TAB");
-
-				startActivity(i);
-			}
-		});
-
-//		rlcontnet.setOnClickListener(new OnClickListener() {
-//			@Override
-//			public void onClick(View v) {
-//				Intent intent = new Intent(Index.this, TestWebView.class);
-//				if(childday/7>39){
-//					intent.putExtra("YunWeek", 40+ "");
-//				}else{
-//					intent.putExtra("YunWeek", (childday/7 + 1) + "");
-//				}
-//				startActivity(intent);
-//			}
-//		});
-
+//		ImgIndexContent();
 		sv.setOnTouchListener(new OnTouchListener() {
 			private int lastY = 0;
 			private int touchEventId = -9983761;
@@ -1910,8 +1428,6 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 					}
 				}
 			};
-
-
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
 
@@ -1931,18 +1447,17 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 
 
 		});
-
 	}
 
 	/*
-	 * 查询订单信息
+	 * 查询订单信息 是为了获取产检预约模块的显示
 	 */
 	private void searchOrder() {
 		try {
 			JsonAsyncTaskOnComplete doProcess = new JsonAsyncTaskOnComplete() {
 				public void processJsonObject(Object result) {
-					returnvalue001 = result.toString();
-					if (returnvalue001 == null) {
+
+					if (result == null) {
 						rlchktime.setVisibility(View.GONE);
 						LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
 								LayoutParams.MATCH_PARENT,
@@ -1952,8 +1467,8 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 						mHosView.setVisibility(View.VISIBLE);
 						llhos.setVisibility(View.VISIBLE);
 						tv_viewhos.setVisibility(View.VISIBLE);
-						ivleft.setVisibility(View.VISIBLE);
-						ivright.setVisibility(View.VISIBLE);
+						ad_hospital_left.setVisibility(View.VISIBLE);
+						ad_hospital_right.setVisibility(View.VISIBLE);
 						tv_viewhos.setText("");
 						chktimell.setVisibility(View.GONE);
 					} else {
@@ -1966,53 +1481,44 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 									.getJSONArray("OrderInquiryForIndex");
 
 							if (array.getJSONObject(0).has("MessageCode")) {
-								// list002.setAdapter(null);
-								if (yu.Week < 11) {
+								// weektipsListView.setAdapter(null);
+								if (yuChan.Week < 11) {
 									mHosView.setVisibility(View.GONE);
 									tv_viewhos.setVisibility(View.GONE);
 
 									llhos.setVisibility(View.GONE);
-									ivleft.setVisibility(View.GONE);
-									ivright.setVisibility(View.GONE);
+									ad_hospital_left.setVisibility(View.GONE);
+									ad_hospital_right.setVisibility(View.GONE);
 									rlchktime.setVisibility(View.VISIBLE);
-
 									TextView txt_index_003 = (TextView)Index.this.findViewById(R.id.yuyuelabel);
 									TextView tv_yuyue= (TextView)Index.this.findViewById(R.id.yuyuebtn);
 									tv_yuyue.setBackgroundResource(R.color.yuyuebtncolor2);
 									tv_yuyue.setText("待检查");
 									linear001.setClickable(false);
-
 									txt_index_003
 											.setText("妈妈正处于孕早期，如果没有特别的身体不适，此阶段不需要做频繁的孕期检查！");
-//									ImageView iv_right = (ImageView) layout
-//											.findViewById(R.id.in_right);
-//									iv_right.setVisibility(View.INVISIBLE);
+									txt_index_003.setTextSize(13);
 									chktimell.setVisibility(View.VISIBLE);
-
 								} else {
 									rlchktime.setVisibility(View.GONE);
 									mHosView.setVisibility(View.VISIBLE);
 									tv_viewhos.setVisibility(View.VISIBLE);
 									llhos.setVisibility(View.VISIBLE);
-									ivleft.setVisibility(View.VISIBLE);
-									ivright.setVisibility(View.VISIBLE);
+									ad_hospital_left.setVisibility(View.VISIBLE);
+									ad_hospital_right.setVisibility(View.VISIBLE);
 									tv_viewhos.setText("");
 									chktimell.setVisibility(View.GONE);
 								}
 							} else {
-
 								// 如果已经做过检查，订单ID非空
 								if (array.getJSONObject(0).has("OrderID")) {
-
 									for (int i = 0; i < array.length(); i++) {
-
 										if (i == 0) {
 											String time = array
 													.getJSONObject(i)
 													.getString("Gotime");
 											int days = IOUtils.DaysCount2(time);
 											if (0 <= days) {
-
 												tv_viewhos
 														.setText(("还有"
 																+ days
@@ -2021,78 +1527,15 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 																i)
 																.getString(
 																		"CHKType") + "了"));
-
-												//bezhiceshihahahahahhfouqgweofgqouwegfouqwyegfouqgweouyfgoqwdbcljhasbdkcjhufqowegfouqwegou
-//												LinearLayout layout = (LinearLayout) inflater
-//														.inflate(
-//																R.layout.item_index_04,
-//																null, true);
-//
-//												TextView txt_index_003 = (TextView) layout
-//														.findViewById(R.id.txt_index_003);
-//												TextView txt_index_004 = (TextView) layout
-//														.findViewById(R.id.txt_index_004);
-//												TextView txt_index_005 = (TextView) layout
-//														.findViewById(R.id.txt_index_005);
-//
-//												txt_index_003
-//														.setText(array
-//																.getJSONObject(
-//																		i)
-//																.getString(
-//																		"HospitalName"));
-//
-//												txt_index_004
-//														.setText(array
-//																.getJSONObject(
-//																		i)
-//																.getString(
-//																		"DoctorName"));
-//gqerwgwqeuf8qweugfwefoi ufhpqiweugfopi	ugu7
-//												txt_index_005
-//														.setText(IOUtils.formatStrDate(array.getJSONObject(i).getString("Gotime"))
-//																+ " "
-//																+ array.getJSONObject(
-//																i)
-//																.getString(
-//																		"BeginTime")
-//																+ "-"
-//																+ array.getJSONObject(
-//																i)
-//																.getString(
-//																		"EndTime"));
-//
-//												TableRow row001 = (TableRow) layout
-//														.findViewById(R.id.tab_index_view001);
-//
-
-//												row001.setOnClickListener(new OnClickListener() {
-//													@Override
-//													public void onClick(View v) {
-//														// TODO Auto-generated
-//														// method stub
-//														Intent i = new Intent(
-//																Index.this,
-//																MyCHK_OrderDetail.class);
-//														i.putExtra("ID", ID);
-//														startActivity(i);
-//
-//													}
-//												});
-//
-//												LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-//														LayoutParams.FILL_PARENT,
-//														LayoutParams.WRAP_CONTENT);
-//												linear001.removeAllViews();
-//												linear001.addView(layout, lp);
 												String label = array.getJSONObject(i).getString("HospitalName")+"		"+array.getJSONObject(i).getString("DoctorName")+
-														"		"+IOUtils.formatStrDate(array.getJSONObject(i).getString("Gotime"))+"	"+array.getJSONObject(i).getString("BeginTime")+"-"+array.getJSONObject(i).getString("EndTime");
+														"\n"+IOUtils.formatStrDate(array.getJSONObject(i).getString("Gotime"))+"      "+array.getJSONObject(i).getString("BeginTime")+"-"+array.getJSONObject(i).getString("EndTime");
 												TextView txt_index_003 = (TextView)Index.this.findViewById(R.id.yuyuelabel);
 												TextView tv_yuyue= (TextView)Index.this.findViewById(R.id.yuyuebtn);
 												tv_yuyue.setText("待产检");
 												tv_yuyue.setBackgroundResource(R.color.yuyuebtncolor1);
 												txt_index_003
 														.setText(label);
+												txt_index_003.setTextSize(15);
 												linear001.setClickable(true);
 												final String ID = array
 														.getJSONObject(i)
@@ -2110,19 +1553,15 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 
 													}
 												});
-
-
 											}
 										}
 										break;
-
 									}
 								}
 								// 如果没做过预约，ORderID为空
 								else {
 
 									for (int i = 0; i < array.length(); i++) {
-
 										TextView txt_index_003 = (TextView)Index.this.findViewById(R.id.yuyuelabel);
 										TextView tv_yuyue= (TextView)Index.this.findViewById(R.id.yuyuebtn);
 										tv_yuyue.setBackgroundResource(R.color.yuyuebtncolor3);
@@ -2133,29 +1572,14 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 												.getString("WeekStart")
 												.equals(array.getJSONObject(i)
 														.getString("WeekEnd"))) {
-											// CHKTypeName = array
-											// .getJSONObject(i).getString(
-											// "CHKType")
-											// + "("
-											// + array.getJSONObject(i)
-											// .getString("WeekStart")
-											// + "周)";
+
 											CHKTypeName = "第"
 													+ array.getJSONObject(i)
 													.getString(
 															"WeekStart")
 													+ "周产检";
 										} else {
-											// CHKTypeName = array
-											// .getJSONObject(i).getString(
-											// "CHKType")
-											// + "("
-											// + array.getJSONObject(i)
-											// .getString("WeekStart")
-											// + "-"
-											// + array.getJSONObject(i)
-											// .getString("WeekEnd")
-											// + "周)";
+
 											CHKTypeName = "第("
 													+ array.getJSONObject(i)
 													.getString(
@@ -2176,32 +1600,13 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 												+ CHKTypeName.length();
 										SpannableString style = new SpannableString(
 												str001);
+										txt_index_003.setTextSize(13);
 										style.setSpan(
 												new TextAppearanceSpan(Index.this, R.style.stylecolor),
 												bstart,
 												bend,
 												Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
 										txt_index_003.setText(style);
-//										TableRow row001 = (TableRow) layout
-//												.findViewById(R.id.tab_index_view001);
-//
-//										final String ID = array
-//												.getJSONObject(i).getString(
-//														"ID");
-//										row001.setOnClickListener(new OnClickListener() {
-//											@Override
-//											public void onClick(View v) {
-//												// TODO Auto-generated method
-//												// stub
-//												Intent i = new Intent(
-//														Index.this,
-//														CHKTimeDetailActivity.class);
-//												i.putExtra("ID", ID);
-//												i.putExtra("CHKType",
-//														CHKTypeName);
-//												startActivity(i);
-//											}
-//										});
 										linear001.setClickable(true);
 										final String ID = array
 												.getJSONObject(i)
@@ -2229,23 +1634,20 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 								mHosView.setVisibility(View.GONE);
 								tv_viewhos.setVisibility(View.GONE);
 								llhos.setVisibility(View.GONE);
-								ivleft.setVisibility(View.GONE);
-								ivright.setVisibility(View.GONE);
+								ad_hospital_left.setVisibility(View.GONE);
+								ad_hospital_right.setVisibility(View.GONE);
 								rlchktime.setVisibility(View.VISIBLE);
 								linear001.setVisibility(View.VISIBLE);
 								chktimell.setVisibility(View.VISIBLE);
 							}
 
-							// Message msg = new Message();
-							// msg.what = 1;
-							// handler.sendMessage(msg);
 
 						} catch (Exception ex) {
 							ex.printStackTrace();
 							mHosView.setVisibility(View.VISIBLE);
 							llhos.setVisibility(View.GONE);
-							ivleft.setVisibility(View.VISIBLE);
-							ivright.setVisibility(View.VISIBLE);
+							ad_hospital_left.setVisibility(View.VISIBLE);
+							ad_hospital_right.setVisibility(View.VISIBLE);
 							rlchktime.setVisibility(View.GONE);
 							chktimell.setVisibility(View.GONE);
 						}
@@ -2261,7 +1663,7 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 			str = String.format(
 					str,
 					new Object[]{String.valueOf(user.UserID),
-							String.valueOf(week + 1), "1"});
+							yuChan.Week, "1"});
 			paramMap.put("str", str);
 
 			// 必须是这5个参数，而且得按照顺序
@@ -2273,36 +1675,38 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 		}
 	}
 
-	/*
-	 * 查询listview
+//	/*
+//	 * 查询listview
+//	 */
+//	private void ImgIndexContent() {
+//		imgcontent.setOnClickListener(new OnClickListener() {
+//
+//			@Override
+//			public void onClick(View v) {
+//				// TODO Auto-generated method stub
+//				Intent intent = new Intent(Index.this, TestWebView.class);
+//				if (yu.Week > 39) {
+//					intent.putExtra("YunWeek", 40 + "");
+//
+//				} else {
+//
+//					intent.putExtra("YunWeek", yu.Week + 1 + "");
+//				}
+//				startActivity(intent);
+//			}
+//		});
+//
+//	}
+
+
+	/**
+	 * 获取周提醒模块
 	 */
-	private void ImgIndexContent() {
-		imgcontent.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Intent intent = new Intent(Index.this, TestWebView.class);
-				if (yu.Week > 39) {
-					intent.putExtra("YunWeek", 40 + "");
-
-				} else {
-
-					intent.putExtra("YunWeek", yu.Week + 1 + "");
-				}
-				startActivity(intent);
-			}
-		});
-
-	}
-
-	private void searchlist001() {
+	private void getweektips() {
 		try {
 			JsonAsyncTaskOnComplete doProcess = new JsonAsyncTaskOnComplete() {
 				public void processJsonObject(Object result) {
-					returnvalue001 = result.toString();
-					if (returnvalue001 == null) {
-
+					if (result == null) {
 					} else {
 						Map<String, Object> map;
 						// 下边是具体的处理
@@ -2314,7 +1718,7 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 
 							arrayList.clear();
 							if (array.getJSONObject(0).has("MessageCode")) {
-								list002.setAdapter(null);
+								weektipsListView.setAdapter(null);
 							} else {
 								for (int i = 0; i < array.length(); i++) {
 
@@ -2332,17 +1736,17 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 
 								}
 								arrayList.size();
-								Index003Adapter adapter = new Index003Adapter(
+								WeekTipsListAdapter adapter = new WeekTipsListAdapter(
 										Index.this, arrayList);
 
-								list002.setAdapter(adapter);
-								setListViewHeightBasedOnChildren(list002);
-								list002.setEnabled(true);
+								weektipsListView.setAdapter(adapter);
+//								setListViewHeightBasedOnChildren(weektipsListView);
+								weektipsListView.setEnabled(true);
 
 							}
 
 							// 添加listView点击事件
-							list002.setOnItemClickListener(new OnItemClickListener() {
+							weektipsListView.setOnItemClickListener(new OnItemClickListener() {
 								public void onItemClick(AdapterView<?> arg0,
 														View arg1, int arg2, long arg3) {
 									Map<String, Object> mapDetail = new HashMap<String, Object>();
@@ -2373,7 +1777,7 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 			String str = "<Request><Week>%s</Week></Request>";
 
 			str = String
-					.format(str, new Object[]{String.valueOf(week + 1),});
+					.format(str, new Object[]{yuChan.Week+""});
 
 			paramMap.put("str", str);
 
@@ -2393,8 +1797,7 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 		try {
 			JsonAsyncTaskOnComplete doProcess = new JsonAsyncTaskOnComplete() {
 				public void processJsonObject(Object result) {
-					returnvalue001 = result.toString();
-					if (returnvalue001 == null) {
+					if (result == null) {
 
 					} else {
 						Map<String, Object> map;
@@ -2423,17 +1826,7 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 									oldCode = info.versionCode; // 版本号
 
 									if (oldCode < newCode) {
-										// SharedPreferences prefs =
-										// Index.this.getSharedPreferences("version",
-										// Context.MODE_PRIVATE);
-										//
-										// if(prefs.getInt("Version", 0) ==
-										// newCode)
-										// {
-										// versionlog
-										// }
-										// else
-										// {
+
 										versionlog = array.getJSONObject(i)
 												.getString("VersionLog")
 												.replace("@", "\n");
@@ -2520,44 +1913,15 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 					}
 				});
 		DialogUtils.showSelfDialog(Index.this, dialogEnsureCancelView);
-		// AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		// builder.setTitle("检测到新版本");
-		// builder.setMessage(versionlog);
-		// builder.setPositiveButton("下载", new DialogInterface.OnClickListener()
-		// {
+
 
 	}
-	// public void onClick(DialogInterface dialog, int which) {
-	// // TODO Auto-generated method stub
-	// //Intent it = new Intent(Index.this,
-	// NotificationUpdateActivity.class);
-	// //startActivity(it);
-	// // MapApp.isDownload = true;
-	// //app.setDownload(true);
-	//
-	// final Intent it = new Intent(Index.this,
-	// DownloadServiceForAPK.class);
-	// startService(it);
-	// //bindService(it, conn, Context.BIND_AUTO_CREATE);
-	// }
-	// }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
-	//
-	// public void onClick(DialogInterface dialog, int which) {
-	// // TODO Auto-generated method stub
-	// // LocalAccessor lacal = new LocalAccessor(Index.this,"version");
-	// //
-	// // SharedPreferences prefs =
-	// Index.this.getSharedPreferences("version", Context.MODE_PRIVATE);
-	// // SharedPreferences.Editor editor = prefs.edit();
-	// //
-	// // editor.putInt("Version", newCode);
-	// //
-	// // editor.commit();
-	// }
-	// });
-	// builder.show();
 
 
+	/**
+	 * 无用
+	 * @param listView
+     */
 	public void setListViewHeightBasedOnChildren(ListView listView) {
 		// 获取ListView对应的Adapter
 		ListAdapter listAdapter = listView.getAdapter();
@@ -2578,12 +1942,14 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 		listView.setLayoutParams(params);
 	}
 
+	/**
+	 * 获取医院列表
+	 */
 	private void searchHospital() {
 		try {
 			JsonAsyncTaskOnComplete doProcess = new JsonAsyncTaskOnComplete() {
 				public void processJsonObject(Object result) {
-					returnvalue001 = result.toString();
-					if (returnvalue001 == null) {
+					if (result == null) {
 
 					} else {
 						Map<String, Object> map;
@@ -2624,28 +1990,20 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 										}
 									}
 								}
-
-
 								hosList.add(map);
 								if (isHosiptal) {
-									tvyuyue.setVisibility(View.GONE);
-									lltime.setVisibility(View.VISIBLE);
+									findViewById(R.id.tvyuyue).setVisibility(View.GONE);
+									findViewById(R.id.lltime).setVisibility(View.VISIBLE);
 									tvchao.setText("进入");
-
 								} else {
-									tvyuyue.setVisibility(View.VISIBLE);
-									lltime.setVisibility(View.GONE);
+									findViewById(R.id.tvyuyue).setVisibility(View.VISIBLE);
+									findViewById(R.id.lltime).setVisibility(View.GONE);
 									tvchao.setText("查询");
 								}
-
-
-
 							}
-
 							Message message = Message.obtain();
 							message.what = 0;
 							mHandler.sendMessage(message);
-
 						} catch (Exception ex) {
 							ex.printStackTrace();
 						}
@@ -2698,19 +2056,10 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 
 	@Override
 	public void onRefresh(RefreshLayout pullToRefreshLayout) {
-//		new Handler() {
-//			@Override
-//			public void handleMessage(Message msg) {
-//				SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-//				String date = df.format(new Date());// new Date()为获取当前系统时间
-//				Toast.makeText(Index.this,"yyyyyyyyyyyyyyyyyyyyyy",1).show();
-//				searchReAds(date);
-//			}
-//			}.sendEmptyMessageDelayed(0, 500);
+
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		String date = df.format(new Date());// new Date()为获取当前系统时间
-//		Toast.makeText(Index.this,"yyyyyyyyyyyyyyyyyyyyyy",1).show();
-		searchReAds(date);
+		searchAds(date);
 		searchYsq(date);
 
 	}
@@ -2753,7 +2102,6 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 							llchildleft.setVisibility(View.VISIBLE);
 							llchildright.setVisibility(View.VISIBLE);
 							dYun = sdf.parse(sdf.format(dYun.getTime() - 24 * 60 * 60 * 1000));
-//					mViewPager.setCurrentItem(childday - 1);
 							mViewPager.setSelection(childday - 1);
 							mTextLenth.setText(lengths[childday - 1] + "mm");
 							mTextWeight.setText(weights[childday - 1] + "g");
@@ -2767,7 +2115,6 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 					}
 				}
 			} else {
-//			txt001.setText("距离宝宝出生还有" +  "280天");
 
 			}
 			if (childday == (280 - days)) {
@@ -2789,7 +2136,6 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 		if (childday != 280) {
 			isAlready=false;
 			childday++;
-//			txt001.setText("距离宝宝出生还有" + (280-childday)+ "天");
 
 			mViewPager.setSelection(childday - 1);
 			mTextLenth.setText(lengths[childday - 1] + "mm");
@@ -2874,8 +2220,6 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-
 //		if(childday!=280){
 //
 //			txt001.setText("距离宝宝出生还有" + (280-childday)+ "天");
@@ -2909,8 +2253,10 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 		mHandler.sendEmptyMessageDelayed(1010, 50);
 	}
 
+	/**
+	 * 获取宝宝当前的提示内容
+	 */
 	private void TipsInquiry() {
-		final Map<String, Object> map;
 		try {
 
 			JsonAsyncTaskOnComplete doProcess = new JsonAsyncTaskOnComplete() {
@@ -2955,16 +2301,11 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 			if(isAlready){
 				str = String.format(str, new Object[]{"281"
 				});
-
 			}else {
-
 				str = String.format(str, new Object[]{String.valueOf(childday)
 				});
 			}
-
 			paramMap.put("str", str);
-
-
 			// 必须是这5个参数，而且得按照顺序
 			task.execute(SOAP_NAMESPACE, SOAP_TIPSACTION, SOAP_TIPSMETHODNAME,
 					SOAP_URL, paramMap);
@@ -2975,19 +2316,32 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 	}
 
 	@Override
-	public void onStart() {
-		super.onStart();
-
-
-
-	}
-
-	@Override
-	public void onStop() {
-		super.onStop();
-
-
-
+	public void onClick(View v) {
+switch (v.getId()){
+	case  R.id.llchildright:
+		right();
+		break;
+	case  R.id.llchildleft:
+		left();
+		break;
+	case  R.id.tvgotaday:
+		iniCHKInfo();
+		break;
+	case  R.id.iv_search:
+		startActivity(new Intent(Index.this, SearchWebView.class));
+		break;
+	case  R.id.rlchktiem:
+		startActivity(new Intent(Index.this, CHKTimeList.class));
+		break;
+	case  R.id.imgmore_index:
+		startActivity(new Intent(Index.this, News_List.class));
+		break;
+	case R.id.imgmore_more:
+		Intent i = new Intent(Index.this, MainTabActivity.class);
+		i.putExtra("TabIndex", "B_TAB");
+		startActivity(i);
+		break;
+}
 	}
 
 	public class GalleryAdapter extends BaseAdapter {
@@ -3022,7 +2376,6 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 				holder = new ViewHolder();
 				convertView = View.inflate(ctx, R.layout.image_item, null);
 				holder.image = (ImageView) convertView.findViewById(R.id.image);
-				holder.imageRel = (RelativeLayout) convertView.findViewById(R.id.image_rel);
 				holder.rlimg = (RelativeLayout) convertView.findViewById(R.id.rlimg);
 				holder.tvcontent = (TextView) convertView.findViewById(R.id.tvcontent);
 				holder.mRoundProgressBar = (RoundProgressBar) convertView.findViewById(R.id.roundProgressBarright);
@@ -3040,22 +2393,9 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 
 			if (selectNum == position) {
 				isPost = false;
+				int tempwidth =360 *displaywidth / 1080;
+				holder.rlimg.setLayoutParams(new RelativeLayout.LayoutParams(tempwidth, tempwidth));
 
-//				int width = 220 * ScreenUtils.getScreenHeight(Index.this) / 1080;
-//				int width =110 *ScreenUtils.getScreenHeight(Index.this) / 1080;
-//				ScaleAnimation animation = new ScaleAnimation(1, 1.5f, 1, 1.5f,
-//						                       Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
-//				holder.rlimg.setLayoutParams(new RelativeLayout.LayoutParams(width, width));
-//				               //从1倍到1.5倍需要1秒钟
-//				                 animation.setDuration(1000);
-//				                 //开始执行动画
-//				holder.rlimg.startAnimation(animation);
-
-				width =210 *ScreenUtils.getScreenHeight(Index.this) / 1080;
-				holder.rlimg.setLayoutParams(new RelativeLayout.LayoutParams(width, width));
-//				holder.rlimg.setLayoutParams(new RelativeLayout.LayoutParams(width, width));//如果被选择则放大显示
-//				holder.mRoundProgressBar.setLayoutParams(new RelativeLayout.LayoutParams(375, 375));
-//				holder.tvcontent.setLayoutParams(new TextView());
 				if (position + 1 == 281) {
 					childday = 280;
 					isAlready=true;
@@ -3063,7 +2403,6 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 					childday = position + 1;
 					isAlready=false;
 				}
-
 				holder.tvcontent.setTextSize(18);
 				setText(holder.tvcontent, list.get(position).getDay(), 2);
 				holder.image.setAlpha(250);
@@ -3073,9 +2412,7 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 						Date date1 = fmt.parse(user.YuBirthDate);
 						if((new Date().getTime())>(date1.getTime()+24*60*60*1000)){
 							dYun = new Date();
-
 						}else{
-
 							dYun=fmt.parse(fmt.format(date1.getTime()+24*60*60*1000));
 						}
 						setTitle(dYun);
@@ -3085,8 +2422,6 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 						setTitle(fmt.parse(curr));
 						dYun = fmt.parse(curr);
 					}
-
-
 					mTextLenth.setText(lengths[childday - 1] + "mm");
 					mTextWeight.setText(weights[childday - 1] + "g");
 					tvday.setText((280 - childday) + "天");
@@ -3096,7 +2431,6 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 					} else if (position + 1 == 281) {
 						llchildleft.setVisibility(View.VISIBLE);
 						llchildright.setVisibility(View.INVISIBLE);
-
 					} else {
 						llchildleft.setVisibility(View.VISIBLE);
 						llchildright.setVisibility(View.VISIBLE);
@@ -3116,11 +2450,9 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 				}
 				isPost = true;
 				mHandler.sendEmptyMessageDelayed(1010, 50);
-
 			} else {
-				int width2 = 110 *ScreenUtils.getScreenHeight(Index.this) / 1080;
-				holder.rlimg.setLayoutParams(new RelativeLayout.LayoutParams(width2, width2));//否则正常
-//				holder.mRoundProgressBar.setLayoutParams(new RelativeLayout.LayoutParams(175, 175));
+				int tempwidth = 180 *displaywidth / 1080;
+				holder.rlimg.setLayoutParams(new RelativeLayout.LayoutParams(tempwidth, tempwidth));//否则正常
 				holder.tvcontent.setTextSize(12);
 				setText(holder.tvcontent, list.get(position).getDay(), 1);
 
@@ -3137,7 +2469,6 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 				holder.mRoundProgressBar.setAlpha(0.5f);
 			}
 			int per = (int) (childday / 2.8);
-
 			if (100 < per) {
 				per = 100;
 			}
@@ -3176,7 +2507,6 @@ public class Index extends BaseActivity implements OnRefreshListener, onSelectLi
 
 	class ViewHolder {
 		ImageView image;
-		RelativeLayout imageRel;
 		RelativeLayout rlimg;
 		RoundProgressBar mRoundProgressBar;
 		TextView tvcontent;

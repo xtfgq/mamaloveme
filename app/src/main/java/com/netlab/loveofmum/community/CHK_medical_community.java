@@ -56,9 +56,6 @@ import cn.sharesdk.framework.ShareSDK;
 public class CHK_medical_community extends BaseActivity
 {
 
-	private TextView txtHead;
-	private ImageView imgBack;
-   	private View vTop;
 	private List<Map<String, Object>> arrayList = new ArrayList<Map<String, Object>>();
 	private String returnvalue001;
 	private ListView listview;
@@ -76,10 +73,10 @@ public class CHK_medical_community extends BaseActivity
 			+ MMloveConstants.DoctorInquiry;
 	private final String SOAP_METHODNAME = MMloveConstants.DoctorInquiry;
 	private final String SOAP_URL = MMloveConstants.URL002;
-	
-	private final String SOAP_ACTION2 = MMloveConstants.URL001
-			+ MMloveConstants.UserInquiry;
-	private final String SOAP_METHODNAME2 = MMloveConstants.UserInquiry;
+
+//	private final String SOAP_ACTION2 = MMloveConstants.URL001
+//			+ MMloveConstants.UserInquiry;
+//	private final String SOAP_METHODNAME2 = MMloveConstants.UserInquiry;
 	int page=1;
 	private PullToRefreshLayout refreshLayout;
 	private CustomerSpinner spinner;
@@ -89,6 +86,7 @@ public class CHK_medical_community extends BaseActivity
 			+ MMloveConstants.HospitalInquiry;
 	private final String SOAP_METHODNAME4 = MMloveConstants.HospitalInquiry;
 	public ArrayAdapter<String> mHadapter;
+	View nodoctor;
 	private BroadcastReceiver mRefreshBroadcastReceiver = new BroadcastReceiver() {
 
 		@Override
@@ -99,7 +97,7 @@ public class CHK_medical_community extends BaseActivity
 				HospitalID=-1;
 				spinner.setSelection(0);
 				adapter.setSelectItem(-1);
-searchCHK_Doctors();
+			searchCHK_Doctors();
 			}
 		}
 
@@ -110,13 +108,12 @@ searchCHK_Doctors();
 	{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setTranslucentStatus() ;
 		setContentView(R.layout.layout_cmm);
-
+		nodoctor = findViewById(R.id.nodoctor);
 		MyApplication.getInstance().addActivity(this);
 		iniView();
-		
+		 View vTop=findViewById(R.id.v_top);
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
 		    int h=getStatusHeight(this);
 			LayoutParams params=vTop.getLayoutParams();
@@ -128,16 +125,9 @@ searchCHK_Doctors();
 			}
 		if(hasInternetConnected())
 		{
-			
-			
 			setListeners();
-
 			user = LocalAccessor.getInstance(CHK_medical_community.this).getUser();
-//			HospitalID = user.HospitalID;
 			searchHospital();
-//		searchCHK_Doctors();
-			// iniCHKInfo();
-//		searchCHK_Doctors();
 		}
 		else
 		{
@@ -182,9 +172,7 @@ searchCHK_Doctors();
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-
 		if(hasInternetConnected()){
-		
 		}
 		else
 		{
@@ -208,14 +196,7 @@ searchCHK_Doctors();
 		}
 		SystemStatusManager tintManager = new SystemStatusManager(this);
 		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.drawable.bg_header);//状态栏无背景
-	}
-	
-	@Override
-	public boolean hasInternetConnected()
-	{
-		// TODO Auto-generated method stub
-		return super.hasInternetConnected();
+		tintManager.setStatusBarTintResource(R.color.home);//状态栏无背景
 	}
 	
 
@@ -223,16 +204,12 @@ searchCHK_Doctors();
 	protected void iniView()
 	{
 		// TODO Auto-generated method stub
-		txtHead = (TextView) findViewById(R.id.txtHead);
-		imgBack = (ImageView) findViewById(R.id.img_left);
-		imgBack.setVisibility(View.GONE);
-		txtHead.setText("私人医生");
-
+		findViewById(R.id.img_left).setVisibility(View.GONE);
+		((TextView) findViewById(R.id.txtHead)).setText("私人医生");
 		listview = (ListView) findViewById(R.id.listview_chk_doctorlist);
 		adapter = new CHK_Medical_Adapter(
 			CHK_medical_community.this);
 		listview.setAdapter(adapter);
-		vTop=findViewById(R.id.v_top);
 		refreshLayout=(PullToRefreshLayout)findViewById(R.id.refresh_view);
 		refreshLayout.setOnRefreshListener(new MyListener());
 		loadmore = (RelativeLayout) findViewById(R.id.loadmore);
@@ -283,16 +260,11 @@ searchCHK_Doctors();
 								list.add(array.getJSONObject(i)
 										.getString("HospitalName"));
 
-//								if(HospitalID==Integer.valueOf(array.getJSONObject(i)
-//										.getString("HospitalID")))
-//								{
-//									isDefault = i;
-//								}
 							}
 
 
 							spinner.setList(list);
-							mHadapter=new ArrayAdapter<String>(CHK_medical_community.this, android.R.layout.simple_spinner_item, list);
+							mHadapter=new ArrayAdapter<String>(CHK_medical_community.this, R.layout.simple_textview, list);
 //							adapter = new ArrayAdapter<String>(CHK_medical_community.this, android.R.layout.simple_spinner_item, list);
 							spinner.setAdapter(mHadapter);
 							if(isDefault!=-1) {
@@ -331,16 +303,7 @@ searchCHK_Doctors();
 
 	private void setListeners()
 	{
-		imgBack.setOnClickListener(new View.OnClickListener()
-		{
 
-			@Override
-			public void onClick(View v)
-			{
-				// TODO Auto-generated method stub
-				finish();
-			}
-		});
 		spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
 		{
 			@Override
@@ -358,16 +321,16 @@ searchCHK_Doctors();
 				}
 				else
 				{
+					user = LocalAccessor.getInstance(CHK_medical_community.this).getUser();
 					user.HospitalID = hosID;
 					user.HospitalName = mapDetail.get("HospitalName").toString();
 					HospitalID = hosID;
+
 					try
 					{
 						LocalAccessor.getInstance(CHK_medical_community.this).updateUser(user);
 						page=1;
 						searchCHK_Doctors();
-
-
 					}
 					catch (Exception e)
 					{
@@ -405,7 +368,6 @@ searchCHK_Doctors();
 					returnvalue001 = result.toString();
 					if (returnvalue001 == null)
 					{
-
 					}
 					else
 					{
@@ -485,20 +447,7 @@ searchCHK_Doctors();
 
 								}
 
-								// SimpleAdapter adapter = new SimpleAdapter(
-								// CHKTimeInfo.this, arrayList,
-								// R.layout.item_chktimeinfo,
-								// new Object[] { "ItemName","ItemContent" },
-								// new int[] {
-								// R.id.chktime_name,R.id.chktime_description });
-								// listview.setAdapter(adapter);
-								// listview.setEnabled(true);
-								//
 
-//							adapter = new CHK_Medical_Adapter(
-//									CHK_medical_community.this, arrayList);
-//							listview.setAdapter(adapter);
-//							// 添加listView点击事件
 								adapter.setListData(arrayList);
 								adapter.notifyDataSetChanged();
 
@@ -567,7 +516,13 @@ searchCHK_Doctors();
 							}
 						}
 					}
+					if(arrayList.size()==0){
+						nodoctor.setVisibility(View.VISIBLE);
+					}else{
+						nodoctor.setVisibility(View.GONE);
+					}
 				}
+
 			};
 
 			JsonAsyncTask_Info task = new JsonAsyncTask_Info(

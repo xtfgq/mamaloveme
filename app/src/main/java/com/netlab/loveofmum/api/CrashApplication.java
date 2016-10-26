@@ -33,9 +33,9 @@ public class CrashApplication extends Application
 	{
 		// TODO Auto-generated method stub
 		super.onCreate();
-		 
-//		CrashHandler crashHandler = CrashHandler.getInstance();
-//        crashHandler.init(getApplicationContext());
+//
+		CrashHandler crashHandler = CrashHandler.getInstance();
+        crashHandler.init(getApplicationContext());
         initImageLoader(getApplicationContext());
       
 //        DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
@@ -64,9 +64,9 @@ public class CrashApplication extends Application
 					.tasksProcessingOrder(QueueProcessingType.LIFO)
 					.writeDebugLogs()
 					// Remove for release app
-					.memoryCache(new LruMemoryCache(4 * 1024 * 1024))
-					.memoryCacheSize(4 * 1024 * 1024).build();
-			
+					.memoryCache(new LruMemoryCache(20 * 1024 * 1024))
+					.memoryCacheSize(20 * 1024 * 1024).build();
+
 			ImageLoader.getInstance().init(config);
 
 		}

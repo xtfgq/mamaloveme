@@ -48,465 +48,422 @@ import com.netlab.loveofmum.utils.SystemStatusManager;
 import com.netlab.loveofmum.widget.XScrollView.PullToRefreshLayout;
 
 
-public class CHK_DoctorList extends BaseActivity
-{
+public class CHK_DoctorList extends BaseActivity {
 
-	@Override
-	protected void onNewIntent(Intent intent) {
-		// TODO Auto-generated method stub
-		super.onNewIntent(intent);
-		mIntent=this.getIntent();
-		if(mIntent!=null&&mIntent.getStringExtra("HostiptalID")!=null&&!("").equals(mIntent.getStringExtra("HostiptalID"))){
-			HospitalID = Integer.valueOf(mIntent.getStringExtra("HostiptalID"));
-			getWeek();
-		}else{
-		HospitalID = user.HospitalID;
-		}
-	}
+    @Override
+    protected void onNewIntent(Intent intent) {
+        // TODO Auto-generated method stub
+        super.onNewIntent(intent);
+        mIntent = this.getIntent();
+        if (mIntent != null && mIntent.getStringExtra("HostiptalID") != null && !("").equals(mIntent.getStringExtra("HostiptalID"))) {
+            HospitalID = Integer.valueOf(mIntent.getStringExtra("HostiptalID"));
+            getWeek();
+        } else {
+            HospitalID = user.HospitalID;
+        }
+    }
 
-	private TextView txtHead;
-	private ImageView imgBack;
-	private Order order;
-	private RelativeLayout loadmore;
-	private TextView loadstate_tv;
+    private TextView txtHead;
+    private ImageView imgBack;
+    private Order order;
+    private RelativeLayout loadmore;
+    private TextView loadstate_tv;
 
-	private List<Map<String, Object>> arrayList = new ArrayList<Map<String, Object>>();
+    private List<Map<String, Object>> arrayList = new ArrayList<Map<String, Object>>();
 
-	private String returnvalue001;
-	private ListView listview;
+    private String returnvalue001;
+    private ListView listview;
 
-	private CHK_DoctorList_Adapter adapter;
-	
-	private int HospitalID;
-	private Intent mIntent;
+    private CHK_DoctorList_Adapter adapter;
 
-	// 定义Web Service相关的字符串
-	private final String SOAP_NAMESPACE = MMloveConstants.URL001;
-	private final String SOAP_ACTION = MMloveConstants.URL001
-			+ MMloveConstants.DoctorInquiry;
-	private final String SOAP_METHODNAME = MMloveConstants.DoctorInquiry;
-	private final String SOAP_URL = MMloveConstants.URL002;
-	// 得到孕周
-	private final String SOAP_YUNWEEKMETHOD= MMloveConstants.CHKInquiryForWeek;
-	private final String SOAP_YUNWEEKACTION = MMloveConstants.URL001
-			+ MMloveConstants.CHKInquiryForWeek;
-	private final String SOAP_ACTION3 = MMloveConstants.URL001
-			+ MMloveConstants.CHKTypeItemsInquiry;
-	private final String SOAP_METHODNAME3 = MMloveConstants.CHKTypeItemsInquiry;
-	// 根据传过来的参数ID
-	private String CHKTypeID;
-	private String CHKTypeName2;
+    private int HospitalID;
+    private Intent mIntent;
 
-	private String CHKItemValue;
-	private Double CHKFEE = 0.0;
-	Yuchan yu;
-	private User user;
-	LocalAccessor local;
-	int page=1;
-	private PullToRefreshLayout refreshLayout;
-	@Override
-	protected void onCreate(Bundle savedInstanceState)
-	{
-		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setTranslucentStatus() ;
-		setContentView(R.layout.layout_chk_doctorlist);
-		local = new LocalAccessor(CHK_DoctorList.this,
-				MMloveConstants.ORDERINFO);
+    // 定义Web Service相关的字符串
+    private final String SOAP_NAMESPACE = MMloveConstants.URL001;
+    private final String SOAP_ACTION = MMloveConstants.URL001
+            + MMloveConstants.DoctorInquiry;
+    private final String SOAP_METHODNAME = MMloveConstants.DoctorInquiry;
+    private final String SOAP_URL = MMloveConstants.URL002;
+    // 得到孕周
+    private final String SOAP_YUNWEEKMETHOD = MMloveConstants.CHKInquiryForWeek;
+    private final String SOAP_YUNWEEKACTION = MMloveConstants.URL001
+            + MMloveConstants.CHKInquiryForWeek;
+    private final String SOAP_ACTION3 = MMloveConstants.URL001
+            + MMloveConstants.CHKTypeItemsInquiry;
+    private final String SOAP_METHODNAME3 = MMloveConstants.CHKTypeItemsInquiry;
+    // 根据传过来的参数ID
+    private String CHKTypeID;
+    private String CHKTypeName2;
 
-		MyApplication.getInstance().addActivity(this);
-		mIntent=this.getIntent();
-		if(hasInternetConnected())
-		{
-			
-			iniView();
-			setListeners();
-			// iniCHKInfo();
-			searchCHK_Doctors();
-		}
-		else
-		{
-			Toast.makeText(CHK_DoctorList.this, R.string.msgUninternet,
-					Toast.LENGTH_SHORT).show();
-		}
-	}
-	
-	/**
-	 * 设置状态栏背景状态
-	 */
-	private void setTranslucentStatus() 
-	{
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
-		{
-			Window win = getWindow();
-			WindowManager.LayoutParams winParams = win.getAttributes();
-			final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
-			winParams.flags |= bits;
-			win.setAttributes(winParams);
-		}
-		SystemStatusManager tintManager = new SystemStatusManager(this);
-		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.drawable.bg_header);//状态栏无背景
-	}
-	
-	@Override
-	public boolean hasInternetConnected()
-	{
-		// TODO Auto-generated method stub
-		return super.hasInternetConnected();
-	}
-	
+    private String CHKItemValue;
+    private Double CHKFEE = 0.0;
+    Yuchan yu;
+    private User user;
+    LocalAccessor local;
+    int page = 1;
+    private PullToRefreshLayout refreshLayout;
 
-	@Override
-	protected void iniView()
-	{
-		// TODO Auto-generated method stub
-		txtHead = (TextView) findViewById(R.id.txtHead);
-		imgBack = (ImageView) findViewById(R.id.img_left);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        // TODO Auto-generated method stub
+        super.onCreate(savedInstanceState);
+        setTranslucentStatus();
+        setContentView(R.layout.layout_chk_doctorlist);
+        local = new LocalAccessor(CHK_DoctorList.this,
+                MMloveConstants.ORDERINFO);
 
-		txtHead.setText("选择医生");
+        MyApplication.getInstance().addActivity(this);
+        mIntent = this.getIntent();
+        if (hasInternetConnected()) {
 
-		listview = (ListView) findViewById(R.id.listview_chk_doctorlist);
-		adapter = new CHK_DoctorList_Adapter(
-				CHK_DoctorList.this);
-		listview.setAdapter(adapter);
-		refreshLayout=(PullToRefreshLayout)findViewById(R.id.refresh_view);
-		refreshLayout.setOnRefreshListener(new MyListener());
-		loadmore = (RelativeLayout) findViewById(R.id.loadmore);
-		loadstate_tv = (TextView) loadmore.findViewById(R.id.loadstate_tv);
-		
-	user = LocalAccessor.getInstance(CHK_DoctorList.this).getUser();
+            iniView();
+            setListeners();
+            // iniCHKInfo();
+            searchCHK_Doctors();
+        } else {
+            Toast.makeText(CHK_DoctorList.this, R.string.msgUninternet,
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
 
-		if(mIntent!=null&&mIntent.getStringExtra("HostiptalID")!=null&&!("").equals(mIntent.getStringExtra("HostiptalID"))){
-			HospitalID = Integer.valueOf(mIntent.getStringExtra("HostiptalID"));
-			order=local.getOrder();
-			Integer chktypeid = new Integer(order.CHKTypeID);
-			if(chktypeid==null||chktypeid==0){
-				getWeek();
-			}
-			if(mIntent.getStringExtra("selectdoc")!=null&&("select").equals(mIntent.getStringExtra("selectdoc"))){
-				getWeek();
-			}
+    /**
+     * 设置状态栏背景状态
+     */
+    private void setTranslucentStatus() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Window win = getWindow();
+            WindowManager.LayoutParams winParams = win.getAttributes();
+            final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+            winParams.flags |= bits;
+            win.setAttributes(winParams);
+        }
+        SystemStatusManager tintManager = new SystemStatusManager(this);
+        tintManager.setStatusBarTintEnabled(true);
+        tintManager.setStatusBarTintResource(R.color.home);//状态栏无背景
+    }
+
+    @Override
+    public boolean hasInternetConnected() {
+        // TODO Auto-generated method stub
+        return super.hasInternetConnected();
+    }
+
+
+    @Override
+    protected void iniView() {
+        // TODO Auto-generated method stub
+        txtHead = (TextView) findViewById(R.id.txtHead);
+        imgBack = (ImageView) findViewById(R.id.img_left);
+
+        txtHead.setText("选择医生");
+
+        listview = (ListView) findViewById(R.id.listview_chk_doctorlist);
+        adapter = new CHK_DoctorList_Adapter(
+                CHK_DoctorList.this);
+        listview.setAdapter(adapter);
+        refreshLayout = (PullToRefreshLayout) findViewById(R.id.refresh_view);
+        refreshLayout.setOnRefreshListener(new MyListener());
+        loadmore = (RelativeLayout) findViewById(R.id.loadmore);
+        loadstate_tv = (TextView) loadmore.findViewById(R.id.loadstate_tv);
+
+        user = LocalAccessor.getInstance(CHK_DoctorList.this).getUser();
+
+        if (mIntent != null && mIntent.getStringExtra("HostiptalID") != null && !("").equals(mIntent.getStringExtra("HostiptalID"))) {
+            HospitalID = Integer.valueOf(mIntent.getStringExtra("HostiptalID"));
+            order = local.getOrder();
+            Integer chktypeid = new Integer(order.CHKTypeID);
+            if (chktypeid == null || chktypeid == 0) {
+                getWeek();
+            }
+            if (mIntent.getStringExtra("selectdoc") != null && ("select").equals(mIntent.getStringExtra("selectdoc"))) {
+                getWeek();
+            }
 
 //Toast.makeText(CHK_DoctorList.this,"wwwww",1).show();
-		}else{
-		HospitalID = user.HospitalID;
-		}
-	}
+        } else {
+            HospitalID = user.HospitalID;
+        }
+    }
 
-	private void setListeners()
-	{
-		imgBack.setOnClickListener(new View.OnClickListener()
-		{
+    private void setListeners() {
+        imgBack.setOnClickListener(new View.OnClickListener() {
 
-			@Override
-			public void onClick(View v)
-			{
-				// TODO Auto-generated method stub
-				finish();
-			}
-		});
-	}
-private void getWeek(){
-	JsonAsyncTaskOnComplete doProcess = new JsonAsyncTaskOnComplete(){
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                finish();
+            }
+        });
+    }
 
-		@Override
-		public void processJsonObject(Object result) {
-			// TODO Auto-generated method stub
-			String rs=result.toString();
+    private void getWeek() {
+        JsonAsyncTaskOnComplete doProcess = new JsonAsyncTaskOnComplete() {
+
+            @Override
+            public void processJsonObject(Object result) {
+                // TODO Auto-generated method stub
+                String rs = result.toString();
 //			Toast.makeText(CHK_DoctorList.this,"vvvwekkkkkk",1).show();
 //			LocalAccessor local = new LocalAccessor(CHK_DoctorList.this,
 //					MMloveConstants.ORDERINFO);
 
-			Order order = new Order();
+                Order order = new Order();
 
-			JSONObject mySO = (JSONObject) result;
-			JSONArray array;
-			try {
-				array = mySO
-						.getJSONArray("CHKInquiryForWeek");
-				CHKTypeID= array.getJSONObject(0)
-						.getString("ID");
-				
-				int sweek = Integer.parseInt(array
-						.getJSONObject(0)
-						.getString("WeekStart"));
-				int eweek = Integer.parseInt(array
-						.getJSONObject(0).getString("WeekEnd"));
+                JSONObject mySO = (JSONObject) result;
+                JSONArray array;
+                try {
+                    array = mySO
+                            .getJSONArray("CHKInquiryForWeek");
+                    CHKTypeID = array.getJSONObject(0)
+                            .getString("ID");
 
-				if (eweek > sweek)
-				{
-					CHKTypeName2=
-									"第("
-									+ array.getJSONObject(0)
-											.getString(
-													"WeekStart")
-									+ "-"
-									+ array.getJSONObject(0)
-											.getString(
-													"WeekEnd")
-									+ "周)产检";
+                    int sweek = Integer.parseInt(array
+                            .getJSONObject(0)
+                            .getString("WeekStart"));
+                    int eweek = Integer.parseInt(array
+                            .getJSONObject(0).getString("WeekEnd"));
 
-				}
-				else if (eweek == sweek)
-				{
-					
-					CHKTypeName2=
-									"第"
-									+ array.getJSONObject(0)
-											.getString(
-													"WeekStart")
-									+ "周产检";
-				}
-			
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			searchCHKTimeItems();
-	
-		}};
-		JsonAsyncTask_Info task = new JsonAsyncTask_Info(this, true, doProcess);
-		Map<String, Object> paramMap = new HashMap<String, Object>();
-		yu = new Yuchan();
-		Date date;
-		DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
-			
-			try {
-				String yubirth = user.YuBirthDate;
-				date = fmt.parse(user.YuBirthDate);
-				yu = IOUtils.WeekInfo(date);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+                    if (eweek > sweek) {
+                        CHKTypeName2 =
+                                "第("
+                                        + array.getJSONObject(0)
+                                        .getString(
+                                                "WeekStart")
+                                        + "-"
+                                        + array.getJSONObject(0)
+                                        .getString(
+                                                "WeekEnd")
+                                        + "周)产检";
 
-		String str = "<Request><Week>%s</Week></Request>";
-		if(yu.Week>39){
-			str = String.format(str, new Object[] { "40", });
-		}else{
-		str = String.format(str, new Object[] { yu.Week+1+"", });
-		}
-		paramMap.put("str", str);
-		task.execute(SOAP_NAMESPACE, SOAP_YUNWEEKACTION,
-				SOAP_YUNWEEKMETHOD, SOAP_URL, paramMap);
-	}
-private void searchCHKTimeItems()
-{
-	try
-	{
-		JsonAsyncTaskOnComplete doProcess = new JsonAsyncTaskOnComplete()
-		{
-			public void processJsonObject(Object result)
-			{
+                    } else if (eweek == sweek) {
 
-				CHKItemValue = result.toString();
-			
-				if (returnvalue001 == null)
-				{
+                        CHKTypeName2 =
+                                "第"
+                                        + array.getJSONObject(0)
+                                        .getString(
+                                                "WeekStart")
+                                        + "周产检";
+                    }
 
-				}
-				else
-				{
-					Map<String, Object> map;
-					// 下边是具体的处理
-					try
-					{
-						JSONObject mySO = (JSONObject) result;
-						JSONArray array = mySO
-								.getJSONArray("CHKTypeItemsInquiry");
-						
-						if(array.getJSONObject(0).has("MessageCode"))
-						{
-							if (array.getJSONObject(0).getString("MessageCode")
-									.equals("0"))
-							{
-								
-							}
-						}
-						else
-						{
-							for (int i = 0; i < array.length(); i++)
-							{
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                searchCHKTimeItems();
 
-							
+            }
+        };
+        JsonAsyncTask_Info task = new JsonAsyncTask_Info(this, true, doProcess);
+        Map<String, Object> paramMap = new HashMap<String, Object>();
+        yu = new Yuchan();
+        Date date;
+        DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
 
-								if ("可预约".equals(array.getJSONObject(i)
-										.getString("Value")))
-								{
-									if(!array.getJSONObject(i).getString("ItemPrice").equals(""))
-									{
-										CHKFEE += Double.valueOf(array
-												.getJSONObject(i).getString(
-														"ItemPrice"));
-									}
-								}
-							}
+        try {
+            String yubirth = user.YuBirthDate;
+            date = fmt.parse(user.YuBirthDate);
+            yu = IOUtils.WeekInfo(date);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        String str = "<Request><Week>%s</Week></Request>";
+        if (yu.Week > 39) {
+            str = String.format(str, new Object[]{"40",});
+        } else {
+            str = String.format(str, new Object[]{yu.Week + 1 + "",});
+        }
+        paramMap.put("str", str);
+        task.execute(SOAP_NAMESPACE, SOAP_YUNWEEKACTION,
+                SOAP_YUNWEEKMETHOD, SOAP_URL, paramMap);
+    }
+
+    private void searchCHKTimeItems() {
+        try {
+            JsonAsyncTaskOnComplete doProcess = new JsonAsyncTaskOnComplete() {
+                public void processJsonObject(Object result) {
+
+                    CHKItemValue = result.toString();
+
+                    if (returnvalue001 == null) {
+
+                    } else {
+                        Map<String, Object> map;
+                        // 下边是具体的处理
+                        try {
+                            JSONObject mySO = (JSONObject) result;
+                            JSONArray array = mySO
+                                    .getJSONArray("CHKTypeItemsInquiry");
+
+                            if (array.getJSONObject(0).has("MessageCode")) {
+                                if (array.getJSONObject(0).getString("MessageCode")
+                                        .equals("0")) {
+
+                                }
+                            } else {
+                                for (int i = 0; i < array.length(); i++) {
+
+
+                                    if ("可预约".equals(array.getJSONObject(i)
+                                            .getString("Value"))) {
+                                        if (!array.getJSONObject(i).getString("ItemPrice").equals("")) {
+                                            CHKFEE += Double.valueOf(array
+                                                    .getJSONObject(i).getString(
+                                                            "ItemPrice"));
+                                        }
+                                    }
+                                }
 //							LocalAccessor local = new LocalAccessor(CHK_DoctorList.this,
 //									MMloveConstants.ORDERINFO);
-							order.CHKTypeID = Integer.valueOf(CHKTypeID);
-							order.CHKItemValue = CHKItemValue;
-							order.CHKFee = String.valueOf(CHKFEE);
-							order.CHKTypeName = CHKTypeName2;
-							try
-							{
-								local.updateOrder(order);
-							}
-							catch (Exception e)
-							{
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-						}
-					
+                                order.CHKTypeID = Integer.valueOf(CHKTypeID);
+                                order.CHKItemValue = CHKItemValue;
+                                order.CHKFee = String.valueOf(CHKFEE);
+                                order.CHKTypeName = CHKTypeName2;
+                                try {
+                                    local.updateOrder(order);
+                                } catch (Exception e) {
+                                    // TODO Auto-generated catch block
+                                    e.printStackTrace();
+                                }
+                            }
 
-					}
-					catch (Exception ex)
-					{
-						ex.printStackTrace();
-					}
-				}
-			}
-		};
-	
-		JsonAsyncTask_Info task = new JsonAsyncTask_Info(
-				CHK_DoctorList.this, true, doProcess);
-		Map<String, Object> paramMap = new HashMap<String, Object>();
-		String str = "<Request><CHKTypeID>%s</CHKTypeID><HospitalID>%s</HospitalID></Request>";
 
-		str = String.format(str, new Object[]
-		{ CHKTypeID, String.valueOf(HospitalID) });
-		paramMap.put("str", str);
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
+                    }
+                }
+            };
 
-		// 必须是这5个参数，而且得按照顺序
-		task.execute(SOAP_NAMESPACE, SOAP_ACTION3, SOAP_METHODNAME3,
-				SOAP_URL, paramMap);
-	}
-	catch (Exception e)
-	{
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-}
+            JsonAsyncTask_Info task = new JsonAsyncTask_Info(
+                    CHK_DoctorList.this, true, doProcess);
+            Map<String, Object> paramMap = new HashMap<String, Object>();
+            String str = "<Request><CHKTypeID>%s</CHKTypeID><HospitalID>%s</HospitalID></Request>";
 
-	/*
-	 * 查询gridview
-	 */
-	private void searchCHK_Doctors()
-	{
-		try
-		{
-			JsonAsyncTaskOnComplete doProcess = new JsonAsyncTaskOnComplete()
-			{
-				public void processJsonObject(Object result)
-				{
-					returnvalue001 = result.toString();
-					if (returnvalue001 == null)
-					{
-                          
-					}
-					else
-					{
-						Map<String, Object> map;
-						// 下边是具体的处理
-						try
-						{
-							JSONObject mySO = (JSONObject) result;
-							JSONArray array = mySO
-									.getJSONArray("DoctorInquiry");
-							if(page==1&&arrayList.size()>0){
-								arrayList.clear();
-							}
+            str = String.format(str, new Object[]
+                    {CHKTypeID, String.valueOf(HospitalID)});
+            paramMap.put("str", str);
 
-							if(array.getJSONObject(0).has("MessageCode")){
-								if (page == 1) {
-									loadmore.setVisibility(View.GONE);
-								} else {
-									loadmore.setVisibility(View.VISIBLE);
-									loadstate_tv.setText("没有更多数据");
-									new Handler() {
-										@Override
-										public void handleMessage(Message msg) {
-											// 千万别忘了告诉控件加载完毕了哦！
-											refreshLayout.loadmoreFinish(PullToRefreshLayout.SUCCEED);
-										}
-									}.sendEmptyMessageDelayed(0, 500);
-									listview.setSelection(listview.getBottom());
-								}
+            // 必须是这5个参数，而且得按照顺序
+            task.execute(SOAP_NAMESPACE, SOAP_ACTION3, SOAP_METHODNAME3,
+                    SOAP_URL, paramMap);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 
-							}else {
-								for (int i = 0; i < array.length(); i++) {
+    /*
+     * 查询gridview
+     */
+    private void searchCHK_Doctors() {
+        try {
+            JsonAsyncTaskOnComplete doProcess = new JsonAsyncTaskOnComplete() {
+                public void processJsonObject(Object result) {
+                    returnvalue001 = result.toString();
+                    if (returnvalue001 == null) {
 
-									map = new HashMap<String, Object>();
-									map.put("DoctorID", array.getJSONObject(i)
-											.getString("DoctorID"));
+                    } else {
+                        Map<String, Object> map;
+                        // 下边是具体的处理
+                        try {
+                            JSONObject mySO = (JSONObject) result;
+                            JSONArray array = mySO
+                                    .getJSONArray("DoctorInquiry");
+                            if (page == 1 && arrayList.size() > 0) {
+                                arrayList.clear();
+                            }
 
-									map.put("DoctorNO", array.getJSONObject(i)
-											.getString("DoctorNO"));
+                            if (array.getJSONObject(0).has("MessageCode")) {
+                                if (page == 1) {
+                                    loadmore.setVisibility(View.GONE);
+                                } else {
+                                    loadmore.setVisibility(View.VISIBLE);
+                                    loadstate_tv.setText("没有更多数据");
+                                    new Handler() {
+                                        @Override
+                                        public void handleMessage(Message msg) {
+                                            // 千万别忘了告诉控件加载完毕了哦！
+                                            refreshLayout.loadmoreFinish(PullToRefreshLayout.SUCCEED);
+                                        }
+                                    }.sendEmptyMessageDelayed(0, 500);
+                                    listview.setSelection(listview.getBottom());
+                                }
 
-									map.put("DepartNO", array.getJSONObject(i)
-											.getString("DepartNO"));
+                            } else {
+                                for (int i = 0; i < array.length(); i++) {
 
-									map.put("DoctorName", array.getJSONObject(i)
-											.getString("DoctorName"));
-									map.put("HospitalID", array.getJSONObject(i)
-											.getString("HospitalID"));
-									map.put("HospitalName", array.getJSONObject(i)
-											.getString("HospitalName"));
-									map.put("Title", array.getJSONObject(i)
-											.getString("Title"));
-									map.put("Description", array.getJSONObject(i)
-											.getString("Description"));
-									map.put("Price", array.getJSONObject(i)
-											.getString("Price"));
+                                    map = new HashMap<String, Object>();
+                                    map.put("DoctorID", array.getJSONObject(i)
+                                            .getString("DoctorID"));
 
-									map.put("ImageURL", array.getJSONObject(i)
-											.getString("ImageURL"));
-									arrayList.add(map);
+                                    map.put("DoctorNO", array.getJSONObject(i)
+                                            .getString("DoctorNO"));
 
-								}
+                                    map.put("DepartNO", array.getJSONObject(i)
+                                            .getString("DepartNO"));
 
-								// SimpleAdapter adapter = new SimpleAdapter(
-								// CHKTimeInfo.this, arrayList,
-								// R.layout.item_chktimeinfo,
-								// new Object[] { "ItemName","ItemContent" },
-								// new int[] {
-								// R.id.chktime_name,R.id.chktime_description });
-								// listview.setAdapter(adapter);
-								// listview.setEnabled(true);
-								//
+                                    map.put("DoctorName", array.getJSONObject(i)
+                                            .getString("DoctorName"));
+                                    map.put("HospitalID", array.getJSONObject(i)
+                                            .getString("HospitalID"));
+                                    map.put("HospitalName", array.getJSONObject(i)
+                                            .getString("HospitalName"));
+                                    map.put("Title", array.getJSONObject(i)
+                                            .getString("Title"));
+                                    map.put("Description", array.getJSONObject(i)
+                                            .getString("Description"));
+                                    map.put("Price", array.getJSONObject(i)
+                                            .getString("Price"));
 
-								adapter.setListData(arrayList);
-								adapter.notifyDataSetChanged();
-								// 添加listView点击事件
-								if (page > 1) {
-									new Handler() {
-										@Override
-										public void handleMessage(Message msg) {
-											// 千万别忘了告诉控件加载完毕了哦！
-											refreshLayout.loadmoreFinish(PullToRefreshLayout.SUCCEED);
-										}
-									}.sendEmptyMessageDelayed(0, 500);
-									listview.setSelection(listview.getBottom());
-								} else {
-									new Handler() {
-										@Override
-										public void handleMessage(Message msg) {
-											// 千万别忘了告诉控件刷新完毕了哦！
-											refreshLayout.refreshFinish(PullToRefreshLayout.SUCCEED);
-										}
-									}.sendEmptyMessageDelayed(0, 500);
+                                    map.put("ImageURL", array.getJSONObject(i)
+                                            .getString("ImageURL"));
+                                    arrayList.add(map);
 
-								}
-								listview.setOnItemClickListener(new OnItemClickListener() {
+                                }
 
-									public void onItemClick(AdapterView<?> parent,
-															View view, int postion, long id) {
-										// 点击的时候设置选中的编号，在自定义adapter中设置属性selectItem
-										adapter.setSelectItem(postion);
-										// 刷新listView
-										adapter.notifyDataSetChanged();
+                                // SimpleAdapter adapter = new SimpleAdapter(
+                                // CHKTimeInfo.this, arrayList,
+                                // R.layout.item_chktimeinfo,
+                                // new Object[] { "ItemName","ItemContent" },
+                                // new int[] {
+                                // R.id.chktime_name,R.id.chktime_description });
+                                // listview.setAdapter(adapter);
+                                // listview.setEnabled(true);
+                                //
+
+                                adapter.setListData(arrayList);
+                                adapter.notifyDataSetChanged();
+                                // 添加listView点击事件
+                                if (page > 1) {
+                                    new Handler() {
+                                        @Override
+                                        public void handleMessage(Message msg) {
+                                            // 千万别忘了告诉控件加载完毕了哦！
+                                            refreshLayout.loadmoreFinish(PullToRefreshLayout.SUCCEED);
+                                        }
+                                    }.sendEmptyMessageDelayed(0, 500);
+                                    listview.setSelection(listview.getBottom());
+                                } else {
+                                    new Handler() {
+                                        @Override
+                                        public void handleMessage(Message msg) {
+                                            // 千万别忘了告诉控件刷新完毕了哦！
+                                            refreshLayout.refreshFinish(PullToRefreshLayout.SUCCEED);
+                                        }
+                                    }.sendEmptyMessageDelayed(0, 500);
+
+                                }
+                                listview.setOnItemClickListener(new OnItemClickListener() {
+
+                                    public void onItemClick(AdapterView<?> parent,
+                                                            View view, int postion, long id) {
+                                        // 点击的时候设置选中的编号，在自定义adapter中设置属性selectItem
+                                        adapter.setSelectItem(postion);
+                                        // 刷新listView
+                                        adapter.notifyDataSetChanged();
 //									Intent i = new Intent(CHK_DoctorList.this,
 //											CHKItem_Base.class);
 //									i.putExtra("ItemName","简介");
@@ -514,83 +471,73 @@ private void searchCHKTimeItems()
 //									startActivity(i); 
 
 
-									}
-								});
-							}
+                                    }
+                                });
+                            }
 
-						}
-						catch (Exception ex)
-						{
+                        } catch (Exception ex) {
 
-							ex.printStackTrace();
-							if(page>1){
-								new Handler()
-								{
-									@Override
-									public void handleMessage(Message msg)
-									{
-										// 千万别忘了告诉控件加载完毕了哦！
+                            ex.printStackTrace();
+                            if (page > 1) {
+                                new Handler() {
+                                    @Override
+                                    public void handleMessage(Message msg) {
+                                        // 千万别忘了告诉控件加载完毕了哦！
 
-										refreshLayout.loadmoreFinish(PullToRefreshLayout.FAIL);
-									}
-								}.sendEmptyMessageDelayed(0, 500);
-							}else {
-								new Handler()
-								{
-									@Override
-									public void handleMessage(Message msg)
-									{
-										// 千万别忘了告诉控件刷新完毕了哦！
-										refreshLayout.refreshFinish(PullToRefreshLayout.FAIL);
-									}
-								}.sendEmptyMessageDelayed(0, 500);
+                                        refreshLayout.loadmoreFinish(PullToRefreshLayout.FAIL);
+                                    }
+                                }.sendEmptyMessageDelayed(0, 500);
+                            } else {
+                                new Handler() {
+                                    @Override
+                                    public void handleMessage(Message msg) {
+                                        // 千万别忘了告诉控件刷新完毕了哦！
+                                        refreshLayout.refreshFinish(PullToRefreshLayout.FAIL);
+                                    }
+                                }.sendEmptyMessageDelayed(0, 500);
 
-							}
-						}
-					}
-				}
-			};
+                            }
+                        }
+                    }
+                }
+            };
 
-			JsonAsyncTask_Info task = new JsonAsyncTask_Info(
-					CHK_DoctorList.this, true, doProcess);
-			Map<String, Object> paramMap = new HashMap<String, Object>();
-			String str = "<Request><DoctorID>%s</DoctorID><HospitalID>%s</HospitalID><Enabled>%s</Enabled><PageIndex>%s</PageIndex><PageSize>%s</PageSize></Request>";
+            JsonAsyncTask_Info task = new JsonAsyncTask_Info(
+                    CHK_DoctorList.this, true, doProcess);
+            Map<String, Object> paramMap = new HashMap<String, Object>();
+            String str = "<Request><DoctorID>%s</DoctorID><HospitalID>%s</HospitalID><Enabled>%s</Enabled><PageIndex>%s</PageIndex><PageSize>%s</PageSize></Request>";
 
-			str = String.format(str, new Object[]
-			{ "",String.valueOf(HospitalID),0+"",page+"",10+""  });
-			paramMap.put("str", str);
+            str = String.format(str, new Object[]
+                    {"", String.valueOf(HospitalID), 0 + "", page + "", 10 + ""});
+            paramMap.put("str", str);
 
-			// 必须是这5个参数，而且得按照顺序
-			task.execute(SOAP_NAMESPACE, SOAP_ACTION, SOAP_METHODNAME,
-					SOAP_URL, paramMap);
-		}
-		catch (Exception e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	public class MyListener implements PullToRefreshLayout.OnRefreshListener
-	{
+            // 必须是这5个参数，而且得按照顺序
+            task.execute(SOAP_NAMESPACE, SOAP_ACTION, SOAP_METHODNAME,
+                    SOAP_URL, paramMap);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 
-		@Override
-		public void onRefresh(final PullToRefreshLayout pullToRefreshLayout)
-		{
-			// 下拉刷新操作
-			page=1;
-			searchCHK_Doctors();
+    public class MyListener implements PullToRefreshLayout.OnRefreshListener {
 
-		}
+        @Override
+        public void onRefresh(final PullToRefreshLayout pullToRefreshLayout) {
+            // 下拉刷新操作
+            page = 1;
+            searchCHK_Doctors();
 
-		@Override
-		public void onLoadMore(final PullToRefreshLayout pullToRefreshLayout)
-		{
-			// 加载操作
-			page++;
-			searchCHK_Doctors();
+        }
 
-		}
+        @Override
+        public void onLoadMore(final PullToRefreshLayout pullToRefreshLayout) {
+            // 加载操作
+            page++;
+            searchCHK_Doctors();
 
-	}
-	
+        }
+
+    }
+
 }

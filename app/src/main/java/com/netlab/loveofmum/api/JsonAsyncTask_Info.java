@@ -24,6 +24,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.Toast;
 
 public class JsonAsyncTask_Info extends AsyncTask<Object, Integer, JSONObject>
@@ -122,17 +123,14 @@ public class JsonAsyncTask_Info extends AsyncTask<Object, Integer, JSONObject>
 			
 			envelope.setOutputSoapObject(request);
 			
-//			HttpTransportSE httpTransport = new HttpTransportSE(SOAP_URL);
-//			httpTransport.call(SOAP_ACTION,envelope);
-			
 			HttpTransportSE httpTransport = new HttpTransportSE(SOAP_URL,120000);
 			
 			httpTransport.call(SOAP_ACTION,envelope);
 			
 			SoapPrimitive result = (SoapPrimitive) envelope.getResponse(); 
 			response  =result.toString();
-			
-			rsJson = new JSONObject(response);  
+
+			rsJson = new JSONObject(response);
 		}
 		catch(IOException io)
 		{
@@ -150,6 +148,7 @@ public class JsonAsyncTask_Info extends AsyncTask<Object, Integer, JSONObject>
 					myContext.startActivity(i);
 					
 				}else{
+
 				Toast.makeText(myContext, "一附院访问人数过多，数据加载失败，请稍后重试！",
 						Toast.LENGTH_SHORT).show();
 				io.printStackTrace();
@@ -165,7 +164,6 @@ public class JsonAsyncTask_Info extends AsyncTask<Object, Integer, JSONObject>
 					Toast.LENGTH_SHORT).show();
 			ex.printStackTrace();
 		}
-		
 		return rsJson;
 	}
 	

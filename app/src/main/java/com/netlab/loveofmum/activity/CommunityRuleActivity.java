@@ -23,24 +23,16 @@ import com.umeng.analytics.MobclickAgent;
 public class CommunityRuleActivity extends BaseActivity
 
 	{
-		private TextView txtHead;
-		private ImageView imgBack;
-		
 		private WebView web;
-
-
 		@Override
 		protected void onCreate(Bundle savedInstanceState)
 		{
 			// TODO Auto-generated method stub
 			super.onCreate(savedInstanceState);
-			requestWindowFeature(Window.FEATURE_NO_TITLE);
 			setTranslucentStatus() ;
-//			requestWindowFeature(Window.FEATURE_NO_TITLE);
 			setContentView(R.layout.layout_xuzhi);
 			MyApplication.getInstance().addActivity(this);
 			iniView();
-			setListeners();
 		}
 		@Override
 		protected void onResume() {
@@ -54,7 +46,6 @@ public class CommunityRuleActivity extends BaseActivity
 			super.onPause();
 			MobclickAgent.onPause(this);
 		}
-		
 		/**
 		 * 设置状态栏背景状态
 		 */
@@ -70,28 +61,13 @@ public class CommunityRuleActivity extends BaseActivity
 			}
 			SystemStatusManager tintManager = new SystemStatusManager(this);
 			tintManager.setStatusBarTintEnabled(true);
-			tintManager.setStatusBarTintResource(R.drawable.bg_header);//状态栏无背景
+			tintManager.setStatusBarTintResource(R.color.home);//状态栏无背景
 		}
-
 		@Override
 		protected void iniView()
 		{
 			// TODO Auto-generated method stub
-			txtHead = (TextView) findViewById(R.id.txtHead);
-			imgBack = (ImageView) findViewById(R.id.img_left);
-			
-			txtHead.setText("社区规则");
-			
-			web = (WebView)findViewById(R.id.web001_layout_xuzhi);
-			
-			web.getSettings().setLayoutAlgorithm(LayoutAlgorithm.SINGLE_COLUMN);
-
-			web.loadUrl(MMloveConstants.JE_BASE_URL+"help/rules.html");
-		}
-
-		private void setListeners()
-		{
-			imgBack.setOnClickListener(new View.OnClickListener()
+			findViewById(R.id.img_left).setOnClickListener(new View.OnClickListener()
 			{
 				@Override
 				public void onClick(View v)
@@ -99,15 +75,21 @@ public class CommunityRuleActivity extends BaseActivity
 					// TODO Auto-generated method stub
 					finish();
 				}
-			});
+			});;
+
+			((TextView) findViewById(R.id.txtHead)).setText("社区规则");
+			
+			web = (WebView)findViewById(R.id.web001_layout_xuzhi);
+			
+			web.getSettings().setLayoutAlgorithm(LayoutAlgorithm.SINGLE_COLUMN);
+
+			web.loadUrl(MMloveConstants.JE_BASE_URL+"help/rules.html");
 		}
-		
 		@Override
 		public void onDestroy()
 		{
 			// TODO Auto-generated method stub
 			super.onDestroy();
-			
 			web.removeAllViews();
 			web.destroy();
 		}

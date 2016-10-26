@@ -24,6 +24,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.text.Layout;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -152,7 +153,8 @@ public class CHK_TimeSelect extends BaseActivity implements ListItemClickHelp {
         @Override
         public void onScrollingFinished(WheelView wheel) {
             int current = catalogWheel.getCurrentItem();
-            if(Integer.valueOf(HospitalID)==1){
+//            if(Integer.valueOf(HospitalID)==1){
+                if(false){
                 tv_chktiem.setText(arrayList2.get(current).get("TimeStart").toString() );
             }else {
                 tv_chktiem.setText(arrayList2.get(current).get("TimeStart").toString() + "-" + arrayList2.get(current).get("TimeEnd").toString());
@@ -164,13 +166,12 @@ public class CHK_TimeSelect extends BaseActivity implements ListItemClickHelp {
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setTranslucentStatus();
-        // requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.layout_topi);
         MyApplication.getInstance().addActivity(this);
-        iniView();
         user = LocalAccessor.getInstance(CHK_TimeSelect.this).getUser();
+        iniView();
+
         setListeners();
         if (hasInternetConnected()) {
             searchCHK_TimeSelect();
@@ -208,7 +209,7 @@ public class CHK_TimeSelect extends BaseActivity implements ListItemClickHelp {
         }
         SystemStatusManager tintManager = new SystemStatusManager(this);
         tintManager.setStatusBarTintEnabled(true);
-        tintManager.setStatusBarTintResource(R.drawable.bg_header);// 状态栏无背景
+        tintManager.setStatusBarTintResource(R.color.home);// 状态栏无背景
     }
 
     @Override
@@ -281,7 +282,7 @@ public class CHK_TimeSelect extends BaseActivity implements ListItemClickHelp {
         // fb.display(img001,Constants.JE_BASE_URL2 + ImageURL.replace("~",
         // "").replace("\\", "/"),75,90);
 
-        User user = LocalAccessor.getInstance(CHK_TimeSelect.this).getUser();
+//        User user = LocalAccessor.getInstance(CHK_TimeSelect.this).getUser();
         catalogWheel.addScrollingListener(scrollListener);
         rlchek.setVisibility(View.GONE);
         if (!TextUtils.isEmpty(yuyue)) {
@@ -318,7 +319,8 @@ public class CHK_TimeSelect extends BaseActivity implements ListItemClickHelp {
 
             @Override
             public void onClick(View v) {
-                if (Integer.valueOf(HospitalID) == 1) {
+//                if (Integer.valueOf(HospitalID) == 1) {
+                if (false) {
                     int current = catalogWheel.getCurrentItem();
                     LocalAccessor local = new LocalAccessor(
                             CHK_TimeSelect.this, MMloveConstants.ORDERINFO);
@@ -453,16 +455,22 @@ public class CHK_TimeSelect extends BaseActivity implements ListItemClickHelp {
                             if (array.getJSONObject(0).has("MessageCode")) {
                                 if (array.getJSONObject(0)
                                         .getString("MessageCode").equals("1")) {
+                                    Toast.makeText(CHK_TimeSelect.this,array.getJSONObject(0)
+                                            .getString("MessageContent"),Toast.LENGTH_SHORT).show();
                                     isNull = true;
                                     return;
                                 }
                                 if (array.getJSONObject(0)
                                         .getString("MessageCode").equals("2")) {
+                                    Toast.makeText(CHK_TimeSelect.this,array.getJSONObject(0)
+                                            .getString("MessageContent"),Toast.LENGTH_SHORT).show();
                                     isNull = true;
                                     return;
                                 }
                                 if (array.getJSONObject(0)
                                         .getString("MessageCode").equals("3")) {
+                                    Toast.makeText(CHK_TimeSelect.this,array.getJSONObject(0)
+                                            .getString("MessageContent"),Toast.LENGTH_SHORT).show();
                                     isNull = true;
                                     return;
                                 }
@@ -475,7 +483,8 @@ public class CHK_TimeSelect extends BaseActivity implements ListItemClickHelp {
                             Date start;
                             Date end;
                             //判断下午2点以后不能预约后天的
-                            if(Integer.valueOf(HospitalID)==1){
+//                            if(Integer.valueOf(HospitalID)==1){
+                            if(false){
                                 start = curDate;
                             }else {
                                 if (IOUtils.isOutoftwo(curDate)) {
@@ -588,7 +597,6 @@ public class CHK_TimeSelect extends BaseActivity implements ListItemClickHelp {
             str = String.format(str, new Object[]{DoctorID, HospitalID,
                     DoctorNO, DepartNO});
             paramMap.put("str", str);
-
             // 必须是这5个参数，而且得按照顺序
             task.execute(SOAP_NAMESPACE, SOAP_ACTION, SOAP_METHODNAME,
                     SOAP_URL, paramMap);
@@ -610,7 +618,8 @@ public class CHK_TimeSelect extends BaseActivity implements ListItemClickHelp {
                 Map<String, Object> map2;
                 JSONObject mySO;
                 final int p = position;
-                if (Integer.valueOf(HospitalID) == 1) {
+//                if (Integer.valueOf(HospitalID) == 1) {
+                if (false) {
                     try {
                         mySO = new JSONObject(returnvalue001);
 
@@ -828,7 +837,8 @@ public class CHK_TimeSelect extends BaseActivity implements ListItemClickHelp {
         catalogWheel.setVisibility(View.GONE);
         rlchek.setVisibility(View.VISIBLE);
         arrayList2 = new ArrayList<Map<String, Object>>();
-        if (Integer.valueOf(HospitalID) == 1) {
+//        if (Integer.valueOf(HospitalID) == 1) {
+        if (false) {
             JSONObject mySO;
             int pos = -1;
             String isDefault;

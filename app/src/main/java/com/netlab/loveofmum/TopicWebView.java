@@ -37,10 +37,10 @@ import java.util.Map;
 import im.delight.android.webview.AdvancedWebView;
 
 public class TopicWebView extends Activity implements AdvancedWebView.Listener{
-	 private AdvancedWebView mWebView = null;
-	 private TextView txtHead;
-	 private ImageView imgBack;
-	 private Intent mIntent;
+	private AdvancedWebView mWebView = null;
+	private TextView txtHead;
+	private ImageView imgBack;
+	private Intent mIntent;
 	// 定义Web Service相关的字符串
 	private final String SOAP_NAMESPACE = MMloveConstants.URL001;
 	private final String SOAP_ACTION = MMloveConstants.URL001 + MMloveConstants.UserLogin;
@@ -49,34 +49,33 @@ public class TopicWebView extends Activity implements AdvancedWebView.Listener{
 	private User user;
 	private String ClientID;
 
-	
-	 @Override
+
+	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setTranslucentStatus();
 		setContentView(R.layout.shop_webview);
 		mWebView = (AdvancedWebView) findViewById(R.id.webview);
-		WebSettings webSettings = mWebView.getSettings();  
+		WebSettings webSettings = mWebView.getSettings();
 		mWebView.setWebViewClient(new MyWebViewClient());
 		webSettings.setSaveFormData(false);
-		 webSettings.setJavaScriptEnabled(true);
-	     mIntent=this.getIntent();
-	     webSettings.setSupportZoom(false);  
-	 	if (mIntent != null && mIntent.getStringExtra("url") != null) {
-	 		String url=mIntent.getStringExtra("url");
-	 		mWebView.loadUrl(url);  
+		webSettings.setJavaScriptEnabled(true);
+		mIntent=this.getIntent();
+		webSettings.setSupportZoom(false);
+		if (mIntent != null && mIntent.getStringExtra("url") != null) {
+			String url=mIntent.getStringExtra("url");
+			mWebView.loadUrl(url);
 		}
-		 mWebView.setListener(this,this);
-		 user = LocalAccessor.getInstance(TopicWebView.this).getUser();
-		 PushManager.getInstance().initialize(this.getApplicationContext());
-		 ClientID = PushManager.getInstance().getClientid(TopicWebView.this);
+		mWebView.setListener(this,this);
+		user = LocalAccessor.getInstance(TopicWebView.this).getUser();
+		PushManager.getInstance().initialize(this.getApplicationContext());
+		ClientID = PushManager.getInstance().getClientid(TopicWebView.this);
 	}
 	/**
 	 * 设置状态栏背景状态
 	 */
-	private void setTranslucentStatus() 
+	private void setTranslucentStatus()
 	{
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
 		{
@@ -88,28 +87,31 @@ public class TopicWebView extends Activity implements AdvancedWebView.Listener{
 		}
 		SystemStatusManager tintManager = new SystemStatusManager(this);
 		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.drawable.bg_header);//状态栏无背景
+		tintManager.setStatusBarTintResource(R.color.home);//状态栏无背景
 	}
 	class MyWebViewClient extends WebViewClient {
 		// 重写shouldOverrideUrlLoading方法，使点击链接后不使用其他的浏览器打开。
 		@Override
 		public boolean shouldOverrideUrlLoading(WebView view, String url) {
-			if(url.contains("http://momloveme/?returnflag=appindex")){finish();}
-			if(url.contains("http://momloveme/?returnflag=commall")||url.contains("http://momloveme/?returnflag=shop")||url.contains("http://momloveme/?returnflag=mytopic")||url.contains("/molms/forum.jhtml")){
+			if(url.contains("http://momloveme/?returnflag=appindex")){
+				finish();
+				return false;}
+			if(url.contains("returnflag=commall")||url.contains("returnflag=shop")||url.contains("returnflag=mytopic")||url.contains("/molms/forum.jhtml")){
 
 				if(view.canGoBack()){
 					view.goBack();
 				}else{
 					finish();
 				}
+				return false;
 			}else {
 				String ss = url.toString();
-				try {
-					ss = new String(URLDecoder.decode(ss, "iso8859-1").getBytes("iso8859-1"), "utf-8");
-				} catch (UnsupportedEncodingException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+//				try {
+//					ss = new String(URLDecoder.decode(ss, "iso8859-1").getBytes("iso8859-1"), "utf-8");
+//				} catch (UnsupportedEncodingException e1) {
+//					// TODO Auto-generated catch block
+//					e1.printStackTrace();
+//				}
 				String urls = "";
 				try {
 
@@ -118,9 +120,7 @@ public class TopicWebView extends Activity implements AdvancedWebView.Listener{
 						int endIndex = 0;
 						beginIndex = ss.indexOf("username=");
 						endIndex = ss.indexOf("&") - 1;
-
 						String username = ss.substring(beginIndex+9, beginIndex+9+11);
-
 						String pass = ss.substring(ss.indexOf("password=") + 9, ss.length());
 						if(pass.contains("&")){
 							pass = pass.substring(0, pass.indexOf("&"));
@@ -132,11 +132,10 @@ public class TopicWebView extends Activity implements AdvancedWebView.Listener{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-
 				view.loadUrl(url);
 
 			}
-			
+
 			// 如果不需要其他对点击链接事件的处理返回true，否则返回false
 			return true;
 		}
@@ -244,13 +243,13 @@ public class TopicWebView extends Activity implements AdvancedWebView.Listener{
 	@Override
 	protected void onStop() {
 		super.onStop();
-	
+
 	}
 	@Override
 	protected void onPause() {
-	    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-			 mWebView.onPause(); // 暂停网页中正在播放的视频
-	     }
+		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+			mWebView.onPause(); // 暂停网页中正在播放的视频
+		}
 		super.onPause();
 		MobclickAgent.onPause(this);
 	}
@@ -259,24 +258,24 @@ public class TopicWebView extends Activity implements AdvancedWebView.Listener{
 		super.onResume();
 		mWebView.onResume();
 		MobclickAgent.onResume(this);
-		
+
 	}
-	  @Override
-	    public boolean onKeyDown(int keyCode, KeyEvent event)
-	    {
-	        if ((keyCode == KeyEvent.KEYCODE_BACK)&& event.getAction() == KeyEvent.ACTION_DOWN)
-	        {
-	            // 返回键退回
-	        	if(mWebView.canGoBack()){
-	            mWebView.goBack();
-	        	}else{
-	        		finish();
-	        	}
-	            return true;
-	        }
-	  
-	        return super.onKeyDown(keyCode, event);
-	    }
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event)
+	{
+		if ((keyCode == KeyEvent.KEYCODE_BACK)&& event.getAction() == KeyEvent.ACTION_DOWN)
+		{
+			// 返回键退回
+			if(mWebView.canGoBack()){
+				mWebView.goBack();
+			}else{
+				finish();
+			}
+			return true;
+		}
+
+		return super.onKeyDown(keyCode, event);
+	}
 	@Override
 	public void onBackPressed() {
 		if (!mWebView.onBackPressed()) { return; }

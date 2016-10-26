@@ -45,8 +45,6 @@ public class SpaceImageDetailActivity extends Activity {
 		imageView.transformIn();
 		imageView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
 		imageView.setScaleType(ScaleType.FIT_CENTER);
-		
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setTranslucentStatus() ;
 		
 		setContentView(imageView);
@@ -76,7 +74,7 @@ public class SpaceImageDetailActivity extends Activity {
 		}
 		SystemStatusManager tintManager = new SystemStatusManager(this);
 		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.drawable.bg_header);//状态栏无背景
+		tintManager.setStatusBarTintResource(R.color.home);//状态栏无背景
 	}
 
 	

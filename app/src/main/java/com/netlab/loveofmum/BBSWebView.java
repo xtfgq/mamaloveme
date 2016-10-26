@@ -110,7 +110,6 @@ public class BBSWebView extends Activity implements AdvancedWebView.Listener{
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setTranslucentStatus();
 		setContentView(R.layout.bbs_webview);
 		mWebView = (AdvancedWebView) findViewById(R.id.webview);
@@ -191,13 +190,11 @@ public class BBSWebView extends Activity implements AdvancedWebView.Listener{
 		}
 		SystemStatusManager tintManager = new SystemStatusManager(this);
 		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.drawable.bg_header);// 状态栏无背景
+		tintManager.setStatusBarTintResource(R.color.home);// 状态栏无背景
 	}
 
 	class MyWebViewClient extends WebViewClient {
 		// 重写shouldOverrideUrlLoading方法，使点击链接后不使用其他的浏览器打开。
-
-
 
 		@Override
 		public boolean shouldOverrideUrlLoading(WebView view, String url) {

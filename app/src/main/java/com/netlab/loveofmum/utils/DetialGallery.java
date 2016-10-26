@@ -4,6 +4,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
+import android.view.View;
+import android.view.animation.Transformation;
 import android.widget.Gallery;
 
 /**
@@ -35,5 +37,10 @@ public class DetialGallery extends Gallery {
 //        }
 //        onKeyDown(kEvent, null);
 //        return true;
+    }
+
+    @Override
+    protected boolean getChildStaticTransformation(View child, Transformation t) {
+        return super.getChildStaticTransformation(child, t);
     }
 }

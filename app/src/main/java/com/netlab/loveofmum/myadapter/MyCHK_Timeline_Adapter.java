@@ -112,36 +112,7 @@ public class MyCHK_Timeline_Adapter extends BaseAdapter {
 	@SuppressLint("NewApi")
 	public View getView(int position, View convertView,
 			ViewGroup parent) {
-		
-//		if(listData.get(position).get("OrderID").toString().equals(""))
-//		{
-//			ViewHolder1 holder1 = null; 
-//			if(convertView==null){
-//			convertView = mInflater.inflate(R.layout.item_timeline, null);
-//           holder1=new ViewHolder1();
-//           holder1.tv_titleName = (TextView) convertView
-//					.findViewById(R.id.txt001_item_timeline);
-//			holder1.tv_orderStatusName = (TextView) convertView
-//					.findViewById(R.id.txt002_item_timeline);
-//			holder1.timeLine = (RelativeLayout)convertView.findViewById(R.id.rala001_item_timeline);
-//			convertView.setTag(holder1);  
-//			}else{
-//				 holder1 = (ViewHolder1)convertView.getTag();
-//			}
-//			holder1.tv_titleName .setText(listData.get(position).get("TitleName").toString());
-//			holder1.tv_orderStatusName .setText(listData.get(position).get("OrderStatusName").toString());
-//			
-//			if(position%2 == 0)
-//			{
-//				holder1.timeLine.setBackgroundResource(R.color.white);
-//			}
-//			else
-//			{
-//				holder1.timeLine.setBackgroundResource(R.color.gray);
-//			}
-//		}    
-//		else
-//		{
+
 		user= LocalAccessor.getInstance(context).getUser();
 		int typeItem = getItemViewType(position);
 		ViewHolder0 holder0=null;
@@ -150,8 +121,10 @@ public class MyCHK_Timeline_Adapter extends BaseAdapter {
 			 if(convertView==null){
 				 switch (typeItem) {
 					 case TYPE_1:
-						 convertView =  LayoutInflater.from(context).inflate(R.layout.itme_type_0, parent, false);
+						 convertView =  LayoutInflater.from(context).inflate(R.layout.itme_type_3, parent, false);
 						 holder0=new ViewHolder0();
+						 holder0.top=convertView
+								 .findViewById(R.id.top);
 						 holder0.lltop=(LinearLayout)convertView
 								 .findViewById(R.id.lineer001_item_timeline);
 						 holder0.tv_title=(TextView)convertView
@@ -168,8 +141,10 @@ public class MyCHK_Timeline_Adapter extends BaseAdapter {
 						 convertView.setTag(holder0);
 						 break;
 					 case TYPE_2:
-						 convertView =  LayoutInflater.from(context).inflate(R.layout.itme_type_1, parent, false);
+						 convertView =  LayoutInflater.from(context).inflate(R.layout.itme_type_4, parent, false);
 						 holder1=new ViewHolder1();
+						 holder1.top=convertView
+								 .findViewById(R.id.top);
 						 holder1.lltop=(LinearLayout)convertView
 								 .findViewById(R.id.lineer001_item_timeline);
 						 holder1.tv_title=(TextView)convertView
@@ -180,22 +155,13 @@ public class MyCHK_Timeline_Adapter extends BaseAdapter {
 								 .findViewById(R.id.tv_say);
 						 holder1.ivhead=(ImageView) convertView
 								 .findViewById(R.id.time_dot);
-						 holder1.llhoder=(LinearLayout)convertView.findViewById(R.id.llhoder);
+						 holder1.llhoder=convertView.findViewById(R.id.tv_say);
 						 holder1.ivdel=(ImageView) convertView.findViewById(R.id.iv_del);
 						 convertView.setTag(holder1);
 						 break;
 					 default:
 						 break;
 				 }
-
-
-
-//			holder.ivdot=(ImageView) convertView.findViewById(R.id.time_dotweek);
-//			holder.tv_checkOrder = (TextView) convertView
-//					.findViewById(R.id.tv_checkOrder);
-//			holder.img002 = (ImageView) convertView
-//					.findViewById(R.id.img02);
-//            
 
 			 }else{
 				 switch (typeItem) {
@@ -226,13 +192,15 @@ public class MyCHK_Timeline_Adapter extends BaseAdapter {
 
 				if(position==0){
 					holder0.lltop.setVisibility(View.VISIBLE);
-
+					holder0.top.setVisibility(View.GONE);
 				}
 				if(position>0){
 					if(listData.get(position).get("TitleName").equals(listData.get(position-1).get("TitleName"))){
 						holder0.lltop.setVisibility(View.GONE);
+						holder0.top.setVisibility(View.VISIBLE);
 					}else{
 						holder0.lltop.setVisibility(View.VISIBLE);
+						holder0.top.setVisibility(View.GONE);
 					}
 				}
 				holder0.tv_hos.setText(listData.get(position).get("HospitalName").toString());
@@ -305,16 +273,22 @@ public class MyCHK_Timeline_Adapter extends BaseAdapter {
 
 				if(position==0){
 					holder1.lltop.setVisibility(View.VISIBLE);
-
+					holder1.top.setVisibility(View.GONE);
 				}
 				if(position>0){
 					if(listData.get(position).get("TitleName").equals(listData.get(position-1).get("TitleName"))){
 						holder1.lltop.setVisibility(View.GONE);
+						holder1.top.setVisibility(View.VISIBLE);
 					}else{
 						holder1.lltop.setVisibility(View.VISIBLE);
+						holder1.top.setVisibility(View.GONE);
 					}
 				}
-				holder1.tv_say.setText(listData.get(position).get("MomSay").toString());
+				if(listData.get(position).get("MomSay")==null||listData.get(position).get("MomSay").toString().equals("")){
+					holder1.tv_say.setText(listData.get(position).get("Reason").toString());
+				}else {
+					holder1.tv_say.setText(listData.get(position).get("MomSay").toString());
+				}
 				if(!TextUtils.isEmpty(user.PicURL)) {
 
 					mImageLoader.displayImage(user.PicURL, holder1.ivhead);
@@ -324,6 +298,11 @@ public class MyCHK_Timeline_Adapter extends BaseAdapter {
 					@Override
 					public void onClick(View v) {
 						String reason=listData.get(p1).get("Reason").toString();
+						if(listData.get(p1).get("MomSay")==null||listData.get(p1).get("MomSay").toString().equals("")){
+							reason=listData.get(p1).get("Reason").toString();
+						}else {
+							reason=listData.get(p1).get("MomSay").toString();
+						}
 						String gotime =listData.get(p1).get("Gotime").toString();
 
 						SimpleDateFormat formatter = new SimpleDateFormat(
@@ -350,78 +329,6 @@ public class MyCHK_Timeline_Adapter extends BaseAdapter {
 
 		return convertView;
 
-////			 int isupload=Integer.valueOf(listData.get(position).get("IsUpload").toString());
-//			 String mmSay=listData.get(position).get("MomSay").toString();
-//			  int status=Integer.valueOf(listData.get(position).get("OrderStatus").toString());
-//				 int isupload=Integer.valueOf(listData.get(position).get("IsUpload").toString());
-//	    if(status==2||status==3||status==1){
-//			 if("".equals(mmSay)&&isupload==0){
-//				 holder.iv_isupload.setBackground(context.getResources().getDrawable(R.drawable.btn_isnotupload));
-//			 }else{
-//				 holder.iv_isupload.setBackground(context.getResources().getDrawable(R.drawable.btn_isupload));
-//			 }
-//	    }else if(status==4){
-//	    	holder.iv_isupload.setBackground(context.getResources().getDrawable(R.color.white));
-//	    }
-//				holder.tv_title.setText(listData.get(position).get("TitleName").toString());
-//				if(position==0) {
-//					holder.tv_title.setVisibility(View.VISIBLE);
-//					holder.llline.setVisibility(View.VISIBLE);
-//				}
-//				if(position>0){
-//					if(listData.get(position).get("TitleName").equals(listData.get(position-1).get("TitleName"))){
-////						holder.tv_title.setVisibility(View.GONE);
-//						holder.llline.setVisibility(View.GONE);
-//
-////						holder.ivdot.setVisibility(View.GONE);
-//					}else{
-//						holder.llline.setVisibility(View.VISIBLE);
-////						holder.tv_title.setVisibility(View.VISIBLE);
-//					}
-//				}
-//		if (("04").equals(listData.get(position).get("OrderStatus").toString())) {
-//			holder.tv_hos.setText(listData.get(position).get("Reason").toString());
-//		} else{
-//			holder.tv_hos.setText(listData.get(position).get("HospitalName").toString()+"    "+listData.get(position).get("DoctorName").toString());
-//
-//		}
-//
-//
-//
-//
-//			String time = listData.get(position).get("Gotime").toString();
-//			SimpleDateFormat formatter = new SimpleDateFormat(
-//					"yyyy-MM-dd");
-//			time = time.split(" ")[0].replace("/", "-");
-//			try
-//			{
-//				time = formatter.format(formatter
-//						.parse(time));
-//				Date d = formatter.parse(time);
-//
-//
-//			}
-//			catch (ParseException e)
-//			{
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//
-//			holder.tv_time.setText(time);
-//
-////			if(listData.get(position).get("IsUpload").toString().equals("0"))
-////			{
-////				holder.tv_checkOrder.setText("检查单未上传");
-////				holder.img002.setImageResource(R.drawable.icon_help);
-////			}
-////			else
-////			{
-////				holder.tv_checkOrder.setText("检查单已上传");
-////				holder.img002.setImageResource(R.drawable.icon_check);
-////			}
-////		}
-		
-//		return convertView;
 	}
 	private ImageView findView(int img02) {
 		// TODO Auto-generated method stub
@@ -471,6 +378,7 @@ public class MyCHK_Timeline_Adapter extends BaseAdapter {
 		
 		        public TextView tv_time;
 		 public LinearLayout lltop;
+		 View top;
 		        public TextView tv_title;
 		 public TextView tv_titleYear;
 		        public TextView tv_hos;
@@ -484,12 +392,13 @@ public class MyCHK_Timeline_Adapter extends BaseAdapter {
 		    }
 	public  class ViewHolder1 {
 		public LinearLayout lltop;
+		View top;
 		public TextView tv_time;
 		public TextView tv_title;
 		public TextView tv_titleYear;
 		public TextView tv_say;
 		public  ImageView ivhead;
-		public LinearLayout llhoder;
+		public View llhoder;
 		public ImageView ivdel;
 
 

@@ -5,17 +5,11 @@ import java.util.List;
 import java.util.Map;
 
 
-import com.netlab.loveofmum.CHKItem_Base;
-import com.netlab.loveofmum.DoctorDes;
+import com.netlab.loveofmum.activity.DoctorDetailsActivity;
 import com.netlab.loveofmum.R;
 import com.netlab.loveofmum.api.MMloveConstants;
-import com.netlab.loveofmum.huanxin.MainChatActivity;
-import com.netlab.loveofmum.myadapter.FeedAadapter.ViewHolder;
-import com.netlab.loveofmum.utils.DialogUtils;
 import com.netlab.loveofmum.utils.ImageOptions;
 import com.netlab.loveofmum.widget.CircularImage;
-import com.netlab.loveofmum.widget.DialogEnsureCancelView;
-import com.netlab.loveofmum.widget.DialogEnsureView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import android.content.Context;
@@ -103,7 +97,7 @@ public class DoctorItemAdapter extends BaseAdapter{
 				}
 				if(!"".equals(mList.get(position).get("HospitalID").toString())){
 				Intent i = new Intent(mContext,
-						DoctorDes.class);
+						DoctorDetailsActivity.class);
 				i.putExtra("DoctorID", mList.get(position).get("DoctorID").toString());
 				i.putExtra("HospitalID", mList.get(position).get("HospitalID").toString());
 				i.putExtra("AskCount", mList.get(position).get("AskCount").toString());

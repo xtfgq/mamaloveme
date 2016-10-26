@@ -1,27 +1,22 @@
 package com.netlab.loveofmum.myadapter;
 
-import java.lang.reflect.Field;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.List;
 import java.util.Map;
 
-import com.netlab.loveofmum.BBSWebView;
-import com.netlab.loveofmum.MainTabActivity;
 import com.netlab.loveofmum.R;
 import com.netlab.loveofmum.TopicWebView;
-import com.netlab.loveofmum.User_InfoChange;
 import com.netlab.loveofmum.api.LocalAccessor;
-import com.netlab.loveofmum.api.MMloveConstants;
 import com.netlab.loveofmum.api.MyApplication;
 import com.netlab.loveofmum.model.User;
-import com.netlab.loveofmum.myadapter.FeedAadapter.ViewHolder;
-import com.netlab.loveofmum.testwebview.TestWebView;
 import com.netlab.loveofmum.utils.IOUtils;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +25,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class FeedLastAdapter extends BaseAdapter {
 	private LayoutInflater mInflater;
@@ -39,7 +35,22 @@ public class FeedLastAdapter extends BaseAdapter {
 
 	private Context context;
 	private String clientid;
-
+	Html.ImageGetter imageGetter = new Html.ImageGetter(){
+		@Override
+		public Drawable getDrawable(String source) {
+			InputStream is = null;
+			try {
+				is = (InputStream) new URL(source).getContent();
+				Drawable d = Drawable.createFromStream(is, "src");
+				d.setBounds(0, 0, d.getIntrinsicWidth(),
+						d.getIntrinsicHeight());
+				is.close();
+				return d;
+			} catch (Exception e) {
+				return null;
+			}
+		}
+	};
 	public FeedLastAdapter(Context context, List<Map<String, Object>> listData,
 			String clientid) {
 		this.mInflater = LayoutInflater.from(context);
@@ -104,8 +115,9 @@ public class FeedLastAdapter extends BaseAdapter {
 
 		}
 		holder.tvquanziname.setText(listData.get(position).get("Name").toString());
-		holder.tv_count.setText(Html.fromHtml(listData.get(position).get("content")
-				.toString()));
+//		holder.tv_count.setText(Html.fromHtml(listData.get(position).get("content")
+//				.toString()));
+		holder.tv_count.setText(Html.fromHtml(listData.get(position).get("content").toString(),imageGetter,null));
 		holder.tvtitle.setText(listData.get(position).get("title").toString());
 		holder.tvnick.setText(listData.get(position).get("username").toString());
 		holder.view_count.setText(listData.get(position).get("viewCount").toString());
@@ -117,13 +129,17 @@ public class FeedLastAdapter extends BaseAdapter {
 
 			@Override
 			public void onClick(View v) {
-				Intent i = new Intent(context, TopicWebView.class);
-				i.putExtra("url", listData.get(position).get("url").toString()
-						+ "?returnflag=appindex" + "&UserID=" + user.UserID
-						+ "&YuBithdayTime=" + user.YuBirthDate + "&ClientID="
-						+ clientid);
-				context.startActivity(i);
+				if(position<listData.size()) {
+					Intent i = new Intent(context, TopicWebView.class);
 
+					i.putExtra("url", listData.get(position).get("url").toString()
+							+ "?returnflag=appindex" + "&UserID=" + user.UserID+ "&userId=" +listData.get(position).get("userId").toString()
+							+ "&YuBithdayTime=" + user.YuBirthDate + "&ClientID="
+							+ clientid);
+					context.startActivity(i);
+				}else{
+					Toast.makeText(context,"页面正在刷新中。。。。",Toast.LENGTH_SHORT).show();
+				}
 //				Intent i = new Intent(context, MainTabActivity.class);
 //
 //				i.putExtra("TabIndex", "B_TAB");
@@ -132,8 +148,6 @@ public class FeedLastAdapter extends BaseAdapter {
 //						+ "&YuBithdayTime=" + user.YuBirthDate + "&ClientID="
 //						+ clientid;
 //				context.startActivity(i);
-
-			
 			}
 		});
 

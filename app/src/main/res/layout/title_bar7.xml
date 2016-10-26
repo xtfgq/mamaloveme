@@ -37,7 +37,7 @@
             android:inputType="number"
             android:hint="@string/str_tishi1" />
         <Button
-            android:id="@id/verification_titlt_bar9"
+            android:id="@+id/getcode"
             style="@style/global_wwhw"
             android:layout_height="30dp"
             android:layout_alignParentRight="true"

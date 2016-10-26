@@ -216,7 +216,9 @@ public class RefreshLayout extends RelativeLayout {
             case SUCCEED:
                 // 刷新成功
 //                refreshStateImageView.setVisibility(View.INVISIBLE);
-                refreshStateTextView.setText(com.jingchen.pulltorefresh.R.string.refresh_succeed);
+                if(refreshStateTextView!=null) {
+                    refreshStateTextView.setText(com.jingchen.pulltorefresh.R.string.refresh_succeed);
+                }
 //                refreshStateImageView
 //                        .setBackgroundResource(com.jingchen.pulltorefresh.R.drawable.refresh_succeed);
                 break;
@@ -224,7 +226,9 @@ public class RefreshLayout extends RelativeLayout {
             default:
                 // 刷新失败
 //                refreshStateImageView.setVisibility(View.VISIBLE);
-                refreshStateTextView.setText(com.jingchen.pulltorefresh.R.string.refresh_fail);
+                if(refreshStateTextView!=null) {
+                    refreshStateTextView.setText(com.jingchen.pulltorefresh.R.string.refresh_fail);
+                }
 //                refreshStateImageView
 //                        .setBackgroundResource(com.jingchen.pulltorefresh.R.drawable.refresh_failed);
                 break;
@@ -341,16 +345,23 @@ public class RefreshLayout extends RelativeLayout {
 //                pullUpView.clearAnimation();
                 closeView.setVisibility(View.GONE);
                 pullView.setVisibility(View.VISIBLE);
-                mRefreshArrow.stop();
-                mRefreshArrow.start();
-                loadingView.setVisibility(View.VISIBLE);
+                if(mRefreshArrow!=null) {
+                    mRefreshArrow.stop();
+                    mRefreshArrow.start();
+                }
+                if(loadingView!=null) {
+                    loadingView.setVisibility(View.VISIBLE);
+                }
+
 //                pullUpView.setVisibility(View.INVISIBLE);
 //                loadingView.startAnimation(refreshingAnimation);
                 loadStateTextView.setText(com.jingchen.pulltorefresh.R.string.loading);
                 break;
             case DONE:
                 // 刷新或加载完毕，啥都不做
-                mRefreshArrow.stop();
+                if(mRefreshArrow!=null) {
+                    mRefreshArrow.stop();
+                }
                 break;
         }
     }

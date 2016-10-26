@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/weektips_title"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/icon_yqtx" />
+        <TextView
+            android:id="@+id/weektips_titlelabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10.0dip"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:textColor="#13baa8"
+            android:textSize="18sp" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="更多"
+            android:gravity="right"
+            android:textColor="#fd83aa"
+            android:layout_marginRight="7dp"
+            android:textSize="12sp"
+            />
+        <ImageView
+            android:layout_marginRight="7dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/icon_jt" />
+    </LinearLayout>
+    <com.netlab.loveofmum.widget.ImageCycleView
+        android:id="@+id/weektips_ads"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        />
+    <com.netlab.loveofmum.widget.ListViewForScrollView
+        android:id="@+id/weektips_listview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:cacheColorHint="#00000000"
+        android:fadingEdge="none" />
+
+</LinearLayout>

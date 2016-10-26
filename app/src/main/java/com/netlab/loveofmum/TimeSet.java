@@ -30,8 +30,12 @@ import com.netlab.loveofmum.utils.SystemStatusManager;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.content.res.Resources.NotFoundException;
 import android.graphics.drawable.ColorDrawable;
@@ -139,12 +143,8 @@ public class TimeSet extends BaseActivity
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		// TODO Auto-generated method stub
-
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setTranslucentStatus();
-		// requestWindowFeature(Window.FEATURE_NO_TITLE);
-
 		DATE_FORMAT = "%04d" + getString(R.string.year) + "%02d"
 				+ getString(R.string.month) + "%02d" + getString(R.string.day);
 
@@ -236,7 +236,7 @@ public class TimeSet extends BaseActivity
 		}
 		SystemStatusManager tintManager = new SystemStatusManager(this);
 		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.drawable.bg_header);// 状态栏无背景
+		tintManager.setStatusBarTintResource(R.color.home);// 状态栏无背景
 	}
 	
 	
@@ -410,6 +410,7 @@ public class TimeSet extends BaseActivity
 
 							if (user.UserID == 0)
 							{
+								setGuided();
 								Intent i = new Intent(TimeSet.this, MainTabActivity.class);
 								i.putExtra("TabIndex", "A_TAB");
 
@@ -489,7 +490,26 @@ public class TimeSet extends BaseActivity
 			}
 		});
 	}
+	private void setGuided() {
+		SharedPreferences preferences = getSharedPreferences(
+				"first_pref", Context.MODE_PRIVATE);
 
+		PackageManager manager = getPackageManager();
+		PackageInfo info;
+		try
+		{
+			info = manager.getPackageInfo(getPackageName(), 0);
+			int newCode = info.versionCode; // 版本号
+			SharedPreferences.Editor editor = preferences.edit();
+			editor.putInt("VersionCode", newCode);
+			editor.commit();
+		}
+		catch (PackageManager.NameNotFoundException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 
 	private void UserTimeSet()

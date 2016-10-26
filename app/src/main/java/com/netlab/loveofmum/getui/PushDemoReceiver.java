@@ -15,21 +15,11 @@ import android.util.Log;
 
 import com.igexin.sdk.PushConsts;
 import com.igexin.sdk.PushManager;
-import com.netlab.loveofmum.Activity_ReplyPage;
-import com.netlab.loveofmum.CHK_DoctorList;
-import com.netlab.loveofmum.DoctorHomeAct;
 import com.netlab.loveofmum.GetuiSdkDemoActivity;
 import com.netlab.loveofmum.MainTabActivity;
-import com.netlab.loveofmum.MyCHK_Timeline;
-import com.netlab.loveofmum.News_Detail;
-import com.netlab.loveofmum.SmallTalkAct;
-import com.netlab.loveofmum.StaticWebView;
-import com.netlab.loveofmum.Welcome;
 import com.netlab.loveofmum.api.LocalAccessor;
-import com.netlab.loveofmum.huanxin.MainChatActivity;
 import com.netlab.loveofmum.model.User;
 import com.netlab.loveofmum.model.Yuchan;
-import com.netlab.loveofmum.testwebview.TestWebView;
 import com.netlab.loveofmum.utils.IOUtils;
 
 public class PushDemoReceiver extends BroadcastReceiver

@@ -1,10 +1,5 @@
 package com.netlab.loveofmum;
 
-import android.app.AlertDialog;
-import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTabHost;
 import android.view.LayoutInflater;
@@ -14,21 +9,11 @@ import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 import android.widget.TextView;
 
-import com.netlab.loveofmum.Fragment.Fragment1;
-import com.netlab.loveofmum.Fragment.Fragment2;
-import com.netlab.loveofmum.Fragment.Fragment3;
-import com.netlab.loveofmum.Fragment.Fragment4;
+import com.netlab.loveofmum.fragment.Fragment1;
+import com.netlab.loveofmum.fragment.Fragment2;
+import com.netlab.loveofmum.fragment.Fragment3;
+import com.netlab.loveofmum.fragment.Fragment4;
 import com.netlab.loveofmum.activity.BaseActivity;
-import com.netlab.loveofmum.api.JsonAsyncTaskOnComplete;
-import com.netlab.loveofmum.api.JsonAsyncTask_Info;
-import com.netlab.loveofmum.utils.DialogUtils;
-import com.netlab.loveofmum.widget.DialogEnsureCancelView;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author 蔺子岭
@@ -36,7 +21,7 @@ import java.util.Map;
  */
 public class MainActivity extends BaseActivity {
     //定义FragmentTabHost对象
-    private FragmentTabHost mTabHost;
+    private static FragmentTabHost mTabHost;
 
     //定义一个布局
     private LayoutInflater layoutInflater;
@@ -198,6 +183,13 @@ public class MainActivity extends BaseActivity {
 //        }
     }
 
+    @Override
+    public void onClick(View v) {
+
+    }
+    public static void gotab(int index){
+        mTabHost.setCurrentTab(index);
+    }
 //    private void showForceUpdate() {
 //        LayoutInflater inflater = LayoutInflater.from(this);
 //        View layout = inflater.inflate(R.layout.dialog_default_ensure, null);

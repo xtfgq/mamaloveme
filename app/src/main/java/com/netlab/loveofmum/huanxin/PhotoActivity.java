@@ -40,7 +40,6 @@ public class PhotoActivity extends Activity
 		public void onCreate(Bundle savedInstanceState)
 		{
 			super.onCreate(savedInstanceState);
-			requestWindowFeature(Window.FEATURE_NO_TITLE);
 			setTranslucentStatus() ;
 			setContentView(R.layout.activity_photo);
 		
@@ -82,7 +81,7 @@ public class PhotoActivity extends Activity
 			}
 			SystemStatusManager tintManager = new SystemStatusManager(this);
 			tintManager.setStatusBarTintEnabled(true);
-			tintManager.setStatusBarTintResource(R.drawable.bg_header);//状态栏无背景
+			tintManager.setStatusBarTintResource(R.color.home);//状态栏无背景
 		}
 
 

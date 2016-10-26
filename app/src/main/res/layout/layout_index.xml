@@ -20,12 +20,16 @@
 
         <com.netlab.loveofmum.widget.UpScrollViewExtend
             android:id="@id/sv_index"
+            android:scrollbars="none"
+
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:background="@color/homeback"
                 android:orientation="vertical">
 
@@ -44,7 +48,7 @@
                            />-->
                 <RelativeLayout
                     android:id="@+id/rltt"
-                    android:background="#fea1bf"
+                    android:background="@color/home"
                     android:layout_width="match_parent"
                     android:layout_height="45dp">
                     <LinearLayout
@@ -55,7 +59,6 @@
                         android:layout_alignParentLeft="true"
                         android:paddingLeft="14dp"
                         android:layout_centerVertical="true"
-                        android:paddingRight="24dp"
                         android:orientation="horizontal">
                         <ImageView
                             android:layout_width="8dp"
@@ -79,14 +82,10 @@
 
                     <TextView
                         android:id="@+id/tvcenter"
-
-
                         android:layout_gravity="center"
                         android:layout_width="106dp"
                         android:layout_height="wrap_content"
-
                         android:layout_centerInParent="true"
-
                         android:paddingLeft="12dp"
                         android:paddingRight="12dp"
                         android:gravity="center"
@@ -105,11 +104,9 @@
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:orientation="horizontal"
-                        android:paddingLeft="24dp"
                         android:paddingRight="14dp">
                         <TextView
                             android:id="@+id/tvnext"
-
                             android:layout_width="56dp"
                             android:layout_height="wrap_content"
                             android:textColor="@color/white"
@@ -117,8 +114,6 @@
                             android:text="10月15日"/>
 
                         <ImageView
-                            android:layout_marginLeft="15dp"
-
                             android:layout_width="8dp"
                             android:layout_height="14dp"
 
@@ -133,7 +128,7 @@
 
                 <LinearLayout
                     android:id="@+id/rl_top"
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="185dp"
                     android:orientation="vertical"
                     android:background="@drawable/bg_homeheader"
@@ -235,7 +230,7 @@
 
                  <!--   <RelativeLayout
                         android:id="@+id/rlcontent"
-                        android:layout_width="fill_parent"
+                        android:layout_width="match_parent"
                         android:layout_height="80dp"
                         android:layout_alignParentBottom="true"
                         android:background="@color/white">-->
@@ -423,7 +418,7 @@
                             android:textSize="18sp" />
 
                         <TextView
-                            android:id="@+id/tv_viewhos"
+                            android:id="@+id/check_titletips"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="right"
@@ -435,7 +430,7 @@
                     </LinearLayout>
 
                     <View
-                        android:layout_width="fill_parent"
+                        android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="@drawable/dottedline" />
 
@@ -444,12 +439,12 @@
                     <LinearLayout
                         android:visibility="gone"
                         android:id="@+id/llhos"
-                        android:layout_width="fill_parent"
+                        android:layout_width="match_parent"
                         android:layout_height="140dp"
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:id="@+id/ivleft"
+                            android:id="@+id/ad_hospital_left"
                             android:layout_width="wrap_content"
                             android:layout_height="13dp"
                             android:layout_gravity="center_vertical"
@@ -463,7 +458,7 @@
                             android:layout_weight="8.0" />
 
                         <ImageView
-                            android:id="@+id/ivright"
+                            android:id="@+id/ad_hospital_right"
                             android:layout_width="wrap_content"
                             android:layout_height="13dp"
                             android:layout_gravity="center_vertical"
@@ -478,7 +473,7 @@
 
                         <LinearLayout
                             android:id="@+id/linear001_index"
-                            android:layout_width="fill_parent"
+                            android:layout_width="match_parent"
                             android:layout_height="60dp"
                             android:gravity="center_vertical"
                             android:orientation="horizontal">
@@ -498,24 +493,26 @@
                                 android:layout_weight="25"
                                 android:layout_height="match_parent"
                                 android:layout_width="0dp"
+                                android:lineSpacingExtra="3dp"
                                 android:layout_marginRight="7dp"
-                                android:padding="8dp"
-                                android:gravity="center_vertical"
+                                android:paddingLeft="8dp"
+                                android:paddingRight="8dp"
+                                android:paddingTop="3dp"
+                                android:paddingBottom="3dp"
+                                android:gravity="center_vertical|left"
+                                android:maxLines="3"
                                 android:text="您马上就该进行（20-25）产检了，在这里快快体验我们的产检预约服务吧，不排队的轻松产检。"
                                 android:textColor="#313131"
                                 android:textSize="13sp" />
                         </LinearLayout>
-
-
-
                     </RelativeLayout>
                     <View
-                        android:layout_width="fill_parent"
+                        android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="@color/index_gray" />
                     <LinearLayout
                         android:id="@+id/chk_time"
-                        android:layout_width="fill_parent"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:visibility="gone">
@@ -524,7 +521,7 @@
 
                         <RelativeLayout
                             android:id="@+id/rlchktiem"
-                            android:layout_width="fill_parent"
+                            android:layout_width="match_parent"
                             android:layout_height="55dp">
                             <TextView
                                 android:id="@+id/tvyuyue"
@@ -533,15 +530,11 @@
                                 android:text="孕期产检时间表"
                                 android:textColor="#313131"
                                android:layout_centerVertical="true"
-                                android:layout_marginLeft="25dp"
-
-                                android:textSize="14sp"
+                                android:layout_marginLeft="10dp"
+                                android:textSize="15sp"
                                 android:gravity="center_vertical"
                                 android:layout_alignParentLeft="true"
-
                                 android:visibility="gone"
-
-
 
                                 />
                          <!--   <TextView
@@ -568,14 +561,14 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="25dp"
+                                android:layout_marginLeft="10dp"
                                 android:text="孕期产检时间表"
                                 android:textColor="#313131"
                                 android:textSize="14sp" />
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="25dp"
+                                    android:layout_marginLeft="10dp"
                                     android:layout_marginTop="3dp"
                                     android:text="NT/B超/四维彩超/ 快速预约"
                                     android:textColor="#a9a9a9"
@@ -632,7 +625,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
                     android:layout_marginTop="12dp"
@@ -641,7 +634,7 @@
                     android:visibility="visible">
 
                     <RelativeLayout
-                        android:layout_width="fill_parent"
+                        android:layout_width="match_parent"
                         android:layout_height="45dp">
 
                         <ImageView
@@ -655,7 +648,7 @@
 
 
                         <TextView
-                            android:layout_width="fill_parent"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
 
                             android:layout_centerVertical="true"
@@ -668,7 +661,7 @@
                             android:paddingLeft="8dp"
 
                             android:text="@string/sq"
-                            android:textColor="#13baa8"
+                            android:textColor="#62d7cb"
                             android:textSize="18sp" />
                         <LinearLayout
                             android:id="@+id/imgmore_more"
@@ -700,25 +693,25 @@
                         </LinearLayout>
                     </RelativeLayout>
                     <View
-                        android:layout_width="fill_parent"
+                        android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="@drawable/dottedline" />
 
 
                     <com.netlab.loveofmum.widget.ImageCycleView
-                        android:id="@+id/ad_ysq"
+                        android:id="@+id/ad_community"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:visibility="gone"
                         />
                     <com.netlab.loveofmum.widget.ListViewForScrollView
-                        android:id="@+id/listview_indexsq"
-                        android:layout_width="fill_parent"
+                        android:id="@+id/communitylist"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:cacheColorHint="#00000000"
-                        android:layout_marginLeft="14dp"
-                        android:layout_marginRight="14dp"
-                        android:divider="#efefef"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:divider="#e3e3e3"
                         android:dividerHeight="1px"
                         android:fadingEdge="none" />
                 </LinearLayout>
@@ -726,7 +719,7 @@
 
 
                 <LinearLayout
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
                     android:layout_marginTop="12dp"
@@ -735,7 +728,7 @@
 
                     <LinearLayout
                         style="@style/paddingstyle"
-                        android:layout_width="fill_parent"
+                        android:layout_width="match_parent"
                         android:layout_height="45dip"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
@@ -749,20 +742,20 @@
                             android:src="@drawable/icon_yqtx" />
                         <!--周推荐模块-->
                         <TextView
-                            android:id="@id/txtmore_index"
+                            android:id="@+id/weektipstitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="10.0dip"
                             android:gravity="center_vertical"
                             android:singleLine="true"
-                            android:textColor="#13baa8"
+                            android:textColor="#62d7cb"
                             android:textSize="18sp" />
 
                         <LinearLayout
                             android:id="@+id/imgmore_index"
                             style="@style/paddingstyle2"
-                            android:layout_width="fill_parent"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.0"
                             android:gravity="right">
@@ -790,16 +783,18 @@
                         </LinearLayout>
                     </LinearLayout>
                     <View
-                        android:layout_width="fill_parent"
+                        android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="@drawable/dottedline" />
 
 
 
                     <com.netlab.loveofmum.widget.ListViewForScrollView
-                        android:id="@id/listview_index002"
-                        android:layout_width="fill_parent"
+                        android:id="@+id/weektipsListView"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:divider="#e3e3e3"
+                        android:dividerHeight="1px"
                         android:cacheColorHint="#00000000"
                         android:fadingEdge="none" />
                 </LinearLayout>
@@ -821,7 +816,7 @@
 
                         <ImageView
                             android:layout_width="wrap_content"
-                            android:layout_height="fill_parent"
+                            android:layout_height="match_parent"
                             android:layout_marginLeft="5.0dip"
                             android:src="@drawable/icon_jk" />
 
@@ -839,7 +834,7 @@
                     </LinearLayout>
 
                     <View
-                        android:layout_width="fill_parent"
+                        android:layout_width="match_parent"
                         android:layout_height="5dp"
                         android:background="@drawable/pic_yjk_line" />
 
@@ -868,7 +863,7 @@
                                 android:textSize="12sp" />
 
                             <LinearLayout
-                                android:layout_width="fill_parent"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentBottom="true"
                                 android:layout_marginBottom="5dp"
@@ -911,7 +906,7 @@
                                 android:textSize="12sp" />
 
                             <LinearLayout
-                                android:layout_width="fill_parent"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentBottom="true"
                                 android:layout_marginBottom="5dp"
@@ -954,7 +949,7 @@
                                 android:textSize="12sp" />
 
                             <LinearLayout
-                                android:layout_width="fill_parent"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentBottom="true"
                                 android:layout_marginBottom="5dp"
@@ -997,7 +992,7 @@
                                 android:textSize="12sp" />
 
                             <LinearLayout
-                                android:layout_width="fill_parent"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentBottom="true"
                                 android:layout_marginBottom="5dp"

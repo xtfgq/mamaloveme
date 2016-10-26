@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="45dip"
-    android:background="@drawable/bgumeng_header"
+    android:background="@color/home"
     android:orientation="vertical" >
 
     <RelativeLayout
@@ -12,12 +12,9 @@
 
         <ImageView
             android:id="@id/img_left"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="8dip"
-            android:layout_marginTop="8dp"
-            android:scaleType="centerInside"
+            android:layout_width="45dp"
+            android:padding="12dp"
+            android:layout_height="match_parent"
             android:src="@drawable/icon_arrow_left" />
 
         <TextView

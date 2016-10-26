@@ -91,9 +91,7 @@ public class CHK_TimeLineTwo extends BaseActivity
 	{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setTranslucentStatus() ;
-//		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.layout_chk_timeline);
 		mIntent=this.getIntent();
 		if(mIntent!=null){

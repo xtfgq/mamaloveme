@@ -13,7 +13,7 @@
     <include layout="@layout/title_bar9" />
 
     <Button
-        android:id="@id/btn01_findpass"
+        android:onClick="submit"
         android:layout_width="fill_parent"
         android:layout_height="40dp"
         android:layout_marginLeft="15dp"

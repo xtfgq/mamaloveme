@@ -12,7 +12,7 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="140dip"
-        android:background="@drawable/bg_cj_time"
+        android:background="@color/home"
         android:gravity="center_horizontal">
 
         <com.netlab.loveofmum.widget.CircularImage

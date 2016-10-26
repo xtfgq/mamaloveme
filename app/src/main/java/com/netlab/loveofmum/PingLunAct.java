@@ -17,9 +17,7 @@ public class PingLunAct extends BaseActivity {
 	{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		//setTranslucentStatus() ;
-//		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.dialog_add10_jifen);
 		MyApplication.getInstance().addActivity(this);
 		iniView();

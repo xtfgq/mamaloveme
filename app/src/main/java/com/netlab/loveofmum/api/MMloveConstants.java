@@ -14,20 +14,20 @@ public class MMloveConstants
 //	public static final String	URL002	= "http://find.staging.topmd.cn:8019/WebServices/LoveOfMumWebservice.asmx";
 //	public static final String	JE_BASE_URL	= "http://find.staging.topmd.cn:8019/";
 
-	public static final String	URL002	= "https://lovestaging.topmd.cn/WebServices/LoveOfMumWebservice.asmx";
+	public static final String	URL002	= "https://love.topmd.cn/WebServices/LoveOfMumWebservice.asmx";
 	//	测试版本地址
-	public static final String	JE_BASE_URL	= "https://lovestaging.topmd.cn/";
+	public static final String	JE_BASE_URL	= "https://love.topmd.cn/";
 
-	public static final String	JE_BASE_URL2	= "https://lovestaging.topmd.cn";
+	public static final String	JE_BASE_URL2	= "https://love.topmd.cn";
 
-	public static final String	URLIMAGE	= "https://lovestaging.topmd.cn/WebServices/News.aspx?ID=";
+	public static final String	URLIMAGE	= "https://love.topmd.cn/WebServices/News.aspx?ID=";
 	//	public static final String	URLIMAGE2	= "https://lovestaging.topmd.cn/WebServices/NewsShare.aspx?ID=";
-	public static final String	URLIMAGE2	= "https://lovestaging.topmd.cn/WebServices/NewsShare.aspx?ID=";
-	public static final String	URLARTICLE	= "https://lovestaging.topmd.cn/WebServices/ArticleDeital.aspx?ID=";
+	public static final String	URLIMAGE2	= "https://love.topmd.cn/WebServices/NewsShare.aspx?ID=";
+	public static final String	URLARTICLE	= "https://love.topmd.cn/WebServices/ArticleDeital.aspx?ID=";
 
-	public static final String	DOWNLOADURL	= "https://lovestaging.topmd.cn/UpLoadFile/VersionDownload/mamalove.apk";
+	public static final String	DOWNLOADURL	= "https://love.topmd.cn/UpLoadFile/VersionDownload/mamalove.apk";
 
-	public static final String	XUZHIURL	= "https://lovestaging.topmd.cn/WebServices/xuzhi.aspx";
+	public static final String	XUZHIURL	= "https://love.topmd.cn/WebServices/xuzhi.aspx";
 //	public static final String	JE_BASE_URL	= "http://125.46.31.234:8088";
 //
 //	public static final String	JE_BASE_URL2	= "http://125.46.31.234:8088";
@@ -41,16 +41,15 @@ public class MMloveConstants
 //	public static final String	XUZHIURL	= "http://125.46.31.234:8088/WebServices/xuzhi.aspx";
 //	public static final String	URL002	= "http://125.46.31.234:8088/WebServices/LoveOfMumWebservice.asmx";
 
-	//	public static final String	URLWEB	= "http://125.46.31.185:8080";
-	public static final String	URLWEB	= "http://125.46.31.185:8180";
-	//头像永远不要修改
+	public static final String	URLWEB	= "http://125.46.31.185:8080";
+	//    public static final String	URLWEB	= "http://125.46.31.185:8180";
 	public static final String	URL001Topmd	= "http://www.topmd.cn/WebServices/";
-
-	public static final String	URL002Topmd	= "http://staging.topmd.cn/android/TopMD.asmx";
+	public static final String	URL002Topmd	= "http://www.topmd.cn/android/TopMD.asmx";
 	public static final String APP_ID = "wx2a644a43882160a9";
 
-	//   public static final String	JE_BASE_URL3	= "http://www.topmd.cn";
-	public static final String	JE_BASE_URL3	= "http://staging.topmd.cn";
+	public static final String	JE_BASE_URL3	= "http://www.topmd.cn";
+	// public static final String	JE_BASE_URL3	= "http://staging.topmd.cn";
+//正式版
 	public static final String NetTest ="NetTest";
 	public static final String CHKTimeInquiry ="CHKTimeInquiry";
 	public static final String CHKTypeItemsInquiry ="CHKTypeItemsInquiry";

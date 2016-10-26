@@ -7,20 +7,16 @@ import java.util.Map;
 
 import android.content.Context;
 import android.content.Intent;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.netlab.loveofmum.CHK_TimeSelect;
-import com.netlab.loveofmum.DoctorDes;
-import com.netlab.loveofmum.DoctorHomeAct;
+import com.netlab.loveofmum.activity.DoctorHomeActivity;
 import com.netlab.loveofmum.R;
 
 import com.netlab.loveofmum.api.LocalAccessor;
@@ -150,14 +146,6 @@ public class CHK_Medical_Adapter extends BaseAdapter {
 						}
 					}
 				});
-//				if(listData.get(position).get("Description").toString().length()>21)
-//				{
-//					  viewHolder.txt004.setText(listData.get(position).get("Description").toString().trim().substring(0, 20)+"...");
-//				}
-//				else
-//				{
-//					  viewHolder.txt004.setText(listData.get(position).get("Description").toString().trim());
-//				}
 				sign = -1;
 				viewHolder.img.setImageResource(R.drawable.icon_arrow_down);
 			} else {// 选中的时候会展示，并标记此位置
@@ -180,33 +168,15 @@ public class CHK_Medical_Adapter extends BaseAdapter {
 			viewHolder.txt004.setText(listData.get(position).get("Description").toString().trim());
 
 			viewHolder.img.setImageResource(R.drawable.icon_arrow_down);
-//			if(TextUtils.isEmpty(listData.get(position).get("Description").toString().trim())){
-//				viewHolder.img.setVisibility(View.GONE);
-//			}else{
-//				viewHolder.img.setVisibility(View.VISIBLE);
-//			}
 			viewHolder.txt004.post(new Runnable() {
 				@Override
 				public void run() {
 					if(vh.txt004.getLineCount()>1){
 						vh.txt004.setMaxLines(1);
 					}
-//					if(vh.txt004.getLineCount()==1){
-//						vh.img.setVisibility(View.GONE);
-//					}else{
-//						vh.img.setVisibility(View.VISIBLE);
-//					}
 				}
 			});
 
-//			if(listData.get(position).get("Description").toString().length()>21)
-//			{
-//				viewHolder.txt004.setText(listData.get(position).get("Description").toString().trim().substring(0, 20)+"...");
-//			}
-//			else
-//			{
-//				viewHolder.txt004.setText(listData.get(position).get("Description").toString().trim());
-//			}
 		}
 
 		 viewHolder.docdes.setOnClickListener(new OnClickListener() {
@@ -217,7 +187,7 @@ public class CHK_Medical_Adapter extends BaseAdapter {
 					user=LocalAccessor.getInstance(context).getUser();
 
 					Intent i = new Intent(context,
-							DoctorHomeAct.class);
+							DoctorHomeActivity.class);
 					i.putExtra("DoctorID", DoctorID);
 					i.putExtra("HospitalID", HospitalID);
 					i.putExtra("HospitalName", HospitalName);
@@ -241,7 +211,7 @@ public class CHK_Medical_Adapter extends BaseAdapter {
 				user=LocalAccessor.getInstance(context).getUser();
 
 				Intent i = new Intent(context,
-						DoctorHomeAct.class);
+						DoctorHomeActivity.class);
 				i.putExtra("DoctorID", DoctorID);
 				i.putExtra("HospitalID", HospitalID);
 				i.putExtra("HospitalName", HospitalName);

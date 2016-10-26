@@ -135,7 +135,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="15sp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_marginRight="10dip"
                     android:layout_marginTop="15dp"
                     android:hint="孕妈说点什么吧！"

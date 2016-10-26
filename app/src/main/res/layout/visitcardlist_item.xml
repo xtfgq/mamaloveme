@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#FEF4F5"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="6dp"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:background="@drawable/corner">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingLeft="6dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/icon_yuyue"/>
+        <TextView
+            android:id="@+id/hospitalname"
+            android:layout_width="match_parent"
+            android:gravity="right|center_vertical"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:text="xxx"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#F5F5F5"/>
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+        android:paddingLeft="6dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+    android:orientation="horizontal"
+        android:gravity="center_vertical"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="就诊卡"
+        android:textSize="16sp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:background="#00BB9C"
+        android:textColor="@color/white"
+        android:src="@drawable/icon_yuyue"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:gravity="right|center_vertical"
+        android:textSize="16sp"
+        android:text="验证成功"
+        android:id="@+id/status"
+        android:textColor="@color/red"
+        android:layout_height="match_parent" />
+</LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#F5F5F5"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingLeft="6dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="卡号："
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:textSize="16sp"
+            android:textColor="#00BB9C"
+            android:src="@drawable/icon_yuyue"/>
+        <TextView
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:textSize="16sp"
+            android:id="@+id/cardno"
+            android:text="验证成功"
+            android:textColor="#00BB9C"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</LinearLayout>
+</LinearLayout>

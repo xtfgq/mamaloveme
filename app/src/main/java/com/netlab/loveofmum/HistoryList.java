@@ -68,7 +68,6 @@ public class HistoryList extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setTranslucentStatus() ;
 		setContentView(R.layout.activity_history);
 		mIntent=this.getIntent();
@@ -144,7 +143,7 @@ public class HistoryList extends BaseActivity {
 		}
 		SystemStatusManager tintManager = new SystemStatusManager(this);
 		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.drawable.bg_header);//状态栏无背景
+		tintManager.setStatusBarTintResource(R.color.home);//状态栏无背景
 	}
 	public void initData(){
 		JsonAsyncTaskOnComplete doProcess=new JsonAsyncTaskOnComplete(){

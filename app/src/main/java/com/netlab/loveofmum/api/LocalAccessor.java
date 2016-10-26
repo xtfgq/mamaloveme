@@ -87,6 +87,7 @@ public class LocalAccessor{
 	//insert or update(if exist) user in SharedPreferences
 	public boolean updateUser(User user) throws Exception{
 		SharedPreferences.Editor editor = prefs.edit();
+
         editor.putInt("UserID", user.UserID);
         editor.putString("NickName", user.NickName);
         editor.putString("PicURL", user.PicURL);
@@ -157,6 +158,7 @@ public class LocalAccessor{
 	//insert or update(if exist) user in SharedPreferences
 	public boolean updateOrder(Order order) throws Exception{
 		SharedPreferences.Editor editor = prefs.edit();
+
         editor.putInt("CHKTypeID", order.CHKTypeID);
         editor.putString("CHKItemValue", order.CHKItemValue);
         editor.putString("HospitalID", order.HospitalID);

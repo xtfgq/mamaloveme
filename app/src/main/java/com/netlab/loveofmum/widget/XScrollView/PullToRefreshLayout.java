@@ -447,9 +447,9 @@ public class PullToRefreshLayout extends RelativeLayout
 				// 如果下拉距离没达到刷新的距离且当前状态是释放刷新，改变状态为下拉刷新
 				changeState(INIT);
 			}
-			Log.e("jjjjjjjj",pullDownY+"");
-			Log.e("jjjjjjjjvvvvv",refreshDist+"");
-			Log.e("jjjjjjjj888888",state+"");
+//			Log.e("jjjjjjjj",pullDownY+"");
+//			Log.e("jjjjjjjjvvvvv",refreshDist+"");
+//			Log.e("jjjjjjjj888888",state+"");
 			if (pullDownY >= refreshDist && state == INIT)
 			{
 				// 如果下拉距离达到刷新的距离且当前状态是初始状态刷新，改变状态为释放刷新
@@ -460,7 +460,7 @@ public class PullToRefreshLayout extends RelativeLayout
 			{
 				changeState(INIT);
 			}
-			Log.e("jjjjjjjjbbbbb",state+"");
+//			Log.e("jjjjjjjjbbbbb",state+"");
 			if (-pullUpY >= loadmoreDist && state == INIT)
 			{
 				changeState(RELEASE_TO_LOAD);

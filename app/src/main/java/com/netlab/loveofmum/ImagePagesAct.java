@@ -33,7 +33,6 @@ public class ImagePagesAct extends BaseActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setTranslucentStatus() ;
 		setContentView(R.layout.activity_image_page);
 		
@@ -83,7 +82,7 @@ public class ImagePagesAct extends BaseActivity {
 		}
 		SystemStatusManager tintManager = new SystemStatusManager(this);
 		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.drawable.bg_header);//状态栏无背景
+		tintManager.setStatusBarTintResource(R.color.home);//状态栏无背景
 	}
 	public class ImagePagerAdapter extends PagerAdapter {
 		private LayoutInflater inflater;

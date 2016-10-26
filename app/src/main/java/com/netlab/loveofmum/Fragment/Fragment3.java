@@ -1,4 +1,4 @@
-package com.netlab.loveofmum.Fragment;
+package com.netlab.loveofmum.fragment;
 
 
 import android.os.Bundle;
@@ -12,8 +12,19 @@ import com.netlab.loveofmum.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Fragment3 extends Fragment {
+public class Fragment3 extends BaseFragment {
 
+
+    @Override
+    public View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_3, container, false);
+        return v;
+    }
+
+    @Override
+    public void initData() {
+
+    }
 
     public Fragment3() {
         // Required empty public constructor
@@ -21,10 +32,7 @@ public class Fragment3 extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_3, container, false);
-    }
+    public void onClick(View v) {
 
+    }
 }

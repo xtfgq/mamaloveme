@@ -41,7 +41,6 @@ public class DialogEnsure extends BaseActivity {
     {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.dialog_default_ensure);
         iniView();
         mTimer = new Timer();

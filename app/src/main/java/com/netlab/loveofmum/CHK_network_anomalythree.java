@@ -55,7 +55,6 @@ private final String SOAP_URL = MMloveConstants.URL002;
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-	    requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setTranslucentStatus() ;
 		setContentView(R.layout.layout_network_anomalythree);
 		iniView();
@@ -104,7 +103,7 @@ private final String SOAP_URL = MMloveConstants.URL002;
 		}
 		SystemStatusManager tintManager = new SystemStatusManager(this);
 		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.drawable.bg_header);//状态栏无背景
+		tintManager.setStatusBarTintResource(R.color.home);//状态栏无背景
 	}
 	protected void AskOrderUpdate(int paytype) {
 		// TODO Auto-generated method stub

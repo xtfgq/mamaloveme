@@ -51,8 +51,6 @@ private List<Map<String, Object>> arrayList = new ArrayList<Map<String, Object>>
 	{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-	
 		setContentView(R.layout.layout_replypage_one);
 
 		iniView();

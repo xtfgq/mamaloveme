@@ -55,13 +55,10 @@ import com.netlab.loveofmum.utils.SystemStatusManager;
 import com.umeng.analytics.MobclickAgent;
 
 
-public class MyCHK_Timeline extends BaseActivity
+public class MyCHK_Timeline extends BaseActivity implements  OnClickListener
 {
 
 	private TextView txtHead,tv_right;
-	private ImageView imgBack;
-	private ImageView imageview;
-	private ImageView imgRight;
 
 	private List<Map<String, Object>> arrayList;
 	private String returnvalue001;
@@ -71,12 +68,9 @@ public class MyCHK_Timeline extends BaseActivity
 	private ImageView imgAdd;
 	
 	private User user;
-    private Intent mIntent;
     String page;
 
-	private int Week;
 	Boolean isfirst=false;
-	private RelativeLayout top;
 	// 定义Web Service相关的字符串
 	private final String SOAP_NAMESPACE = MMloveConstants.URL001;
 	private final String SOAP_ACTION = MMloveConstants.URL001
@@ -101,16 +95,11 @@ public class MyCHK_Timeline extends BaseActivity
 		@Override
 		public void handleMessage(Message msg) {
 			super.handleMessage(msg);
-		
 			switch (msg.what) {
 			case 0:
 				MyCHK_Timeline_Adapter adapter = new MyCHK_Timeline_Adapter(MyCHK_Timeline.this, arrayList);
 				listview.setAdapter(adapter);
-			
 				break;
-		
-		
-			
 			default:
 				break;
 			}
@@ -124,26 +113,19 @@ public class MyCHK_Timeline extends BaseActivity
 	{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setTranslucentStatus() ;
-//		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.layout_chk_timeline);
-		mIntent=this.getIntent();
+		Intent	mIntent=this.getIntent();
 		if(mIntent!=null){
 			page= mIntent.getStringExtra("Page");
-			
 		}
 		iniView();
 		IntentFilter intentFilter = new IntentFilter();
 		intentFilter.addAction("action.foot");
 		registerReceiver(mRefreshBroadcastReceiver, intentFilter);
-		setListeners();
-	
 		MyApplication.getInstance().addActivity(this);
-		
-		
 	}
-	
+
 	/**
 	 * 设置状态栏背景状态
 	 */
@@ -159,7 +141,7 @@ public class MyCHK_Timeline extends BaseActivity
 		}
 		SystemStatusManager tintManager = new SystemStatusManager(this);
 		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.drawable.bg_header);//状态栏无背景
+		tintManager.setStatusBarTintResource(R.color.home);//状态栏无背景
 	}
 
 	@Override
@@ -167,12 +149,13 @@ public class MyCHK_Timeline extends BaseActivity
 	{
 		// TODO Auto-generated method stub
 		txtHead = (TextView) findViewById(R.id.txtHead);
-		imgBack = (ImageView) findViewById(R.id.img_left);
+		findViewById(R.id.img_left).setOnClickListener(this);
 		imgAdd = (ImageView)findViewById(R.id.img_right);
 		imgAdd.setImageResource(R.drawable.icon_add_foot);
+		imgAdd.setOnClickListener(this);
 		listview = (ListView) findViewById(R.id.listview_timeline);
-		top=(RelativeLayout) findViewById(R.id.top);
 		tv_right=(TextView) findViewById(R.id.tv_right);
+		tv_right.setOnClickListener(this);
 		llcheck=(LinearLayout)findViewById(R.id.llcheck);
 		btnCheck=(Button) llcheck.findViewById(R.id.btn_my_check);
 		btnCheck.setOnClickListener(new OnClickListener() {
@@ -193,57 +176,15 @@ public class MyCHK_Timeline extends BaseActivity
 			txtHead.setText("产检预约订单");
 			tv_right.setVisibility(View.VISIBLE);
 		}
-		
-		
+
+		imgAdd.setOnClickListener(this);
 		
 	
 		
 	}
+	public void refesh(){
 
-	private void setListeners()
-	{
-		imgBack.setOnClickListener(new OnClickListener()
-		{
-			@Override
-			public void onClick(View v)
-			{
-				
-				// TODO Auto-generated method stub
-
-				finish();
-			}
-		});
-		
-		imgAdd.setOnClickListener(new OnClickListener()
-		{
-			
-			@Override
-			public void onClick(View v)
-			{
-				if(page.equals("User_Foot")){
-					Intent i = new Intent(MyCHK_Timeline.this,MyCHK_OrderAdd.class);
-					i.putExtra("page", "User_Foot");
-					i.putExtra("Add_food", "Add");
-					startActivity(i);
-					
-				}
-				// TODO Auto-generated method stub
-				
-			}
-		});
-		tv_right.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Intent i = new Intent(MyCHK_Timeline.this,
-						MainTabActivity.class);
-				i.putExtra("TabIndex", "A_TAB");
-				startActivity(i);
-			}
-		});
 	}
-
 	/*
 	 * 查询gridview
 	 */
@@ -378,7 +319,7 @@ public class MyCHK_Timeline extends BaseActivity
 										public int compare(Integer lhs, Integer rhs) {
 											return rhs.compareTo(lhs);
 										} 
-			                            }); 
+			              			              });
 
 										
 											for(int i=0;i<listWithOrder.size();i++){
@@ -392,9 +333,6 @@ public class MyCHK_Timeline extends BaseActivity
 											}
 										if(arrayList.size()>0){
 										if(!isfirst){
-//											LayoutInflater lif = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//											View headView = lif.inflate(R.layout.layout_mmfoot, listview,false);
-//											listview.addHeaderView(headView);
 											isfirst=true;
 										}
 										
@@ -403,86 +341,7 @@ public class MyCHK_Timeline extends BaseActivity
 											listview.setAdapter(adapter);
 											listview.setVisibility(View.VISIBLE);
 											llcheck.setVisibility(View.GONE);
-//											listview.setOnItemClickListener(new OnItemClickListener()
-//											{
-//
-//												public void onItemClick(AdapterView<?> arg0,
-//														View arg1, int arg2, long arg3)
-//												{
-//													if(arg2-1>=0)
-//													{
-//
-//													Map<String, Object> mapDetail = new HashMap<String, Object>();
-//													if (arrayList.isEmpty())
-//													{
-//
-//													}
-//													else
-//													{
-//
-//														mapDetail = arrayList.get(arg2-1);
-//
-//													}
-//													 int status=Integer.valueOf(mapDetail.get("OrderStatus").toString());
-//													if(status==4){
-//														String reason=mapDetail.get("Reason").toString();
-//														String gotime =mapDetail.get("Gotime").toString();
-//
-//														SimpleDateFormat formatter = new SimpleDateFormat(
-//																"yyyy-MM-dd");
-//														gotime = gotime.split(" ")[0].replace("/", "-");
-//
-//														Intent i = new Intent(MyCHK_Timeline.this,MyCHK_OrderAdd.class);
-//														i.putExtra("Reason", reason);
-//														i.putExtra("Gotime",gotime);
-//														i.putExtra("Orderid",mapDetail.get("OrderID").toString());
-//														i.putExtra("IsUpload",mapDetail.get("IsUpload").toString());
-//														startActivity(i);
-////
-//													}else{
-//														String time = mapDetail.get("Gotime").toString();
-//
-//														SimpleDateFormat formatter = new SimpleDateFormat(
-//																"yyyy-MM-dd");
-//														time = time.split(" ")[0].replace("/", "-");
-//														try {
-//															time = formatter.format(formatter
-//																	.parse(time));
-//														} catch (java.text.ParseException e) {
-//															// TODO Auto-generated catch block
-//															e.printStackTrace();
-//														}
-//														Intent i = new Intent(MyCHK_Timeline.this, MyCHK_OrderAdd.class);
-//														String ID = mapDetail.get("ID").toString();
-//														String MomSay=mapDetail.get("MomSay").toString();
-//														i.putExtra("page", "User_Foot");
-//														i.putExtra("HospitalName",  mapDetail.get("HospitalName").toString());
-//														i.putExtra("DoctorName", mapDetail.get("DoctorName").toString());
-//														i.putExtra("Gotime", time+mapDetail
-//																.get("BeginTime").toString()+"-"+mapDetail
-//																.get("EndTime").toString());
-//														i.putExtra("HospitalID", mapDetail.get("HospitalID").toString());
-//														i.putExtra("MomSay", MomSay);
-//														i.putExtra("ID", ID);
-//														i.putExtra("IsUpload",mapDetail.get("IsUpload").toString());
-//														startActivity(i);
-//
-//													}
-////													}else{
-////
-////													String ID = mapDetail.get("ID").toString();
-////													Intent i = new Intent(MyCHK_Timeline.this, MyCHK_OrderDetail.class);
-////													i.putExtra("ID", ID);
-////													startActivity(i);
-////													}
-//												}
-//												}
-//											});
 										}else{
-//											map = new HashMap<String, Object>();
-//											templist.add(map);
-//											MyCHK_Timeline_Adapter2 adapter2 = new MyCHK_Timeline_Adapter2(MyCHK_Timeline.this, templist);
-//											listview.setAdapter(adapter2);
 											listview.setVisibility(View.GONE);
 											llcheck.setVisibility(View.VISIBLE);
 
@@ -561,23 +420,7 @@ public class MyCHK_Timeline extends BaseActivity
 										}
 									});
 								}
-							
-//								Message msg = new Message();
-//								msg.what = 0;
-//								handler.sendMessage(msg);
 
-//								for(int i=0;i<)
-								
-//								if(flag==0){
-//				
-//								MyCHK_Timeline_Adapter adapter = new MyCHK_Timeline_Adapter(MyCHK_Timeline.this, arrayList);
-//								
-//								listview.setAdapter(adapter);
-//								}else if(flag==1){
-//									MyCHK_Timeline_Adapter adapter = new MyCHK_Timeline_Adapter(MyCHK_Timeline.this, arrayList);
-//									
-//									listview.setAdapter(adapter);
-//								}
 								
 							
 							
@@ -598,12 +441,7 @@ public class MyCHK_Timeline extends BaseActivity
 										templist.add(map);
 									listview.setVisibility(View.GONE);
 									llcheck.setVisibility(View.VISIBLE);
-//										MyCHK_Timeline_Adapter2 adapter = new MyCHK_Timeline_Adapter2(MyCHK_Timeline.this, templist);
-//										listview.setAdapter(adapter);
-										
 									}
-								
-							
 							}
 						}
 						catch (Exception ex)
@@ -651,10 +489,8 @@ public class MyCHK_Timeline extends BaseActivity
 		if(hasInternetConnected())
 		{
 			if("User_Order".equals(page)){
-//				top.setBackground(this.getResources().getDrawable(R.drawable.bgumeng_header));
 			searchCHKList(1);
 			}else if("User_Foot".equals(page)){
-//				top.setBackground(this.getResources().getDrawable(R.drawable.foot_top));
 				searchCHKList(0);
 			}
 		}
@@ -663,22 +499,6 @@ public class MyCHK_Timeline extends BaseActivity
 			Toast.makeText(MyCHK_Timeline.this, R.string.msgUninternet,
 					Toast.LENGTH_SHORT).show();
 		}
-		// TODO Auto-generated method stub
-//		iniView();
-//		setListeners();
-//		if(hasInternetConnected())
-//		{
-//			if("User_Order".equals(page)){
-//			searchCHKList(1);
-//			}else if("User_Foot".equals(page)){
-//				searchCHKList(0);
-//			}
-//		}
-//		else
-//		{
-//			Toast.makeText(MyCHK_Timeline.this, R.string.msgUninternet,
-//					Toast.LENGTH_SHORT).show();
-//		}
 		super.onResume();
 		MobclickAgent.onResume(this);
 	}
@@ -689,30 +509,36 @@ public class MyCHK_Timeline extends BaseActivity
 		MobclickAgent.onPause(this);
 	}
 	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event)
-	{
-		// 在欢迎界面屏蔽BACK键
-		if (keyCode == KeyEvent.KEYCODE_BACK)
-		{
-//			Intent i = new Intent(MyCHK_Timeline.this, MainTabActivity.class);
-//			i.putExtra("TabIndex", "D_TAB");
-//
-//			startActivity(i);
-			finish();
-			return true;
-		}
-		return super.onKeyDown(keyCode, event);
-	}
-	@Override
 	public void onDestroy() {
 		// TODO Auto-generated method stub
 		super.onDestroy();
 		try {
 			unregisterReceiver(mRefreshBroadcastReceiver);
-
 			mRefreshBroadcastReceiver = null;
 		} catch (Exception e) {
 		}
 	}
 
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()){
+			case R.id.img_left:
+				finish();
+				break;
+			case R.id.img_right:
+				if(page.equals("User_Foot")){
+					Intent i = new Intent(MyCHK_Timeline.this,MyCHK_OrderAdd.class);
+					i.putExtra("page", "User_Foot");
+					i.putExtra("Add_food", "Add");
+					startActivity(i);
+				}
+				break;
+			case R.id.tv_right:
+				Intent i = new Intent(MyCHK_Timeline.this,
+						MainTabActivity.class);
+				i.putExtra("TabIndex", "A_TAB");
+				startActivity(i);
+				break;
+		}
+	}
 }

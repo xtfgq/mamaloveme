@@ -114,7 +114,6 @@ public class CHKTimeDetailActivity extends BaseActivity implements ListItemClick
 		super.onCreate(savedInstanceState);
 		setTranslucentStatus() ;
 		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-//		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.layout_chkdetail);
 		iniView();
 		MyApplication.getInstance().addActivity(this);
@@ -165,7 +164,7 @@ public class CHKTimeDetailActivity extends BaseActivity implements ListItemClick
 		}
 		SystemStatusManager tintManager = new SystemStatusManager(this);
 		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.drawable.bg_header);//状态栏无背景
+		tintManager.setStatusBarTintResource(R.color.home);//状态栏无背景
 	}
 
 	@Override

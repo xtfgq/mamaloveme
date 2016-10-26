@@ -4,7 +4,7 @@
 
     <uses-sdk
         android:minSdkVersion="11"
-        android:targetSdkVersion="23.0.1" />
+        android:targetSdkVersion="23" />
     <!-- 使用相机 -->
     <uses-feature
         android:name="android.hardware.camera"
@@ -52,13 +52,13 @@
         android:label="@string/app_name"
         android:largeHeap="true"
         android:theme="@style/MyTheme">
-       <meta-data
-           android:name="SM_AD_REFRESH_INTERVAL"
-           android:value="20" />
-
+        <meta-data
+            android:name="SM_AD_REFRESH_INTERVAL"
+            android:value="20" />
         <meta-data
             android:name="BaiduMobAd_APP_ID"
             android:value="f6a454ca" />
+
         <activity
             android:name="com.mob.tools.MobUIShell"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -72,17 +72,14 @@
 
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
-
-
             </intent-filter>
-
         </activity>
         <!-- for baidu xadsdk internal web-browser -->
         <!-- 非信息广告必须添加 -->
         <activity
             android:name="com.baidu.mobads.AppActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <!-- 信息流广告必须添加 -->
         <activity
@@ -92,7 +89,6 @@
         <!-- for standard testing -->
 
         <service android:name=".DownloadServiceForAPK" />
-
 
         <meta-data
             android:name="PUSH_APPID"
@@ -157,9 +153,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".SimpleWebView"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".GuidePictureActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".MyTiptocWebView"
@@ -237,7 +230,7 @@
             android:process=":pushservice" />
 
         <activity
-            android:name=".Welcome"
+            android:name=".activity.WelcomeActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -247,15 +240,17 @@
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.BROWSABLE" />
 
+                <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
 
-                <data android:scheme="mmloveme" android:pathPrefix="/xxx/openwith" />
+                <data
+                    android:pathPrefix="/xxx/openwith"
+                    android:scheme="mmloveme" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".PrivateDoctor"
+            android:name=".activity.UserAskActivity"
             android:label="@string/action_settings"
             android:screenOrientation="portrait" />
         <activity
@@ -269,13 +264,13 @@
             android:name=".MainActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".activity.CeshiActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".huanxin.TestPicActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".huanxin.ImageGridActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".huanxin.CameraActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".huanxin.ScaleImageFromSdcardActivity"
@@ -315,10 +310,10 @@
             android:label="@string/action_settings"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".DoctorDes"
+            android:name=".activity.DoctorDetailsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".DoctorHomeAct"
+            android:name=".activity.DoctorHomeActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".CHK_DoctorList"
@@ -339,7 +334,6 @@
         <activity
             android:name=".CHK_TimeSelect"
             android:label="@string/action_settings"
-
             android:screenOrientation="portrait" />
         <activity
             android:name=".CHK_OrderSure"
@@ -382,13 +376,13 @@
             android:name=".activity.HelpCenterActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SignAct"
+            android:name=".activity.SignInActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".TopicAllAct"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".FeedbackAct"
+            android:name=".activity.FeedbackActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".community.CHK_medical_community"
@@ -402,19 +396,19 @@
             android:label="@string/action_settings"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".User_Register"
+            android:name=".activity.RegistActivity"
             android:label="@string/action_settings"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".User_FindPass"
+            android:name=".activity.ForgetPwdActivity"
             android:label="@string/action_settings"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".User_FindPass2"
+            android:name=".activity.ForgetPwd2Activity"
             android:label="@string/action_settings"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".User_InfoChange"
+            android:name=".activity.User_InfoEditActivity"
             android:label="@string/action_settings"
             android:screenOrientation="portrait" />
         <activity android:name=".CHK_DeteWeight" />
@@ -491,7 +485,7 @@
             android:label="@string/action_settings"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CHK_HandleBook"
+            android:name=".activity.CHK_HandleBookActivity"
             android:label="@string/action_settings"
             android:screenOrientation="portrait" />
         <activity
@@ -526,8 +520,8 @@
         <activity
             android:name=".CHKTimeDetailActivity"
             android:label="@string/action_settings"
-            android:windowSoftInputMode="adjustPan"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
 
         <!-- feed详情页面 -->
 
@@ -582,19 +576,18 @@
             android:screenOrientation="portrait"
             android:theme="@style/mydialog" />
         <activity
-            android:name="com.netlab.loveofmum.activity.LoginActivity"
-
+            android:name=".activity.LoginActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ExampleActivity"></activity>
         <activity
             android:name=".SearchWebView"
-            android:screenOrientation="portrait"
-             />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".NewPostList"
-            android:screenOrientation="portrait"
-            /><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
-     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+            android:screenOrientation="portrait" />
+        <!--
+ ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />

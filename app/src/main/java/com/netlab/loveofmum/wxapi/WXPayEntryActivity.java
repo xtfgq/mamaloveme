@@ -6,19 +6,15 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.netlab.loveofmum.CHK_network_anomaly;
 import com.netlab.loveofmum.CHK_network_anomalythree;
 import com.netlab.loveofmum.CHK_network_anomalytwo;
-import com.netlab.loveofmum.DoctorDes;
 import com.netlab.loveofmum.R;
-import com.netlab.loveofmum.alipay.PayActivity;
 import com.netlab.loveofmum.api.BaseActivity;
 import com.netlab.loveofmum.api.JsonAsyncTaskOnComplete;
 import com.netlab.loveofmum.api.JsonAsyncTask_Info;
 import com.netlab.loveofmum.api.LocalAccessor;
 import com.netlab.loveofmum.api.MMloveConstants;
 import com.netlab.loveofmum.api.MyApplication;
-import com.netlab.loveofmum.huanxin.MainChatActivity;
 import com.netlab.loveofmum.model.User;
 import com.tencent.mm.sdk.constants.ConstantsAPI;
 import com.tencent.mm.sdk.modelbase.BaseReq;
@@ -27,12 +23,9 @@ import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
@@ -56,7 +49,6 @@ public class WXPayEntryActivity extends BaseActivity implements IWXAPIEventHandl
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pay_result);
-//    	requestWindowFeature(Window.FEATURE_NO_TITLE);
         WindowManager.LayoutParams lp = getWindow().getAttributes();
         lp.alpha = 0f;
         getWindow().setAttributes(lp);

@@ -51,9 +51,6 @@
         android:layout_centerVertical="true"
         android:textColor="@color/pink"
         android:textSize="12sp"
-
-
-
         android:gravity="center"
         android:background="@drawable/iconsign_right"
         />

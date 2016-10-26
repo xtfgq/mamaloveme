@@ -30,24 +30,16 @@ import com.umeng.analytics.MobclickAgent;
  */
 public class MustKnownActivity extends BaseActivity
 {
-	private TextView txtHead;
-	private ImageView imgBack;
-	
 	private WebView web;
-
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setTranslucentStatus() ;
-//		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.layout_xuzhi);
 		MyApplication.getInstance().addActivity(this);
 		iniView();
-		setListeners();
 	}
 	@Override
 	protected void onResume() {
@@ -61,7 +53,6 @@ public class MustKnownActivity extends BaseActivity
 		super.onPause();
 		MobclickAgent.onPause(this);
 	}
-	
 	/**
 	 * 设置状态栏背景状态
 	 */
@@ -77,28 +68,15 @@ public class MustKnownActivity extends BaseActivity
 		}
 		SystemStatusManager tintManager = new SystemStatusManager(this);
 		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.drawable.bg_header);//状态栏无背景
+		tintManager.setStatusBarTintResource(R.color.home);//状态栏无背景
 	}
 
 	@Override
 	protected void iniView()
 	{
 		// TODO Auto-generated method stub
-		txtHead = (TextView) findViewById(R.id.txtHead);
-		imgBack = (ImageView) findViewById(R.id.img_left);
-		
-		txtHead.setText("预约挂号须知");
-		
-		web = (WebView)findViewById(R.id.web001_layout_xuzhi);
-		
-		web.getSettings().setLayoutAlgorithm(LayoutAlgorithm.SINGLE_COLUMN);
 
-		web.loadUrl(MMloveConstants.XUZHIURL);
-	}
-
-	private void setListeners()
-	{
-		imgBack.setOnClickListener(new View.OnClickListener()
+		findViewById(R.id.img_left).setOnClickListener(new View.OnClickListener()
 		{
 			@Override
 			public void onClick(View v)
@@ -106,9 +84,16 @@ public class MustKnownActivity extends BaseActivity
 				// TODO Auto-generated method stub
 				finish();
 			}
-		});
+		});;
+
+		((TextView) findViewById(R.id.txtHead)).setText("预约挂号须知");
+		
+		web = (WebView)findViewById(R.id.web001_layout_xuzhi);
+		
+		web.getSettings().setLayoutAlgorithm(LayoutAlgorithm.SINGLE_COLUMN);
+
+		web.loadUrl(MMloveConstants.XUZHIURL);
 	}
-	
 	@Override
 	public void onDestroy()
 	{

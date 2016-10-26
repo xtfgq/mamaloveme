@@ -56,8 +56,6 @@ public class ReplyPageOneList extends BaseActivity
 	{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-	
 		setContentView(R.layout.layout_replypage_one);
 
 		iniView();

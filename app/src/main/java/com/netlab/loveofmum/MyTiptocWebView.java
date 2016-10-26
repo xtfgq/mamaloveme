@@ -28,9 +28,6 @@ import im.delight.android.webview.AdvancedWebView;
 
 public class MyTiptocWebView extends Activity implements AdvancedWebView.Listener{
 	private AdvancedWebView mWebView = null;
-	private TextView txtHead;
-	private ImageView imgBack;
-	private Intent mIntent;
 	private User user;
 	String ClientID;
 
@@ -38,7 +35,6 @@ public class MyTiptocWebView extends Activity implements AdvancedWebView.Listene
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setTranslucentStatus();
 		setContentView(R.layout.shop_webview);
 		user=LocalAccessor.getInstance(MyTiptocWebView.this).getUser();
@@ -77,7 +73,7 @@ public class MyTiptocWebView extends Activity implements AdvancedWebView.Listene
 		}
 		SystemStatusManager tintManager = new SystemStatusManager(this);
 		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.drawable.bg_header);// 状态栏无背景
+		tintManager.setStatusBarTintResource(R.color.home);// 状态栏无背景
 	}
 
 	class MyWebViewClient extends WebViewClient {

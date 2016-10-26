@@ -151,29 +151,23 @@
                     android:layout_marginTop="8dp"
 
                     >
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_weight="0.2"
-                        android:layout_height="match_parent"/>
-
                     <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="25dp"
-                        android:layout_weight="0.8"
-                        android:layout_margin="8dp"
 
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_margin="8dp"
                         android:layout_gravity="center_vertical"
                         android:background="@drawable/icon_tp"/>
                     <View
                         android:layout_width="0dp"
-                        android:layout_weight="7.9"
+                        android:layout_weight="1"
                         android:layout_height="match_parent"/>
+
 
                     <ImageView
                         android:id="@+id/iv_del"
-                        android:layout_width="0dp"
+                        android:layout_width="25dp"
                         android:layout_height="25dp"
-                        android:layout_weight="0.9"
                         android:layout_margin="8dp"
                         android:layout_gravity="center_vertical"
                         android:background="@drawable/icon_sc"/>

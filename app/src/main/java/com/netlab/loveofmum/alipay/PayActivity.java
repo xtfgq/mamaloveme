@@ -11,12 +11,8 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.X509Certificate;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
-import java.util.Random;
 
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
@@ -40,17 +36,12 @@ import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.alipay.sdk.app.PayTask;
 import com.netlab.loveofmum.CHK_network_anomalythree;
 import com.netlab.loveofmum.CHK_network_anomalytwo;
-import com.netlab.loveofmum.DoctorDes;
 import com.netlab.loveofmum.R;
-import com.netlab.loveofmum.User_InfoChange;
-import com.netlab.loveofmum.User_Set;
-import com.netlab.loveofmum.Welcome;
 import com.netlab.loveofmum.api.BaseActivity;
 import com.netlab.loveofmum.api.JsonAsyncTaskOnComplete;
 import com.netlab.loveofmum.api.JsonAsyncTask_Info;
@@ -65,22 +56,16 @@ import com.netlab.loveofmum.utils.SystemUtils;
 import com.netlab.loveofmum.widget.DialogEnsureView;
 import com.tencent.mm.sdk.modelpay.PayReq;
 import com.tencent.mm.sdk.openapi.IWXAPI;
-import com.tencent.mm.sdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import com.umeng.analytics.MobclickAgent;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
-import android.view.TextureView;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -230,7 +215,6 @@ protected void onPause() {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setTranslucentStatus();
 		setContentView(R.layout.layout_weixinqqzhifu);
 		api = WXAPIFactory.createWXAPI(this, "wx2a644a43882160a9");
@@ -409,7 +393,7 @@ protected void onPause() {
 		}
 		SystemStatusManager tintManager = new SystemStatusManager(this);
 		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.drawable.bg_header);// 状态栏无背景
+		tintManager.setStatusBarTintResource(R.color.home);// 状态栏无背景
 	}
 
 	/**

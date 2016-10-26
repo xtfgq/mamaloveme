@@ -12,31 +12,24 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.View.OnClickListener;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.SimpleAdapter;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
 
 import com.netlab.loveofmum.activity.LoginActivity;
+import com.netlab.loveofmum.activity.User_InfoEditActivity;
 import com.netlab.loveofmum.api.BaseActivity;
 import com.netlab.loveofmum.api.MMloveConstants;
 import com.netlab.loveofmum.api.JsonAsyncTaskOnComplete;
@@ -46,8 +39,6 @@ import com.netlab.loveofmum.api.MyApplication;
 import com.netlab.loveofmum.model.Order;
 import com.netlab.loveofmum.model.User;
 import com.netlab.loveofmum.model.Yuchan;
-import com.netlab.loveofmum.myadapter.CHKTimeDetail_ItemAdapter;
-import com.netlab.loveofmum.myadapter.CHK_DoctorList_Adapter;
 import com.netlab.loveofmum.utils.DialogUtils;
 import com.netlab.loveofmum.utils.IOUtils;
 import com.netlab.loveofmum.utils.SystemStatusManager;
@@ -104,7 +95,6 @@ public class CHK_OrderSure extends BaseActivity
 	{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 
 		setTranslucentStatus();
 		setContentView(R.layout.layout_pia);
@@ -160,7 +150,7 @@ public class CHK_OrderSure extends BaseActivity
 		}
 		SystemStatusManager tintManager = new SystemStatusManager(this);
 		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.drawable.bg_header);// 状态栏无背景
+		tintManager.setStatusBarTintResource(R.color.home);// 状态栏无背景
 	}
 
 	@Override
@@ -278,7 +268,7 @@ public class CHK_OrderSure extends BaseActivity
 									public void onClick(View v) {
 										Intent i = new Intent(
 												CHK_OrderSure.this,
-												User_InfoChange.class);
+												User_InfoEditActivity.class);
 										i.putExtra("tag_info", "info");
 										startActivityForResult(i, 1);
 										

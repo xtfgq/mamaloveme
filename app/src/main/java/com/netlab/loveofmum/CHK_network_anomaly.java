@@ -33,7 +33,6 @@ public class CHK_network_anomaly extends Activity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		 requestWindowFeature(Window.FEATURE_NO_TITLE);
 	    setTranslucentStatus();
 		setContentView(R.layout.layout_network_anomaly);
 		txtHead = (TextView) findViewById(R.id.txtHead);
@@ -91,7 +90,7 @@ public class CHK_network_anomaly extends Activity{
 		}
 		SystemStatusManager tintManager = new SystemStatusManager(this);
 		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.drawable.bg_header);//状态栏无背景
+		tintManager.setStatusBarTintResource(R.color.home);//状态栏无背景
 	}
 
 	

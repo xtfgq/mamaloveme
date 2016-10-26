@@ -131,7 +131,6 @@ public class Activity_ReplyPage extends BaseActivity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setTranslucentStatus();
 		setContentView(R.layout.layout_reply_page);
 		mWebView = (FoundWebView) findViewById(R.id.reply_page_web);
@@ -644,7 +643,7 @@ public class Activity_ReplyPage extends BaseActivity implements
 		}
 		SystemStatusManager tintManager = new SystemStatusManager(this);
 		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.drawable.bg_header);// 状态栏无背景
+		tintManager.setStatusBarTintResource(R.color.home);// 状态栏无背景
 	}
 
 	public void goZan(View v) {

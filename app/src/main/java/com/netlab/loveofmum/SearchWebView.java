@@ -40,7 +40,6 @@ public class SearchWebView extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setTranslucentStatus();
         setContentView(R.layout.layout_wb);
         mWebView = (WebView) findViewById(R.id.webview);
@@ -126,7 +125,7 @@ public class SearchWebView extends Activity {
         }
         SystemStatusManager tintManager = new SystemStatusManager(this);
         tintManager.setStatusBarTintEnabled(true);
-        tintManager.setStatusBarTintResource(R.drawable.bg_header);// 状态栏无背景
+        tintManager.setStatusBarTintResource(R.color.home);// 状态栏无背景
     }
     @Override
     protected void onDestroy() {

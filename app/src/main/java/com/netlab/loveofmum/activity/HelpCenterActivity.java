@@ -22,9 +22,7 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.netlab.loveofmum.CHK_HandleBook;
 import com.netlab.loveofmum.DownloadServiceForAPK;
-import com.netlab.loveofmum.FeedbackAct;
 import com.netlab.loveofmum.R;
 import com.netlab.loveofmum.api.BaseActivity;
 import com.netlab.loveofmum.api.MMloveConstants;
@@ -42,17 +40,13 @@ import com.umeng.analytics.MobclickAgent;
  * 帮助中心
  */
 public class HelpCenterActivity extends BaseActivity implements OnClickListener{
-	private View llcheckVersion,llfeedback,llphone,llfunction,sqrule,sqhandlebook;
-	
 	protected String returnvalue001;
 	private TextView versioncode,versintxt,tel;
 	private int newCode;
 	String appVersion;
 	private int oldCode;
-	private String versionlog;
 	private User user;
-
-	
+	String versionlog;
 	private final String SOAP_NAMESPACE = MMloveConstants.URL001;
 	private final String SOAP_URL = MMloveConstants.URL002;
 	
@@ -95,27 +89,26 @@ public class HelpCenterActivity extends BaseActivity implements OnClickListener{
 		super.onPause();
 		MobclickAgent.onPause(this);
 	}
-
 	@Override
 	protected void onStop() {
 		// TODO Auto-generated method stub
 		super.onStop();
 	}
-
 	@Override
 	public void onDestroy() {
 		// TODO Auto-generated method stub
 		super.onDestroy();
 	}
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-	    requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setTranslucentStatus() ;
-		setContentView(R.layout.activity_help);
+		setContentView(R.layout.act_helpcenter);
 		iniView();
+		initdata();
+	}
+	private void initdata(){
 		MyApplication.getInstance().addActivity(this);
 		PackageManager manager = HelpCenterActivity.this.getPackageManager();
 		PackageInfo info;
@@ -126,10 +119,10 @@ public class HelpCenterActivity extends BaseActivity implements OnClickListener{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		versioninquiry();
-		
-		
+
+
 		versintxt.setText("V"+appVersion);
 	}
 	/*
@@ -195,7 +188,6 @@ public class HelpCenterActivity extends BaseActivity implements OnClickListener{
 										Message msg = new Message();
 										msg.what = 0;
 										handler.sendMessage(msg);
-										
 									}
 								}
 							}
@@ -207,7 +199,6 @@ public class HelpCenterActivity extends BaseActivity implements OnClickListener{
 					}
 				}
 			};
-
 			JsonAsyncTask_Info task = new JsonAsyncTask_Info(HelpCenterActivity.this, true,
 					doProcess);
 			Map<String, Object> paramMap = new HashMap<String, Object>();
@@ -227,28 +218,9 @@ public class HelpCenterActivity extends BaseActivity implements OnClickListener{
 	}
 	protected void showUpdateDialog() {
 		// TODO Auto-generated method stub
-//		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//		builder.setTitle("检测到新版本");
-//		builder.setMessage(versionlog);
-//		builder.setPositiveButton("下载", new DialogInterface.OnClickListener() {
-//
-//			public void onClick(DialogInterface dialog, int which) {
-//			
-//				
-//				final Intent it = new Intent(HelpAct.this, DownloadServiceForAPK.class);
-//				startService(it);
-//				
-//			}
-//		}).setNegativeButton("取消", new DialogInterface.OnClickListener() {
-//
-//			public void onClick(DialogInterface dialog, int which) {
-//
-//			}
-//		});
-//		builder.show();
 		DialogEnsureCancelView dialogEnsureCancelView = new DialogEnsureCancelView(
 				HelpCenterActivity.this).setDialogMsg("检测到新版本",
-						"versionlog", "下载").setOnClickListenerEnsure(
+						versionlog, "下载").setOnClickListenerEnsure(
 				new OnClickListener() {
 
 					@Override
@@ -277,30 +249,22 @@ public class HelpCenterActivity extends BaseActivity implements OnClickListener{
 		}
 		SystemStatusManager tintManager = new SystemStatusManager(this);
 		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.drawable.bg_header);//状态栏无背景
+		tintManager.setStatusBarTintResource(R.color.home);//状态栏无背景
 	}
-
 	@Override
 	protected void iniView() {
 		// TODO Auto-generated method stub
 		versintxt=(TextView) findViewById(R.id.txtversion);
-		llcheckVersion= findViewById(R.id.llcheckVersion);
 		versioncode=(TextView) findViewById(R.id.versioncode);
 		tel=(TextView) findViewById(R.id.tel);
-		llfunction= findViewById(R.id.llfunction);
-		llfeedback= findViewById(R.id.llfeedback);
-		llphone= findViewById(R.id.llphoe);
-
-		sqrule=findViewById(R.id.sqrule);
-		sqhandlebook= findViewById(R.id.sqhandlebook);
-		llcheckVersion.setOnClickListener(this);
-
-		llfunction.setOnClickListener(this);
+		findViewById(R.id.llcheckVersion).setOnClickListener(this);
+		findViewById(R.id.aboutus).setOnClickListener(this);
 		findViewById(R.id.llinfo).setOnClickListener(this);
-		llfeedback.setOnClickListener(this);
-		llphone.setOnClickListener(this);
-		sqrule.setOnClickListener(this);
-		sqhandlebook.setOnClickListener(this);
+		findViewById(R.id.llfeedback).setOnClickListener(this);
+		findViewById(R.id.llphoe).setOnClickListener(this);
+		findViewById(R.id.communityrule).setOnClickListener(this);
+		findViewById(R.id.handlebook).setOnClickListener(this);
+		tel.setText(tel.getText().toString()+"\n周一至周五9:00~18:00");
 	}
 	
 	public void back(View v){
@@ -317,7 +281,7 @@ public class HelpCenterActivity extends BaseActivity implements OnClickListener{
 				Toast.makeText(HelpCenterActivity.this, "已经是最新版本", 1).show();
 			}
 			break;
-	case R.id.llfunction:
+	case R.id.aboutus:
 		Intent i2= new Intent(HelpCenterActivity.this, AboutUsActivity.class);
 		startActivity(i2);
 			break;
@@ -331,30 +295,20 @@ public class HelpCenterActivity extends BaseActivity implements OnClickListener{
 			Intent i1 = new Intent(HelpCenterActivity.this, LoginActivity.class);
 			i1.putExtra("Page", "Feedback");
 			startActivity(i1);
-		
 		}else{
-			
-			startActivity(new Intent(HelpCenterActivity.this, FeedbackAct.class));
+			startActivity(new Intent(HelpCenterActivity.this, FeedbackActivity.class));
 		}
-		
 		break;
-	case R.id.sqhandlebook:
-		
-		
-		
-		startActivity(new Intent(HelpCenterActivity.this, CHK_HandleBook.class));
-	
+	case R.id.handlebook:
+		startActivity(new Intent(HelpCenterActivity.this, CHK_HandleBookActivity.class));
 	break;
-	case R.id.sqrule:
+	case R.id.communityrule:
 			startActivity(new Intent(HelpCenterActivity.this, CommunityRuleActivity.class));
-		
 		break;
-
 	case R.id.llphoe:
-		Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+tel.getText().toString()));
+		Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:0371-86505830"));
         startActivity(intent);
 		break;
-
 		default:
 			break;
 		}

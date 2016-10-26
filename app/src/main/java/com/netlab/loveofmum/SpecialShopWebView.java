@@ -41,9 +41,6 @@ import im.delight.android.webview.AdvancedWebView;
 
 public class SpecialShopWebView extends Activity implements AdvancedWebView.Listener{
 	private AdvancedWebView mWebView = null;
-	private TextView txtHead;
-	private ImageView imgBack;
-	private Intent mIntent;
 	private User user;
 	String ClientID;
 	// 定义Web Service相关的字符串
@@ -56,7 +53,6 @@ public class SpecialShopWebView extends Activity implements AdvancedWebView.List
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setTranslucentStatus();
 		setContentView(R.layout.shop_webview);
 		mWebView = (AdvancedWebView) findViewById(R.id.webview);
@@ -93,7 +89,7 @@ public class SpecialShopWebView extends Activity implements AdvancedWebView.List
 		}
 		SystemStatusManager tintManager = new SystemStatusManager(this);
 		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.drawable.bg_header);// 状态栏无背景
+		tintManager.setStatusBarTintResource(R.color.home);// 状态栏无背景
 	}
 
 	class MyWebViewClient extends WebViewClient {

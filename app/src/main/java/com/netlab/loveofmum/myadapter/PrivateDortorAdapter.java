@@ -3,16 +3,11 @@ package com.netlab.loveofmum.myadapter;
 import java.util.List;
 import java.util.Map;
 
-import com.netlab.loveofmum.DoctorDes;
 import com.netlab.loveofmum.HistoryList;
-import com.netlab.loveofmum.PrivateDoctor;
 import com.netlab.loveofmum.R;
-import com.netlab.loveofmum.api.MMloveConstants;
-import com.netlab.loveofmum.myadapter.FeedAadapter.ViewHolder;
 import com.netlab.loveofmum.utils.ImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
-import android.R.integer;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;

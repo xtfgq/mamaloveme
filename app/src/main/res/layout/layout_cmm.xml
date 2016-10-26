@@ -14,7 +14,7 @@
     <include layout="@layout/title_bar" />
     <com.netlab.loveofmum.widget.CustomerSpinner
         android:id="@+id/spinner"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:gravity="center"
         android:textColor="#313131"
@@ -30,13 +30,50 @@
 
         <include layout="@layout/refresh_head" />
 
-        <com.netlab.loveofmum.widget.PullableListView
-            android:id="@id/listview_chk_doctorlist"
+        <com.netlab.loveofmum.widget.PullableScrollView
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:cacheColorHint="#00000000"
-            android:divider="@null"
-            android:fadingEdge="none" />
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <com.netlab.loveofmum.widget.ListViewForScrollView
+                android:id="@id/listview_chk_doctorlist"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cacheColorHint="#00000000"
+                android:divider="@null"
+                android:fadingEdge="none" />
+            <RelativeLayout
+                android:id="@+id/nodoctor"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:paddingTop="100dp"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/nodoctor"/>
+                <TextView
+                    android:paddingTop="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#666666"
+                    android:textSize="13sp"
+                    android:text="非常抱歉！此医院暂无医生信息！"/>
+            </LinearLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+        </com.netlab.loveofmum.widget.PullableScrollView>
 
         <include
             android:id="@+id/loadmore"

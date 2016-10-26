@@ -185,7 +185,6 @@ public class SmallTalkAct extends BaseActivity implements OnScrollListener,
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setTranslucentStatus();
         setContentView(R.layout.activity_small_talk);
         iniView();
@@ -1115,7 +1114,7 @@ public class SmallTalkAct extends BaseActivity implements OnScrollListener,
         }
         SystemStatusManager tintManager = new SystemStatusManager(this);
         tintManager.setStatusBarTintEnabled(true);
-        tintManager.setStatusBarTintResource(R.drawable.bg_header);// 状态栏无背景
+        tintManager.setStatusBarTintResource(R.color.home);// 状态栏无背景
     }
 
     protected void postPinglun(String input, final EditText edit) {

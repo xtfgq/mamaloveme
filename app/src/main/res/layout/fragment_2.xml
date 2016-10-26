@@ -1,13 +1,16 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.netlab.loveofmum.Fragment.Fragment2">
+    tools:context="com.netlab.loveofmum.fragment.Fragment2">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <im.delight.android.webview.AdvancedWebView
+        android:id="@+id/webview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+        android:layout_weight="1.0"/>
+
+
+</LinearLayout>

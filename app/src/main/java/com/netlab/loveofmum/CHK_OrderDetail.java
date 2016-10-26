@@ -91,10 +91,7 @@ public class CHK_OrderDetail extends BaseActivity
 	{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		
-		setTranslucentStatus(); 
-		
+		setTranslucentStatus();
 		setContentView(R.layout.layout_order_details);
 		MyApplication.getInstance().addActivity(this);
 
@@ -139,7 +136,7 @@ public class CHK_OrderDetail extends BaseActivity
 		}
 		SystemStatusManager tintManager = new SystemStatusManager(this);
 		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.drawable.bg_header);//状态栏无背景
+		tintManager.setStatusBarTintResource(R.color.home);//状态栏无背景
 	}
 
 	@Override

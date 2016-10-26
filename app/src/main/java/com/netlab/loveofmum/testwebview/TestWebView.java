@@ -43,7 +43,6 @@ public class TestWebView extends Activity implements AdvancedWebView.Listener{
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setTranslucentStatus();
 		setContentView(R.layout.testwebview_layout);
 		mWebView = (AdvancedWebView) findViewById(R.id.webview);
@@ -93,7 +92,7 @@ public class TestWebView extends Activity implements AdvancedWebView.Listener{
 		}
 		SystemStatusManager tintManager = new SystemStatusManager(this);
 		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.drawable.bg_header);// 状态栏无背景
+		tintManager.setStatusBarTintResource(R.color.home);// 状态栏无背景
 	}
 
 	class MyWebViewClient extends WebViewClient {

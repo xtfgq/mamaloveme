@@ -7,7 +7,7 @@
  <RelativeLayout 
        android:layout_width="match_parent"
        android:layout_height="45dip"
-       android:background="@drawable/bgumeng_header"
+       android:background="@color/home"
        >
        <TextView
            android:id="@id/quxiao_title_bar3"

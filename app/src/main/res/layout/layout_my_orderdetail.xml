@@ -79,7 +79,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="50dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginLeft="12dp"
                     android:background="@color/white"
@@ -87,6 +87,7 @@
                     android:orientation="horizontal">
                     <ImageView
                         android:layout_width="19dp"
+                        android:layout_marginLeft="8dp"
                         android:layout_height="19dp"
                         android:gravity="center_vertical"
                         android:background="@drawable/icon_cjxm"/>
@@ -111,7 +112,7 @@
                         android:textSize="13sp" />
                 </LinearLayout>
 
-                <ImageView
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@drawable/linearwww" />
@@ -247,10 +248,10 @@
                         android:gravity="center_vertical" >
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="18dp"
+                            android:layout_width="18dp"
                             android:layout_marginLeft="5dp"
-                            android:background="@drawable/icon_ddxq_ghxx" />
+                            android:src="@drawable/icon_ddxq_ghxx" />
 
                         <TextView
                             style="@style/global_wwhw"
@@ -392,9 +393,10 @@
                         android:gravity="center_vertical" >
 
                         <ImageView
-                            style="@style/global_wwhw"
+                            android:layout_height="24dp"
+                            android:layout_width="24dp"
                             android:layout_marginLeft="5dp"
-                            android:background="@drawable/icon_ddxq_cjxx" />
+                            android:src="@drawable/icon_ddxq_cjxx" />
 
                         <TextView
                             style="@style/global_wwhw"
@@ -402,6 +404,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:text="产检信息"
+                            android:paddingBottom="2dp"
                             android:textColor="#62d7cb"
                             android:textSize="15sp" />
                     </LinearLayout>
@@ -509,9 +512,10 @@
                         android:gravity="center_vertical" >
 
                         <ImageView
-                            style="@style/global_wwhw"
+                            android:layout_height="24dp"
+                            android:layout_width="24dp"
                             android:layout_marginLeft="5dp"
-                            android:background="@drawable/icon_chanjian" />
+                            android:src="@drawable/icon_chanjian" />
 
                         <TextView
                             style="@style/global_wwhw"

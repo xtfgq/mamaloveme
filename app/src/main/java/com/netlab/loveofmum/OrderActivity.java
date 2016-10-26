@@ -18,9 +18,7 @@ private TextView tvok;
 	{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		//setTranslucentStatus() ;
-//		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.order_act);
 		mIntent=this.getIntent();
 		if(mIntent!=null){

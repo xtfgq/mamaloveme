@@ -63,6 +63,7 @@ import android.text.Editable;
 import android.text.Html;
 import android.text.InputType;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -181,7 +182,6 @@ public class MainChatActivity extends BaseActivity implements OnClickListener{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setTranslucentStatus() ;
 		setContentView(R.layout.chat);
 		//设置启动不弹出软键盘
@@ -376,7 +376,7 @@ public class MainChatActivity extends BaseActivity implements OnClickListener{
 		}
 		SystemStatusManager tintManager = new SystemStatusManager(this);
 		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.drawable.bg_header);//状态栏无背景
+		tintManager.setStatusBarTintResource(R.color.home);//状态栏无背景
 	}
 	//按下语音录制
 	@Override
@@ -688,6 +688,7 @@ public class MainChatActivity extends BaseActivity implements OnClickListener{
 					}
 					else{
 //					mDateArrays.clear();
+						Log.e("applog",result.toString());
 						for(int i=0;i<array.length();i++){
 							ChatMsgEntity entity = new ChatMsgEntity();
 							String time = array.getJSONObject(i).getString("CreatedDate").toString().replace("/", "-");

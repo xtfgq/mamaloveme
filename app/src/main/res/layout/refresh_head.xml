@@ -10,15 +10,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
 
-        android:paddingBottom="20dp"
-        android:paddingTop="20dp" >
-
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp" >
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true" >
-
-
 
             <ImageView
                 android:id="@+id/refreshing_icon"

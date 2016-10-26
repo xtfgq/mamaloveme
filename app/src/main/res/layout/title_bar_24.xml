@@ -4,12 +4,9 @@
 
           <ImageView
               android:id="@+id/imv01_title_bar24"
-              android:layout_width="30.0dip"
-              android:layout_height="30.0dip"
-              android:layout_alignParentLeft="true"
-              android:layout_centerVertical="true"
-              android:layout_marginLeft="8dip"
-              android:contentDescription="@null"
+			  android:layout_width="45dp"
+			  android:padding="12dp"
+			  android:layout_height="match_parent"
               android:src="@drawable/icon_arrow_left" />
 
 		  <LinearLayout

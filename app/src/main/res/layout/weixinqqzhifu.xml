@@ -6,7 +6,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:background="@drawable/bgumeng_header"
+        android:background="@color/home"
         android:orientation="vertical" >
 
         <RelativeLayout
@@ -16,13 +16,9 @@
 
             <ImageView
                 android:id="@id/iv_01_the_second_page_of_medical_consultation"
-                android:layout_width="30.0dip"
-                android:layout_height="30.0dip"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="17dp"
-                android:layout_marginTop="7dp"
-                android:contentDescription="@null"
+                android:layout_width="45dp"
+                android:padding="12dp"
+                android:layout_height="match_parent"
                 android:src="@drawable/icon_arrow_left" />
 
             <LinearLayout

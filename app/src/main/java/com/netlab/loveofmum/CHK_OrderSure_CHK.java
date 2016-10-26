@@ -12,9 +12,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -29,21 +27,19 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.FrameLayout;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.netlab.loveofmum.activity.User_InfoEditActivity;
 import com.netlab.loveofmum.api.BaseActivity;
 import com.netlab.loveofmum.api.MMloveConstants;
 import com.netlab.loveofmum.api.JsonAsyncTaskOnComplete;
 import com.netlab.loveofmum.api.JsonAsyncTask_Info;
 import com.netlab.loveofmum.api.LocalAccessor;
 import com.netlab.loveofmum.api.MyApplication;
-import com.netlab.loveofmum.huanxin.MainChatActivity;
 import com.netlab.loveofmum.model.Order;
 import com.netlab.loveofmum.model.User;
 import com.netlab.loveofmum.model.Yuchan;
@@ -114,7 +110,6 @@ public class CHK_OrderSure_CHK extends BaseActivity
 	{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 
 		setTranslucentStatus();
 		setContentView(R.layout.layout_ordersure_chk);
@@ -210,7 +205,7 @@ public class CHK_OrderSure_CHK extends BaseActivity
 		}
 		SystemStatusManager tintManager = new SystemStatusManager(this);
 		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.drawable.bg_header);// 状态栏无背景
+		tintManager.setStatusBarTintResource(R.color.home);// 状态栏无背景
 	}
 
 	@Override
@@ -293,7 +288,7 @@ public class CHK_OrderSure_CHK extends BaseActivity
 										
 										Intent i = new Intent(
 												CHK_OrderSure_CHK.this,
-												User_InfoChange.class);
+												User_InfoEditActivity.class);
 										i.putExtra("tag_info", "info");
 										startActivityForResult(i, 1);
 										

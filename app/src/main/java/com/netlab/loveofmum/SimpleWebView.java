@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Window;
 import android.view.WindowManager;
@@ -55,7 +56,6 @@ public class SimpleWebView extends Activity implements AdvancedWebView.Listener{
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setTranslucentStatus();
 		setContentView(R.layout.shop_webview);
 		mWebView = (AdvancedWebView) findViewById(R.id.webview);
@@ -63,6 +63,9 @@ public class SimpleWebView extends Activity implements AdvancedWebView.Listener{
 		mWebView.setWebViewClient(new MyWebViewClient());
 		webSettings.setSaveFormData(false);
 		webSettings.setJavaScriptEnabled(true);
+//		webSettings.setBlockNetworkLoads(true);
+//		webSettings.setRenderPriority(WebSettings.RenderPriority.HIGH);
+//		webSettings.setBlockNetworkImage(true);
 		mIntent=this.getIntent();
 		webSettings.setSupportZoom(false);
 		if (mIntent != null && mIntent.getStringExtra("url") != null) {
@@ -89,10 +92,17 @@ public class SimpleWebView extends Activity implements AdvancedWebView.Listener{
 		}
 		SystemStatusManager tintManager = new SystemStatusManager(this);
 		tintManager.setStatusBarTintEnabled(true);
-		tintManager.setStatusBarTintResource(R.drawable.bg_header);//状态栏无背景
+		tintManager.setStatusBarTintResource(R.color.home);//状态栏无背景
 	}
 	class MyWebViewClient extends WebViewClient {
 		// 重写shouldOverrideUrlLoading方法，使点击链接后不使用其他的浏览器打开。
+
+		@Override
+		public void onPageFinished(WebView view, String url) {
+//			mWebView.getSettings().setBlockNetworkImage(false);
+			super.onPageFinished(view, url);
+		}
+
 		@Override
 		public boolean shouldOverrideUrlLoading(WebView view, String url) {
 			if(url.contains("http://momloveme/?returnflag=commall")||url.contains("http://momloveme/?returnflag=shop")||url.contains("http://momloveme/?returnflag=mytopic")||url.contains("http://momloveme/?returnflag=appindex")||url.contains("/molms/forum.jhtml")){
@@ -110,12 +120,12 @@ public class SimpleWebView extends Activity implements AdvancedWebView.Listener{
 				}else {
 
 					String ss = url.toString();
-					try {
-						ss = new String(URLDecoder.decode(ss, "iso8859-1").getBytes("iso8859-1"), "utf-8");
-					} catch (UnsupportedEncodingException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
+//					try {
+//						ss = new String(URLDecoder.decode(ss, "iso8859-1").getBytes("iso8859-1"), "utf-8");
+//					} catch (UnsupportedEncodingException e1) {
+//						// TODO Auto-generated catch block
+//						e1.printStackTrace();
+//					}
 					String urls = "";
 					try {
 
@@ -134,8 +144,8 @@ public class SimpleWebView extends Activity implements AdvancedWebView.Listener{
 							if(pass.contains("&")){
 								pass = pass.substring(0, pass.indexOf("&"));
 							}
-//						String decryptString= Des.encode("123456");
-//						Log.i("vvvv",decryptString);
+						String decryptString= Des.encode("123456789");
+						Log.i("vvvv",decryptString);
 
 							pass = Des.decode(pass);
 							UserLogin(username, pass);

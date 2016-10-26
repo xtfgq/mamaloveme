@@ -4,9 +4,7 @@
     android:layout_height="match_parent"
 
     android:orientation="horizontal" >
-    <LinearLayout 
-        
-        ></LinearLayout>
+
     <Button
         android:id="@+id/img"
         style="@style/global_ww"

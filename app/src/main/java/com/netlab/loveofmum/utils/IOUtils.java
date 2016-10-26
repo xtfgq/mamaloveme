@@ -459,7 +459,7 @@ public class IOUtils
 		return days;
 	}
 
-	public static Yuchan WeekInfo(Date d)
+	public static Yuchan WeekInfo1(Date d)			//蔺子岭
 	{
 		Date dStart = YunStart(d);
 		Date dNow = new Date();
@@ -468,11 +468,32 @@ public class IOUtils
 		int week = days / 7;
 		int daysYu = days % 7;
 		Yuchan y = new Yuchan();
+		if(daysYu>0){
+			week++;
+		}
+		if(week<1){
+			week =1 ;
+		}else if(week>40){
+			week=40;
+		}
 		y.Week = week;
 		y.Days = daysYu;
 		return y;
 	}
-	
+	public static Yuchan WeekInfo(Date d)
+	{
+		Date dStart = YunStart(d);
+		Date dNow = new Date();
+		long intermilli = dNow.getTime() - dStart.getTime();
+		int days = (int) (intermilli / (24 * 60 * 60 * 1000));
+		int week = days / 7;
+		int daysYu = days % 7;
+		Yuchan y = new Yuchan();
+		y.Week = week;
+		y.Days = daysYu;
+		return y;
+
+	}
 	public static Yuchan WeekInfo2(Date d,Date d2)
 	{
 		Date dStart = YunStart(d);
